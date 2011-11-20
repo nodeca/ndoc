@@ -1,0 +1,57 @@
+mixin menu()
+  for obj in tree
+    if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
+      mixin menu_item(obj)
+
+mixin menu_item(obj, short)
+  if typeof obj === 'string'
+    obj = tree[obj]
+  li
+    .menu-item
+      a(class=class_for(obj, path), href='##{obj.path}', title='#{obj.id} (#{obj.type})') #{short && obj.name || obj.id}
+      if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
+        children = get_children(obj)
+        if children.length
+          ul
+            for child in children
+              mixin menu_item(child, true)
+
+mixin article(obj)
+  .article(id=obj.path)
+    if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
+      include class
+    else
+      include leaf
+
+mixin api(tree)
+  for obj in tree
+    mixin article(obj)
+
+mixin short_description_list(collection)
+  ul.method-details-list
+    for obj in collection
+      li.method-description
+        h4
+          a(href=obj.path) #{obj.id}
+        if obj.short_description
+          p= obj.short_description
+
+mixin link2(obj)
+  if typeof obj === 'string'
+    obj = tree[obj]
+  <code><a href="##{obj.path}" title="#{obj.id} (#{obj.type})">#{obj.id}</a></code>
+
+mixin link(obj)
+  != link(obj)
+
+mixin links(collection)
+  for obj in collection
+    code
+      a(href='#'+obj.path, title="#{obj.id} (#{obj.type})") #{obj.id}
+      | ,
+
+mixin link_list(obj)
+  if typeof obj === 'string'
+    obj = tree[obj]
+  li
+    <code><a href="##{obj.path}" title="#{obj.id} (#{obj.type})">#{obj.name}</a></code>

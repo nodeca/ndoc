@@ -1,0 +1,78 @@
+#!/usr/bin/env node
+'use strict';
+
+var program = require('commander');
+var exec = require('child_process').exec;
+var Util = require('../lib/util');
+var NDoc = require('../lib');
+
+//
+// parse options
+//
+program
+//  .version('0.0.1')
+  .option('-s, --source <source>', 'find-compatible pattern to find source files', 'lib')
+  .option('-o, --output <destination>', 'Where to put resulting file(s)', 'docs')
+  .option('-f, --format <format>', 'Output format [html]', 'html')
+  .option('--src_code_text <link>', 'Text for "View source"', 'View source on GitHub &rarr;')
+  .option('-a, --src_code_href <src_code_href>', 'URL of source files root', 'http://localhost/')
+  .option('-i, --index_page <index>', 'Index file name', 'README.md')
+  .option('-t, --title <title>', 'Project title', '')
+  .option('-n, --name <name>', 'Project name')
+  .option('-v, --version <version>', 'Project version')
+  .option('--template <template_root>', 'Root of custom templates', __dirname + '/../templates')
+  .parse(process.argv);
+//console.log(program); process.exit(0);
+
+//
+// collect sources
+//
+var files = [];
+Util.walk(program.source, '\.js$', function(filename, stat, cb) {
+  //console.log('Processing', filename);
+  files.push(filename);
+  cb();
+}, function(err) {
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
+  // build tree
+  var ndoc = new NDoc(files, {
+    root: program.source,
+    href: program.src_code_href
+  });
+  //console.log(ndoc.toJSON());
+
+  // output tree
+  var output = program.output;
+  switch (program.format) {
+
+    case 'json':
+      write(output, ndoc.toJSON());
+      break;
+
+    case 'html':
+      Util.remove(output, function(err) {
+        if (err) {
+          console.error(err);
+          process.exit(1);
+        }
+        exec('cp -a "' + __dirname + '/../skeleton" ' + output, function(err, stdout, stderr) {
+        //Util.copy(__dirname + '/../skeleton', output, function(err) {
+          if (err) {
+            console.error(err);
+            process.exit(1);
+          }
+          var html = ndoc.toHTML(program);
+          Util.write(output + '/index.html', html);
+        });
+      });
+      break;
+
+    default:
+      console.error(program.format + ': not supported')
+      process.exit(1);
+
+  }
+});

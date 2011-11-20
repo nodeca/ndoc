@@ -1,0 +1,10 @@
+for title, method in {class_methods: 'Class methods', class_properties: 'Class properties', instance_methods: 'Instance methods', instance_properties: 'Instance properties', constants: 'Constants'}
+  methods = obj[method]
+  if Object.keys(methods).length
+    .section(class='section-#{method}')
+      .section-title
+        h3 #{title}
+      .section-content
+        ul.method-list
+          for x in methods
+            mixin link_list(x)

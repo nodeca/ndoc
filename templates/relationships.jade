@@ -1,0 +1,15 @@
+if obj.aliases.length
+  p.alias.aliases
+    | Aliased as:
+    for alias in obj.aliases
+      mixin link(alias)
+
+if obj.alias_of
+  p.alias.alias-of
+    | Alias of:
+    mixin link(obj.alias_of)
+
+if obj.related_to && obj.related_to
+  p.related-to
+    | Related to:
+    mixin link(obj.related_to)

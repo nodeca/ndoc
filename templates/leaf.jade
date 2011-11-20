@@ -1,0 +1,10 @@
+include title
+
+.section
+  .section-title
+  .section-content
+    .method-description
+      include method_signatures
+      != hilite(htmlize(obj.description), false, true)
+      include relationships
+      include methodized_note
