@@ -53,13 +53,12 @@ Util.walk(program.source, '\.js$', function(filename, stat, cb) {
       break;
 
     case 'html':
-      Util.remove(output, function(err) {
+      Util.rm_rf(output, function(err) {
         if (err) {
           console.error(err);
           process.exit(1);
         }
-        exec('cp -a "' + __dirname + '/../skeleton" ' + output, function(err, stdout, stderr) {
-        //Util.copy(__dirname + '/../skeleton', output, function(err) {
+        Util.cp_a(__dirname + '/../skeleton', output, function(err) {
           if (err) {
             console.error(err);
             process.exit(1);
