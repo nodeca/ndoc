@@ -11,12 +11,12 @@
   "engines"     : { "node": "> 0.4.11 < 0.7.0" },
   "dependencies": {
     "jison"     : "0.2.11",
-    "commander" : "0.4.11",
+    "commander" : "0.4.1",
     "jade"      : "0.17.0",
     "marked"    : "0.1.2",
     "highlight" : "0.2.0",
-    "simple-promise": "https://github.com/nodeca/simple-promise/tarball/master",
-    "fs-tools"  : "https://github.com/nodeca/fs-tools/tarball/master",
+    "simple-promise": "http://github.com/nodeca/simple-promise/tarball/master",
+    "fs-tools"  : "http://github.com/nodeca/fs-tools/tarball/master",
     "underscore": "1.2.2"
   },
   "preferGlobal": true
