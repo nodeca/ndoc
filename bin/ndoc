@@ -50,7 +50,11 @@ Util.walk(program.source, '\.js$', function(filename, stat, cb) {
   switch (program.format) {
 
     case 'json':
-      write(output, ndoc.toJSON());
+      Util.write(output, ndoc.toJSON());
+      break;
+
+    case 'js':
+      Util.write(output, 'var tree = ' + ndoc.toJSON() + ';');
       break;
 
     case 'html':

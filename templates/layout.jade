@@ -6,7 +6,6 @@ html
     title #{title} #{version} API documentation | Home
     meta(name='generator', content='ndoc')
     script(charset='utf-8', src='javascripts/jquery-1.7.min.js', type='text/javascript')
-    script(charset='utf-8', src='javascripts/jquery.textchange.js', type='text/javascript')
     script(charset='utf-8', type='text/javascript')
       var onchange;
       $(document)
@@ -34,12 +33,16 @@ html
       })
       .change(onchange)
       .delegate('div.menu-item >a', 'click', function() {
+        //console.log('CLICK');
         $('div.menu-item >a.current').removeClass('current');
         $('div.menu-item >a.current-parent').removeClass('current-parent');
-        $(this).addClass('current');
+        //$(this).parents().eq(4).siblings().find('.menu-item').addClass('hidden');
         $(this).parents('div.menu-item').find('>a').addClass('current-parent');
-        /*$('div.article').hide();
-        $('div.article[id="' + $(this).attr('href').substring(1) + '"]').show();*/
+        $(this).addClass('current');
+        //$('div.article').hide();
+        //var unhide = $('div.article[id="' + $(this).attr('href').substring(1) + '"]')
+        //console.log('UNH', unhide)
+        //unhide.show();
       });
     link(charset='utf-8', href='stylesheets/api.css', media='screen, projection', rel='stylesheet', type='text/css')
     link(charset='utf-8', href='stylesheets/syntax.css', media='screen, projection', rel='stylesheet', type='text/css')
