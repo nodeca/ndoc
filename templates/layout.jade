@@ -5,12 +5,44 @@ html
     meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
     title #{title} #{version} API documentation | Home
     meta(name='generator', content='ndoc')
-    script(charset='utf-8', src='javascripts/prototype.js', type='text/javascript')
-    script(charset='utf-8', src='javascripts/application.js', type='text/javascript')
-    script(charset='utf-8', src='javascripts/tabs.js', type='text/javascript')
-    !='<script type="text/javascript" charset="utf-8">if (!window.PDoc) window.PDoc = {}; window.PDoc.elements = ' + elements + '; window.PDoc.pathPrefix = "";</script>'
+    script(charset='utf-8', src='javascripts/jquery-1.7.min.js', type='text/javascript')
+    script(charset='utf-8', src='javascripts/jquery.textchange.js', type='text/javascript')
+    //-
+      script(charset='utf-8', src='javascripts/prototype.js', type='text/javascript')
+      script(charset='utf-8', src='javascripts/application.js', type='text/javascript')
+      script(charset='utf-8', src='javascripts/tabs.js', type='text/javascript')
+      !='<script type="text/javascript" charset="utf-8">if (!window.PDoc) window.PDoc = {}; window.PDoc.elements = ' + elements + '; window.PDoc.pathPrefix = "";</script>'
+    script(charset='utf-8', type='text/javascript')
+      // TODO: textchange
+      $(document)
+      .delegate('#search', 'keyup', function() {
+        //console.log('CH', arguments);
+        var filter = $(this).val();
+        var re = new RegExp(filter, 'i');
+        var count = 0;
+        $('div.article').addClass('hidden');
+        $('div.article').each(function() {
+          if (~$(this).attr('id').search(re)) {
+            $(this).removeClass('hidden');
+            ++count;
+          }
+        });
+        $('div#home')[filter ? 'hide' : 'show']();
+        $('div.menu-item').addClass('hidden');
+        $('div.menu-item >a').each(function() {
+          if (~$(this).attr('href').substring(1).search(re)) {
+            $(this).parents('div.menu-item').removeClass('hidden');
+          }
+        });
+      })
+      .delegate('div.menu-item >a', 'click', function() {
+        $('div.article').hide();
+        $('div.article[id="' + $(this).attr('href').substring(1) + '"]').show();
+      });
     link(charset='utf-8', href='stylesheets/api.css', media='screen, projection', rel='stylesheet', type='text/css')
     link(charset='utf-8', href='stylesheets/syntax.css', media='screen, projection', rel='stylesheet', type='text/css')
+    style
+      .hidden { display: none !important;}
   body
     #sidebar
       ul#sidebar_tabs.sidebar-tabs
@@ -25,8 +57,9 @@ html
       #menu_pane.sidebar-pane.scrollable
         ul#api_menu.menu-items
           mixin menu(tree)
-      #search_pane.sidebar-pane
-        ul#search_results.search-results.menu-items.scrollable
+      //-
+        #search_pane.sidebar-pane
+          ul#search_results.search-results.menu-items.scrollable
     #page
       #main.page-content
 

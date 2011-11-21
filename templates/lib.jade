@@ -17,7 +17,7 @@ mixin menu_item(obj, short)
               mixin menu_item(child, true)
 
 mixin article(obj)
-  .article(id=obj.path)
+  .article.hidden(id=obj.path)
     if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
       include class
     else
