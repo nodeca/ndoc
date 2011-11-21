@@ -17,15 +17,22 @@ mixin menu_item(obj, short)
               mixin menu_item(child, true)
 
 mixin article(obj)
-  .article.hidden(id=obj.path)
+  if typeof obj === 'string'
+    obj = tree[obj]
+  .article(id=obj.path)
     if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
       include class
+      children = get_children(obj)
+      if children.length
+        for child in children
+          mixin article(child)
     else
       include leaf
 
 mixin api(tree)
   for obj in tree
-    mixin article(obj)
+    if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
+      mixin article(obj)
 
 mixin short_description_list(collection)
   ul.method-details-list

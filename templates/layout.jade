@@ -15,26 +15,26 @@ html
         var filter = $(this).val();
         // TODO: glob-style search?
         var re = new RegExp(filter, 'i');
-        var count = 0;
+        /*var count = 0;
         $('div.article').addClass('hidden');
         $('div.article').each(function() {
-          if (~$(this).attr('id').search(re)) {
+          if ($(this).attr('id').match(re)) {
             $(this).removeClass('hidden');
             ++count;
           }
-        });
+        });*/
         $('div#home')[filter ? 'addClass' : 'removeClass']('hidden');
         $('div.menu-item').addClass('hidden');
         $('div.menu-item >a').each(function() {
-          if (~$(this).attr('href').substring(1).search(re)) {
+          if ($(this).attr('href').substring(1).match(re)) {
             $(this).parents('div.menu-item').removeClass('hidden');
           }
         });
       })
-      .delegate('div.menu-item >a', 'click', function() {
+      /*.delegate('div.menu-item >a', 'click', function() {
         $('div.article').hide();
         $('div.article[id="' + $(this).attr('href').substring(1) + '"]').show();
-      });
+      })*/;
     link(charset='utf-8', href='stylesheets/api.css', media='screen, projection', rel='stylesheet', type='text/css')
     link(charset='utf-8', href='stylesheets/syntax.css', media='screen, projection', rel='stylesheet', type='text/css')
     style
@@ -49,13 +49,10 @@ html
       form.search-ribbon
         label
           span.hidden Search
-          input#search(type='text', size='20', title='Search')
+          input#search(type='search', size='20', title='Search', placeholder='Search')
       #menu_pane.sidebar-pane.scrollable
         ul#api_menu.menu-items
           mixin menu(tree)
-      //-
-        #search_pane.sidebar-pane
-          ul#search_results.search-results.menu-items.scrollable
     #page
       #main.page-content
 
