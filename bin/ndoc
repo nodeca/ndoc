@@ -21,6 +21,7 @@ program
   .option('-n, --name <name>', 'Project name')
   .option('-v, --version <version>', 'Project version')
   .option('--template <template_root>', 'Root of custom templates', __dirname + '/../templates')
+  .option('--skeleton <skeleton_root>', 'Root of site skeleton', __dirname + '/../skeleton')
   .parse(process.argv);
 //console.log(program); process.exit(0);
 
@@ -58,7 +59,7 @@ Util.walk(program.source, '\.js$', function(filename, stat, cb) {
           console.error(err);
           process.exit(1);
         }
-        Util.cp_a(__dirname + '/../skeleton', output, function(err) {
+        Util.cp_a(program.skeleton_root, output, function(err) {
           if (err) {
             console.error(err);
             process.exit(1);
