@@ -6,7 +6,7 @@ html
     title #{title} #{version} API documentation | Home
     meta(name='generator', content='ndoc')
     script(charset='utf-8', src='javascripts/jquery-1.7.min.js', type='text/javascript')
-    script(charset='utf-8', src='prettify.js', type='text/javascript')
+    script(charset='utf-8', src='javascripts/prettify.js', type='text/javascript')
     script(charset='utf-8', type='text/javascript')
       var onchange;
       $(document)
@@ -47,7 +47,7 @@ html
       });
 
     link(charset='utf-8', href='stylesheets/api.css', media='screen, projection', rel='stylesheet', type='text/css')
-    link(charset='utf-8', href='prettify.css', media='screen, projection', rel='stylesheet', type='text/css')
+    link(charset='utf-8', href='stylesheets/prettify.css', media='screen, projection', rel='stylesheet', type='text/css')
     style
       .hidden { display: none !important;}
   body
@@ -79,7 +79,7 @@ html
 
       #footer
         p
-          a(href=src_code_href||'') #{title}
+          a(href=src_code_href) #{title}
           |  #{version} API documentation.
         p
           | Last updated on #{date}
@@ -93,6 +93,6 @@ html
           | .
     script(charset='utf-8', type='text/javascript')
       $(function(){
-        $('pre').addClass('prettyprint');
+        $('pre >code').addClass('prettyprint');
         prettyPrint();
       });
