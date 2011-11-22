@@ -1,1 +1,37 @@
 * elaborate robuster highlighter
+
+:source_files => Dir[File.join('lib', '**', '*.js')]
+-s lib
+
+:destination => DOC_DIR,
+-o doc
+
+:index_page => 'README.md',
+-i README.md
+
+:syntax_highlighter => syntax_highlighter,
+---
+
+:markdown_parser => :bluecloth,
+---
+
+:src_code_text => "View source on GitHub &rarr;",
+--view-source-label "Voyer le source chez GitHub"
+
+:src_code_href => proc { |obj|
+  "https://github.com/nodeca/express-railer/blob/#{current_head}/#{obj.file}#L#{obj.line_number}"
+},
+--package-url URL
+
+
+:pretty_urls => true,
+---
+
+:bust_cache => true,
+---
+
+:name => 'express-railer',
+--package-name 'express-railer'
+
+:version => version
+--package-version 0.0.99

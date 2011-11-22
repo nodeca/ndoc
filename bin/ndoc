@@ -12,7 +12,7 @@ var NDoc = require('../lib');
 program
   .version('0.0.1')
   .option('-s, --source <>', 'Source files location [./lib]', 'lib')
-  .option('-o, --output <>', 'Resulting file(s) location [./docs]', 'docs')
+  .option('-o, --output <>', 'Resulting file(s) location [./doc]', 'doc')
   .option('-f, --format <>', 'Documentation format [html]', 'html')
   .option('-i, --index <>', 'Index file [./README.md]', 'README.md')
   .option('--package-json <>', 'Package description file [./package.json]', 'package.json')

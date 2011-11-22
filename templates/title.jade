@@ -18,3 +18,11 @@ if obj.href
   p#src_code_href
     a(href=obj.href)
       = src_code_text || 'View source code'
+
+if obj.deprecated
+  if obj.deprecated.since
+    h1
+      | Deprecated since
+      =obj.deprecated.since
+      if obj.deprecated.off
+        = 'and will be removed on #{obj.deprecated.off}'
