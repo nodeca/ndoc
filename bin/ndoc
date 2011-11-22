@@ -60,12 +60,12 @@ Util.walk(program.source, '\.js$', function(filename, stat, cb) {
     case 'html':
       Util.rm_rf(output, function(err) {
         if (err) {
-          console.error(err);
+          console.error('Removing older documentation', err);
           process.exit(1);
         }
         Util.cp_a(program.skeleton, output, function(err) {
           if (err) {
-            console.error(err);
+            console.error('Copying skeleton', err);
             process.exit(1);
           }
           var html = ndoc.toHTML(program);

@@ -43,7 +43,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
-pre11 {
+pre {
  white-space: pre-wrap;       /* CSS 3                  */
  white-space: -moz-pre-wrap;  /* Mozilla, since 1999    */
  white-space: -pre-wrap;      /* Opera 4-6              */
@@ -63,10 +63,10 @@ ol, ul {
   margin: 0 0 15px;
 }
 
-/*code, pre {
+code, pre {
   font-family: "Verdana", "Bitstream Vera Sans Mono", Monaco, Consolas, Andale Mono, monospace;
   font-size: 13px;
-}*/
+}
 
 #page a.img,
 #page a.img:link,
@@ -337,9 +337,9 @@ h4.inherited {
   font-style: italic;
 }
 
-/*pre.syntax {
+pre.syntax {
   margin-bottom: 5px;
-}*/
+}
 
 ul.argument-list {
   font-size: 12px;

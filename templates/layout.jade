@@ -44,8 +44,14 @@ html
         //console.log('UNH', unhide)
         //unhide.show();
       });
+
+    script(charset='utf-8', src='javascripts/syntax/shCore.js', type='text/javascript')
+    script(charset='utf-8', src='javascripts/syntax/shBrushJScript.js', type='text/javascript')
     link(charset='utf-8', href='stylesheets/api.css', media='screen, projection', rel='stylesheet', type='text/css')
-    link(charset='utf-8', href='stylesheets/syntax.css', media='screen, projection', rel='stylesheet', type='text/css')
+    link(charset='utf-8', href='stylesheets/syntax/shCore.css', media='screen, projection', rel='stylesheet', type='text/css')
+    link(charset='utf-8', href='stylesheets/syntax/shThemeDefault.css', media='screen, projection', rel='stylesheet', type='text/css'
+    <link href="prettify.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="prettify.js"></script>
     style
       .hidden { display: none !important;}
   body
@@ -59,7 +65,7 @@ html
     #page
       #main.page-content
 
-        #home.page-introduction!= hilite(htmlize(readme), false, true)
+        #home.page-introduction!= htmlize(readme)
 
         mixin api(tree)
 
@@ -89,3 +95,12 @@ html
           |  and portions of
           a(href='http://github.com/280north/aristo/tree/master', title='280north\'s aristo at master - GitHub') Aristo
           | .
+    script(charset='utf-8', type='text/javascript')
+      $(function(){
+        $('pre').addClass('prettyprint brush: js');
+        SyntaxHighlighter.defaults.gutter = false;
+        SyntaxHighlighter.defaults.toolbar = false;
+        SyntaxHighlighter.defaults.ruler = false;
+        //SyntaxHighlighter.all();
+        prettyPrint();
+      });
