@@ -10,20 +10,35 @@ var NDoc = require('../lib');
 // parse options
 //
 program
-//  .version('0.0.1')
-  .option('-s, --source <source>', 'find-compatible pattern to find source files', 'lib')
-  .option('-o, --output <destination>', 'Where to put resulting file(s)', 'docs')
-  .option('-f, --format <format>', 'Output format [html]', 'html')
-  .option('--src_code_text <link>', 'Text for "View source"', 'View source on GitHub &rarr;')
-  .option('-a, --src_code_href <src_code_href>', 'URL of source files root', 'http://localhost/')
-  .option('-i, --index_page <index>', 'Index file name', 'README.md')
-  .option('-t, --title <title>', 'Project title', '')
-  .option('-n, --name <name>', 'Project name')
-  .option('-v, --version <version>', 'Project version')
-  .option('--template <template>', 'Root of custom templates', __dirname + '/../templates')
-  .option('--skeleton <skeleton>', 'Root of site skeleton', __dirname + '/../skeleton')
+  .version('0.0.1')
+  .option('-s, --source <>', 'Source files location [./lib]', 'lib')
+  .option('-o, --output <>', 'Resulting file(s) location [./docs]', 'docs')
+  .option('-f, --format <>', 'Documentation format [html]', 'html')
+  .option('-i, --index <>', 'Index file [./README.md]', 'README.md')
+  .option('--package-json <>', 'Package description file [./package.json]', 'package.json')
+  .option('--package-name <>', 'Package name', '')
+  .option('--package-version <>', 'Project version', '')
+  // FIXME: what's that?
+  .option('--package-title <>', 'Package title', '')
+  .option('--package-url <>', 'Package URL', '')
+  // FIXME: do we need that?
+  .option('--view-source-label <>', 'Text for "View source" link', 'View source on GitHub &rarr;')
+  .option('--template <>', 'Custom templates', __dirname + '/../templates')
+  .option('--skeleton <>', 'Custom skeleton', __dirname + '/../skeleton')
   .parse(process.argv);
-//console.log(program); process.exit(0);
+
+//
+// read missing data from package.json, if any
+//
+try {
+  var package_json = JSON.parse(Util.read(program.packageJson));
+  program.packageName = program.packageName || package_json.name || '';
+  program.packageVersion = program.packageVersion || package_json.version || '';
+  program.packageUrl = program.packageUrl || (package_json.repository && package_json.repository.url || package_json.repository) || '';
+  program.packageUrl = program.packageUrl.replace('git://', 'https://').replace(/(\.git$|$)/, '/blob/master');
+  program.packageTitle = program.packageTitle || package_json.description || program.packageName || '';
+} catch(err) {}
+//console.error(program); process.exit(0);
 
 //
 // collect sources
@@ -41,7 +56,7 @@ Util.walk(program.source, '\.js$', function(filename, stat, cb) {
   // build tree
   var ndoc = new NDoc(files, {
     root: program.source,
-    href: program.src_code_href
+    href: program.packageUrl
   });
   //console.log(ndoc.toJSON());
 
