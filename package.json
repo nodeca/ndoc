@@ -10,7 +10,7 @@
   "bin"         : { "ndoc": "bin/ndoc" },
   "engines"     : { "node": "> 0.4.11 < 0.7.0" },
   "dependencies": {
-    "jison"     : "0.2.11",
+    "jison"     : "http://github.com/zaach/jison/tarball/master",
     "commander" : "0.4.1",
     "jade"      : "0.18.0",
     "marked"    : "0.1.2",
