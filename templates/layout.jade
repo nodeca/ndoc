@@ -52,9 +52,7 @@ html
       .hidden { display: none !important;}
   body
     #sidebar
-      form.search-ribbon
-        label
-          input#search(type='search', size='20', title='Search', placeholder='Search')
+      input#search(type='search', size='20', title='Search', placeholder='Search')
       #menu_pane.sidebar-pane.scrollable
         ul#api_menu.menu-items
           mixin menu(tree)
@@ -94,5 +92,6 @@ html
     script(charset='utf-8', type='text/javascript')
       $(function(){
         $('pre[class!=syntax] >code').addClass('prettyprint');
+        $('#home pre >code').removeClass('prettyprint');
         prettyPrint();
       });
