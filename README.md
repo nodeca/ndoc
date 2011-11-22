@@ -23,7 +23,7 @@ Go to your project's root directory and run
       -h, --help              output usage information
       -V, --version           output the version number
       -s, --source PATH       Source files location [./lib]
-      -o, --output PATH       Resulting file(s) location [./docs]
+      -o, --output PATH       Resulting file(s) location [./doc]
       -f, --format <html|js>  Documentation format [html]
       -i, --index PATH        Index file [./README.md]
       --package-json PATH     Package description file [./package.json]
