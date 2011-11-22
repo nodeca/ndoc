@@ -14,8 +14,6 @@
     "commander" : "0.4.1",
     "jade"      : "0.18.0",
     "marked"    : "0.1.2",
-    "discount"  : "0.2.2",
-    "node-markdown": "0.1.0",
     "simple-promise": "https://github.com/nodeca/simple-promise/tarball/master",
     "fs-tools"  : "https://github.com/nodeca/fs-tools/tarball/master",
     "underscore": "1.2.2"

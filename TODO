@@ -1,4 +1,9 @@
 * elaborate robuster highlighter
+* choose markdown:
+    "discount"  : "0.2.2",
+    "node-markdown": "0.1.0",
+    "robotskirt": "0.2.2",
+
 
 :source_files => Dir[File.join('lib', '**', '*.js')]
 -s lib
