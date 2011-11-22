@@ -101,7 +101,7 @@ world
     for (var i in $3) x[i] = $3[i];
     x.description = $6.text;
     x.short_description = x.description.replace(/\n\n[\s\S]*$/, '\n');
-    x.href = '#L' + ($6.line + 1);
+    x.line = ($6.line + 1);
     // register
     $$[x.id] = x;
   }%

@@ -23,6 +23,7 @@ program
   .option('--package-url <>', 'Package URL', '')
   // FIXME: do we need that?
   .option('--view-source-label <>', 'Text for "View source" link', 'View source on GitHub &rarr;')
+  .option('--link-format <>', 'Format for link to source file', '{root}/{file}#L{line}')
   .option('--template <>', 'Custom templates', __dirname + '/../templates')
   .option('--skeleton <>', 'Custom skeleton', __dirname + '/../skeleton')
   .parse(process.argv);
@@ -34,7 +35,7 @@ try {
   var package_json = JSON.parse(Util.read(program.packageJson));
   program.packageName = program.packageName || package_json.name || '';
   program.packageVersion = program.packageVersion || package_json.version || '';
-  program.packageUrl = program.packageUrl || (package_json.repository && package_json.repository.url || package_json.repository) || '';
+  program.packageUrl = program.packageUrl || (package_json.repository && package_json.repository.url || package_json.repository) || program.source;
   program.packageUrl = program.packageUrl.replace('git://', 'https://').replace(/(\.git$|$)/, '/blob/master');
   program.packageTitle = program.packageTitle || package_json.description || program.packageName || '';
 } catch(err) {}
@@ -55,8 +56,14 @@ Util.walk(program.source, '\.js$', function(filename, stat, cb) {
   }
   // build tree
   var ndoc = new NDoc(files, {
-    root: program.source,
-    href: program.packageUrl
+    // given package URL, file name and line in the file, format link to source file
+    formatLink: function(file, line) {
+      return program.linkFormat
+        .replace(/\{root\}/g, program.packageUrl)
+        .replace(/\{file\}/g, file)
+        .replace(/\{line\}/g, line)
+      ;
+    }
   });
   //console.log(ndoc.toJSON());
 

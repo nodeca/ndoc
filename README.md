@@ -32,6 +32,10 @@ Go to your project's root directory and run
       --package-title TITLE   Package title
       --package-url URL       Package URL
       --view-source-label TXT Text for "View source" link
+      --link-format FMT       Format for link to source file [{root}/{file}#L#{line}]
+                              {root} is substituted with the value of --package-url option
+                              {file} is substituted with the name of the source file
+                              {line} is substituted with the line number within the source file
       --template PATH         Custom templates
       --skeleton PATH         Custom skeleton
 

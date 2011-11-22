@@ -22,6 +22,7 @@
   "https://github.com/nodeca/express-railer/blob/#{current_head}/#{obj.file}#L#{obj.line_number}"
 },
 --package-url URL
+--link-format '{root}/{file}#L{line}'
 
 
 :pretty_urls => true,
