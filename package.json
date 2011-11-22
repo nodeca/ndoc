@@ -15,8 +15,8 @@
     "jade"      : "0.18.0",
     "marked"    : "0.1.2",
     "highlight" : "0.2.0",
-    "simple-promise": "http://github.com/nodeca/simple-promise/tarball/master",
-    "fs-tools"  : "http://github.com/nodeca/fs-tools/tarball/master",
+    "simple-promise": "https://github.com/nodeca/simple-promise/tarball/master",
+    "fs-tools"  : "https://github.com/nodeca/fs-tools/tarball/master",
     "underscore": "1.2.2"
   },
   "preferGlobal": true
