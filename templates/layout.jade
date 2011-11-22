@@ -93,6 +93,6 @@ html
           | .
     script(charset='utf-8', type='text/javascript')
       $(function(){
-        $('pre >code').addClass('prettyprint');
+        $('pre[class!=syntax] >code').addClass('prettyprint');
         prettyPrint();
       });

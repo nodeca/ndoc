@@ -19,7 +19,7 @@ mixin returns(sig)
     else
       = r
 
-pre.syntax.prettyprint
+pre.syntax
   code.ebnf
     sigs = obj.signatures || [{signature: obj.id, returns: obj.returns}]
     for sig, i in sigs
