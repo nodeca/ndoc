@@ -52,7 +52,8 @@ html
       .hidden { display: none !important;}
   body
     #sidebar
-      input#search(type='search', size='20', title='Search', placeholder='Search')
+      form.search-ribbon
+        input#search(type='search', size='20', title='Search', placeholder='Search')
       #menu_pane.sidebar-pane.scrollable
         ul#api_menu.menu-items
           mixin menu(tree)
