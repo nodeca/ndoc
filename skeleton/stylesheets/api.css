@@ -28,7 +28,7 @@ span.hidden { display: none; }
 
 body {
   font-family: Verdana, sans-serif;
-  font-size: 82.5%;
+  font-size: 14px;
   line-height: 1.5em;
   margin: 0;
   padding: 0;
@@ -189,7 +189,8 @@ ul.breadcrumbs {
       background-color: transparent;
       border: 0;
       padding: 0;
-      line-height: 100%;
+      line-height: 1.6;
+      font-size: 12px;
     }
 
   
