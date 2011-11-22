@@ -125,6 +125,10 @@ ul.breadcrumbs {
 
 /* PAGE CONTENT */
 
+.article {
+  margin-bottom: 50px;
+}
+
 .page-content {
   width: 715px;
   margin: 0 0 30px 0;
@@ -349,7 +353,7 @@ ul.argument-list {
 }
 
   ul.argument-list li {
-    line-height: 140%;
+    line-height: 160%;
     margin-top: 0px;
     margin-bottom: 5px;
   }
@@ -363,6 +367,10 @@ ul.argument-list {
       border-color: #6b6;
     }
   
+    ul.argument-list .argument-types code {
+      border: 0 none;
+      background-color: #e0e0e0;
+    }
   
 /* SECTION ICONS */
 
