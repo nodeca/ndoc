@@ -363,13 +363,19 @@ ul.argument-list {
     }
     
     ul.argument-list .argument-name {
-      background-color: #eeffee;
-      border-color: #6b6;
+      /*background-color: #eeffee;
+      border-color: #6b6;*/
+      border: 0 none;
+      background-color: transparent;
+      color: #060;
+      font-size: 13px;
+      font-weight: bold;
     }
   
     ul.argument-list .argument-types code {
       border: 0 none;
       background-color: #e0e0e0;
+      font-style: italic;
     }
   
 /* SECTION ICONS */
