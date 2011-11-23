@@ -8,7 +8,7 @@ mixin menu_item(obj, level, short)
     obj = tree[obj]
   li
     .menu-item
-      a(class=class_for(obj, path), href='##{obj.path}', title='#{obj.id} (#{obj.type})') #{short && obj.name || obj.id}
+      a(class=class_for(obj, path), href='##{obj.path}', title='#{obj.id} (#{obj.type})', 'data-id'=obj.id) #{short && obj.name || obj.id}
       if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
         children = get_children(obj)
         if children.length
@@ -43,19 +43,13 @@ mixin short_description_list(collection)
         if obj.short_description
           p= obj.short_description
 
-mixin link2(obj)
-  if typeof obj === 'string'
-    obj = tree[obj]
-  <code><a href="##{obj.path}" title="#{obj.id} (#{obj.type})">#{obj.id}</a></code>
-
-mixin link(obj)
-  != link(obj)
+mixin link(obj, short)
+  != link(obj, short)
 
 mixin links(collection)
   for obj in collection
-    code
-      a(href='#'+obj.path, title="#{obj.id} (#{obj.type})") #{obj.id}
-      | ,
+    mixin link(obj)
+    ,
 
 mixin link_list(obj)
   if typeof obj === 'string'
