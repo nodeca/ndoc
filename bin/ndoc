@@ -134,9 +134,9 @@ Util.walk(opts.path[0], '\.' + opts.extension + '$', function(filename, stat, cb
       break;
 
     case 'html':
-      Util.rm_rf(output, function(err) {
-        if (err) {
-          console.error('Removing older documentation', err);
+      Util.exists(output, function(err) {
+        if (!err) {
+          console.error('Refuse to overwrite existing destination');
           process.exit(1);
         }
         Util.cp_a(Util.join(opts.skin, 'skeleton'), output, function(err) {
