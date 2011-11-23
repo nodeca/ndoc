@@ -7,6 +7,8 @@ html
     meta(name='generator', content='ndoc')
     script(charset='utf-8', src='javascripts/jquery-1.7.min.js', type='text/javascript')
     script(charset='utf-8', src='javascripts/prettify.js', type='text/javascript')
+    //-
+      script(charset='utf-8', src='javascripts/jquery.smooth-scroll.min.js', type='text/javascript')
     script(charset='utf-8', type='text/javascript')
       var onchange;
       $(document)
@@ -92,7 +94,23 @@ html
           | .
     script(charset='utf-8', type='text/javascript')
       $(function(){
+        // setup code prettifier
         $('pre[class!=syntax] >code').addClass('prettyprint');
         $('#home pre >code').removeClass('prettyprint');
         prettyPrint();
+        // setup smooth scroll for local anchors
+        //$('a[href^="#"]').smoothScroll();
+        $('a[href^="#"]').click(function(ev) {
+          //ev.preventDefault();
+          var href = $(this).attr('href');
+          var el = $('[id="' + href.substring(1) + '"]');
+          //if (!el.length) return true;
+          console.log('SCR', el.offset().top)
+          $('html, body').stop().animate({
+            scrollTop: el.offset().top
+          }, 2500, 'linear', function() {
+            location.hash = href;
+          });
+          return false;
+        });
       });

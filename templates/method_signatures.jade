@@ -19,8 +19,6 @@ mixin returns(sig)
     else
       = r
 
-//-
-  <pre class="syntax">!= (obj.signatures || [{signature: obj.id, returns: obj.returns}]).map(signature.bind(null, obj)).join('\n').replace(/(^\s+|\s+$)/g, '')</pre>
 != signatures(obj)
 
 if obj.arguments
