@@ -144,7 +144,7 @@ ul.breadcrumbs {
   
   .page-introduction {
     margin-left: 120px;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
   }
   
   .page-content a,
@@ -363,13 +363,19 @@ ul.argument-list {
     }
     
     ul.argument-list .argument-name {
-      background-color: #eeffee;
-      border-color: #6b6;
+      /*background-color: #eeffee;
+      border-color: #6b6;*/
+      border: 0 none;
+      background-color: transparent;
+      color: #060;
+      font-size: 13px;
+      font-weight: bold;
     }
   
     ul.argument-list .argument-types code {
       border: 0 none;
       background-color: #e0e0e0;
+      font-style: italic;
     }
   
 /* SECTION ICONS */
@@ -687,4 +693,10 @@ input.ghosted {
 #src_code_href {
 	font-size: 11px;
 	margin: -15px 0 15px 120px;
+}
+
+
+a.link-method, a.link-method:link {
+  border-bottom: 1px dashed #036 !important;
+  font-size: 11px;
 }
