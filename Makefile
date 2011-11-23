@@ -1,0 +1,4 @@
+.PHONY: docs
+
+docs:
+	ndoc
