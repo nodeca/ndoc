@@ -19,13 +19,9 @@ mixin returns(sig)
     else
       = r
 
-pre.syntax
-  code.ebnf
-    sigs = obj.signatures || [{signature: obj.id, returns: obj.returns}]
-    for sig, i in sigs
-      if i > 0
-        br
-      != signature(obj, sig)
+//-
+  <pre class="syntax">!= (obj.signatures || [{signature: obj.id, returns: obj.returns}]).map(signature.bind(null, obj)).join('\n').replace(/(^\s+|\s+$)/g, '')</pre>
+!= signatures(obj)
 
 if obj.arguments
   ul.argument-list

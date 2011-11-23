@@ -61,4 +61,4 @@ mixin link_list(obj)
   if typeof obj === 'string'
     obj = tree[obj]
   li
-    <code><a href="##{obj.path}" title="#{obj.id} (#{obj.type})">#{obj.name}</a></code>
+    != link(obj)

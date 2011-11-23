@@ -8,7 +8,8 @@ ul.breadcrumbs.clearfix
   for crumb in breadcrumbs(obj)
     li
       | &rarr;
-      a(href='##{crumb.path}', title='#{crumb.id} (#{crumb.type})') #{crumb.name}
+      code
+        a(href='##{crumb.path}', title='#{crumb.id} (#{crumb.type})') #{crumb.name}
 
 h2.page-title
   span.type #{obj.type}
