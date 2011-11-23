@@ -62,27 +62,21 @@ var opts = require('nomnom')
     help: 'Package title',
     metavar: 'STRING',
   })
-  .option('packageUrl', {
-    full: 'package-url',
-    help: 'Package URL',
-    metavar: 'URL',
-  })
-  .option('viewSourceLabel', {
-    full: 'view-source-label',
-    help: 'Text for "View source" link [View source on GitHub &rarr;]',
-    default: 'View source on GitHub &rarr;',
-    metavar: 'STRING',
-  })
   .option('linkFormat', {
     full: 'link-format',
-    help: 'Format for link to source file [{root}/{file}#L{line}]',
-    default: '{root}/{file}#L{line}',
-    metavar: 'STRING',
+    help: 'Format for link to source file [{file}#L{line}]',
+    default: '{file}#L{line}',
+    metavar: 'FMT',
   })
   .option('skin', {
     help: 'Custom templates [' + __dirname + '/../skins/default' + ']',
     default: Util.join(__dirname, '..', 'skins', 'default'),
     metavar: 'PATH',
+  })
+  .option('viewSourceLabel', {
+    full: 'view-source-label',
+    help: 'Text for "View source" link',
+    metavar: 'STRING',
   })
   .parse();
 

@@ -7,12 +7,12 @@ mixin menu_item(obj, level, short)
   if typeof obj === 'string'
     obj = tree[obj]
   li
-    .menu-item(class=(level ? 'hidden1' : ''))
+    .menu-item
       a(class=class_for(obj, path), href='##{obj.path}', title='#{obj.id} (#{obj.type})') #{short && obj.name || obj.id}
       if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
         children = get_children(obj)
         if children.length
-          ul
+          ul.hidden
             for child in children
               mixin menu_item(child, level + 1, true)
 
