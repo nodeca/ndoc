@@ -109,6 +109,7 @@ try {
 // collect sources
 //
 var files = [];
+// TODO: should merge results from every opts.path[] element
 Util.walk(opts.path[0], '\.' + opts.extension + '$', function(filename, stat, cb) {
   console.log('Processing', filename);
   files.push(filename);
