@@ -11,7 +11,7 @@ var NDoc = require('../lib');
 //
 program
   .version('0.0.1')
-  .option('-s, --source <>', 'Source files location [./lib]', 'lib')
+  ///.option('-s, --source <>', 'Source files location [./lib]', 'lib')
   .option('-o, --output <>', 'Resulting file(s) location [./doc]', 'doc')
   .option('-f, --format <>', 'Documentation format [html]', 'html')
   .option('-i, --index <>', 'Index file [./README.md]', 'README.md')
@@ -35,17 +35,25 @@ try {
   var package_json = JSON.parse(Util.read(program.packageJson));
   program.packageName = program.packageName || package_json.name || '';
   program.packageVersion = program.packageVersion || package_json.version || '';
-  program.packageUrl = program.packageUrl || (package_json.repository && package_json.repository.url || package_json.repository) || program.source;
+  program.packageUrl = program.packageUrl || (package_json.repository && package_json.repository.url || package_json.repository) || '';
   program.packageUrl = program.packageUrl.replace('git://', 'https://').replace(/(\.git$|$)/, '/blob/master');
   program.packageTitle = program.packageTitle || package_json.description || program.packageName || '';
 } catch(err) {}
+
+//
+// check arguments sanity
+//
+if (program.args.length < 1) {
+  console.error(program.helpInformation());
+  process.exit(1);
+}
 //console.error(program); process.exit(0);
 
 //
 // collect sources
 //
 var files = [];
-Util.walk(program.source, '\.js$', function(filename, stat, cb) {
+Util.walk(program.args[0], '\.js$', function(filename, stat, cb) {
   //console.log('Processing', filename);
   files.push(filename);
   cb();
