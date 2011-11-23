@@ -11,8 +11,8 @@ Clone and have fun
 
 Go to your project's root directory and run
 
-    ndoc
-    open file://./docs/index.html
+    ndoc lib
+    open file://./doc/index.html
 
 ## Usage
 
@@ -27,7 +27,7 @@ Go to your project's root directory and run
       -e, --extension STRING  Source files extension [js]
       -f, --format <html|js>  Documentation format [html]
       -i, --index PATH        Index file [README.md]
-      --package-json PATH     Package description file [package.json]
+      --package-json PATH     Package manifest [package.json]
       --package-name NAME     Package name
       --package-version VER   Project version
       --package-title TITLE   Package title
