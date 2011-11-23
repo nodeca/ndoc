@@ -23,10 +23,11 @@ Go to your project's root directory and run
     Options:
 
       -h, --help              output usage information
-      -o, --output PATH       Resulting file(s) location [./doc]
+      -o, --output PATH       Resulting file(s) location [doc]
+      -e, --extension STRING  Source files extension [js]
       -f, --format <html|js>  Documentation format [html]
-      -i, --index PATH        Index file [./README.md]
-      --package-json PATH     Package description file [./package.json]
+      -i, --index PATH        Index file [README.md]
+      --package-json PATH     Package description file [package.json]
       --package-name NAME     Package name
       --package-version VER   Project version
       --package-title TITLE   Package title

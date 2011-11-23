@@ -16,6 +16,12 @@ var opts = require('nomnom')
     help: 'Source files location',
     metavar: 'PATH',
   })
+  .option('extension', {
+    abbr: 'e',
+    help: 'Source files extension [js]',
+    metavar: 'STRING',
+    default: 'js',
+  })
   .option('output', {
     abbr: 'o',
     help: 'Resulting file(s) location [doc]',
@@ -103,8 +109,8 @@ try {
 // collect sources
 //
 var files = [];
-Util.walk(opts.path[0], '\.js$', function(filename, stat, cb) {
-  //console.log('Processing', filename);
+Util.walk(opts.path[0], '\.' + opts.extension + '$', function(filename, stat, cb) {
+  console.log('Processing', filename);
   files.push(filename);
   cb();
 }, function(err) {
