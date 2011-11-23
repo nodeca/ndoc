@@ -66,7 +66,7 @@ var opts = require('nomnom')
     abbr: 'l',
     full: 'link-format',
     help: 'Format for link to source file [{file}#L{line}]',
-    default: '{file}#L{line}',
+    default: '../{file}#L{line}',
     metavar: 'FMT',
   })
   .option('skin', {
