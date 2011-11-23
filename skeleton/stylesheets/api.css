@@ -144,7 +144,7 @@ ul.breadcrumbs {
   
   .page-introduction {
     margin-left: 120px;
-    margin-bottom: 25px;
+    margin-bottom: 50px;
   }
   
   .page-content a,
@@ -687,4 +687,10 @@ input.ghosted {
 #src_code_href {
 	font-size: 11px;
 	margin: -15px 0 15px 120px;
+}
+
+
+a.link-method, a.link-method:link {
+  border-bottom: 1px dashed #036 !important;
+  font-size: 11px;
 }
