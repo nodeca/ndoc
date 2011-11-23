@@ -2,6 +2,7 @@
 'use strict';
 
 var exec = require('child_process').exec;
+var fstools = require('fs-tools');
 var Util = require('../lib/util');
 var NDoc = require('../lib');
 
@@ -100,7 +101,7 @@ try {
 //
 var files = [];
 // TODO: should merge results from every opts.path[] element
-Util.walk(opts.path[0], '\.' + opts.extension + '$', function(filename, stat, cb) {
+fstools.walk(opts.path[0], '\.' + opts.extension + '$', function(filename, stat, cb) {
   //console.log('Processing', filename);
   files.push(filename);
   cb();
@@ -134,7 +135,7 @@ Util.walk(opts.path[0], '\.' + opts.extension + '$', function(filename, stat, cb
       break;
 
     case 'html':
-      Util.cp_a(Util.join(opts.skin, 'skeleton'), output, function(err) {
+      fstools.copy(Util.join(opts.skin, 'skeleton'), output, function(err) {
         if (err) {
           console.error(err.message || err);
           process.exit(1);
