@@ -37,8 +37,7 @@ Go to your project's root directory and run
                               {root} is substituted with the value of --package-url option
                               {file} is substituted with the name of the source file
                               {line} is substituted with the line number within the source file
-      --template PATH         Templates
-      --skeleton PATH         Documentation skeleton
+      --skin PATH             Custom templates
 
 ## License
 

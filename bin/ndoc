@@ -79,15 +79,10 @@ var opts = require('nomnom')
     default: '{root}/{file}#L{line}',
     metavar: 'STRING',
   })
-  .option('template', {
-    help: 'Templates [' + __dirname + '/../templates' + ']',
-    default: __dirname + '/../templates',
+  .option('skin', {
+    help: 'Custom templates [' + __dirname + '/../skin/default' + ']',
+    default: Util.join(__dirname, '..', 'skins', 'default'),
     metavar: 'PATH',
-  })
-  .option('skeleton', {
-    help: 'Skeleton [' + __dirname + '/../skeleton' + ']',
-    default: __dirname + '/../skeleton',
-    metavar: 'PATH'
   })
   .parse();
 
@@ -150,13 +145,13 @@ Util.walk(opts.path[0], '\.' + opts.extension + '$', function(filename, stat, cb
           console.error('Removing older documentation', err);
           process.exit(1);
         }
-        Util.cp_a(opts.skeleton, output, function(err) {
+        Util.cp_a(Util.join(opts.skin, 'skeleton'), output, function(err) {
           if (err) {
             console.error('Copying skeleton', err);
             process.exit(1);
           }
           var html = ndoc.toHTML(opts);
-          Util.write(output + '/index.html', html);
+          Util.write(Util.join(output, 'index.html'), html);
         });
       });
       break;
