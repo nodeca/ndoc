@@ -7,7 +7,6 @@ html
     meta(name='generator', content='ndoc')
     script(charset='utf-8', src='javascripts/jquery-1.7.min.js', type='text/javascript')
     script(charset='utf-8', src='javascripts/prettify.js', type='text/javascript')
-    script(charset='utf-8', src='javascripts/jquery.smooth-scroll.min.js', type='text/javascript')
     script(charset='utf-8', type='text/javascript')
       var onchange;
       $(document)
@@ -33,7 +32,7 @@ html
           }
         });
       })
-      .change(onchange)
+      // setup menu accordion
       .delegate('div.menu-item >a', 'click', function() {
         //console.log('CLICK');
         $('div.menu-item >a.current').removeClass('current');
@@ -47,19 +46,20 @@ html
         //unhide.show();
         //return false;
       })
-      /*.delegate('a[href^="#"]', 'click', function(ev) {
+      // setup smooth scroll for local anchors
+      .delegate('a[href^="#"]', 'click', function(ev) {
         //ev.preventDefault();
         var href = $(this).attr('href');
         var el = $('[id="' + href.substring(1) + '"]');
         //if (!el.length) return true;
-        console.log('SCR', el.offset().top)
+        //console.log('SCR', el.offset().top)
         $('html, body').stop().animate({
           scrollTop: el.offset().top
-        }, 1000, 'linear', function() {
+        }, 500, function() {
           location.hash = href;
         });
         return false;
-      })*/;
+      });
 
     link(charset='utf-8', href='stylesheets/api.css', media='screen, projection', rel='stylesheet', type='text/css')
     link(charset='utf-8', href='stylesheets/prettify.css', media='screen, projection', rel='stylesheet', type='text/css')
@@ -111,19 +111,4 @@ html
         $('pre[class!=syntax] >code').addClass('prettyprint');
         $('#home pre >code').removeClass('prettyprint');
         prettyPrint();
-        // setup smooth scroll for local anchors
-        $('a[href^="#"]').smoothScroll();
-        /*$('a[href^="#"]').click(function(ev) {
-          //ev.preventDefault();
-          var href = $(this).attr('href');
-          var el = $('[id="' + href.substring(1) + '"]');
-          //if (!el.length) return true;
-          console.log('SCR', el.offset().top)
-          $('html, body').stop().animate({
-            scrollTop: el.offset().top
-          }, 2500, 'linear', function() {
-            location.hash = href;
-          });
-          return false;
-        });*/
       });
