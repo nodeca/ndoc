@@ -81,11 +81,12 @@ ol, ul {
 
 #page {
   margin: 0;
-  position: fixed;
+  margin-left: 250px;
+/*  position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
-  left: 241px;
+  left: 241px; */
   overflow-y: scroll;
   overflow-x: auto;
 }
