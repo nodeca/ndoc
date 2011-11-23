@@ -114,7 +114,6 @@ Util.walk(opts.path[0], '\.' + opts.extension + '$', function(filename, stat, cb
     // given package URL, file name and line in the file, format link to source file
     formatLink: function(file, line) {
       return opts.linkFormat
-        .replace(/\{root\}/g, opts.packageUrl)
         .replace(/\{file\}/g, file)
         .replace(/\{line\}/g, line)
       ;
