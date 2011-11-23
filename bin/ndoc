@@ -101,7 +101,7 @@ try {
 var files = [];
 // TODO: should merge results from every opts.path[] element
 Util.walk(opts.path[0], '\.' + opts.extension + '$', function(filename, stat, cb) {
-  console.log('Processing', filename);
+  //console.log('Processing', filename);
   files.push(filename);
   cb();
 }, function(err) {
@@ -134,19 +134,13 @@ Util.walk(opts.path[0], '\.' + opts.extension + '$', function(filename, stat, cb
       break;
 
     case 'html':
-      Util.exists(output, function(err) {
-        if (!err) {
-          console.error('Refuse to overwrite existing destination');
+      Util.cp_a(Util.join(opts.skin, 'skeleton'), output, function(err) {
+        if (err) {
+          console.error(err.message || err);
           process.exit(1);
         }
-        Util.cp_a(Util.join(opts.skin, 'skeleton'), output, function(err) {
-          if (err) {
-            console.error('Copying skeleton', err);
-            process.exit(1);
-          }
-          var html = ndoc.toHTML(opts);
-          Util.write(Util.join(output, 'index.html'), html);
-        });
+        var html = ndoc.toHTML(opts);
+        Util.write(Util.join(output, 'index.html'), html);
       });
       break;
 
