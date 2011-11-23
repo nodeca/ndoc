@@ -16,13 +16,13 @@ Go to your project's root directory and run
 
 ## Usage
 
-    ndoc [options]
+    ndoc [options] <path>...
+
+    path PATH                 Source files location
 
     Options:
 
       -h, --help              output usage information
-      -V, --version           output the version number
-      -s, --source PATH       Source files location [./lib]
       -o, --output PATH       Resulting file(s) location [./doc]
       -f, --format <html|js>  Documentation format [html]
       -i, --index PATH        Index file [./README.md]
@@ -36,8 +36,8 @@ Go to your project's root directory and run
                               {root} is substituted with the value of --package-url option
                               {file} is substituted with the name of the source file
                               {line} is substituted with the line number within the source file
-      --template PATH         Custom templates
-      --skeleton PATH         Custom skeleton
+      --template PATH         Templates
+      --skeleton PATH         Documentation skeleton
 
 ## License
 
