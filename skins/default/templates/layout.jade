@@ -8,6 +8,23 @@ html
     script(charset='utf-8', src='javascripts/jquery-1.7.min.js', type='text/javascript')
     script(charset='utf-8', src='javascripts/prettify.js', type='text/javascript')
     script(charset='utf-8', type='text/javascript')
+      function hashChanged(path) {
+        var el = $('div.menu-item a[href="'+path+'"]');
+        //console.log('HASH', path);
+        // forget current selection
+        $('div.menu-item >a.current').removeClass('current');
+        $('div.menu-item >a.current-parent').removeClass('current-parent');
+        // collapse menu
+        $('div.menu-item >ul').addClass('hidden');
+        // expand parent of `el`
+        el.parents('ul:eq(0)').removeClass('hidden');
+        // expand children of `el`
+        el.next().removeClass('hidden');
+        // set current selection
+        el.parents('div.menu-item').find('>a').addClass('current-parent');
+        el.addClass('current');
+        return false;
+      }
       var onchange;
       $(document)
       // TODO: textchange?
@@ -33,30 +50,19 @@ html
         });
       })
       // setup menu accordion
-      .delegate('div.menu-item >a', 'click', function() {
+      /*.delegate('div.menu-item >a', 'click', function() {
         //console.log('CLICK');
-        $('div.menu-item >a.current').removeClass('current');
-        $('div.menu-item >a.current-parent').removeClass('current-parent');
-        //$(this).parents().eq(4).siblings().find('.menu-item').addClass('hidden');
-        $(this).parents('div.menu-item').find('>a').addClass('current-parent');
-        $(this).addClass('current');
-        //$('div.article').hide();
-        //var unhide = $('div.article[id="' + $(this).attr('href').substring(1) + '"]')
-        //console.log('UNH', unhide)
-        //unhide.show();
-        //return false;
-      })
+        //selectMenuItem($(this));
+      })*/
       // setup smooth scroll for local anchors
       .delegate('a[href^="#"]', 'click', function(ev) {
-        //ev.preventDefault();
         var href = $(this).attr('href');
         var el = $('[id="' + href.substring(1) + '"]');
-        //if (!el.length) return true;
-        //console.log('SCR', el.offset().top)
-        $('html, body').stop().animate({
+        $('body').stop().animate({
           scrollTop: el.offset().top
         }, 500, function() {
           location.hash = href;
+          hashChanged(href);
         });
         return false;
       });
@@ -112,4 +118,7 @@ html
         $('pre[class!=syntax] >code').addClass('prettyprint');
         $('#home pre >code').removeClass('prettyprint');
         prettyPrint();
+        // honor initial hash
+        hashChanged(location.href.replace(/(^.*)#/, '#'));
+        //$('div.menu-item a[href="'+location.href.replace(/(^.*)#/, '#')+'"]').click();
       });
