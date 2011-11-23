@@ -80,7 +80,7 @@ var opts = require('nomnom')
     metavar: 'STRING',
   })
   .option('skin', {
-    help: 'Custom templates [' + __dirname + '/../skin/default' + ']',
+    help: 'Custom templates [' + __dirname + '/../skins/default' + ']',
     default: Util.join(__dirname, '..', 'skins', 'default'),
     metavar: 'PATH',
   })
