@@ -1,4 +1,4 @@
 .PHONY: docs
 
 docs:
-	ndoc
+	ndoc lib

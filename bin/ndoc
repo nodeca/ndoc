@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 'use strict';
 
-var program = require('commander');
 var exec = require('child_process').exec;
 var Util = require('../lib/util');
 var NDoc = require('../lib');
@@ -9,51 +8,102 @@ var NDoc = require('../lib');
 //
 // parse options
 //
-program
-  .version('0.0.1')
-  ///.option('-s, --source <>', 'Source files location [./lib]', 'lib')
-  .option('-o, --output <>', 'Resulting file(s) location [./doc]', 'doc')
-  .option('-f, --format <>', 'Documentation format [html]', 'html')
-  .option('-i, --index <>', 'Index file [./README.md]', 'README.md')
-  .option('--package-json <>', 'Package description file [./package.json]', 'package.json')
-  .option('--package-name <>', 'Package name', '')
-  .option('--package-version <>', 'Project version', '')
-  // FIXME: what's that?
-  .option('--package-title <>', 'Package title', '')
-  .option('--package-url <>', 'Package URL', '')
-  // FIXME: do we need that?
-  .option('--view-source-label <>', 'Text for "View source" link', 'View source on GitHub &rarr;')
-  .option('--link-format <>', 'Format for link to source file', '{root}/{file}#L{line}')
-  .option('--template <>', 'Custom templates', __dirname + '/../templates')
-  .option('--skeleton <>', 'Custom skeleton', __dirname + '/../skeleton')
-  .parse(process.argv);
+var opts = require('nomnom')
+  .option('path', {
+    position: 0,
+    list: true,
+    required: true,
+    help: 'Source files location',
+    metavar: 'PATH',
+  })
+  .option('output', {
+    abbr: 'o',
+    help: 'Resulting file(s) location [doc]',
+    metavar: 'PATH',
+    default: 'doc',
+  })
+  .option('format', {
+    abbr: 'f',
+    help: 'Documentation format [html]',
+    choices: ['html', 'json', 'js'],
+    metavar: '<html|json|js>',
+    default: 'html',
+  })
+  .option('index', {
+    abbr: 'i',
+    help: 'Index file [README.md]',
+    metavar: 'FILE',
+    default: 'README.md',
+  })
+  .option('packageJson', {
+    full: 'package-json',
+    help: 'Package description file [package.json]',
+    metavar: 'FILE',
+    default: 'package.json',
+  })
+  .option('packageName', {
+    full: 'package-name',
+    help: 'Package name',
+    metavar: 'STRING',
+  })
+  .option('packageVersion', {
+    full: 'package-version',
+    help: 'Package version',
+    metavar: 'STRING',
+  })
+  .option('packageTitle', {
+    full: 'package-title',
+    help: 'Package title',
+    metavar: 'STRING',
+  })
+  .option('packageUrl', {
+    full: 'package-url',
+    help: 'Package URL',
+    metavar: 'URL',
+  })
+  .option('viewSourceLabel', {
+    full: 'view-source-label',
+    help: 'Text for "View source" link [View source on GitHub &rarr;]',
+    default: 'View source on GitHub &rarr;',
+    metavar: 'STRING',
+  })
+  .option('linkFormat', {
+    full: 'link-format',
+    help: 'Format for link to source file [{root}/{file}#L{line}]',
+    default: '{root}/{file}#L{line}',
+    metavar: 'STRING',
+  })
+  .option('template', {
+    help: 'Templates [' + __dirname + '/../templates' + ']',
+    default: __dirname + '/../templates',
+    metavar: 'PATH',
+  })
+  .option('skeleton', {
+    help: 'Skeleton [' + __dirname + '/../skeleton' + ']',
+    default: __dirname + '/../skeleton',
+    metavar: 'PATH'
+  })
+  .parse();
 
 //
 // read missing data from package.json, if any
 //
 try {
-  var package_json = JSON.parse(Util.read(program.packageJson));
-  program.packageName = program.packageName || package_json.name || '';
-  program.packageVersion = program.packageVersion || package_json.version || '';
-  program.packageUrl = program.packageUrl || (package_json.repository && package_json.repository.url || package_json.repository) || '';
-  program.packageUrl = program.packageUrl.replace('git://', 'https://').replace(/(\.git$|$)/, '/blob/master');
-  program.packageTitle = program.packageTitle || package_json.description || program.packageName || '';
+  var package_json = JSON.parse(Util.read(opts.packageJson));
+  opts.packageName = opts.packageName || package_json.name || '';
+  opts.packageVersion = opts.packageVersion || package_json.version || '';
+  opts.packageUrl = opts.packageUrl || (package_json.repository && package_json.repository.url || package_json.repository) || '';
+  opts.packageUrl = opts.packageUrl.replace('git://', 'https://').replace(/(\.git$|$)/, '/blob/master');
+  opts.packageTitle = opts.packageTitle || package_json.description || opts.packageName || '';
 } catch(err) {}
 
-//
-// check arguments sanity
-//
-if (program.args.length < 1) {
-  console.error(program.helpInformation());
-  process.exit(1);
-}
-//console.error(program); process.exit(0);
+//console.error(opts); process.exit(0);
 
 //
 // collect sources
 //
 var files = [];
-Util.walk(program.args[0], '\.js$', function(filename, stat, cb) {
+Util.walk(opts.path[0], '\.js$', function(filename, stat, cb) {
   //console.log('Processing', filename);
   files.push(filename);
   cb();
@@ -66,8 +116,8 @@ Util.walk(program.args[0], '\.js$', function(filename, stat, cb) {
   var ndoc = new NDoc(files, {
     // given package URL, file name and line in the file, format link to source file
     formatLink: function(file, line) {
-      return program.linkFormat
-        .replace(/\{root\}/g, program.packageUrl)
+      return opts.linkFormat
+        .replace(/\{root\}/g, opts.packageUrl)
         .replace(/\{file\}/g, file)
         .replace(/\{line\}/g, line)
       ;
@@ -76,15 +126,15 @@ Util.walk(program.args[0], '\.js$', function(filename, stat, cb) {
   //console.log(ndoc.toJSON());
 
   // output tree
-  var output = program.output;
-  switch (program.format) {
+  var output = opts.output;
+  switch (opts.format) {
 
     case 'json':
-      Util.write(output, ndoc.toJSON(program));
+      Util.write(output, ndoc.toJSON(opts));
       break;
 
     case 'js':
-      Util.write(output, 'var ndoc = ' + ndoc.toJSON(program) + ';');
+      Util.write(output, 'var ndoc = ' + ndoc.toJSON(opts) + ';');
       break;
 
     case 'html':
@@ -93,19 +143,19 @@ Util.walk(program.args[0], '\.js$', function(filename, stat, cb) {
           console.error('Removing older documentation', err);
           process.exit(1);
         }
-        Util.cp_a(program.skeleton, output, function(err) {
+        Util.cp_a(opts.skeleton, output, function(err) {
           if (err) {
             console.error('Copying skeleton', err);
             process.exit(1);
           }
-          var html = ndoc.toHTML(program);
+          var html = ndoc.toHTML(opts);
           Util.write(output + '/index.html', html);
         });
       });
       break;
 
     default:
-      console.error(program.format + ': not supported')
+      console.error(opts.format + ': not supported')
       process.exit(1);
 
   }

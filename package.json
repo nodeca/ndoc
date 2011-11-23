@@ -11,7 +11,7 @@
   "engines"     : { "node": "> 0.4.11 < 0.7.0" },
   "dependencies": {
     "jison"     : "https://github.com/zaach/jison/tarball/master",
-    "commander" : "0.4.1",
+    "nomnom"    : "1.5.1",
     "jade"      : "0.18.0",
     "marked"    : "0.1.2",
     "simple-promise": "https://github.com/nodeca/simple-promise/tarball/master",
