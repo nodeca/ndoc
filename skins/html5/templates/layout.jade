@@ -29,11 +29,18 @@ head
 
 body
 
-  #container
-    header
-    #main(role="main")
-      article#home!= htmlize(readme)
-      mixin api(tree)
+  //- Navigation
+  nav.menu Menu will be here
+
+  //- Main content
+  article.main
+    
+    //- Readme
+    //- article#home!= htmlize(readme)
+    
+    //- Docs
+    mixin api(tree)
+    
     footer
       p
         <a href="#{src_code_href}">#{packageName} #{packageVersion}</a> API documentation.
@@ -42,23 +49,12 @@ body
 
 
   script(src="javascripts/jquery-1.7.min.js")
-  script
-    window.jQuery || document.write('<script src="javascripts/jquery-1.7.min.js"><\/script>')
-
 
   // scripts concatenated and minified via ant build script
   <script defer src="javascripts/plugins.js"></script>
   <script defer src="javascripts/prettify.js"></script>
   <script defer src="javascripts/script.js"></script>
   // end scripts
-
-
-  //- Change UA-XXXXX-X to be your site's ID
-    script
-      window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-      Modernizr.load({
-        load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-      });
 
 
   //if lt IE 7

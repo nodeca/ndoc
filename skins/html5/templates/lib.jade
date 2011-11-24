@@ -41,98 +41,100 @@ mixin returns(sig)
 
 
 mixin title(obj)
-  ul.breadcrumbs
-    li
-      a(href='#home') Home
-    for crumb in breadcrumbs(obj)
+  header
+
+    ul.breadcrumbs
       li
-        mixin link(crumb, true)
+        a(href='#home') Home
+      for crumb in breadcrumbs(obj)
+        li
+          mixin link(crumb, true)
 
-  h1
-    span.type #{obj.type}
-    span.name #{obj.id}
+    h2
+      span.type #{obj.type}
+      span.name #{obj.id}
 
-  if obj.href
-    p
-      a(href=obj.href)
-        = src_code_text || 'View source code'
+    if obj.href
+      .source
+        a(href=obj.href)
+          = src_code_text || 'View source code'
 
-  if obj.deprecated
-    #deprecated
-      img(src='images/deprecated.png', alt='Deprecated', width=150, height=150)
-    if obj.deprecated.since
-      h1
-        | Deprecated since
-        =obj.deprecated.since
-        if obj.deprecated.off
-          = 'and will be removed on #{obj.deprecated.off}'
+    if obj.deprecated
+      #deprecated
+        img(src='images/deprecated.png', alt='Deprecated', width=150, height=150)
+      if obj.deprecated.since
+        h2
+          | Deprecated since
+          =obj.deprecated.since
+          if obj.deprecated.off
+            = 'and will be removed on #{obj.deprecated.off}'
 
 
 mixin article(obj)
   if typeof obj === 'string'
     obj = tree[obj]
 
-  article(id=obj.path)
+  article.article(id=obj.path)
 
     mixin title(obj)
 
     if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
 
       if obj.description
-        section.description
-          h2 Description
+        .section.description
+          h3 Description
           .content
             != htmlize(obj.description)
 
       if obj.namespaces.length
-        section.namespaces
-          h2 Namespaces
+        .section.namespaces
+          h3 Namespaces
           .content
             mixin short_description_list(obj.namespaces)
 
       if obj.classes.length
-        section.classes
-          h2 Classes
+        .section.classes
+          h3 Classes
           .content
             mixin short_description_list(obj.classes)
 
       if obj.mixins.length
-        section.mixins
-          h2 Mixins
+        .section.mixins
+          h3 Mixins
           .content
             mixin short_description_list(obj.mixins)
 
       if obj.type === 'class'
 
         if obj.superclass
-          section.superclass
-            h2 Superclass
+          .section.superclass
+            h3 Superclass
             .content
               p= obj.superclass
 
         if obj.subclasses.length
-          section.subclasses
-            h2 Subclasses
+          .section.subclasses
+            h3 Subclasses
             .content
               p
                 mixin links(obj.subclasses.sort())
 
       if obj.included_mixins
-        section.mixins
-          h2 Includes
+        .section.mixins
+          h3 Includes
           .content
             p
               mixin links(obj.included_mixins.sort())
 
       if obj.utilities.length
-        section.classes
-          h2 Related utilities
+        .section.classes
+          h3 Related utilities
           .content
             mixin links(obj.utilities.sort())
 
       if tree['new ' + obj.id]
-        section.constructor
-          h2 Constructor
+        .section.constructor
+          h3 Constructor
           .content
           ul.method-list
             mixin link_list('new ' + obj.id)
@@ -140,8 +142,8 @@ mixin article(obj)
       for title, method in {class_methods: 'Class methods', class_properties: 'Class properties', instance_methods: 'Instance methods', instance_properties: 'Instance properties', constants: 'Constants'}
         methods = obj[method]
         if Object.keys(methods).length
-          section(class='#{method}')
-            h2 #{title}
+          .section(class='#{method}')
+            h3 #{title}
             .content
               ul.method-list
                 for x in methods
@@ -149,7 +151,7 @@ mixin article(obj)
 
     else
 
-      section.method
+      .section.method
         .content
           != signatures(obj)
 
@@ -172,22 +174,21 @@ mixin article(obj)
               If calling as generic, pass the instance in as the first argument. 
 
     if obj.aliases.length
-      section.alias.aliases
+      .alias.aliases
         | Aliased as:
         for alias in obj.aliases
           mixin link(alias)
 
     if obj.alias_of
-      section.alias.alias-of
+      .alias.alias-of
         | Alias of:
         mixin link(obj.alias_of)
 
     if obj.related_to && obj.related_to
-      section.related-to
+      .related-to
         | Related to:
         mixin link(obj.related_to)
 
-  hr
 
   children = get_children(obj)
   if children.length
