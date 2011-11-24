@@ -39,11 +39,11 @@ mixin menu_item(obj, level, short)
 
 mixin argument(arg)
   li.argument
-    ul
+    ul.argument-details
       li.argument-name= arg.name
-      li.argument-details
-        if arg.types
-          ul.argument-types
+      if arg.types
+        li.argument-types
+          ul
             for type, i in arg.types
               li.argument-type= type
       if arg.description
