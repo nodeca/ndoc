@@ -10,12 +10,31 @@ mixin menu_item(obj, level, short)
     .menu-item
       a(class=[obj.type.replace(/ /g, '-')].join(' '), href='##{obj.path}', title='#{obj.id} (#{obj.type})', 'data-id'=obj.id) #{short && obj.name || obj.id}
       if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
-        children = get_children(obj)
-        if children.length
+        if obj.children.length
           ul.hidden
-            for child in children
+            for child in obj.children
               mixin menu_item(child, level + 1, true)
 
+
+
+//-
+  mixin signature(obj, sig)
+    r = obj.id
+    if sig.args
+      r += '('
+      sig.args.forEach(function(arg, idx, args) {
+        var a = arg.name;
+        if (obj.bound && !idx) a = '@' + a;
+        if (a.default_value) a = a + ' = ' + a.default_value;
+        if (idx) a = ', ' + a;
+        if (arg.ellipsis) a += '...';
+        if (arg.optional) a = '[' + a + ']';
+        r += a;
+      })
+      r += ')'
+    if sig.returns
+      r += ' &rarr; ' + sig.returns.join(' | ')
+    = r
 
 
 mixin argument(arg)
@@ -160,6 +179,7 @@ mixin article(obj)
               for sig in obj.signatures
                 li
                   != signature(obj, sig)
+                  //-mixin signature(obj, sig)
 
           if obj.arguments
             ul.argument-list
@@ -196,9 +216,8 @@ mixin article(obj)
         mixin link(obj.related_to)
 
 
-  children = get_children(obj)
-  if children.length
-    for child in children
+  if obj.children.length
+    for child in obj.children
       mixin article(child)
 
 
@@ -223,7 +242,7 @@ mixin link(obj, short)
   //- != link(obj, short)
   if typeof obj === 'string'
     obj = tree[obj] || {id: obj, path: obj, type: ''}
-  a(href="#{obj.path}", title="#{obj.id} (#{obj.type})", 'data-id'=obj.id)
+  a(href="##{obj.path}", title="#{obj.id} (#{obj.type})", 'data-id'=obj.id)
     if short
       = obj.name
     else
