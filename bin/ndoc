@@ -117,8 +117,7 @@ try {
 // collect sources
 //
 var files = [];
-// TODO: should merge results from every opts.path[] element
-fstools.walk(opts.path[0], '\.' + opts.extension + '$', function(filename, stat, cb) {
+walk_many(opts.path, '\.' + opts.extension + '$', function(filename, stat, cb) {
   //console.log('Processing', filename);
   files.push(filename);
   cb();
