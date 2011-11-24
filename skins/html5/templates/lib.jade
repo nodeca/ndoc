@@ -8,7 +8,7 @@ mixin menu_item(obj, level, short)
     obj = tree[obj]
   li
     .menu-item
-      a(class=[obj.type.replace(/ /g, '-')].concat([obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;})), href='##{obj.path}', title='#{obj.id} (#{obj.type})', 'data-id'=obj.id) #{short && obj.name || obj.id}
+      a(class=[obj.type.replace(/ /g, '-'), obj.deprecated && 'deprecated', obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;}), href='##{obj.path}', title='#{obj.id} (#{obj.type})', 'data-id'=obj.id) #{short && obj.name || obj.id}
       if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
         if obj.children.length
           ul.hidden
@@ -16,25 +16,25 @@ mixin menu_item(obj, level, short)
               mixin menu_item(child, level + 1, true)
 
 
-
-mixin signature(obj, sig)
-  if sig.args
-    ul.args
-      for arg in sig.args
-        a = arg.name
-        c = []
-        -if (obj.bound) c.push('arg-bound')
-        if arg.default_value
-          a = a + ' = ' + arg.default_value
-        -if (arg.ellipsis) c.push('arg-ellipsis')
-        -if (arg.optional) c.push('arg-optional');
-        li.arg(class=c)
-          = a
-  if sig.returns
-    ul.returns
-      for ret in sig.returns
-        li.ret
-          = ret
+//- way difficult to style. put on standby so far
+  mixin signature(obj, sig)
+    if sig.args
+      ul.args
+        for arg in sig.args
+          a = arg.name
+          c = []
+          -if (obj.bound) c.push('arg-bound')
+          if arg.default_value
+            a = a + ' = ' + arg.default_value
+          -if (arg.ellipsis) c.push('arg-ellipsis')
+          -if (arg.optional) c.push('arg-optional');
+          li.arg(class=c)
+            = a
+    if sig.returns
+      ul.returns
+        for ret in sig.returns
+          li.ret
+            = ret
 
 
 mixin argument(arg)
@@ -81,17 +81,6 @@ mixin title(obj)
       .source
         a(href=obj.href)
           = src_code_text || 'View source code'
-
-    //-
-      if obj.deprecated
-        #deprecated
-          img(src='images/deprecated.png', alt='Deprecated', width=150, height=150)
-        if obj.deprecated.since
-          h2
-            | Deprecated since
-            =obj.deprecated.since
-            if obj.deprecated.off
-              = 'and will be removed on #{obj.deprecated.off}'
 
 
 mixin article(obj)
@@ -177,11 +166,18 @@ mixin article(obj)
       .section.method(class=[obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;}))
         .content
           if obj.signatures
-            ul.signature
+            ul.signatures
               for sig in obj.signatures
-                li
-                  //- != signature(obj, sig)
-                  mixin signature(obj, sig)
+                li.signature
+                  ul
+                    li.signature-call
+                      //- mixin signature(obj, sig)
+                      != signature(obj, sig)
+                    if sig.returns
+                      li.signature-returns
+                        ul.argument-types
+                          for type in sig.returns
+                            li.argument-type= type
 
           if obj.arguments
             ul.argument-list
@@ -217,6 +213,12 @@ mixin article(obj)
         | Related to:
         mixin link(obj.related_to)
 
+    if obj.deprecated.since
+      .deprecated-note
+        | Deprecated since
+        =obj.deprecated.since
+        if obj.deprecated.off
+          | and will be removed on #{obj.deprecated.off}
 
   if obj.children.length
     for child in obj.children
