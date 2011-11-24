@@ -1,6 +1,6 @@
 ROOT = $(shell pwd)
 
-DIRS = $(shell find playground/* -maxdepth 1 '!' -type f)
+DIRS = $(addprefix playground/,$(shell ls playground | sed '/index.html/d'))
 LIBS = $(addsuffix /lib,$(DIRS))
 DOCS = $(addsuffix /doc,$(DIRS))
 
