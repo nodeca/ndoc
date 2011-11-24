@@ -111,3 +111,10 @@ ul.argument-types {
   content: "";
   margin: 0;
 }
+
+pre {
+  border: 1px solid #ccc;
+  padding: 5px;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
