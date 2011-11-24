@@ -1,0 +1,226 @@
+mixin menu()
+  for obj in tree
+    if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
+      mixin menu_item(obj, 0)
+
+mixin menu_item(obj, level, short)
+  if typeof obj === 'string'
+    obj = tree[obj]
+  li
+    .menu-item
+      a(class=class_for(obj, path), href='##{obj.path}', title='#{obj.id} (#{obj.type})', 'data-id'=obj.id) #{short && obj.name || obj.id}
+      if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
+        children = get_children(obj)
+        if children.length
+          ul.hidden
+            for child in children
+              mixin menu_item(child, level + 1, true)
+
+
+
+mixin argument(arg)
+  li
+    code.argument-name= arg.name
+    if arg.types
+      span.argument-types &nbsp;(
+        for type, i in arg.types
+          if i > 0
+            | \|
+          code= type
+        | )
+    if arg.description
+      &ndash;
+      != htmlize(arg.description).slice(3, -4)
+
+mixin returns(sig)
+  for r in sig.returns
+    if tree[r]
+      mixin link(r)
+    else
+      = r
+
+
+mixin title(obj)
+  nav.breadcrumbs
+    a(href='#home') Home
+    for crumb in breadcrumbs(obj)
+      &nbsp;&rarr;
+      mixin link(crumb, true)
+
+  h1
+    span.type #{obj.type}
+    | &nbsp;#{obj.id}
+
+  if obj.href
+    p
+      a(href=obj.href)
+        = src_code_text || 'View source code'
+
+  if obj.deprecated
+    #deprecated
+      img(src='images/deprecated.png', alt='Deprecated', width=150, height=150)
+    if obj.deprecated.since
+      h1
+        | Deprecated since
+        =obj.deprecated.since
+        if obj.deprecated.off
+          = 'and will be removed on #{obj.deprecated.off}'
+
+
+mixin article(obj)
+  if typeof obj === 'string'
+    obj = tree[obj]
+
+  article(id=obj.path)
+
+    mixin title(obj)
+
+    if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
+
+      if obj.description
+        section.description
+          h2 Description
+          .content
+            != htmlize(obj.description)
+
+      if obj.namespaces.length
+        section.namespaces
+          h2 Namespaces
+          .content
+            mixin short_description_list(obj.namespaces)
+
+      if obj.classes.length
+        section.classes
+          h2 Classes
+          .content
+            mixin short_description_list(obj.classes)
+
+      if obj.mixins.length
+        section.mixins
+          h2 Mixins
+          .content
+            mixin short_description_list(obj.mixins)
+
+      if obj.type === 'class'
+
+        if obj.superclass
+          section.superclass
+            h2 Superclass
+            .content
+              p= obj.superclass
+
+        if obj.subclasses.length
+          section.subclasses
+            h2 Subclasses
+            .content
+              p
+                mixin links(obj.subclasses.sort())
+
+      if obj.included_mixins
+        section.mixins
+          h2 Includes
+          .content
+            p
+              mixin links(obj.included_mixins.sort())
+
+      if obj.utilities.length
+        section.classes
+          h2 Related utilities
+          .content
+            mixin links(obj.utilities.sort())
+
+      if tree['new ' + obj.id]
+        section.constructor
+          h2 Constructor
+          .content
+          ul.method-list
+            mixin link_list('new ' + obj.id)
+
+      for title, method in {class_methods: 'Class methods', class_properties: 'Class properties', instance_methods: 'Instance methods', instance_properties: 'Instance properties', constants: 'Constants'}
+        methods = obj[method]
+        if Object.keys(methods).length
+          section(class='#{method}')
+            h2 #{title}
+            .content
+              ul.method-list
+                for x in methods
+                  mixin link_list(x)
+
+    else
+
+      section.method
+        .content
+          != signatures(obj)
+
+          if obj.arguments
+            ul.argument-list
+              for arg in obj.arguments
+                mixin argument(arg)
+
+          != htmlize(obj.description)
+          if obj.methodized_self
+            p.note.
+              This method can be called <em>either</em> as an
+              a(href=obj.methodized_self) instance method
+              <em>or</em> as a generic method.
+              If calling as generic, pass the instance in as the first argument. 
+          else if obj.functionalized_self
+            p.note.
+              This method can be called <em>either</em> as an instance method <em>or</em> as a
+              a(href=obj.functionalized_self) generic method.
+              If calling as generic, pass the instance in as the first argument. 
+
+    if obj.aliases.length
+      section.alias.aliases
+        | Aliased as:
+        for alias in obj.aliases
+          mixin link(alias)
+
+    if obj.alias_of
+      section.alias.alias-of
+        | Alias of:
+        mixin link(obj.alias_of)
+
+    if obj.related_to && obj.related_to
+      section.related-to
+        | Related to:
+        mixin link(obj.related_to)
+
+  hr
+
+  children = get_children(obj)
+  if children.length
+    for child in children
+      mixin article(child)
+
+
+
+mixin api(tree)
+  for obj in tree
+    if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
+      mixin article(obj)
+
+
+
+mixin short_description_list(collection)
+  ul.method-details-list
+    for obj in collection
+      li.method-description
+        h4
+          a(href=obj.path) #{obj.id}
+        if obj.short_description
+          p= obj.short_description
+
+mixin link(obj, short)
+  != link(obj, short)
+
+mixin links(collection)
+  for obj in collection
+    mixin link(obj)
+    ,
+
+mixin link_list(obj)
+  if typeof obj === 'string'
+    obj = tree[obj]
+  li
+    != link(obj)
