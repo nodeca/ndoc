@@ -48,7 +48,8 @@ body {
 }
 
 .article header,
-.article .section {
+.article .section,
+.article .alias {
   margin-left: 140px;
   margin-bottom: 20px;
 }
@@ -57,12 +58,13 @@ body {
   position: relative;
   font-size: 36px;
   margin: 0;
+  line-height: 1;
 }
 .article h2 .type {
   display: block;
   position: absolute;
   left: -140px;
-  top: 24px;
+  top: 20px;
   width: 110px;
   color: #aaa;
   padding-right: 24px;
@@ -70,6 +72,7 @@ body {
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
+  line-height: 1.2;
 }
 
 .source a {
@@ -156,4 +159,18 @@ pre {
   padding: 5px;
   background-color: #f8f8f8;
   border-radius: 3px;
+  font-size: 13px;
+}
+
+.alias {
+  background-color: #FFF6DE;
+  border: 1px solid #CCCC99;
+  border-radius: 3px 3px 3px 3px;
+  font-size: 12px;
+  padding: 3px 30px;
+}
+.alias a {
+  border-bottom: 1px dashed #888888;
+  color: #003366;
+  text-decoration: none;
 }
