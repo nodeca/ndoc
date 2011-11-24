@@ -216,12 +216,13 @@ mixin link(obj, short)
   != link(obj, short)
 
 mixin links(collection)
-  for obj in collection
-    mixin link(obj)
-    ,
+  ul
+    for obj in collection
+      li
+        mixin link(obj)
 
 mixin link_list(obj)
   if typeof obj === 'string'
     obj = tree[obj]
   li
-    != link(obj)
+    mixin link(obj)
