@@ -8,7 +8,7 @@ mixin menu_item(obj, level, short)
     obj = tree[obj]
   li
     .menu-item
-      a(class=[obj.type.replace(/ /g, '-')].join(' '), href='##{obj.path}', title='#{obj.id} (#{obj.type})', 'data-id'=obj.id) #{short && obj.name || obj.id}
+      a(class=[obj.type.replace(/ /g, '-')].concat([obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;})), href='##{obj.path}', title='#{obj.id} (#{obj.type})', 'data-id'=obj.id) #{short && obj.name || obj.id}
       if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
         if obj.children.length
           ul.hidden
@@ -42,10 +42,10 @@ mixin argument(arg)
     ul
       li.argument-name= arg.name
       li.argument-details
-      if arg.types
-        ul.argument-types
-          for type, i in arg.types
-            li.argument-type= type
+        if arg.types
+          ul.argument-types
+            for type, i in arg.types
+              li.argument-type= type
       if arg.description
         li.argument-description
           != markdown(arg.description).slice(3, -4)
