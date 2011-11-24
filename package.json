@@ -4,6 +4,7 @@
   "version"     : "0.0.1",
   "homepage"    : "https://github.com/nodeca/ndoc",
   "author"      : "Vladimir Dronnikov <dronnikov@gmail.com>",
+  "constributors": [ "Aleksey V Zapparov <ixti@member.fsf.org> (http://www.ixti.net/)" ],
   "bugs"        : { "url": "https://github.com/nodeca/ndoc/issues" },
   "license"     : { "type": "MIT", "url": "https://github.com/nodeca/ndoc/blob/master/LICENSE" },
   "repository"  : { "type": "git", "url": "git://github.com/nodeca/ndoc.git" },
@@ -14,8 +15,8 @@
     "nomnom"    : "1.5.1",
     "jade"      : "0.18.0",
     "marked"    : "0.1.2",
-    "simple-promise": "https://github.com/nodeca/simple-promise/tarball/master",
-    "fs-tools"  : "https://github.com/nodeca/fs-tools/tarball/master",
+    "simple-promise": "0.1.0",
+    "fs-tools"  : "0.1.0",
     "underscore": "1.2.2"
   },
   "preferGlobal": true
