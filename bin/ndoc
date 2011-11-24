@@ -9,7 +9,11 @@ var NDoc = require('../lib');
 
 function walk_many(paths, pattern, iterator, callback) {
   function next(err) {
-    var path = paths.shift();
+    var path;
+    
+    while(!path && paths.length) {
+      path = paths.shift();
+    }
 
     if (err || !path) {
       callback(err);
