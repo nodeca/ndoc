@@ -39,14 +39,15 @@ mixin menu_item(obj, level, short)
 
 mixin argument(arg)
   li
-    span.argument-name= arg.name
-    if arg.types
-      ul.argument-types
-        for type, i in arg.types
-          li.argument-type= type
-    if arg.description
-      span.argument-description
-        != htmlize(arg.description).slice(3, -4)
+    ul.argument
+      li.argument-name= arg.name
+      if arg.types
+        ul.argument-types
+          for type, i in arg.types
+            li.argument-type= type
+      if arg.description
+        li.argument-description
+          != htmlize(arg.description).slice(3, -4)
 
 mixin returns(sig)
   for r in sig.returns
