@@ -48,7 +48,7 @@ mixin argument(arg)
               li.argument-type= type
       if arg.description
         li.argument-description
-          != markdown(arg.description).slice(3, -4)
+          mixin markdown(arg.description)
 
 mixin returns(sig)
   for r in sig.returns
@@ -97,7 +97,7 @@ mixin article(obj)
         .section.description
           h3 Description
           .content
-            != markdown(obj.description)
+            mixin markdown(obj.description)
 
       if obj.namespaces.length
         .section.namespaces
@@ -184,7 +184,7 @@ mixin article(obj)
               for arg in obj.arguments
                 mixin argument(arg)
 
-          != markdown(obj.description)
+          mixin markdown(obj.description)
           if obj.methodized_self
             p.note.
               This method can be called <em>either</em> as an
@@ -213,10 +213,10 @@ mixin article(obj)
         | Related to:
         mixin link(obj.related_to)
 
-    if obj.deprecated.since
+    if obj.deprecated && obj.deprecated.since
       .deprecated-note
         | Deprecated since
-        =obj.deprecated.since
+        = obj.deprecated.since
         if obj.deprecated.off
           | and will be removed on #{obj.deprecated.off}
 
@@ -242,6 +242,8 @@ mixin short_description_list(collection)
         if obj.short_description
           p= obj.short_description
 
+
+
 mixin link(obj, short)
   //- != link(obj, short)
   if typeof obj === 'string'
@@ -251,6 +253,17 @@ mixin link(obj, short)
       = obj.name
     else
       = obj.id
+
+mixin markdown(text, inline)
+  html = markdown(text)
+  if inline
+    //- FIXME: can't be done via CSS? The point is to compensate for <p>
+    html = html.slice(3, -4)
+  //- desugar [[foo#bar]] tokens into local links
+  - html = html.replace(/\[\[(.+?)\]\]/g, function(all, id) { return link_mixin(id, true); });
+  != html
+
+
 
 mixin links(collection)
   ul
