@@ -115,6 +115,13 @@ try {
   opts.packageTitle = opts.packageTitle || package_json.description || opts.packageName || '';
 } catch(err) {}
 
+//
+// read index file
+//
+try {
+  opts.index = Util.read(options.index);
+} catch(err) {}
+
 //console.error(opts); process.exit(0);
 
 //
