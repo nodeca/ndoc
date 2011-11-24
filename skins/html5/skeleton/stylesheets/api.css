@@ -100,6 +100,29 @@ body {
   margin: 0;
 }
 
+.signatures {
+  background-color: #e0e8e0;
+  padding: 3px 5px;
+  list-style: none;
+  border-radius: 3px;
+}
+.signature ul {
+  padding: 0;
+  margin: 0;
+}
+.signature li {
+  display: inline;
+}
+.signature ul.argument-types {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+.signature ul.argument-types:before {
+  content: '→';
+  margin: 0 5px;
+}
+
 .argument-details {
   padding: 0;
   margin: 0;
@@ -113,12 +136,12 @@ body {
   color: #006600;
   font-weight: bold;
 }
-.argument-types ul {
+.argument-details .argument-types ul {
   display: inline;
   margin: 0;
   padding: 0;
-  font-size: 11px;
   font-style: italic;
+  font-size: 11px;
 }
 .argument-types ul:before {
   content: '(';
