@@ -8,7 +8,7 @@ mixin menu_item(obj, level, short)
     obj = tree[obj]
   li
     .menu-item
-      a(class=class_for(obj, path), href='##{obj.path}', title='#{obj.id} (#{obj.type})', 'data-id'=obj.id) #{short && obj.name || obj.id}
+      a(class=[obj.type.replace(/ /g, '-')].join(' '), href='##{obj.path}', title='#{obj.id} (#{obj.type})', 'data-id'=obj.id) #{short && obj.name || obj.id}
       if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
         children = get_children(obj)
         if children.length
@@ -27,7 +27,7 @@ mixin argument(arg)
           li.argument-type= type
     if arg.description
       span.argument-description
-      != htmlize(arg.description).slice(3, -4)
+        != htmlize(arg.description).slice(3, -4)
 
 mixin returns(sig)
   for r in sig.returns
@@ -47,11 +47,7 @@ mixin title(obj)
         a(href='#home') Home
       breadcrumbs = []
       x = obj
-      while x
-        != JSON.stringify(x.name)
-        breadcrumbs.unshift(x)
-        x = x.parent && tree[x.parent]
-      != JSON.stringify(breadcrumbs)
+      - while (x) { breadcrumbs.unshift(x); x = x.parent && tree[x.parent]; }
       for crumb in breadcrumbs
         li
           mixin link(crumb, true)
@@ -224,7 +220,14 @@ mixin short_description_list(collection)
           p= obj.short_description
 
 mixin link(obj, short)
-  != link(obj, short)
+  //- != link(obj, short)
+  if typeof obj === 'string'
+    obj = tree[obj] || {id: obj, path: obj, type: ''}
+  a(href="#{obj.path}", title="#{obj.id} (#{obj.type})", 'data-id'=obj.id)
+    if short
+      = obj.name
+    else
+      = obj.id
 
 mixin links(collection)
   ul
