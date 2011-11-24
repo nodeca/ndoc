@@ -1,3 +1,9 @@
+body {
+  font-family: Verdana,sans-serif;
+  font-size: 14px;
+  line-height: 1.5em;
+}
+
 .menu {
   background: none repeat scroll 0 0 #eee;
   position: fixed;
@@ -88,16 +94,30 @@
   margin: 0;
 }
 
-ul.argument-types {
+.argument-details {
+  padding: 0;
+  margin: 0;
+  font-size: 13px;
+}
+.argument-details li {
+  display: inline;
+}
+.argument-name {
+  color: #006600;
+  font-weight: bold;
+}
+.argument-types ul {
   display: inline;
   margin: 0;
   padding: 0;
+  font-size: 11px;
+  font-style: italic;
 }
-.argument-types:before {
+.argument-types ul:before {
   content: '(';
   margin-right: -3px;
 }
-.argument-types:after {
+.argument-types ul:after {
   content: ')';
   margin-left: -3px;
 }
@@ -111,6 +131,11 @@ ul.argument-types {
 .argument-types li:last-child:after {
   content: "";
   margin: 0;
+}
+.argument-description:before {
+  content: '—';
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .method-list {
