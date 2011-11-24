@@ -41,15 +41,16 @@ mixin returns(sig)
 
 
 mixin title(obj)
-  nav.breadcrumbs
-    a(href='#home') Home
+  ul.breadcrumbs
+    li
+      a(href='#home') Home
     for crumb in breadcrumbs(obj)
-      &nbsp;&rarr;
-      mixin link(crumb, true)
+      li
+        mixin link(crumb, true)
 
   h1
     span.type #{obj.type}
-    | &nbsp;#{obj.id}
+    span.name #{obj.id}
 
   if obj.href
     p
