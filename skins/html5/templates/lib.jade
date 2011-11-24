@@ -81,22 +81,23 @@ mixin title(obj)
         a(href=obj.href)
           = src_code_text || 'View source code'
 
-    if obj.deprecated
-      #deprecated
-        img(src='images/deprecated.png', alt='Deprecated', width=150, height=150)
-      if obj.deprecated.since
-        h2
-          | Deprecated since
-          =obj.deprecated.since
-          if obj.deprecated.off
-            = 'and will be removed on #{obj.deprecated.off}'
+    //-
+      if obj.deprecated
+        #deprecated
+          img(src='images/deprecated.png', alt='Deprecated', width=150, height=150)
+        if obj.deprecated.since
+          h2
+            | Deprecated since
+            =obj.deprecated.since
+            if obj.deprecated.off
+              = 'and will be removed on #{obj.deprecated.off}'
 
 
 mixin article(obj)
   if typeof obj === 'string'
     obj = tree[obj]
 
-  article.article(id=obj.path)
+  article.article(id=obj.path, class=[obj.deprecated && 'deprecated'].filter(function(x){return !!x;}))
 
     mixin title(obj)
 
