@@ -17,30 +17,31 @@ mixin menu_item(obj, level, short)
 
 
 
-//-
-  mixin signature(obj, sig)
-    r = obj.id
-    if sig.args
-      r += '('
-      sig.args.forEach(function(arg, idx, args) {
-        var a = arg.name;
-        if (obj.bound && !idx) a = '@' + a;
-        if (a.default_value) a = a + ' = ' + a.default_value;
-        if (idx) a = ', ' + a;
-        if (arg.ellipsis) a += '...';
-        if (arg.optional) a = '[' + a + ']';
-        r += a;
-      })
-      r += ')'
-    if sig.returns
-      r += ' &rarr; ' + sig.returns.join(' | ')
-    = r
+mixin signature(obj, sig)
+  if sig.args
+    ul.args
+      for arg in sig.args
+        a = arg.name
+        c = []
+        -if (obj.bound) c.push('arg-bound')
+        if arg.default_value
+          a = a + ' = ' + arg.default_value
+        -if (arg.ellipsis) c.push('arg-ellipsis')
+        -if (arg.optional) c.push('arg-optional');
+        li.arg(class=c)
+          = a
+  if sig.returns
+    ul.returns
+      for ret in sig.returns
+        li.ret
+          = ret
 
 
 mixin argument(arg)
   li.argument
-    ul.argument-details
+    ul
       li.argument-name= arg.name
+      li.argument-details
       if arg.types
         ul.argument-types
           for type, i in arg.types
@@ -179,8 +180,8 @@ mixin article(obj)
             ul.signature
               for sig in obj.signatures
                 li
-                  != signature(obj, sig)
-                  //-mixin signature(obj, sig)
+                  //- != signature(obj, sig)
+                  mixin signature(obj, sig)
 
           if obj.arguments
             ul.argument-list

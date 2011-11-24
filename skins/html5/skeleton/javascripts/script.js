@@ -74,5 +74,5 @@ $(function(){
   //$('#home pre >code').removeClass('prettyprint');
   prettyPrint();
   // honor initial hash
-  //hashChanged(location.href.replace(/(^.*)#/, '#'));
+  hashChanged(location.href.replace(/(^.*)#/, '#'));
 });
