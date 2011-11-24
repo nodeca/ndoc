@@ -20,16 +20,13 @@ mixin menu_item(obj, level, short)
 
 mixin argument(arg)
   li
-    code.argument-name= arg.name
+    span.argument-name= arg.name
     if arg.types
-      span.argument-types &nbsp;(
+      ul.argument-types
         for type, i in arg.types
-          if i > 0
-            | \|
-          code= type
-        | )
+          li.argument-type= type
     if arg.description
-      &ndash;
+      span.argument-description
       != htmlize(arg.description).slice(3, -4)
 
 mixin returns(sig)
@@ -43,10 +40,19 @@ mixin returns(sig)
 mixin title(obj)
   header
 
+    //- breadcrumbs
+
     ul.breadcrumbs
       li
         a(href='#home') Home
-      for crumb in breadcrumbs(obj)
+      breadcrumbs = []
+      x = obj
+      while x
+        != JSON.stringify(x.name)
+        breadcrumbs.unshift(x)
+        x = x.parent && tree[x.parent]
+      != JSON.stringify(breadcrumbs)
+      for crumb in breadcrumbs
         li
           mixin link(crumb, true)
 
@@ -153,7 +159,11 @@ mixin article(obj)
 
       .section.method
         .content
-          != signatures(obj)
+          if obj.signatures
+            ul.signature
+              for sig in obj.signatures
+                li
+                  != signature(obj, sig)
 
           if obj.arguments
             ul.argument-list
