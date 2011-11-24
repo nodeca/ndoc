@@ -123,7 +123,7 @@ walk_many(opts.path, '\.' + opts.extension + '$', function(filename, stat, cb) {
   cb();
 }, function(err) {
   if (err) {
-    console.error(err);
+    console.error(err.message || err);
     process.exit(1);
   }
   // build tree
