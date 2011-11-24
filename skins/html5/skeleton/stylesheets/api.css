@@ -44,6 +44,7 @@
 .article header,
 .article .section {
   margin-left: 140px;
+  margin-bottom: 20px;
 }
 
 .article h2 {
@@ -77,9 +78,9 @@
   display: block;
   position: absolute;
   left: -140px;
-  top: 2px;
+  top: 1px;
   width: 110px;
-  color: #aaa;
+  color: #888;
   padding-right: 24px;
   text-align: right;
   font-size: 12px;
@@ -110,6 +111,19 @@ ul.argument-types {
 .argument-types li:last-child:after {
   content: "";
   margin: 0;
+}
+
+.method-list {
+  padding: 0;
+}
+.method-list li {
+  list-style: none;
+  margin-bottom: 7px;
+}
+.method-list li a {
+  border-bottom: 1px dashed #888;
+  color: #003366;
+  text-decoration: none;
 }
 
 pre {
