@@ -47,7 +47,7 @@ mixin argument(arg)
             li.argument-type= type
       if arg.description
         li.argument-description
-          != htmlize(arg.description).slice(3, -4)
+          != markdown(arg.description).slice(3, -4)
 
 mixin returns(sig)
   for r in sig.returns
@@ -106,7 +106,7 @@ mixin article(obj)
         .section.description
           h3 Description
           .content
-            != htmlize(obj.description)
+            != markdown(obj.description)
 
       if obj.namespaces.length
         .section.namespaces
@@ -187,7 +187,7 @@ mixin article(obj)
               for arg in obj.arguments
                 mixin argument(arg)
 
-          != htmlize(obj.description)
+          != markdown(obj.description)
           if obj.methodized_self
             p.note.
               This method can be called <em>either</em> as an
