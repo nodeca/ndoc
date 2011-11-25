@@ -100,7 +100,8 @@ body {
 
 .article header,
 .article .section,
-.article .alias {
+.article .alias,
+.article .deprecated-note {
   margin-left: 140px;
   margin-bottom: 10px;
 }
@@ -138,6 +139,13 @@ body {
   font-size: 10px;
   color: #aaa;
   margin-left: 10px;
+}
+
+.deprecated-note {
+	color: #F00;
+}
+.article.deprecated h2 .name{
+	text-decoration: line-through;
 }
 
 .section {
