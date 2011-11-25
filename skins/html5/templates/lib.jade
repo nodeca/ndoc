@@ -34,7 +34,7 @@ mixin menu_item(obj, level, short)
       ul.returns
         for ret in sig.returns
           li.ret
-            = ret
+            = (ret || '?')
 
 
 mixin argument(arg)
@@ -49,13 +49,6 @@ mixin argument(arg)
       if arg.description
         li.argument-description
           mixin markdown(arg.description)
-
-mixin returns(sig)
-  for r in sig.returns
-    if tree[r]
-      mixin link(r)
-    else
-      = r
 
 
 mixin title(obj)
@@ -182,7 +175,7 @@ mixin article(obj)
                       li.signature-returns
                         ul.argument-types
                           for type in sig.returns
-                            li.argument-type= type
+                            li.argument-type= (type || '?')
 
           if obj.arguments
             ul.argument-list
