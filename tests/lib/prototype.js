@@ -42,16 +42,19 @@ if (Prototype.Browser.MobileSafari)
 
 /**
  * == lang ==
+ *
  * Language extensions.
 **/
 
 /**
  *  == ajax ==
+ *
  *  Dead-simple Ajax.
 **/
 
 /**
  *  == DOM ==
+ *
  *  DOM extensions.
 **/
  
@@ -414,6 +417,7 @@ Object.extend(Object, {
 Object.extend(Function.prototype, {
   /**
    *  Function#argumentNames() -> Array
+   *
    *  Reads the argument names as stated in the function definition and returns
    *  the values as an array of strings (or an empty array if the function is
    *  defined without parameters).
@@ -455,6 +459,7 @@ Object.extend(Function.prototype, {
 
   /**
    *  Function#curry(args...) -> Function
+   *
    *  Partially applies the function, returning a function with one or more
    *  arguments already “filled in.”
    *
@@ -511,6 +516,7 @@ Object.extend(Function.prototype, {
 
   /**
    *  Function#methodize() -> Function
+   *
    *  Wraps the function inside another function that, at call time, pushes
    *  `this` to the original function as the first argument.
    *
@@ -527,6 +533,7 @@ Object.extend(Function.prototype, {
 
 /**
  *  Function#defer(args...) -> Number
+ *
  *  Schedules the function to run as soon as the interpreter is idle.
  *
  *  A “deferred” function will not run immediately; rather, it will run as soon
@@ -545,6 +552,7 @@ Function.prototype.defer = Function.prototype.delay.curry(0.01);
 
 /**
  *  Date#toJSON() -> String
+ *
  *  Converts the date into a JSON string (following the ISO format used by
  *  JSON).
 **/
@@ -645,6 +653,7 @@ var PeriodicalExecuter = Class.create({
 
   /**
    *  PeriodicalExecuter#stop() -> undefined
+   *
    *  Stops the periodical executer (there will be no further triggers).
   **/
   stop: function() {
@@ -1195,6 +1204,7 @@ Object.extend(Array.prototype, {
 
   /**
    *  Array#clear() -> Array
+   *
    *  Empties an array.
   **/
   clear: function() {
@@ -1204,6 +1214,7 @@ Object.extend(Array.prototype, {
 
   /**
    *  Array#first() -> ?
+   *
    *  Returns the array's first item.
   **/
   first: function() {
@@ -1212,6 +1223,7 @@ Object.extend(Array.prototype, {
 
   /**
    *  Array#last() -> ?
+   *
    *  Returns the array's last item.
   **/
   last: function() {
@@ -1221,6 +1233,7 @@ Object.extend(Array.prototype, {
 
   /**
    *  Array#compact() -> Array
+   *
    *  Trims the array of `null`, `undefined`, or other "falsy" values.
   **/
   compact: function() {
@@ -1231,6 +1244,7 @@ Object.extend(Array.prototype, {
 
   /**
    *  Array#flatten() -> Array
+   *
    *  Returns a “flat” (one-dimensional) version of the array.
    *
    *  Nested arrays are recursively injected “inline.” This can prove very
@@ -1271,6 +1285,7 @@ Object.extend(Array.prototype, {
 
   /**
    * Array#reduce() -> Array
+   *
    *  Reduces arrays: one-element arrays are turned into their unique item,
    *  while multiple-element arrays are returned untouched.
   **/
@@ -1309,6 +1324,7 @@ Object.extend(Array.prototype, {
 
   /** alias of: Array#toArray
    *  Array#clone() -> Array
+   *
    *  Returns a duplicate of the array, leaving the original array intact.
   **/
   clone: function() {
@@ -1317,6 +1333,7 @@ Object.extend(Array.prototype, {
 
   /** related to: Enumerable#size
    *  Array#size() -> Number
+   *
    *  Returns the size of the array.
    *
    *  This is just a local optimization of the mixed-in [[Enumerable#size]]
@@ -1329,6 +1346,7 @@ Object.extend(Array.prototype, {
 
   /** related to: Object.inspect
    *  Array#inspect() -> String
+   *
    *  Returns the debug-oriented string representation of an array.
   **/
   inspect: function() {
@@ -1337,6 +1355,7 @@ Object.extend(Array.prototype, {
 
   /** related to: Object.toJSON
    *  Array#toJSON() -> String
+   *
    *  Returns a JSON string representation of the array.
   **/
   toJSON: function() {
@@ -1579,6 +1598,7 @@ var $R = function(start, end, exclusive) {
 var Ajax = {
   /**
    *  Ajax.getTransport() -> XMLHttpRequest
+   *
    *  Returns a new instance of XMLHttpRequest (or its ActiveXObject
    *  equivalent in the case of Internet Explorer).
   **/
@@ -1688,6 +1708,7 @@ Ajax.Request = Class.create(Ajax.Base, {
 
   /**
    *  new Ajax.Request(url[, options])
+   *
    *  Creates and dispatches an XmlHttpRequest to the given URL.
    *  This object is a general-purpose AJAX requester: it handles the
    *  life-cycle of the request, handles the boilerplate, and lets you plug in
@@ -2031,6 +2052,7 @@ Ajax.PeriodicalUpdater = Class.create(Ajax.Base, {
 
   /**
    *  Ajax.PeriodicalUpdater#start() -> undefined
+   *
    *  Triggers a `PeriodicalUpdater`'s Ajax request.
   **/
   start: function() {
@@ -2040,6 +2062,7 @@ Ajax.PeriodicalUpdater = Class.create(Ajax.Base, {
 
   /**
    *  Ajax.PeriodicalUpdater#stop() -> undefined
+   *
    *  Pauses a `PeriodicalUpdater`.
   **/
   stop: function() {
@@ -2127,6 +2150,7 @@ if (!Node.ELEMENT_NODE) {
 (function() {
   /**
    *  new Element(tagName[, attributes])
+   *
    *  The `Element` object can be used to create new elements in a friendlier,
    *  more concise way than afforted by the built-in DOM methods. It returns
    *  an extended element, so you can chain a call to [[Element#update]] in
@@ -3565,6 +3589,7 @@ Element.addMethods = function(methods) {
 Element.Layout = Class.create({
   /**
    *  new Element.Layout(element[, options])
+   *
    *  Returns a versatile measurement object that quacks several ways. Can be
    *  coerced into a hash, an object, or JSON.
   **/
@@ -3776,6 +3801,7 @@ Element.Layout = Class.create({
 
   /**
    *  Element.Layout#dimensions() -> Element.Coordinates
+   *
    *  Reports the dimensions of the given element.
   **/
   dimensions: function() {
@@ -3785,6 +3811,7 @@ Element.Layout = Class.create({
 
   /**
    *  Element.Layout#offset([element=document]) -> Element.Coordinates
+   *
    *  Positioned offset. Measured from offset parent.
   **/
   offset: function() {
@@ -3805,6 +3832,7 @@ Element.Layout = Class.create({
 
   /**
    *  Element.Layout#viewportOffset() -> Element.Coordinates
+   *
    *  Reports the element's top- and left-distance from the upper-left
    *  corner of the viewport.
   **/
@@ -3845,6 +3873,7 @@ Element.Layout = Class.create({
 
   /**
    *  Element.Layout#documentOffset() -> Element.Coords
+   *
    *  Reports the element's top- and left-distance from the upper-left
    *  corner of its containing document.
   **/
@@ -3861,6 +3890,7 @@ Element.Layout = Class.create({
 
   /**
    *  Element.Layout#offsetParent() -> Element
+   *
    *  Returns the element's positioning context — the nearest ancestor
    *  with a CSS "position" value other than "static."
   **/
@@ -3879,6 +3909,7 @@ Element.Layout = Class.create({
 
   /**
    *  Element.Layout#scrollOffset(@element) -> Object
+   *
    *  Reports the element's top- and left-distance from the upper-left
    *  corner of its containing document, compensating for the scroll
    *  offsets of any ancestors.
@@ -3936,6 +3967,7 @@ Element.Layout.normalize = function(obj) {
 Object.extend(Element.Methods, {
   /**
    *  Element#getLayout(@element[, options]) -> Object
+   *
    *  Reports the dimensions and offsets of the given element.
    *
    *  By default, `getLayout` will return as much information about the
@@ -3955,6 +3987,7 @@ Object.extend(Element.Methods, {
 
   /**
    *  Element#getHeight(@element) -> Number
+   *
    *  Returns the height of the element.
   **/
   getHeight: function(element) {
@@ -3963,6 +3996,7 @@ Object.extend(Element.Methods, {
 
   /**
    *  Element#getWidth(@element) -> Number
+   *
    *  Returns the width of the element.
   **/
   getWidth: function(element) {
@@ -3985,6 +4019,7 @@ Object.extend(Element.Methods, {
 
   /**
    *  Element#cumulativeScrollOffset(@element) -> Object
+   *
    *  Reports the element's top- and left-distance from the upper-left
    *  corner of its containing document, compensating for the scroll
    *  offsets of any ancestors.
@@ -3996,6 +4031,7 @@ Object.extend(Element.Methods, {
 
   /**
    *  Element#cumulativeOffset(@element) -> Object
+   *
    *  Reports the element's top- and left-distance from its positioning
    *  parent.
   **/
@@ -4006,6 +4042,7 @@ Object.extend(Element.Methods, {
 
   /**
    *  Element#absolutize(@element) -> Element
+   *
    *  Switches element from static/relative positioning to absolute
    *  positioning while maintaining the element's size and position.
   **/
@@ -4039,6 +4076,7 @@ Object.extend(Element.Methods, {
 
   /**
    *  Element#relativize(@element) -> Element
+   *
    *  Reverts element from absolute positioning to relative positioning
    *  while maintaining the element's size and position.
   **/
@@ -4067,6 +4105,7 @@ Object.extend(Element.Methods, {
 
   /**
    *  Element#getOffsetParent(@element) -> Element
+   *
    *  Returns the element's positioning context — the nearest ancestor
    *  with a CSS "position" value other than "static."
   **/
@@ -4113,6 +4152,7 @@ Object.extend(Element.Methods, {
 document.viewport = {
   /**
    *  document.viewport.getDimensions() -> Object
+   *
    *  Returns the height and width of the browser viewport.
   **/
   getDimensions: function() {
@@ -4128,6 +4168,7 @@ document.viewport = {
 
   /**
    *  document.viewport.getWidth() -> Number
+   *
    *  Returns the width of the browser viewport.
   **/
   getWidth: function() {
@@ -4136,6 +4177,7 @@ document.viewport = {
 
   /**
    *  document.viewport.getHeight() -> Number
+   *
    *  Returns the height of the browser viewport.
   **/
   getHeight: function() {
@@ -4144,6 +4186,7 @@ document.viewport = {
 
   /**
    *  document.viewport.getScrollOffsets() -> Object
+   *
    *  Returns the distances the viewport has been scrolled in the
    *  horizontal and vertical directions.
   **/

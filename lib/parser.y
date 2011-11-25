@@ -7,7 +7,7 @@ frac    (?:\.[0-9]+)
 name    (?:[$_a-zA-Z][$_a-zA-Z0-9]*)
 notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->"))
 
-%x INITIAL tags def arg
+%x INITIAL tags def arg comment
 
 %%
 
@@ -38,7 +38,7 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 <tags>{name}                return 'NAME'
 
 <def>"**/"                  this.popState(); return '**/'
-<def>"*"\s*[\n][\s\S]*?/"**/" yytext = yytext.replace(/\s*\n\s*\*/g, '\n').replace(/(^\*\s*|\s*$)/g, ''); return 'TEXT'
+<def>"*"\s*?[\n][\s\S]*?/"**/" yytext = yytext.replace(/\s*\n\s*\*/g, '\n').replace(/(^\*\s*|\s*$)/g, ''); return 'TEXT'
 <def>"*"\s*[\n]"123123123"             return 'NL'
 <def>\s+                    /* skip whitespaces */
 <def>")"\s*":"              this.begin('arg'); return '):'
@@ -76,6 +76,8 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 <def>{name}                 return 'NAME'
 
 <arg>[\s\S]*?/("*"\s*[-\n]) this.popState(); return 'TEXT'
+
+<comment>[\s\S]*?/"**/"     yytext = yytext.replace(/\s*\n\s*\*/g, '\n').replace(/(^\*\s*|\s*$)/g, ''); return 'TEXT'
 
 /lex
 
