@@ -45,7 +45,7 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 <def>"*"\s*"-"              return '*-'
 <def>"*"\s*"fires"          return 'FIRES'
 <def>"*"\s*"includes"       return 'INCLUDES'
-<def>"*"                    /*return '*'*/
+<def>"*"                    return '*'
 <def>\"(?:{esc}["bfnrt/{esc}]|{esc}"u"[a-fA-F0-9]{4}|[^"{esc}])*\"  yytext = yytext.substr(1,yyleng-2); return 'STRING'
 <def>\'(?:{esc}["bfnrt/{esc}]|{esc}"u"[a-fA-F0-9]{4}|[^'{esc}])*\'  yytext = yytext.substr(1,yyleng-2); return 'STRING'
 <def>{int}{frac}?{exp}?\b   return 'NUMBER'
@@ -77,7 +77,7 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 
 <arg>[\s\S]*?/("*"\s*[-\n]) this.popState(); return 'TEXT'
 
-<comment>[\s\S]*?/"**/"     this.popState(); console.log('LEFTCOMM'); return 'TEXT'
+<comment>[\s\S]*?/"**/"     yytext = yytext.replace(/\s*\n\s*\*/g, '\n').replace(/(^\*\s*|\s*$)/g, ''); return 'TEXT'
 
 /lex
 
@@ -98,12 +98,12 @@ world
 
   : /* empty */ { $$ = {} }
 
-  | world '/**' tags ndoc_and_includes_and_fires comment '**/' %{
-    var x = $4;
+  | world '/**' tags '*' ndoc_and_includes_and_fires comment '**/' %{
+    var x = $5;
     for (var i in $3) x[i] = $3[i];
-    x.description = $5.text;
+    x.description = $6.text;
     x.short_description = x.description.replace(/\n\n[\s\S]*$/, '\n');
-    x.line = ($5.line + 1);
+    x.line = ($6.line + 1);
     // register
     $$[x.id] = x;
   }%
@@ -155,7 +155,7 @@ comment
 
 ndoc
 
-  : section { yy.lexer.begin('comment') }
+  : section
   | namespace
   | class
   | mixin
@@ -309,8 +309,8 @@ signatures
     delete $$.args;
     delete $$.returns;
   }%
-  | signatures signature %{
-    $$.signatures.push({args: $2.args, returns: $2.returns});
+  | signatures '*' signature %{
+    $$.signatures.push({args: $3.args, returns: $3.returns});
     delete $$.args;
     delete $$.returns;
   }%

@@ -1,8 +1,9 @@
+* support comment starting w/o leading NL
+* employ stylus
 * elaborate robuster highlighter
 * choose markdown:
     "discount"  : "0.2.2",
     "node-markdown": "0.1.0",
     "robotskirt": "0.2.2",
 
-* employ stylus
-* drop signature() in favor of elaborated markup, if possible
+* ---drop signature() in favor of elaborated markup, if possible

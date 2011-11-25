@@ -15,7 +15,8 @@ redo:
 $(DOCS): $(LIBS)
 	echo Compiling documentation for $(@D)
 	rm -fr $@
-	$(ROOT)/bin/ndoc -o $@ -i $(@D)/README.md -l '../../../{file}' --skin=$(ROOT)/skins/html5 $(@D)/lib
+	#$(ROOT)/bin/ndoc -o $@ -i $(@D)/README.md -l '{url}/../../../../{file}#L{line}' --package-json=$(@D)/package.json --skin=$(ROOT)/skins/html5 $(@D)/lib
+	cd $(@D) && $(ROOT)/bin/ndoc -o doc -i /README.md -l '{url}/{file}#L{line}' --package-json=package.json --skin=$(ROOT)/skins/html5 lib
 
 .SILENT:
 .PHONY: playground redo $(DOCS)

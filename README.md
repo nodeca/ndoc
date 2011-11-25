@@ -28,6 +28,7 @@ Go to your project's root directory and run
       -f, --format <html|js>    Documentation format [html]
       -i, --index PATH          Index file [README.md]
       -l FMT, --link-format FMT String format for link to source file [{file}#L{line}]
+                                {url} is substituted with the URL of repository read from manifest file
                                 {file} is substituted with the name of the source file
                                 {line} is substituted with the line number within the source file
                                 E.g. http://github.com/nodeca/ndoc/{file}#L{line}
