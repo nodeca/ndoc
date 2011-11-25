@@ -139,24 +139,25 @@ body {
 .argument-details .argument-types ul {
   display: inline;
   margin: 0;
+  margin-left: 5px;
   padding: 0;
   font-style: italic;
   font-size: 11px;
 }
 .argument-types ul:before {
   content: '(';
-  margin-right: -3px;
+  margin-right: 2px;
 }
 .argument-types ul:after {
   content: ')';
-  margin-left: -3px;
+  margin-left: 2px;
 }
 .argument-types li {
   display: inline;
 }
 .argument-types li:after {
   content: "|";
-  margin: 0 -2px;
+  margin: 0 2px;
 }
 .argument-types li:last-child:after {
   content: "";
