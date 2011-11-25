@@ -91,6 +91,13 @@ mixin article(obj)
 
     mixin title(obj)
 
+    if obj.deprecated && obj.deprecated.since
+      .deprecated-note
+        | Deprecated since
+        = obj.deprecated.since
+        if obj.deprecated.off
+          | &nbsp;and will be removed on #{obj.deprecated.off}
+
     if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
 
       if obj.description
@@ -212,12 +219,6 @@ mixin article(obj)
         | Related to:
         mixin link(obj.related_to)
 
-    if obj.deprecated && obj.deprecated.since
-      .deprecated-note
-        | Deprecated since
-        = obj.deprecated.since
-        if obj.deprecated.off
-          | and will be removed on #{obj.deprecated.off}
 
   if obj.children.length
     for child in obj.children

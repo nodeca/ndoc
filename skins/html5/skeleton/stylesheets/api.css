@@ -62,9 +62,8 @@ body {
 
 
 .main {
-  width: 800px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 700px;
+  margin-left: 250;
 }
 
 .article,
@@ -95,11 +94,16 @@ body {
   margin: 0;
 }
 
+#home h1 {
+	font-size: 30px;
+}
+
 .article header,
 .article .section,
-.article .alias {
+.article .alias,
+.article .deprecated-note {
   margin-left: 140px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .footer,
 #home {
@@ -108,7 +112,7 @@ body {
 
 .article h2 {
   position: relative;
-  font-size: 36px;
+  font-size: 30px;
   margin: 0;
   line-height: 1;
 }
@@ -128,9 +132,20 @@ body {
   text-align: right;*/
 }
 
+.article h5 {
+	font-size: 14px;
+}
 .source a {
   font-size: 10px;
   color: #aaa;
+  margin-left: 10px;
+}
+
+.deprecated-note {
+	color: #F00;
+}
+.article.deprecated h2 .name{
+	text-decoration: line-through;
 }
 
 .section {
@@ -177,6 +192,7 @@ body {
 .signatures {
   background-color: #e0e8e0;
   padding: 3px 5px;
+	margin: 0;
   list-style: none;
   border-radius: 3px;
 }
