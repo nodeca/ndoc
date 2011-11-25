@@ -159,8 +159,6 @@ ndoc
   | namespace
   | class
   | mixin
-  | property
-  | constant
   | signatures
   | signatures argument_descriptions { $$.arguments = $2 }
   ;
@@ -323,6 +321,12 @@ signature
 
   /* method returning value */
   | method '->' returns { $$.returns = $3 }
+
+  /* property */
+  | property
+
+  /* constant */
+  | constant
 
   /* constructor */
   | NEW method { $$ = $2; $$.id = $1 + ' ' + $$.id; $$.type = 'constructor' }
