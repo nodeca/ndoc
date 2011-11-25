@@ -14,7 +14,7 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 <*><<EOF>>                  return 'EOF'
 
 <INITIAL>\s+                /* skip whitespaces */
-<INITIAL>"/**"              this.begin('tags'); return '/**'
+<INITIAL>"/**"/([^/])       this.begin('tags'); return '/**'
 <INITIAL>.*                 /* skip vanilla code */
 
 <tags>"**/"                 this.popState(); return '**/'
@@ -367,10 +367,15 @@ args
   | args '[' arg ']' { $3.optional = true; $$.push($3) }
 
   /* comma-separated list of optional arguments */
-  | args '[' ',' arg ']' { $4.optional = true; $$.push($4) }
-
-  /* comma-separated list of optional arguments */
   | args ',' '[' args ']' %{
+    $4.forEach(function(a) {
+      a.optional = true;
+      $args1.push(a);
+    });
+  }%
+
+  /* comma-separated list of optional arguments. N.B. not valid pdoc, just for compatibility */
+  | args '[' ',' args ']' %{
     $4.forEach(function(a) {
       a.optional = true;
       $args1.push(a);
