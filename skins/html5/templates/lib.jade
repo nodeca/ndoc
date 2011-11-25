@@ -243,16 +243,8 @@ mixin short_description_list(collection)
           p= obj.short_description
 
 
-
 mixin link(obj, short)
-  //- != link(obj, short)
-  if typeof obj === 'string'
-    obj = tree[obj] || {id: obj, path: obj, type: ''}
-  a(href="##{obj.path}", title="#{obj.id} (#{obj.type})", 'data-id'=obj.id)
-    if short
-      = obj.name
-    else
-      = obj.id
+  != link(obj, short)
 
 mixin markdown(text, inline)
   html = markdown(text)
@@ -260,7 +252,7 @@ mixin markdown(text, inline)
     //- FIXME: can't be done via CSS? The point is to compensate for <p>
     html = html.slice(3, -4)
   //- desugar [[foo#bar]] tokens into local links
-  - html = html.replace(/\[\[(.+?)\]\]/g, function(all, id) { return link_mixin(id, true); });
+  - html = html.replace(/\[\[(.+?)\]\]/g, function(all, id) { return link(id, true); });
   != html
 
 

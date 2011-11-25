@@ -2,29 +2,8 @@
 'use strict';
 
 var exec = require('child_process').exec;
-var fstools = require('fs-tools');
 var Util = require('../lib/util');
 var NDoc = require('../lib');
-
-
-function walk_many(paths, pattern, iterator, callback) {
-  function next(err) {
-    var path;
-    
-    while(!path && paths.length) {
-      path = paths.shift();
-    }
-
-    if (err || !path) {
-      callback(err);
-      return;
-    }
-
-    fstools.walk(path, pattern, iterator, next);
-  };
-
-  next();
-}
 
 
 //
@@ -128,7 +107,7 @@ try {
 // collect sources
 //
 var files = [];
-walk_many(opts.path, '\.' + opts.extension + '$', function(filename, stat, cb) {
+Util.walk_many(opts.path, '\.' + opts.extension + '$', function(filename, stat, cb) {
   //console.log('Processing', filename);
   files.push(filename);
   cb();
@@ -162,7 +141,7 @@ walk_many(opts.path, '\.' + opts.extension + '$', function(filename, stat, cb) {
       break;
 
     case 'html':
-      fstools.copy(Util.join(opts.skin, 'skeleton'), output, function(err) {
+      Util.copy(Util.join(opts.skin, 'skeleton'), output, function(err) {
         if (err) {
           console.error(err.message || err);
           process.exit(1);
