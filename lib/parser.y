@@ -155,7 +155,7 @@ comment
 
 ndoc
 
-  : section { yy.lexer.begin('comment') }
+  : section { /*yy.lexer.begin('comment')*/ }
   | namespace
   | class
   | mixin
