@@ -31,6 +31,11 @@ body {
 .menu-item a:hover {
   background-color: #ccc;
 }
+.menu-item a.current,
+ .menu-item a.current-parent{
+  background-color: #ddd;
+}
+
 .menu-item a.class {
   background-image: url("../images/class.png");
 }
@@ -60,7 +65,8 @@ body {
   margin-right: auto;
 }
 
-.article {
+.article,
+#home {
   margin-bottom: 70px;
 }
 
@@ -93,7 +99,8 @@ body {
   margin-left: 140px;
   margin-bottom: 20px;
 }
-.footer {
+.footer,
+#home {
   margin-left: 140px;
 }
 
@@ -105,17 +112,18 @@ body {
 }
 .article h2 .type {
   display: block;
-  position: absolute;
-  left: -140px;
-  top: 20px;
-  width: 110px;
   color: #aaa;
-  padding-right: 24px;
-  text-align: right;
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
-  line-height: 1.2;
+  height: 1.5em;
+  line-height: 1.5em;
+/*  position: absolute;
+  left: -140px;
+  top: 20px;
+  width: 110px;
+  padding-right: 24px;
+  text-align: right;*/
 }
 
 .source a {
