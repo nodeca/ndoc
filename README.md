@@ -38,6 +38,10 @@ Go to your project's root directory and run
       --view-source-label TXT   Text for "View source" link
       --skin PATH               Custom templates
 
+## Syntax
+
+[Syntax](syntax.md) is authored after [pdoc](tobie/pdoc), with some additional tags.
+
 ## License
 
 [MIT](https://github.com/nodeca/ndoc/blob/master/LICENSE)
