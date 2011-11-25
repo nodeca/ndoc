@@ -5,7 +5,7 @@ An attempt to parse [PDoc](http://pdoc.org/syntax.html) with [node.js](http://no
 
 ## How to Install
 
-Clone and have fun
+   npm install ndoc
 
 ## Quick start
 
@@ -40,7 +40,7 @@ Go to your project's root directory and run
 
 ## Syntax
 
-[Syntax](ndoc/syntax.md) is authored after [pdoc](https://github.com/tobie/pdoc), with some additional tags.
+[Syntax](ndoc/blob/master/syntax.md) is authored after [pdoc](https://github.com/tobie/pdoc), with some additional tags.
 
 ## License
 
