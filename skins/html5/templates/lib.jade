@@ -198,16 +198,16 @@ mixin article(obj)
     if obj.aliases.length
       .alias.aliases
         | Aliased as:
-        ul.aliases
+        ul
           for alias in obj.aliases
-            li.alias
+            li
               mixin link(alias)
 
     if obj.alias_of
       .alias.alias-of
         | Alias of:
-        ul.aliases
-          li.alias
+        ul
+          li
             mixin link(obj.alias_of)
 
     if obj.related_to && obj.related_to
