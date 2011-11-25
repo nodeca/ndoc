@@ -205,13 +205,17 @@ mixin article(obj)
     if obj.aliases.length
       .alias.aliases
         | Aliased as:
-        for alias in obj.aliases
-          mixin link(alias)
+        ul.aliases
+          for alias in obj.aliases
+            li.alias
+              mixin link(alias)
 
     if obj.alias_of
       .alias.alias-of
         | Alias of:
-        mixin link(obj.alias_of)
+        ul.aliases
+          li.alias
+            mixin link(obj.alias_of)
 
     if obj.related_to && obj.related_to
       .related-to
@@ -242,8 +246,8 @@ mixin short_description_list(collection)
           p= obj.short_description
 
 
-mixin link(obj, short)
-  != link(obj, short)
+mixin link(obj, short, classes)
+  != link(obj, short, classes)
 
 mixin markdown(text, inline)
   html = markdown(text)

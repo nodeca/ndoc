@@ -2253,7 +2253,7 @@ Element.Methods = {
    *  object. If an object is passed, duck typing applies; `Element.update` will
    *  search for a method named `toHTML` or, failing that, `toString`.
    *
-   *  If `content` contains any `<script>` tags, they will be evaluated after
+   *  If `content` contains any `<script1>` tags, they will be evaluated after
    *  element has been updated (`Element.update` internally calls
    *  [[String#evalScripts]]).
    *
@@ -2288,7 +2288,7 @@ Element.Methods = {
    *  object. If an object is passed, duck typing applies; `Element.replace`
    *  will search for a method named `toHTML` or, failing that, `toString`.
    *
-   *  If `content` contains any `<script>` tags, they will be evaluated after
+   *  If `content` contains any `<script1>` tags, they will be evaluated after
    *  the element has been updated (`Element.replace` internally calls
    *  [[String#evalScripts]]).
    *
@@ -2323,7 +2323,7 @@ Element.Methods = {
    *  Accepts the following kinds of content: text, HTML, DOM elements, and any
    *  kind of object with a `toHTML` or `toElement` method.
    *
-   *  Note that if the inserted HTML contains any `<script>` tags, they will be
+   *  Note that if the inserted HTML contains any `<script1>` tags, they will be
    *  automatically evaluated after the insertion (`insert` internally calls
    *  [[String#evalScripts]] when inserting HTML).
   **/
