@@ -342,7 +342,7 @@ method
 returns
 
   /* anything */
-  : '?' { $$ = [] }
+  : '?' { $$ = ['?'] }
 
   /* single */
   | name_or_value { $$ = [$1] }
