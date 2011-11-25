@@ -115,7 +115,7 @@ body {
 .article h2 .type {
   display: block;
   color: #aaa;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   text-transform: uppercase;
   height: 1.5em;
@@ -271,6 +271,7 @@ p code {
   background-color: #f8f8f8;
   border-radius: 3px;
   padding: 0 3px;
+  font-size: 13px;
 }
 
 .alias {
