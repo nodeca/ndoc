@@ -148,7 +148,8 @@ mixin article(obj)
           h3 Constructor
           .content
           ul.method-list
-            mixin link_list('new ' + obj.id)
+            li
+              mixin link('new ' + obj.id, true)
 
       for title, method in {class_methods: 'Class methods', class_properties: 'Class properties', instance_methods: 'Instance methods', instance_properties: 'Instance properties', constants: 'Constants'}
         methods = obj[method]
@@ -158,7 +159,8 @@ mixin article(obj)
             .content
               ul.method-list
                 for x in methods
-                  mixin link_list(x)
+                  li
+                    mixin link(x, true)
 
     else
 
@@ -258,9 +260,3 @@ mixin links(collection)
     for obj in collection
       li
         mixin link(obj)
-
-mixin link_list(obj)
-  if typeof obj === 'string'
-    obj = tree[obj]
-  li
-    mixin link(obj)
