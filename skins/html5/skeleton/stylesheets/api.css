@@ -31,6 +31,11 @@ body {
 .menu-item a:hover {
   background-color: #ccc;
 }
+.menu-item a.current,
+ .menu-item a.current-parent{
+  background-color: #ddd;
+}
+
 .menu-item a.class {
   background-image: url("../images/class.png");
 }
@@ -60,7 +65,8 @@ body {
   margin-right: auto;
 }
 
-.article {
+.article,
+#home {
   margin-bottom: 70px;
 }
 
@@ -93,7 +99,8 @@ body {
   margin-left: 140px;
   margin-bottom: 20px;
 }
-.footer {
+.footer,
+#home {
   margin-left: 140px;
 }
 
