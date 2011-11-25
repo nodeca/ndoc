@@ -130,14 +130,13 @@ mixin article(obj)
           .section.superclass
             h3 Superclass
             .content
-              p= obj.superclass
+              mixin link(obj.superclass)
 
         if obj.subclasses.length
           .section.subclasses
             h3 Subclasses
             .content
-              p
-                mixin links(obj.subclasses.sort())
+              mixin links(obj.subclasses.sort())
 
       if obj.included_mixins
         .section.mixins
