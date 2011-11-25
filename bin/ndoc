@@ -98,7 +98,7 @@ try {
 // read index file
 //
 try {
-  opts.index = Util.read(options.index);
+  opts.index = Util.read(opts.index);
 } catch(err) {}
 
 //console.error(opts); process.exit(0);
