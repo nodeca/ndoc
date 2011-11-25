@@ -40,7 +40,7 @@ Go to your project's root directory and run
 
 ## Syntax
 
-[Syntax](syntax.md) is authored after [pdoc](tobie/pdoc), with some additional tags.
+[Syntax](ndoc/syntax.md) is authored after [pdoc](https://github.com/tobie/pdoc), with some additional tags.
 
 ## License
 
