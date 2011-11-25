@@ -363,9 +363,6 @@ args
   /* comma-separated list of arguments */
   | args ',' arg { $$.push($3) }
 
-  /* optional argument */
-  | args '[' arg ']' { $3.optional = true; $$.push($3) }
-
   /* comma-separated list of optional arguments */
   | args ',' '[' args ']' %{
     $4.forEach(function(a) {
@@ -374,9 +371,9 @@ args
     });
   }%
 
-  /* comma-separated list of optional arguments. N.B. not valid pdoc, just for compatibility */
-  | args '[' ',' args ']' %{
-    $4.forEach(function(a) {
+  /* comma-separated list of optional arguments */
+  | args '[' args ']' %{
+    $3.forEach(function(a) {
       a.optional = true;
       $args1.push(a);
     });
