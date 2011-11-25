@@ -5,7 +5,7 @@ An attempt to parse [PDoc](http://pdoc.org/syntax.html) with [node.js](http://no
 
 ## How to Install
 
-Clone and have fun
+   npm install ndoc
 
 ## Quick start
 
@@ -37,6 +37,10 @@ Go to your project's root directory and run
       --package-title TITLE     Package title
       --view-source-label TXT   Text for "View source" link
       --skin PATH               Custom templates
+
+## Syntax
+
+[Syntax](ndoc/blob/master/syntax.md) is authored after [pdoc](https://github.com/tobie/pdoc), with some additional tags.
 
 ## License
 
