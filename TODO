@@ -8,3 +8,16 @@
     "robotskirt": "0.2.2",
 
 * ---drop signature() in favor of elaborated markup, if possible
+
+Not assigned icons:
+
+- constant
+- information
+- method
+- method_deprecated
+- property
+- related-to
+- section
+- utility
+
+Default links style

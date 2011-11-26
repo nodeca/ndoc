@@ -27,35 +27,40 @@ body
 
 .menu-item
 
-  a, a:link
-    background-position: 6px 50%
-    background-repeat: no-repeat
-    color: #333333
-    display: block
-    padding: 3px 10px 3px 28px
-    text-align: left
-    text-decoration: none
-    white-space: nowrap
+  a
+    &, &:link
+      background-position: 6px 50%
+      background-repeat: no-repeat
+      color: #333333
+      display: block
+      padding: 3px 10px 3px 28px
+      text-align: left
+      text-decoration: none
+      white-space: nowrap
 
-  a:hover
-    background-color: #ccc
+    &:hover
+      background-color: #ccc
 
-  a.current, a.current-parent
-    background-color: #ddd
+    &.current, &.current-parent
+      background-color: #ddd
 
-  a.class
+    &.class
       background-image: url("../images/class.png")
-  a.constructor
-      background-image: url("../images/constructor.png")
-  a.class-method
+      &.deprecated
+        background-image: url("../images/class_deprecated.png")
+    &.class-method
       background-image: url("../images/class_method.png")
-  a.class-property
+    &.class-property
       background-image: url("../images/class_property.png")
-  a.instance-method
+    &.constructor
+      background-image: url("../images/constructor.png")
+    &.instance-method
       background-image: url("../images/instance_method.png")
-  a.instance-property
+    &.instance-property
       background-image: url("../images/instance_property.png")
-  a.namespace
+    &.mixin
+      background-image: url("../images/mixin.png")
+    &.namespace
       background-image: url("../images/namespace.png")
 
 .main
@@ -116,9 +121,15 @@ body
   margin-bottom: 0.5em
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
 
-.article h5
-  font-size: 14px
-  margin: 0
+.article
+  h5
+    font-size: 14px
+    margin: 0
+  h6
+    font-size: 13px
+    margin: 0
+    color: #666;
+    
 
 .source a
   font-size: 10px
@@ -135,38 +146,73 @@ body
 .section
   position: relative
 
-.section h3
-  display: block
-  position: absolute
-  left: -145px
-  top: 1px
-  width: 110px
-  color: #888
-  padding-right: 20px
-  text-align: right
-  font-weight: normal
+  h3
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
+    background-position: right 0px
+    background-repeat: no-repeat
+    display: block
+    position: absolute
+    left: -145px
+    top: 3px
+    width: 110px
+    line-height: 1.2em
+    padding-right: 20px
+    margin: 0
+    text-align: right
+    font-weight: normal
+    font-size: 14px;
+    color: #888
+
+  &.classes h3
+    background-image: url("../images/class.png")
+  &.class_methods h3
+    background-image: url("../images/class_method.png")
+  &.class_properties h3
+    background-image: url("../images/class_property.png")
+  &.constructor h3
+    background-image: url("../images/constructor.png")
+  &.description h3
+    background-image: url("../images/description.png")
+  &.instance_methods h3
+    background-image: url("../images/instance_method.png")
+  &.instance_properties h3
+    background-image: url("../images/instance_property.png")
+  &.mixins h3
+    background-image: url("../images/mixin.png")
+  &.namespaces h3
+    background-image: url("../images/namespace.png")
+  &.subclasses h3
+    background-image: url("../images/subclass.png")
+  &.superclass h3
+    background-image: url("../images/superclass.png")
+  &.utilities h3
+    background-image: url("../images/utility.png")
+
+.method-list
+  padding: 0
+  overflow: hidden
+
+  li
+    list-style: none
+    margin-bottom: 7px
+    float: left
+
+    &:after
+      content: ","
+      margin: 0 10px 0 2px
+    &:last-child:after
+      content: ""
+      margin: 0
+    a
+      border-bottom: 1px solid #888
+      color: #003366
+      text-decoration: none
+
+.method-details-list
+  padding: 0
   margin: 0
-  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif
-  background-position: right 2px
-  background-repeat: no-repeat
+  list-style: none;
 
-.description h3
-  background-image: url("../images/description.png")
-
-.constructor h3
-  background-image: url("../images/constructor.png")
-
-.class_methods h3
-  background-image: url("../images/class_method.png")
-
-.class_properties h3
-  background-image: url("../images/class_property.png")
-
-.instance_methods h3
-  background-image: url("../images/instance_method.png")
-
-.instance_properties h3
-  background-image: url("../images/instance_property.png")
 
 .signatures
   background-color: #e0e8e0
@@ -214,19 +260,19 @@ body
 
 .argument-types
   ul
-    :before
+    &:before
       content: '('
       margin-right: 2px
-    :after
+    &:after
       content: ')'
       margin-left: 2px
   li
     display: inline
 
-    :after
+    &:after
       content: "|"
       margin: 0 2px
-    :last-child:after
+    &:last-child:after
       content: ""
       margin: 0
 
@@ -238,25 +284,6 @@ body
 .argument-description p
   display: inline
 
-.method-list
-  padding: 0
-  overflow: hidden
-
-  li
-    list-style: none
-    margin-bottom: 7px
-    float: left
-
-    :after
-      content: ","
-      margin: 0 10px 0 2px
-    :last-child:after
-      content: ""
-      margin: 0
-    a
-      border-bottom: 1px solid #888
-      color: #003366
-      text-decoration: none
 
 pre
   border: 1px solid #ccc
@@ -264,6 +291,11 @@ pre
   background-color: #f8f8f8
   border-radius: 3px
   font-size: 13px
+
+  overflow: auto
+
+  code
+    white-space: pre
 
 p code
   border: 1px solid #ccc
@@ -285,14 +317,15 @@ p code
   li
     display: inline
 
-    :after
+    &:after
       content: ","
       margin: 0 5px 0 2px
-    :last-child:after
+    &:last-child:after
       content: ""
       margin: 0
 
 .alias a,
+section.superclass a,
 a.link-short
   border-bottom: 1px solid #888888
   color: #003366

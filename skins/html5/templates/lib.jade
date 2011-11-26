@@ -269,7 +269,7 @@ mixin markdown(text, inline)
 
 
 mixin links(collection)
-  ul
+  ul.method-list
     for obj in collection
       li
         mixin link(obj)
