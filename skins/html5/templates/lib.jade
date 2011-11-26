@@ -226,7 +226,7 @@ mixin article(obj)
 
 mixin api(tree)
   for obj in tree
-    if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
+    if obj.type === 'section' || obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
       mixin article(obj)
 
 

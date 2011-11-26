@@ -178,12 +178,6 @@ argument_descriptions
 argument_description
 
   : '*-' name '(' names_alternation ')' { $$ = {name: $2, types: $4} }
-  | '*-' name ':' TEXT %{
-    $$ = {
-      name: $2,
-      description: $4.replace(/(?:\s*\*\s*|\s+)/g, ' ').replace(/(^\s*|\s*$)/g, '')
-    };
-  }%
   | '*-' name '(' names_alternation '):' TEXT %{
     $$ = {
       name: $2,
