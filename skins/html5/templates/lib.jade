@@ -234,11 +234,13 @@ mixin api(tree)
 mixin short_description_list(collection)
   ul.method-details-list
     for obj in collection
+      if typeof obj === 'string'
+        obj = tree[obj]
       li.method-description
-        h4
-          a(href=obj.path) #{obj.id}
+        mixin link(obj)
         if obj.short_description
-          p= obj.short_description
+          p
+            mixin markdown(obj.short_description)
 
 
 mixin link(obj, short, classes)
