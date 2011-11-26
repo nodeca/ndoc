@@ -1,12 +1,448 @@
 
-/* line 1 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/main.styl */
+/* line 138 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/main\.styl}line{font-family:\000031}}
-@import "boilerplate_start.css";
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003138}}
 
-/* line 138 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 16 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003138}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000316}}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+
+/* line 19 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000319}}
+audio,
+canvas,
+video {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+}
+
+/* line 24 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000324}}
+audio:not([controls]) {
+  display: none;
+}
+
+/* line 27 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000327}}
+[hidden] {
+  display: none;
+}
+
+/* line 40 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000340}}
+html {
+  font-size: 100%;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+/* line 46 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000346}}
+body {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.231;
+}
+
+/* line 51 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000351}}
+body,
+button,
+input,
+select,
+textarea {
+  font-family: sans-serif;
+  color: #222;
+}
+
+/* line 61 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000361}}
+::-moz-selection {
+  background: #fe57a1;
+  color: #fff;
+  text-shadow: none;
+}
+
+/* line 66 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000366}}
+::selection {
+  background: #fe57a1;
+  color: #fff;
+  text-shadow: none;
+}
+
+/* line 75 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000375}}
+a {
+  color: #00e;
+}
+
+/* line 78 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000378}}
+a:visited {
+  color: #551a8b;
+}
+
+/* line 81 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000381}}
+a:hover {
+  color: #06e;
+}
+
+/* line 84 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000384}}
+a:focus {
+  outline: thin dotted;
+}
+
+/* line 89 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000389}}
+a:hover,
+a:active {
+  outline: 0;
+}
+
+/* line 96 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000396}}
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/* line 99 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000399}}
+b,
+strong {
+  font-weight: bold;
+}
+
+/* line 102 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003102}}
+blockquote {
+  margin: 1em 40px;
+}
+
+/* line 105 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003105}}
+dfn {
+  font-style: italic;
+}
+
+/* line 108 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003108}}
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+/* line 116 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003116}}
+ins {
+  background: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+/* line 121 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003121}}
+mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* line 128 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003128}}
+pre,
+code,
+kbd,
+samp {
+  font-family: monospace, serif;
+  _font-family: 'courier new', monospace;
+  font-size: 1em;
+}
+
+/* line 133 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003133}}
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* line 137 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003137}}
+q {
+  quotes: none;
+}
+
+/* line 140 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003140}}
+q:before,
+q:after {
+  content: none;
+}
+
+/* line 143 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003143}}
+small {
+  font-size: 85%;
+}
+
+/* line 146 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003146}}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 152 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003152}}
+sup {
+  top: -0.5em;
+}
+
+/* line 155 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003155}}
+sub {
+  bottom: -0.25em;
+}
+
+/* line 162 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003162}}
+ul,
+ol {
+  margin: 1em 0;
+  padding: 0 0 0 40px;
+}
+
+/* line 166 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003166}}
+dd {
+  margin: 0 0 0 40px;
+}
+
+/* line 169 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003169}}
+nav ul,
+nav ol {
+  list-style: none;
+  list-style-image: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 184 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003184}}
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+}
+
+/* line 193 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003193}}
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* line 200 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003200}}
+figure {
+  margin: 0;
+}
+
+/* line 207 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003207}}
+form {
+  margin: 0;
+}
+
+/* line 210 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003210}}
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 215 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003215}}
+label {
+  cursor: pointer;
+}
+
+/* line 223 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003223}}
+legend {
+  border: 0;
+  *margin-left: -7px;
+  padding: 0;
+}
+
+/* line 234 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003234}}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+  margin: 0;
+  vertical-align: baseline;
+  *vertical-align: middle;
+}
+
+/* line 244 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003244}}
+button,
+input {
+  line-height: normal;
+}
+
+/* line 253 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003253}}
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  cursor: pointer;
+  -webkit-appearance: button;
+  *overflow: visible;
+}
+
+/* line 262 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003262}}
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+/* line 266 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003266}}
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+/* line 272 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003272}}
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/* line 279 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003279}}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/* line 288 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003288}}
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+
+/* line 294 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003294}}
+input:valid,
+textarea:valid,
+input:invalid,
+textarea:invalid {
+  background-color: #f0dddd;
+}
+
+/* line 303 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003303}}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 307 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003307}}
+td {
+  vertical-align: top;
+}
+
+/* line 310 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003310}}
 
 /* line 1 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
@@ -17,31 +453,46 @@ body {
   line-height: 1.5em;
 }
 
-/* line 6 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 7 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\000036}}
-.menu {
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\000037}}
+.sidebar {
   background: none repeat scroll 0 0 #eee;
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   width: 240px;
-  font-size: 13px;
+  font-size: 14px;
   height: 100%;
   overflow: auto;
 }
 
-/* line 17 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 18 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000317}}
-.menu ul {
-  margin-left: 10px;
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000318}}
+.menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
 }
 
-/* line 20 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 23 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000320}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000323}}
+.menu ul {
+  margin-left: 10px;
+  padding: 0;
+  list-style: none;
+}
+
+/* line 28 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000328}}
+
+/* line 30 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000330}}
 .menu-item a,
 .menu-item a:link {
   background-position: 6px 50%;
@@ -54,93 +505,89 @@ body {
   white-space: nowrap;
 }
 
-/* line 30 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000330}}
-.menu-item a:hover {
-  background-color: #ccc;
-}
-
-/* line 33 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000333}}
-
-/* line 34 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000334}}
-.menu-item a.current .menu-item a.current-parent,
- .menu-item a.current-parent {
-  background-color: #ddd;
-}
-
-/* line 37 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000337}}
-.menu-item a.class {
-  background-image: url("../images/class.png");
-}
-
 /* line 40 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000340}}
-.menu-item a.constructor {
-  background-image: url("../images/constructor.png");
+.menu-item a:hover {
+  background-color: #ccc;
 }
 
 /* line 43 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000343}}
-.menu-item a.class-method {
-  background-image: url("../images/class_method.png");
+.menu-item a.current,
+.menu-item a.current-parent {
+  background-color: #ddd;
 }
 
 /* line 46 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000346}}
-.menu-item a.class-property {
-  background-image: url("../images/class_property.png");
+.menu-item a.class {
+  background-image: url("../images/class.png");
 }
 
-/* line 49 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 48 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000349}}
-.menu-item a.instance-method {
-  background-image: url("../images/instance_method.png");
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000348}}
+.menu-item a.constructor {
+  background-image: url("../images/constructor.png");
+}
+
+/* line 50 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000350}}
+.menu-item a.class-method {
+  background-image: url("../images/class_method.png");
 }
 
 /* line 52 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000352}}
-.menu-item a.instance-property {
-  background-image: url("../images/instance_property.png");
+.menu-item a.class-property {
+  background-image: url("../images/class_property.png");
 }
 
-/* line 55 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 54 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000355}}
-.menu-item a.namespace {
-  background-image: url("../images/namespace.png");
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000354}}
+.menu-item a.instance-method {
+  background-image: url("../images/instance_method.png");
+}
+
+/* line 56 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000356}}
+.menu-item a.instance-property {
+  background-image: url("../images/instance_property.png");
 }
 
 /* line 58 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000358}}
+.menu-item a.namespace {
+  background-image: url("../images/namespace.png");
+}
+
+/* line 61 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000361}}
 .main {
   width: 700px;
   margin-left: 250;
 }
 
-/* line 62 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 65 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000362}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000365}}
 .article,
 #home {
   margin-bottom: 70px;
 }
 
-/* line 66 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 69 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000366}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000369}}
 .breadcrumbs {
   font-size: 12px;
   white-space: nowrap;
@@ -148,47 +595,47 @@ body {
   color: #ccc;
 }
 
-/* line 72 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 75 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000372}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000375}}
 .breadcrumbs a {
   color: #ccc;
 }
 
-/* line 75 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 78 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000375}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000378}}
 .breadcrumbs li {
   display: inline;
   margin: 0 4px 0 0;
 }
 
-/* line 79 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 82 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000379}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000382}}
 .breadcrumbs li:after {
   content: "»";
   margin: 0 0 0 4px;
 }
 
-/* line 83 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 86 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000383}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000386}}
 .breadcrumbs li:last-child:after {
   content: "";
   margin: 0;
 }
 
-/* line 87 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 90 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000387}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000390}}
 #home h1 {
   font-size: 30px;
 }
 
-/* line 90 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 93 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000390}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000393}}
 .article header,
 .article .section,
 .article .alias,
@@ -197,17 +644,17 @@ body {
   margin-bottom: 10px;
 }
 
-/* line 97 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 100 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000397}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003100}}
 .footer,
 #home {
   margin-left: 140px;
 }
 
-/* line 101 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 104 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003101}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003104}}
 .article h2 {
   position: relative;
   font-size: 30px;
@@ -215,9 +662,9 @@ body {
   line-height: 1;
 }
 
-/* line 107 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 110 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003107}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003110}}
 .article h2 .type {
   display: block;
   color: #888;
@@ -228,17 +675,17 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 116 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 119 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003116}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003119}}
 .article h5 {
   font-size: 14px;
   margin: 0;
 }
 
-/* line 120 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 123 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003120}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003123}}
 .source a {
   font-size: 10px;
   color: #aaa;
@@ -246,30 +693,30 @@ body {
   text-decoration: none;
 }
 
-/* line 126 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003126}}
-.deprecated-note {
-  color: #f00;
-}
-
 /* line 129 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003129}}
-.article.deprecated h2 .name {
-  text-decoration: line-through;
+.deprecated-note {
+  color: #f00;
 }
 
 /* line 132 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003132}}
-.section {
-  position: relative;
+.article.deprecated h2 .name {
+  text-decoration: line-through;
 }
 
 /* line 135 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003135}}
+.section {
+  position: relative;
+}
+
+/* line 138 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003138}}
 .section h3 {
   display: block;
   position: absolute;
@@ -286,51 +733,51 @@ body {
   background-repeat: no-repeat;
 }
 
-/* line 150 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003150}}
-.description h3 {
-  background-image: url("../images/description.png");
-}
-
 /* line 153 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003153}}
-.constructor h3 {
-  background-image: url("../images/constructor.png");
+.description h3 {
+  background-image: url("../images/description.png");
 }
 
 /* line 156 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003156}}
-.class_methods h3 {
-  background-image: url("../images/class_method.png");
+.constructor h3 {
+  background-image: url("../images/constructor.png");
 }
 
 /* line 159 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003159}}
-.class_properties h3 {
-  background-image: url("../images/class_property.png");
+.class_methods h3 {
+  background-image: url("../images/class_method.png");
 }
 
 /* line 162 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003162}}
-.instance_methods h3 {
-  background-image: url("../images/instance_method.png");
+.class_properties h3 {
+  background-image: url("../images/class_property.png");
 }
 
 /* line 165 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003165}}
-.instance_properties h3 {
-  background-image: url("../images/instance_property.png");
+.instance_methods h3 {
+  background-image: url("../images/instance_method.png");
 }
 
 /* line 168 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003168}}
+.instance_properties h3 {
+  background-image: url("../images/instance_property.png");
+}
+
+/* line 171 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003171}}
 .signatures {
   background-color: #e0e8e0;
   padding: 3px 5px;
@@ -339,41 +786,41 @@ body {
   border-radius: 3px;
 }
 
-/* line 175 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 178 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003175}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003178}}
 .signature ul {
   padding: 0;
   margin: 0;
 }
 
-/* line 179 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 182 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003179}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003182}}
 .signature li {
   display: inline;
 }
 
-/* line 182 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 185 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003182}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003185}}
 .signature ul.argument-types {
   display: inline;
   margin: 0;
   padding: 0;
 }
 
-/* line 187 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 190 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003187}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003190}}
 .signature ul.argument-types:before {
   content: '→';
   margin: 0 5px;
 }
 
-/* line 191 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 194 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003191}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003194}}
 .argument-details {
   padding: 0;
   margin: 0;
@@ -381,24 +828,24 @@ body {
   display: inline;
 }
 
-/* line 197 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 200 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003197}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003200}}
 .argument-details li {
   display: inline;
 }
 
-/* line 200 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 203 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003200}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003203}}
 .argument-name {
   color: #060;
   font-weight: bold;
 }
 
-/* line 204 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 207 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003204}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003207}}
 .argument-details .argument-types ul {
   display: inline;
   margin: 0;
@@ -408,101 +855,109 @@ body {
   font-size: 11px;
 }
 
-/* line 212 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 215 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003212}}
-.argument-types ul:before {
-  content: '(';
-  margin-right: 2px;
-}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003215}}
 
 /* line 216 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003216}}
-.argument-types ul:after {
-  content: ')';
-  margin-left: 2px;
+
+/* line 217 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003217}}
+.argument-types ul :before {
+  content: '(';
+  margin-right: 2px;
 }
 
 /* line 220 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003220}}
-.argument-types li {
-  display: inline;
+.argument-types ul :after {
+  content: ')';
+  margin-left: 2px;
 }
 
 /* line 223 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003223}}
-.argument-types li:after {
+.argument-types li {
+  display: inline;
+}
+
+/* line 226 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003226}}
+.argument-types li :after {
   content: "|";
   margin: 0 2px;
 }
 
-/* line 227 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 229 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003227}}
-.argument-types li:last-child:after {
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003229}}
+.argument-types li :last-child:after {
   content: "";
   margin: 0;
 }
 
-/* line 231 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 233 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003231}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003233}}
 .argument-description:before {
   content: '—';
   margin-left: 5px;
   margin-right: 5px;
 }
 
-/* line 236 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 238 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003236}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003238}}
 .argument-description p {
   display: inline;
 }
 
-/* line 239 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 241 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003239}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003241}}
 .method-list {
   padding: 0;
   overflow: hidden;
 }
 
-/* line 243 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 245 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003243}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003245}}
 .method-list li {
   list-style: none;
   margin-bottom: 7px;
   float: left;
 }
 
-/* line 248 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 250 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003248}}
-.method-list li a {
-  border-bottom: 1px solid #888;
-  color: #036;
-  text-decoration: none;
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003250}}
+.method-list li :after {
+  content: ",";
+  margin: 0 10px 0 2px;
 }
 
 /* line 253 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003253}}
-.method-list li:after {
-  content: ",";
-  margin: 0 10px 0 2px;
-}
-
-/* line 257 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003257}}
-.method-list li:last-child:after {
+.method-list li :last-child:after {
   content: "";
   margin: 0;
+}
+
+/* line 256 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003256}}
+.method-list li a {
+  border-bottom: 1px solid #888;
+  color: #036;
+  text-decoration: none;
 }
 
 /* line 261 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
@@ -541,6 +996,37 @@ p code {
 /* line 282 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
 @media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003282}}
+.alias ul {
+  display: inline;
+  padding: 0;
+}
+
+/* line 285 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003285}}
+.alias li {
+  display: inline;
+}
+
+/* line 288 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003288}}
+.alias li :after {
+  content: ",";
+  margin: 0 5px 0 2px;
+}
+
+/* line 291 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003291}}
+.alias li :last-child:after {
+  content: "";
+  margin: 0;
+}
+
+/* line 295 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003295}}
 .alias a,
 a.link-short {
   border-bottom: 1px solid #888;
@@ -548,40 +1034,9 @@ a.link-short {
   text-decoration: none;
 }
 
-/* line 288 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 301 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003288}}
-.alias ul {
-  display: inline;
-  padding: 0;
-}
-
-/* line 292 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003292}}
-.alias li {
-  display: inline;
-}
-
-/* line 295 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003295}}
-.alias li:after {
-  content: ",";
-  margin: 0 5px 0 2px;
-}
-
-/* line 299 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003299}}
-.alias li:last-child:after {
-  content: "";
-  margin: 0;
-}
-
-/* line 303 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003303}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003301}}
 .footer {
   border-top: 1px solid #eee;
   color: #ccc;
@@ -590,16 +1045,16 @@ a.link-short {
   line-height: 1;
 }
 
-/* line 310 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+/* line 308 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003310}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003308}}
 .footer a {
   color: #ccc;
 }
 
-/* line 313 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 311 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\00003313}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\00003311}}
 
 /* line 1 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
 
@@ -794,14 +1249,99 @@ li.L9 {
   }
 }
 
-/* line 4 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/main.styl */
+/* line 80 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/main\.styl}line{font-family:\000034}}
-@import "boilerplate_end.css";
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000380}}
 
-/* line 80 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
+/* line 6 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_print\.styl}line{font-family:\0000380}}
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\000036}}
+.ir {
+  display: block;
+  border: 0;
+  text-indent: -999em;
+  overflow: hidden;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  text-align: left;
+  direction: ltr;
+}
+
+/* line 16 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000316}}
+.ir br {
+  display: none;
+}
+
+/* line 19 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000319}}
+.hidden {
+  display: none;
+  visibility: hidden;
+}
+
+/* line 23 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000323}}
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+/* line 34 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000334}}
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+/* line 43 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000343}}
+.invisible {
+  visibility: hidden;
+}
+
+/* line 47 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000347}}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+
+/* line 51 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000351}}
+.clearfix:after {
+  clear: both;
+}
+
+/* line 54 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000354}}
+.clearfix {
+  *zoom: 1;
+}
+
+/* line 57 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/vitaly\/Кодинг\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_print\.styl}line{font-family:\0000357}}
 @media print {
 
 /* line 7 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */

@@ -3,57 +3,60 @@ body
   font-size: 14px
   line-height: 1.5em
 
-.menu
+
+.sidebar
   background: none repeat scroll 0 0 #eee
   position: fixed
   top: 0
   bottom: 0
   left: 0
   width: 240px
-  font-size: 13px
+  font-size: 14px
   height: 100%
   overflow: auto
 
-.menu ul
-  margin-left: 10px
+.menu
+  padding: 0
+  margin: 0
+  list-style: none
 
-.menu-item a, .menu-item a:link
-  background-position: 6px 50%
-  background-repeat: no-repeat
-  color: #333333
-  display: block
-  padding: 3px 10px 3px 28px
-  text-align: left
-  text-decoration: none
-  white-space: nowrap
+  ul
+    margin-left: 10px
+    padding: 0
+    list-style: none
 
-.menu-item a:hover
-  background-color: #ccc
+.menu-item
 
-.menu-item a.current,
- .menu-item a.current-parent
-  background-color: #ddd
+  a, a:link
+    background-position: 6px 50%
+    background-repeat: no-repeat
+    color: #333333
+    display: block
+    padding: 3px 10px 3px 28px
+    text-align: left
+    text-decoration: none
+    white-space: nowrap
 
-.menu-item a.class
-  background-image: url("../images/class.png")
+  a:hover
+    background-color: #ccc
 
-.menu-item a.constructor
-  background-image: url("../images/constructor.png")
+  a.current, a.current-parent
+    background-color: #ddd
 
-.menu-item a.class-method
-  background-image: url("../images/class_method.png")
-
-.menu-item a.class-property
-  background-image: url("../images/class_property.png")
-
-.menu-item a.instance-method
-  background-image: url("../images/instance_method.png")
-
-.menu-item a.instance-property
-  background-image: url("../images/instance_property.png")
-
-.menu-item a.namespace
-  background-image: url("../images/namespace.png")
+  a.class
+      background-image: url("../images/class.png")
+  a.constructor
+      background-image: url("../images/constructor.png")
+  a.class-method
+      background-image: url("../images/class_method.png")
+  a.class-property
+      background-image: url("../images/class_property.png")
+  a.instance-method
+      background-image: url("../images/instance_method.png")
+  a.instance-property
+      background-image: url("../images/instance_property.png")
+  a.namespace
+      background-image: url("../images/namespace.png")
 
 .main
   width: 700px
@@ -209,24 +212,23 @@ body
   font-style: italic
   font-size: 11px
 
-.argument-types ul:before
-  content: '('
-  margin-right: 2px
+.argument-types
+  ul
+    :before
+      content: '('
+      margin-right: 2px
+    :after
+      content: ')'
+      margin-left: 2px
+  li
+    display: inline
 
-.argument-types ul:after
-  content: ')'
-  margin-left: 2px
-
-.argument-types li
-  display: inline
-
-.argument-types li:after
-  content: "|"
-  margin: 0 2px
-
-.argument-types li:last-child:after
-  content: ""
-  margin: 0
+    :after
+      content: "|"
+      margin: 0 2px
+    :last-child:after
+      content: ""
+      margin: 0
 
 .argument-description:before
   content: '—'
@@ -240,23 +242,21 @@ body
   padding: 0
   overflow: hidden
 
-.method-list li
-  list-style: none
-  margin-bottom: 7px
-  float: left
+  li
+    list-style: none
+    margin-bottom: 7px
+    float: left
 
-.method-list li a
-  border-bottom: 1px solid #888
-  color: #003366
-  text-decoration: none
-
-.method-list li:after
-  content: ","
-  margin: 0 10px 0 2px
-
-.method-list li:last-child:after
-  content: ""
-  margin: 0
+    :after
+      content: ","
+      margin: 0 10px 0 2px
+    :last-child:after
+      content: ""
+      margin: 0
+    a
+      border-bottom: 1px solid #888
+      color: #003366
+      text-decoration: none
 
 pre
   border: 1px solid #ccc
@@ -279,26 +279,24 @@ p code
   font-size: 12px
   padding: 3px 30px
 
+  ul
+    display: inline
+    padding: 0
+  li
+    display: inline
+
+    :after
+      content: ","
+      margin: 0 5px 0 2px
+    :last-child:after
+      content: ""
+      margin: 0
+
 .alias a,
 a.link-short
   border-bottom: 1px solid #888888
   color: #003366
   text-decoration: none
-
-.alias ul
-  display: inline
-  padding: 0
-
-.alias li
-  display: inline
-
-.alias li:after
-  content: ","
-  margin: 0 5px 0 2px
-
-.alias li:last-child:after
-  content: ""
-  margin: 0
 
 .footer
   border-top: 1px solid #eee
@@ -307,6 +305,6 @@ a.link-short
   margin-top: 30px
   line-height: 1
 
-.footer a
-  color: #ccc
+  a
+    color: #ccc
 
