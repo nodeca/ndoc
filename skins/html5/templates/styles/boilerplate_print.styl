@@ -1,0 +1,48 @@
+/* ==|== print styles =======================================================
+ Print styles.
+ Inlined to avoid required HTTP connection: h5bp.com/r
+ ========================================================================== */
+
+@media print
+ *
+  background: transparent
+  color: black
+  box-shadow: none
+  text-shadow: none
+  filter: none
+  -ms-filter: none
+
+ a, a:visited
+  text-decoration: underline
+
+ a[href]:after
+  content: " (" attr(href) ")"
+
+ abbr[title]:after
+  content: " (" attr(title) ")"
+
+ .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after
+  content: ""
+
+ pre, blockquote
+  border: 1px solid #999
+  page-break-inside: avoid
+
+ thead
+  display: table-header-group
+
+ tr, img
+  page-break-inside: avoid
+
+ img
+  max-width: 100%
+
+ @page
+  margin: 0.5cm
+
+ p, h2, h3
+  orphans: 3
+  widows: 3
+
+ h2, h3
+  page-break-after: avoid

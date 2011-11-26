@@ -13,7 +13,7 @@ redo:
 	# force rebuild parser
 	rm -fr lib/parser.js
 	# rebuild stylesheets
-	node_modules/.bin/stylus -f -l -o $(ROOT)/skins/html5/skeleton/stylesheets $(ROOT)/skins/html5/templates/styles
+	node_modules/.bin/stylus -f -l -o $(ROOT)/skins/html5/skeleton/stylesheets/ $(ROOT)/skins/html5/templates/styles/main.styl
 
 $(DOCS): $(LIBS)
 	echo Compiling documentation for $(@D)
