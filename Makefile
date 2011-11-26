@@ -13,8 +13,7 @@ redo:
 	# force rebuild parser
 	rm -fr lib/parser.js
 	# rebuild stylesheets
-	#echo "require('stylus')(require('fs').readFileSync('$(ROOT)/skins/html5/templates/styles/api1.styl','utf8')).render({filename: 'bundle.css'}, function(err, css){err && console.error(err) || console.log(css)})" | node >$(ROOT)/skins/html5/skeleton/stylesheets/bundle.css
-	#echo "require('stylus')(require('fs').readFileSync('$(ROOT)/skins/html5/templates/styles/api1.styl','utf8')).set('filename', 'bundle.css').render(function(err, css){err && console.error(err) || console.log(css)})" | node >$(ROOT)/skins/html5/skeleton/stylesheets/bundle.css
+	node_modules/.bin/stylus -f -l -o $(ROOT)/skins/html5/skeleton/stylesheets $(ROOT)/skins/html5/templates/styles
 
 $(DOCS): $(LIBS)
 	echo Compiling documentation for $(@D)

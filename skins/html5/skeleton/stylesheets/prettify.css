@@ -1,109 +1,201 @@
+
+/* line 1 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\000031}}
 .pln {
-  color:#000;
+  color: #000;
 }
-/*
-pre.prettyprint {
-  padding:2px;
-  border:1px solid #888;
-}
-*/
+
+/* line 4 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\000034}}
 ol.linenums {
-  margin-top:0;
-  margin-bottom:0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
-li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8 {
-  list-style-type:none;
+/* line 8 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\000038}}
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L5,
+li.L6,
+li.L7,
+li.L8 {
+  list-style-type: none;
 }
 
-li.L1,li.L3,li.L5,li.L7,li.L9 {
-  background:#eee;
+/* line 11 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000311}}
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 {
+  background: #eee;
 }
 
+/* line 14 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000314}}
 @media screen {
+
+/* line 15 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000315}}
   .str {
-    color:#080;
+    color: #080;
   }
-  
+
+/* line 18 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000318}}
   .kwd {
-    color:#008;
+    color: #008;
   }
-  
+
+/* line 21 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000321}}
   .com {
-    color:#800;
+    color: #800;
   }
-  
+
+/* line 24 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000324}}
   .typ {
-    color:#606;
+    color: #606;
   }
-  
+
+/* line 27 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000327}}
   .lit {
-    color:#066;
+    color: #066;
   }
-  
-  .pun,.opn,.clo {
-    color:#660;
+
+/* line 30 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000330}}
+  .pun,
+  .opn,
+  .clo {
+    color: #660;
   }
-  
+
+/* line 33 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000333}}
   .tag {
-    color:#008;
+    color: #008;
   }
-  
+
+/* line 36 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000336}}
   .atn {
-    color:#606;
+    color: #606;
   }
-  
+
+/* line 39 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000339}}
   .atv {
-    color:#080;
+    color: #080;
   }
-  
-  .dec,.var {
-    color:#606;
+
+/* line 42 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000342}}
+  .dec,
+  .var {
+    color: #606;
   }
-  
+
+/* line 45 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000345}}
   .fun {
-    color:red;
+    color: #f00;
   }
 }
 
-@media print,projection {
+/* line 48 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000348}}
+@media printprojection {
+
+/* line 49 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000349}}
   .str {
-    color:#060;
+    color: #060;
   }
-  
+
+/* line 52 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000352}}
   .kwd {
-    color:#006;
-    font-weight:700;
+    color: #006;
+    font-weight: 700;
   }
-  
+
+/* line 56 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000356}}
   .com {
-    color:#600;
-    font-style:italic;
+    color: #600;
+    font-style: italic;
   }
-  
+
+/* line 60 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000360}}
   .typ {
-    color:#404;
-    font-weight:700;
+    color: #404;
+    font-weight: 700;
   }
-  
+
+/* line 64 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000364}}
   .lit {
-    color:#044;
+    color: #044;
   }
-  
-  .pun,.opn,.clo {
-    color:#440;
+
+/* line 67 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000367}}
+  .pun,
+  .opn,
+  .clo {
+    color: #440;
   }
-  
+
+/* line 70 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000370}}
   .tag {
-    color:#006;
-    font-weight:700;
+    color: #006;
+    font-weight: 700;
   }
-  
+
+/* line 74 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000374}}
   .atn {
-    color:#404;
+    color: #404;
   }
-  
+
+/* line 77 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+
+@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000377}}
   .atv {
-    color:#060;
+    color: #060;
   }
 }
