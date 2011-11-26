@@ -8,15 +8,14 @@
   "bugs"        : { "url": "https://github.com/nodeca/ndoc/issues" },
   "license"     : { "type": "MIT", "url": "https://github.com/nodeca/ndoc/blob/master/LICENSE" },
   "repository"  : { "type": "git", "url": "git://github.com/nodeca/ndoc.git" },
-  "bin"         : { "ndoc": "bin/ndoc" },
+  "bin"         : { "ndoc": ".bin/ndoc" },
   "engines"     : { "node": "> 0.4.11 < 0.7.0" },
   "dependencies": {
     "jison"     : "https://github.com/zaach/jison/tarball/master",
     "nomnom"    : "1.5.1",
     "jade"      : "0.18.0",
     "stylus"    : "0.19.3",
-    "marked"    : "https://github.com/dvv/marked/tarball/master",
-    "robotskirt": "0.2.2",
+    "marked"    : "https://github.com/chjj/marked/tarball/master",
     "simple-promise": "0.1.0",
     "fs-tools"  : "0.1.0",
     "underscore": "1.2.2"
