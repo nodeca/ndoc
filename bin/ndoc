@@ -99,7 +99,9 @@ try {
 //
 try {
   opts.index = Util.read(opts.index);
-} catch(err) {}
+} catch(err) {
+  opts.index = '';
+}
 
 //console.error(opts); process.exit(0);
 

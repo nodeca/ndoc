@@ -8,7 +8,7 @@ mixin menu_item(obj, level, short)
     obj = tree[obj]
   li
     .menu-item
-      a(class=[obj.type.replace(/ /g, '-'), obj.deprecated && 'deprecated', obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;}), href='##{obj.path}', title='#{obj.id} (#{obj.type})', 'data-id'=obj.id) #{short && obj.name || obj.id}
+      mixin link(obj, short, [obj.type.replace(/ /g, '-'), obj.deprecated && 'deprecated', obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;}))
       if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
         if obj.children.length
           ul.hidden
@@ -149,7 +149,7 @@ mixin article(obj)
           .content
           ul.method-list
             li
-              mixin link('new ' + obj.id, true)
+              mixin link('new ' + obj.id)
 
       for title, method in {class_methods: 'Class methods', class_properties: 'Class properties', instance_methods: 'Instance methods', instance_properties: 'Instance properties', constants: 'Constants'}
         methods = obj[method]

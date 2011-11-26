@@ -107,6 +107,10 @@ world
     // register
     $$[x.id] = x;
   }%
+
+  /*| world '/**' tags ndoc_and_includes_and_fires error comment %{
+    console.log('ERR', $4, $5, $6, yy.lexer.conditionStack); yy.lexer.popState();
+  }%*/
   ;
 
 
@@ -155,7 +159,7 @@ comment
 
 ndoc
 
-  : section { /*yy.lexer.begin('comment')*/ }
+  : section
   | namespace
   | class
   | mixin
