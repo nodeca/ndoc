@@ -1,4 +1,5 @@
 * support comment starting w/o leading NL
+* reconcile name clashes. E.g. Ajax section and namespace of prototype.js
 * employ stylus
 * elaborate robuster highlighter
 * choose markdown:

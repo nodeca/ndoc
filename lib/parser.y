@@ -105,6 +105,9 @@ world
     x.short_description = x.description.replace(/\n\n[\s\S]*$/, '\n');
     x.line = ($5.line + 1);
     // register
+    if ($$[x.id]) {
+      console.error('name clash: ' + x.id);
+    }
     $$[x.id] = x;
   }%
 
@@ -264,15 +267,15 @@ name_or_value
   ;
 
 
-namespace
-
-  : name { $$ = {id: $1, type: 'namespace'}; }
-  ;
-
-
 section
 
   : '==' name '==' { $$ = {id: $2, type: 'section'}; }
+  ;
+
+
+namespace
+
+  : name { $$ = {id: $1, type: 'namespace'}; }
   ;
 
 
