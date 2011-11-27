@@ -32,7 +32,7 @@ function extend(o, plus) {
 }
 
 //
-// read source files and compose the document tree
+// read source files and compose the documentation tree
 //
 function NDoc(files, options) {
 
@@ -41,10 +41,12 @@ function NDoc(files, options) {
   }, options)
 
   // documentation tree consists of sections, which are populated with documents
-  var tree = {
-    '': {} // default section
+  var sections = {
+    '': {
+      children: []
+    } // default section
   };
-  var raw = [];
+  var list = [];
 
   // parse specified source files
   files.forEach(function(file) {
@@ -64,37 +66,30 @@ function NDoc(files, options) {
         });
       }
       var ndocs = parser.parse(text);
-      // make early work
+      // do pre-distribute early work
       for (var id in ndocs) {
         var d = ndocs[id];
         // FIXME: reconcile id clashes. E.g. prototype has 'Ajax' section and 'Ajax' namespace
-        if (tree[d.id]) {
-          console.error('ID clash: id=%s, new type=%s, old type=%s', id, d.type, tree[id].type, d);
-        }
+        /***if (sections[d.id]) {
+          console.error('ID clash: id=%s, new type=%s, old type=%s', id);
+        }***/
         // assign hierarchy helpers
         d.aliases = [];
-        if (d.type === 'section' || d.type === 'namespace' || d.type === 'class' || d.type === 'mixin') {
-          d.namespaces = [];
-          d.classes = [];
-          d.mixins = [];
-          d.utilities = [];
-          d.constants = [];
-          d.class_methods = [];
-          d.class_properties = [];
-          d.instance_methods = [];
-          d.instance_properties = [];
-          if (d.type === 'class') {
-            //d.superclass = null;
-            d.subclasses = [];
-          }
+        d.children = [];
+        if (d.type === 'class') {
+          //d.superclass = null;
+          d.subclasses = [];
         }
         // collect sections
-        if (d.section == null) d.section = '';
-        if (d.type === 'section') tree[id] = {};
+        if (d.type === 'section') {
+          sections[d.id] = d;
+        // collect flat list
+        } else {
+          list[d.id] = d;
+        }
         // compose links to source files
         d.href = options.formatLink(file, d.line);
       }
-      raw.push(ndocs);
     } catch(err) {
       console.error('FATAL:', file, err.message || err);
       process.exit(1);
@@ -102,92 +97,73 @@ function NDoc(files, options) {
   });
 
   // distribute by sections
-  raw.forEach(function(ndocs) {
-    for (var id in ndocs) {
-      var d = ndocs[id];
-      var section = d.section || '';
-      tree[section][id] = d;
-      // FIXME: reconcile id clashes. E.g. prototype has 'Ajax' section and 'Ajax' namespace
-      if (tree[d.id]) {
-        console.error('ID clash: id=%s, new type=%s, old type=%s', id, d.type, tree[id].type, d);
-      }
-      tree[d.id] = d;
-      d.aliases = [];
-      if (d.type === 'section' || d.type === 'namespace' || d.type === 'class' || d.type === 'mixin') {
-        d.namespaces = [];
-        d.classes = [];
-        d.mixins = [];
-        d.utilities = [];
-        d.constants = [];
-        d.class_methods = [];
-        d.class_properties = [];
-        d.instance_methods = [];
-        d.instance_properties = [];
-        if (d.type === 'class') {
-          //d.superclass = null;
-          d.subclasses = [];
+  for (var id in list) {
+    sections[list[id].section || ''].children.push(id);//list[id]);
+  }
+
+  for (var section in sections) {
+    // sort definitions, to help building hierarchy
+    //var children = sections[section].children.sort(function(a,b){return a.id === b.id ? 0 : a.id < b.id ? -1 : 1});
+    var children = sections[section].children.sort();
+    children.forEach(function(child) {
+      var move = sections[''].forEach(function(c) {
+        return c > child + '.';
+      });
+      children = children.concat(move);
+    });
+    sections[section].children = children;
+continue;
+
+    // build hierarchy
+    // N.B. Foo#a is child of Foo
+    // N.B. since we've sorted keys, Foo always comes before Foo#a
+    for (var i = 0; i < nids; ++i) {
+      var re = new RegExp('^' + ids[i] + '[#.]');
+      var cons = 'new ' + ids[i];
+      for (var j = i + 1; j < nids; ++j) {
+        if (ids[j].match(re)) {
+          children[ids[j]].parent = ids[i];
+        } else if (ids[j] === cons) {
+          //children[ids[j]].parent = ids[i];
+          //children[ids[i]].new = ids[j];
         }
-      } else {
       }
-    }
-  });
-
-  // sort definitions, to help building hierarchy
-  var ids = Object.keys(tree).sort();
-  var nids = ids.length;
-  var sorted = {};
-  for (var i = 0; i < nids; ++i) sorted[ids[i]] = tree[ids[i]];
-  tree = sorted; sorted = null;
-
-  // build hierarchy
-  // N.B. Foo#a is child of Foo
-  // N.B. since we've sorted keys, Foo always comes before Foo#a
-  for (var i = 0; i < nids; ++i) {
-    var re = new RegExp('^' + ids[i] + '[#.]');
-    var cons = 'new ' + ids[i];
-    for (var j = i + 1; j < nids; ++j) {
-      if (ids[j].match(re)) {
-        tree[ids[j]].parent = ids[i];
-      } else if (ids[j] === cons) {
-        //tree[ids[j]].parent = ids[i];
-        //tree[ids[i]].new = ids[j];
+      if (children[cons]) {
+        children[cons].parent = ids[i];
       }
-    }
-    if (tree[cons]) {
-      tree[cons].parent = ids[i];
     }
   }
 
   // distribute methods and properties
-  for (var id in tree) {
-    var d = tree[id];
+if (false)  for (var id in list) {
+    var d = list[id];
 
     // aliases
-    if (d.alias_of && tree[d.alias_of]) {
-      tree[d.alias_of].aliases.push(d.id);
+    if (d.alias_of && list[d.alias_of]) {
+      list[d.alias_of].aliases.push(d.id);
     }
 
     // namespaces hierarchy
     if (d.type === 'namespace') {
-      if (d.parent && tree[d.parent]) {
-        tree[d.parent].namespaces.push(d.id);
+      if (d.parent && list[d.parent]) {
+        list[d.parent].namespaces.push(d.id);
       }
     }
 
     // classes hierarchy
     if (d.type === 'class') {
-      if (d.superclass && tree[d.superclass]) {
-        tree[d.superclass].subclasses.push(d.id);
+      if (d.superclass && list[d.superclass]) {
+        list[d.superclass].subclasses.push(d.id);
       }
-      if (d.parent && tree[d.parent]) {
-        tree[d.parent].classes.push(d.id);
+      if (d.parent && list[d.parent]) {
+        list[d.parent].classes.push(d.id);
       }
     }
 
     // constants
     if (d.type === 'constant') {
       if (d.parent) {
-        tree[d.parent]['constants'].push(d.id);
+        list[d.parent]['constants'].push(d.id);
       }
     }
 
@@ -197,14 +173,14 @@ function NDoc(files, options) {
       if (d.id[0] === '$') {
         d.type = 'utility';
         register_in_parent_key = 'utilities';
-        if (d.section && tree[d.section]) {
-          tree[d.section][register_in_parent_key].push(d.id);
+        if (d.section && list[d.section]) {
+          list[d.section][register_in_parent_key].push(d.id);
         }
       } else {
         if ((~d.id.indexOf('#'))) {
           d.type = 'instance ' + d.type;
           if (d.parent) {
-            tree[d.parent]['instance_' + register_in_parent_key].push(d.id);
+            list[d.parent]['instance_' + register_in_parent_key].push(d.id);
             if (d.bound) {
               d.functionalized_self = d.parent;
             }
@@ -212,7 +188,7 @@ function NDoc(files, options) {
         } else {
           d.type = 'class ' + d.type;
           if (d.parent) {
-            tree[d.parent]['class_' + register_in_parent_key].push(d.id);
+            list[d.parent]['class_' + register_in_parent_key].push(d.id);
             if (d.bound) {
               d.methodized_self = d.id;
             }
@@ -243,18 +219,32 @@ function NDoc(files, options) {
 
   }
 
-  this.tree = tree;
+  this.sections = sections;
+  this.list = list;
 }
 
 NDoc.prototype.toJSON = function(options) {
+  var list = {};
+  for (var id in this.list) {
+    var d = this.list[id];
+    list[id] = {
+      id: d.id,
+      type: d.type,
+      name: d.name,
+      path: d.path,
+      parent: d.parent,
+      section: d.section,
+    };
+  }
   return JSON.stringify({
-    tree: this.tree,
-    packageName: options.packageName,
+    //list: list,
+    sections: this.sections,
+    /*packageName: options.packageName,
     packageVersion: options.packageVersion,
     date: (new Date).toUTCString(),
     readme: options.index,
     src_code_text: options.viewSourceLabel,
-    src_code_href: options.linkFormat,
+    src_code_href: options.linkFormat,*/
   });
 };
 
@@ -271,39 +261,17 @@ NDoc.prototype.toHTML = function(options) {
     pretty: false
   });
 
-  var tree = this.tree;
-  var sections = [];
+  var sections = this.sections;
+  var list = this.list;
 
-  for (var i in tree) {
-    var obj = tree[i];
+  for (var i in list) {
+    var obj = list[i];
     // path should be HTML valid id
     obj.path = obj.path.replace(/\//g, '-');
-    // collect children
-    obj.children = ['new ' + obj.id]
-      .concat(obj.namespaces || [])
-      .concat(obj.classes || [])
-      .concat(obj.mixins || [])
-      .concat(obj.utilities || [])
-      .concat(obj.constants || [])
-      .concat(obj.class_methods || [])
-      .concat(obj.class_properties || [])
-      .concat(obj.instance_methods || [])
-      .concat(obj.instance_properties || [])
-      .map(function(id) {
-        return tree[id];
-      })
-      .filter(function(x) {
-        return !!x;
-      });
-    // collect sections
-    if (obj.type === 'section') {
-      sections.push(obj.id);
-    }
-    ///console.log(i);
   }
 
   function link(obj, short, classes) {
-    if (typeof obj === 'string') obj = tree[obj] || {id: obj, name: obj, path: obj, type: ''};
+    if (typeof obj === 'string') obj = list[obj] || {id: obj, name: obj, path: obj, type: ''};
     var r = '<a href="#' + obj.path + '" class="' + (classes||[]).join(' ') + '" title="' + obj.id + ' (' + obj.type + ')" data-id="' + obj.id + '">';
     r += short ? obj.name : obj.id;
     r += '</a>';
@@ -322,7 +290,7 @@ NDoc.prototype.toHTML = function(options) {
   // given signature object, recompose its textual representation
   // FIXME: move to templates?
   function signature(obj, sig) {
-    if (typeof obj === 'string') obj = tree[obj];
+    if (typeof obj === 'string') obj = list[obj];
     var r = obj.id;
     if (sig.args) {
       r += '(';
@@ -341,12 +309,12 @@ NDoc.prototype.toHTML = function(options) {
   }
 
   var vars = {
-    tree: this.tree,
+    list: this.list,
+    sections: this.sections,
     packageName: options.packageName,
     packageVersion: options.packageVersion,
     date: (new Date).toUTCString(),
     readme: options.index,
-    sections: sections,
     src_code_text: options.viewSourceLabel,
     src_code_href: options.linkFormat,
     link: link,

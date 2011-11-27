@@ -122,11 +122,11 @@ Util.walk_many(opts.path, '\.' + opts.extension + '$', function(filename, stat, 
   var ndoc = new NDoc(files, {
     // given package URL, file name and line in the file, format link to source file
     formatLink: function(file, line) {
-      return opts.linkFormat
-        .replace(/\{url\}/g, opts.packageUrl)
+      return Util.normalize(opts.linkFormat
+        .replace(/\{url\}/g, opts.packageUrl || '')
         .replace(/\{file\}/g, file)
         .replace(/\{line\}/g, line)
-      ;
+      );
     }
   });
   //console.log(ndoc.toJSON());
