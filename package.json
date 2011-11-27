@@ -15,7 +15,7 @@
     "nomnom"    : "1.5.1",
     "jade"      : "0.18.0",
     "stylus"    : "0.19.3",
-    "marked"    : "https://github.com/chjj/marked/tarball/master",
+    "marked"    : "0.1.3",
     "simple-promise": "0.1.0",
     "fs-tools"  : "0.1.0",
     "underscore": "1.2.2"

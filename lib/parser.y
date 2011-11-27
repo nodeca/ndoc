@@ -38,7 +38,7 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 <tags>{name}                return 'NAME'
 
 <def>"**/"                  this.popState(); return '**/'
-<def>"*"\s*?[\n][\s\S]*?/"**/" yytext = yytext.replace(/\s*\n\s*\*/g, '\n').replace(/(^\*\s*|\s*$)/g, ''); return 'TEXT'
+<def>"*"\s*?[\n][\s\S]*?/"**/" return 'TEXT'
 <def>"*"\s*[\n]"123123123"             return 'NL'
 <def>\s+                    /* skip whitespaces */
 <def>")"\s*":"              this.begin('arg'); return '):'
@@ -101,7 +101,18 @@ world
   | world '/**' tags ndoc_and_includes_and_fires comment '**/' %{
     var x = $4;
     for (var i in $3) x[i] = $3[i];
-    x.description = $5.text;
+    // amend description
+    var desq = $5.text;
+    // strip leading *
+    desq = desq.replace(/\s*\n\s*\*/g, '\n').replace(/^\*\n*/, ''); 
+    // trim leading spaces from description
+    var lead = desq.match(/^\s+/);
+    if (lead) {
+      var re = new RegExp('\n' + lead[0], 'g');
+      desq = desq.substring(lead[0].length).replace(re, '\n');
+    }
+    x.description = desq;
+    // short description lasts until the first empty line
     x.short_description = x.description.replace(/\n\n[\s\S]*$/, '\n');
     x.line = ($5.line + 1);
     // register
@@ -303,7 +314,7 @@ property
 
 constant
 
-  : name '=' name_or_value { $$ = {id: $1, type: 'constant', returns: $3} }
+  : name '=' returns { $$ = {id: $1, type: 'constant', returns: $3} }
   ;
 
 

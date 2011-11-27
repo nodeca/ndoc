@@ -142,7 +142,7 @@ mixin article(obj)
             .content
               mixin links(obj.subclasses.sort())
 
-      if obj.included_mixins
+      //- if obj.included_mixins
         .section.mixins
           h3 Includes
           .content
@@ -223,7 +223,7 @@ mixin article(obj)
           li
             mixin link(obj.alias_of)
 
-    if obj.related_to && obj.related_to
+    //- if obj.related_to && obj.related_to
       .related-to
         | Related to:
         mixin link(obj.related_to)
