@@ -263,7 +263,7 @@ mixin markdown(text, inline)
     //- FIXME: can't be done via CSS? The point is to compensate for <p>
     html = html.slice(3, -4)
   //- desugar [[foo#bar]] tokens into local links
-  - html = html.replace(/\[\[(.+?)\]\]/g, function(all, id) { return link(id, false, ['link-short']); });
+  - html = html.replace(/\[\[([\w.#]+?)\]\]/g, function(all, id) { return link(id, false, ['link-short']); });
   != html
 
 
