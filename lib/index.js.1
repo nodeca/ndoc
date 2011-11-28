@@ -41,13 +41,14 @@ function NDoc(files, options) {
   }, options)
 
   // documentation tree consists of sections, which are populated with documents
-  var list = {
+  var sections = {
     '': {
-      id: '',
+      id: 'Default',
       type: 'section',
       children: []
-    }
+    } // default section
   };
+  var list = [];
 
   // parse specified source files
   files.forEach(function(file) {
@@ -76,17 +77,18 @@ function NDoc(files, options) {
         }***/
         // assign hierarchy helpers
         d.aliases = [];
-        d.children = [];
+        d.children = {};
         if (d.type === 'class') {
           //d.superclass = null;
           d.subclasses = [];
         }
         // collect sections
         if (d.type === 'section') {
-          list[d.id] = d;
+          sections[d.id] = d;
+          d.children = [];
         // collect flat list
         } else {
-          list[(d.section || '') + '.' + d.id] = d;
+          list[d.id] = d;
         }
         // compose links to source files
         d.href = options.formatLink(file, d.line);
@@ -97,73 +99,84 @@ function NDoc(files, options) {
     }
   });
 
-  // for each document with undefined section try to guess the section
-  // E.g. for ".Ajax.Updater" we try to find "SECTION.Ajax" element.
-  // If found, rename ".Ajax.Updater" to "SECTION.Ajax.Updater"
-  var t = Object.keys(list).sort();
-  var parted = t.map(function(id) {
-    return id.split(/[.#]/);
-  });
-  var len = parted.length;
-  // N.B. starting with 1 we skip "" section
-  for (var idx = 1; idx < len; ++idx) {
-    if (parted[idx][0] !== '') continue;
-    for (var i = idx + 1; i < len; ++i) {
-      if (parted[idx][1] === parted[i][1] && parted[i][0] !== '') {
-        var p = t[idx];
-        // prefix with guessed section
-        t[idx] = parted[i][0] + t[idx];
-        //if (!p) console.log('RENAME [%s] -> [%s]', p, t[idx], parted[idx], parted[i]);
-        // update flat list element, since key and value's id has been changed
-        var g = list[p];
-        delete list[p];
-        g.id = p = t[idx];
-        list[p] = g;
-        break;
+  // distribute by sections
+  for (var id in list) {
+    sections[list[id].section || ''].children.push(id);
+    //list[id].parent = list[id].section || '';
+  }
+
+  // sort children, to help building hierarchy
+  for (var section in sections) {
+    var children = {};
+    sections[section].children.sort().forEach(function(child) {
+      children[child] = child;
+    });
+    sections[section].children = children;
+  }
+
+  // move from '' section to named sections
+  for (var section in sections) {
+    if (section === '') continue;
+    // sort definitions, to help building hierarchy
+    //var children = sections[section].children.sort(function(a,b){return a.id === b.id ? 0 : a.id < b.id ? -1 : 1});
+    //var children = sections[section].children.sort();
+    for (var id in sections[section].children) {
+      var re = new RegExp('^' + id + '[#.]');
+      for (var cid in sections[''].children) {
+         if (sections[''].children[cid].match(re)) {
+           sections[section].children[cid] = cid;
+           delete sections[''].children[cid];
+         }
       }
     }
   }
 
-  var tree = {};
-  t = t.sort();
-  t.forEach(function(id) {
-    tree[id] = list[id];
-  });
-
-
-//if (false) {
-
-  // rebuild the tree from the end to beginning.
-  // N.B. since the list we iterate over is sorted, we can determine precisely
-  // the parent of any element.
-  for (var i = t.length; --i >= 1; ) {
-    var id = t[i];
-    // parent name is this element's name without portion after the last '.' or '#'
-    var idx = Math.max(id.lastIndexOf('.'), id.lastIndexOf('#'));
-    // no '.' or '#' found? this is top level section. just skip it
-    if (idx < 0) continue;
-    // extract parent name
-    var pid = id.substring(0, idx);
-    //console.log('MOVE: [%s] to [%s]?', id, pid);
-    // get parent element
-    var p = tree[pid];
-    // no parent element? skip this
-    if (!p) continue;
-    // parent element found. move this element to parent's children list, maintaing order
-    p.children.unshift(tree[id]);
-    //tree[id].parent = pid;
-    delete tree[id];
-    //console.log('MOVED: [%s] to [%s]!', id, pid);
+  // re-sort children for each section
+  for (var section in sections) {
+    var ids = Object.keys(sections[section].children).sort();
+    var nids = ids.length;
+    sections[section].children = {};
+    // build hierarchy
+    // N.B. Foo#a is child of Foo
+    // N.B. since we've sorted keys, Foo always comes before Foo#a
+    for (var i = 0; i < nids; ++i) {
+      var elem = list[ids[i]];
+      elem.section = section;
+      var re = new RegExp('^' + ids[i] + '[#.]');
+      for (var j = i + 1; j < nids; ++j) {
+        if (ids[j].match(re)) {
+          var p = list[ids[j]].parent;
+          if (p && list[p]) {
+            delete list[p].children[ids[j]];
+          }
+          list[ids[j]].parent = ids[i];
+          elem.children[ids[j]] = ids[j];
+        }
+      }
+      sections[section].children[elem.id] = elem;
+    }
   }
+
+  // remove children from high level
+  // FIXME: should be recursive?
+  /***for (var section in sections) {
+    for (var id in sections[section].children) {
+      var d = sections[section].children[id];
+      //if (d.parent && !(d.type === 'namespace' || d.type === 'class' || d.type === '')) {
+      if (d.parent) {
+        //delete sections[section].children[id];
+      }
+    }
+  }***/
 
   // distribute methods and properties
   for (var id in list) {
     var d = list[id];
 
-    d.id = id;
-    d.name = d.id.replace(/^.*[.#]/, '');
-    d.path = d.id.replace(/[.#]/g, '/');
-    delete d.section;
+    // convert children hash to array
+    d.children = Object.keys(d.children).map(function(id) {
+      return list[id];
+    });
 
     // aliases
     if (d.alias_of && list[d.alias_of]) {
@@ -175,12 +188,9 @@ function NDoc(files, options) {
       if (d.superclass && list[d.superclass]) {
         list[d.superclass].subclasses.push(d.id);
       }
-
     // methods and properties
     } else if (d.type === 'method' || d.type === 'property') {
-      if (d.id.match(/^\w+\.\$/)) {
-        d.type = 'utility';
-      } else if ((~d.id.indexOf('#'))) {
+      if ((~d.id.indexOf('#'))) {
         d.type = 'instance ' + d.type;
         if (d.parent && d.bound) {
           d.functionalized_self = d.parent;
@@ -190,27 +200,46 @@ function NDoc(files, options) {
         if (d.bound) {
           d.methodized_self = d.id;
         }
+      } else {
+        d.type = 'utility';
       }
     }
 
     // short names and paths
-    /*if (d.type === 'namespace' || d.type === 'class' || d.type === 'mixin') {
-    } else if (d.type === 'section') {
+    if (d.type === 'namespace' || d.type === 'class' || d.type === 'mixin') {
+      d.name = d.id.replace(/^.*[.]/, '');
+      d.path = d.id;
     } else if (d.type === 'constructor') {
+      d.name = 'new';
+      d.path = d.parent + '/new';
     } else if (~d.type.indexOf('class ') || d.type === 'constant') {
+      d.name = d.id.replace(/^.*[.]/, '');
+      d.path = d.parent + '/' + d.name;
     } else if (~d.type.indexOf('instance ') || d.type === 'constant') {
+      d.name = d.id.replace(/^.*[#]/, '');
+      d.path = d.parent + '/prototype/' + d.name;
     } else if (d.type === 'utility') {
+      d.name = d.id;
+      d.path = d.name;
     } else {
-      throw 'Unknown document type: ' + d.type + ' : ' + d.id;
-    }*/
+      throw 'Unknown document type: ' + d.type;
+    }
+    d.path = d.section + '/' + d.path;
 
   }
 
-//}
+  for (section in sections) {
+    var d = sections[section];
+    d.name = d.id;
+    d.path = d.id;
+    // convert children hash to array
+    d.children = Object.keys(d.children).map(function(id) {
+      return list[id];
+    });
+  }
 
-  //this.sections = sections;
+  this.sections = sections;
   this.list = list;
-  this.tree = tree;
 }
 
 NDoc.prototype.toJSON = function(options) {
@@ -228,8 +257,7 @@ NDoc.prototype.toJSON = function(options) {
   }
   return JSON.stringify({
     //list: list,
-    //sections: this.sections,
-    tree: this.tree,
+    sections: this.sections,
     /*packageName: options.packageName,
     packageVersion: options.packageVersion,
     date: (new Date).toUTCString(),
