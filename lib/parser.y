@@ -121,11 +121,11 @@ world
     }
     $$[x.id] = x;
     // FIXME: remove once tree is build ok
-    $$[x.id] = {
+    /*$$[x.id] = {
       id: x.id,
       type: x.type,
       section: x.section
-    };
+    };*/
   }%
 
   /*| world '/**' tags ndoc_and_includes_and_fires error comment %{

@@ -18,8 +18,8 @@ redo:
 $(DOCS): $(LIBS)
 	echo Compiling documentation for $(@D)
 	rm -fr $@
-	#cd $(@D) && $(ROOT)/.bin/ndoc -o doc -i README.md -l '{url}/{file}#L{line}' --package-json=package.json --skin=$(ROOT)/skins/html5 lib
-	mkdir -p $@ && cd $(@D) && $(ROOT)/.bin/ndoc -o doc/tree.json -f json -i README.md -l '{url}/{file}#L{line}' --package-json=package.json --skin=$(ROOT)/skins/html5 lib
+	cd $(@D) && $(ROOT)/.bin/ndoc -o doc -i README.md -l '{url}/{file}#L{line}' --package-json=package.json --skin=$(ROOT)/skins/html5 lib
+	#mkdir -p $@ && cd $(@D) && $(ROOT)/.bin/ndoc -o doc/tree.json -f json -i README.md -l '{url}/{file}#L{line}' --package-json=package.json --skin=$(ROOT)/skins/html5 lib
 
 .SILENT:
 .PHONY: playground redo $(DOCS)

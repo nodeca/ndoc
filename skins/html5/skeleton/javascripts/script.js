@@ -5,6 +5,8 @@
 //
 function hashChanged(path) {
   var el = $('div.menu-item a[href="'+path+'"]');
+  console.log(el);
+  return false;
   //console.log('HASH', path, el.data('id'));
   // forget current selection
   $('div.menu-item >a.current').removeClass('current');
