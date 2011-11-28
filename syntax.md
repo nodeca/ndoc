@@ -15,7 +15,19 @@ Tags (optional)
 
 The first line of a comment is reserved for tags. Tags are optional. Tags are separated by a comma followed by optional whitespace(s) (`, `). They can be either a tag name or a key / value pair separated by a colon and optional whitespace(s) (`: `).
 
-Currently accepted tags are: `section:`, `alias of: <name>`, `related to:`, `read-only`, `internal`, `chainable`, `deprecated`, `deprecated: <from>`, `deprecated: <from>..<out>`
+Currently accepted tags are:
+
+  * `section:`
+  * `alias of: <name>`
+  * `related to:`
+  * `read-only`
+  * `internal`
+  * `chainable`
+  * `deprecated`
+  * `deprecated: <from>`
+  * `deprecated: <from>..<out>`
+
+**TODO: describe above, with some light examples.**
 
     /** deprecated: 1.0..2.0, section: DOM, alias of: Element#descendantOf, chainable
      *  Element#childOf(@element, className) -> Element
