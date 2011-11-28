@@ -13,24 +13,27 @@ Documentation comments start with `/**` and end with `**/`. Each new line starts
 Tags (optional)
 ----
 
-The first line of a comment is reserved for tags. Tags are optional. Tags are separated by a comma followed by optional whitespace(s) (`, `). They can be either a tag name or a key / value pair separated by a colon and optional whitespace(s) (`: `).
+The opening line of a comment is reserved for tags. Tags are optional. Tags are separated by a comma followed by optional whitespace(s) (`, `). They can be either a tag name or a key / value pair separated by a colon and optional whitespace(s) (`: `):
 
-Currently accepted tags are:
+    tagName ': ' tagValue [', ' tagName ': ' tagValue]...
 
-  * `section:`
-  * `alias of: <name>`
-  * `related to:`
-  * `read-only`
-  * `internal`
-  * `chainable`
-  * `deprecated`
-  * `deprecated: <from>`
-  * `deprecated: <from>..<out>`
+Currently supported tags are:
 
-**TODO: describe above, with some light examples.**
+  * `section: <name>`           - description belongs to specified section `name`
+  * `alias of: <name>`          - entity is another name for entity `name`
+  * `related to: <name>`        - description is related to entity `name`
+  * `read-only`                 - entity is read-only
+  * `internal`                  - entity is meant to be private
+  * `chainable`                 - method can be chained, i.e. the return value is the same object to which method belongs. E.g. $(...).on(...).on(...)
+  * `deprecated`                - entity is considered deprecated. Deprecation tag in addition have the following flavors:
+    * `deprecated: <from>`        - deprecated starting from version `from`
+    * `deprecated: <from>..<out>` - deprecated starting from version `from` and will be removed by version `out`
+
+E.g.:
 
     /** deprecated: 1.0..2.0, section: DOM, alias of: Element#descendantOf, chainable
      *  Element#childOf(@element, className) -> Element
+     *
      *  ...
      **/
 
@@ -39,37 +42,43 @@ Currently accepted tags are:
 EBNF
 ----
 
-The lines _directly following_ tags are reserved for the EBNF description of the documented object. Typically, there's only one EBNF per documented object. However, some objects might require more than one.
+The lines _directly following_ tags are reserved for the EBNF description of the documented object. Typically, there's only one EBNF per documented object:
 
     /** 
      *  Element#down(@element[, cssSelector][, index]) -> Element | null
+     *
      *  ...
      **/
-     
+
+However, methods, functions, etc. may have several signatures, hence may require more than one description line, in which case description lines directly follow each other:
+
     /** 
      *  Element#writeAttribute(@element, attribute[, value = true]) -> Element
      *  Element#writeAttribute(@element, attributes) -> Element
+     *
      *  ...
      **/
      
-### Arguments
+## Arguments
 
 For all methods, functions, etc. parentheses around the arguments are required even if no arguments are present.
 The syntax for arguments is as follows:
 
-#### required arguments
+### required arguments
 
     /** 
      *  Event.stop(event) -> Event
+     *
      *  ...
      **/
      
-#### optional arguments
+### optional arguments
 
 Optional arguments are surrounded by squared brackets (`[]`).
 
     /** 
      *  String#evalJSON([sanitize]) -> Object | Array
+     *
      *  ...
      **/
 
@@ -77,6 +86,7 @@ A default value may be indicated using the equal sign (`=`).
      
     /** 
      *  String#evalJSON([sanitize = false]) -> Object | Array
+     *
      *  ...
      **/
      
@@ -85,6 +95,7 @@ Note that the argument separating comas belong _inside_ the brackets.
 
     /** 
      *  Event.findElement(event[, cssSelector]) -> Element | null
+     *
      *  ...
      **/     
      
@@ -92,8 +103,16 @@ Arguments can be described below the EBNF description using the following syntax
     
     - argumentName (acceptedType | otherAcceptedType | ...): description.
      
-Argument descriptions **must** be separated by an empty comment line from the rest of description.
-For example: 
+## Supported EBNF types
+
+**BIG FAT WARNING**: EBNF descriptions **must be separated by an empty comment line** from the rest of description:
+
+    /** 
+     *  String#evalJSON([sanitize = false]) -> Object | Array
+     *
+     *  Here goes markdown for String#evalJSON description.
+     **/
+     
 
     /** 
      *  Event.findElement(event[, cssSelector]) -> Element | null
@@ -104,26 +123,27 @@ For example:
      *  Regular method markdown goes here.
      **/
      
-### Supported EBNF types
-
-#### Namespace
+### Namespace
 
     /** 
      *  Ajax
+     *
      *  ...
      **/
      
     /** 
      *  Prototype.Browser
+     *
      *  ...
      **/
      
-#### Classes
+### Classes
 
 Classes require a `class` prefix:
 
     /** 
      *  class Ajax.Base
+     *
      *  ...
      **/
 
@@ -131,6 +151,7 @@ Sub-classes can indicate their parent just like in the Ruby syntax:
 
     /** 
      *  class Ajax.Request < Ajax.Base
+     *
      *  ...
      **/
 
@@ -141,95 +162,107 @@ Included mixins are indicated like so:
     /** 
      *  class CustomHash
      *  includes Enumerable, Comparable
+     *
+     *  ...
      **/
 
-#### Mixins
+### Mixins
 
 Mixins are indicated by a `mixin` prefix:
 
     /** 
      *  mixin Enumerable
+     *
      *  ...
      **/
 
-#### Constructors
+### Constructors
 
 Constructors require the `new` prefix and their arguments.
 
     /** 
      *  new Element(tagName[, attributes])
+     *
      *  ...
      **/
           
     /** 
      *  new Foobar()
+     *
      *  ...
      **/
      
-#### Class Methods
+### Class Methods
 
 Class methods are identified by a dot (`.`).
 
     /** 
      *  Array.from([iterable]) -> Array
+     *
      *  ...
      **/
 
-#### Instance Methods
+### Instance Methods
 
 Instance methods are identified by the hash symbol (`#`).
 
     /** 
      *  Array#first() -> Array element
+     *
      *  ...
      **/
      
-#### Utilities
+### Utilities
 
 Utilities are global functions starting with a dollar-sign (`$`).
 
     /** 
      *  $w(string) -> Array
+     *
      *  ...
      **/
      
-#### Methodized Methods
+### Methodized Methods
 
 Methodized methods are methods which are both available as a class method and an instance method, in which case the first argument becomes the instance object itself. For example, all of `Element`'s instance methods are methodized and thus also available as class methods of `Element`. Methodized methods are indicated by prefixing their first argument with the `@` symbol.
 
     /** 
      *  Element#hide(@element) -> Element
+     *
      *  ...
      **/
      
-#### Class Properties
+### Class Properties
 
 Class properties are identified by a dot (`.`).
 
     /** 
      *  Ajax.Responders.responders -> Array
+     *
      *  ...
      **/
      
-#### Instance Properties
+### Instance Properties
 
 Instance properties are identified by the hash symbol (`#`).
 
     /** 
      *  Ajax.Response#responseText -> String
+     *
      *  ...
      **/
      
-#### Constants
+### Constants
 
 Constant must have their value specified using the equal sign (`=`).
 
     /** 
      *  Prototype.JSONFilter = /^\/\*-secure-([\s\S]*)\*\/\s*$/
+     *
      *  ...
      **/
      
-### Events
+## Events
 
 Some methods can fire native or custom events. These are indicated below the arguments descriptions:
 
@@ -237,5 +270,7 @@ Some methods can fire native or custom events. These are indicated below the arg
      *  Ajax.Request#respondToReadyState(readyState) -> undefined
      *  - readyState (Number): a number from 0 to 4 corresponding to the state of the request.
      *  fires ajax:created, ajax:completed
+     *
+     *  ...
      **/
 
