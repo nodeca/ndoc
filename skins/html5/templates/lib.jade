@@ -3,24 +3,24 @@ mixin home()
     //- readme
     != markdown(readme)
     //- sections
-    if sections && sections.length
+    if sections && Object.keys(sections).length
       article.sections
         h3 Sections
         .content
           mixin short_description_list(sections)
 
 mixin menu()
-  for obj in tree
-    if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
-      mixin menu_item(obj, 0)
+  for obj in sections
+    //-if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
+    mixin menu_item(obj, 0)
 
 mixin menu_item(obj, level, short)
   if typeof obj === 'string'
-    obj = tree[obj]
+    obj = list[obj]
   li
     .menu-item
       mixin link(obj, short, [obj.type.replace(/ /g, '-'), obj.deprecated && 'deprecated', obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;}))
-      if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
+      //-if obj.type === 'section' || obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
         if obj.children.length
           ul.hidden
             for child in obj.children
@@ -72,7 +72,7 @@ mixin title(obj)
         a(href='#home') Home
       breadcrumbs = []
       x = obj
-      - while (x) { breadcrumbs.unshift(x); x = x.parent && tree[x.parent]; }
+      - while (x) { breadcrumbs.unshift(x); x = x.parent && list[x.parent]; }
       for crumb in breadcrumbs
         li
           mixin link(crumb, true)
@@ -89,7 +89,7 @@ mixin title(obj)
 
 mixin article(obj)
   if typeof obj === 'string'
-    obj = tree[obj]
+    obj = list[obj]
 
   article.article(id=obj.path, class=[obj.deprecated && 'deprecated'].filter(function(x){return !!x;}))
 
@@ -110,23 +110,26 @@ mixin article(obj)
           .content
             mixin markdown(obj.description)
 
-      if obj.namespaces.length
+      collection = obj.children.filter(function(x){return x.type === 'namespace'});
+      if collection.length
         .section.namespaces
           h3 Namespaces
           .content
-            mixin short_description_list(obj.namespaces)
+            mixin short_description_list(collection)
 
-      if obj.classes.length
+      collection = obj.children.filter(function(x){return x.type === 'class'});
+      if collection.length
         .section.classes
           h3 Classes
           .content
-            mixin short_description_list(obj.classes)
+            mixin short_description_list(collection)
 
-      if obj.mixins.length
+      collection = obj.children.filter(function(x){return x.type === 'mixin'});
+      if collection.length
         .section.mixins
           h3 Mixins
           .content
-            mixin short_description_list(obj.mixins)
+            mixin short_description_list(collection)
 
       if obj.type === 'class'
 
@@ -148,24 +151,26 @@ mixin article(obj)
           .content
             mixin links(obj.included_mixins.sort())
 
-      if obj.utilities.length
+      collection = obj.children.filter(function(x){return x.type === 'utility'})
+      if collection.length
         .section.utilities
           h3 Utilities
           .content
-            mixin links(obj.utilities.sort())
+            mixin links(collection)
 
-      if tree['new ' + obj.id]
+      if list[obj.id + '.new']
         .section.constructor
           h3 Constructor
           .content
           ul.method-list
             li
-              mixin link('new ' + obj.id)
+              mixin link(obj.id + '.new')
 
-      for title, method in {class_methods: 'Class methods', class_properties: 'Class properties', instance_methods: 'Instance methods', instance_properties: 'Instance properties', constants: 'Constants'}
-        methods = obj[method]
-        if Object.keys(methods).length
-          .section(class='#{method}')
+      -console.log('HERE', obj.id, obj.children.length)
+      for selector, title in {'Class methods': ['class method', 'class_methods'], 'Class properties': ['class property', 'class_properties'], 'Instance methods': ['instance method', 'instance_methods'], 'Instance properties': ['instance property', 'instance_properties'], 'Constants': ['constant', 'constants']}
+        methods = obj.children.filter(function(x){return x.type === selector[0]})
+        if methods.length
+          .section(class='#{selector[1]}')
             h3 #{title}
             .content
               ul.method-list
@@ -208,7 +213,7 @@ mixin article(obj)
               a(href=obj.functionalized_self) generic method.
               If calling as generic, pass the instance in as the first argument. 
 
-    if obj.aliases.length
+    if obj.aliases && obj.aliases.length
       .alias.aliases
         | Aliased as:
         ul
@@ -235,10 +240,9 @@ mixin article(obj)
 
 
 
-mixin api(tree)
-  for obj in tree
-    if obj.type === 'section' || obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
-      mixin article(obj)
+mixin api()
+  for obj in sections
+    mixin article(obj)
 
 
 
@@ -246,7 +250,7 @@ mixin short_description_list(collection)
   ul.method-details-list
     for obj in collection
       if typeof obj === 'string'
-        obj = tree[obj]
+        obj = list[obj]
       li.method-description
         mixin link(obj)
         if obj.short_description

@@ -120,6 +120,12 @@ world
       console.error('name clash: ' + x.id);
     }
     $$[x.id] = x;
+    // FIXME: remove once tree is build ok
+    /*$$[x.id] = {
+      id: x.id,
+      type: x.type,
+      section: x.section
+    };*/
   }%
 
   /*| world '/**' tags ndoc_and_includes_and_fires error comment %{
@@ -347,7 +353,7 @@ signature
   | constant
 
   /* constructor */
-  | NEW method { $$ = $2; $$.id = $1 + ' ' + $$.id; $$.type = 'constructor' }
+  | NEW method { $$ = $2; $$.id = $$.id + '.' + $1; $$.type = 'constructor' }
   ;
 
 
