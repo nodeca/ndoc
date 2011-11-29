@@ -44,6 +44,13 @@ body
     &.current, &.current-parent
       background-color: #ddd
 
+    &.section
+      background-color: #000
+      background: -moz-linear-gradient(#000 50%, #888) repeat scroll 0 0 transparent
+      background: -webkit-linear-gradient(#000 50%, #888) repeat scroll 0 0 transparent
+      background: linear-gradient(#000 50%, #888) repeat scroll 0 0 transparent
+      color: #aaa;
+      padding: 6px 10px 6px 28px
     &.class
       background-image: url("../images/class.png")
       &.deprecated
@@ -62,6 +69,9 @@ body
       background-image: url("../images/mixin.png")
     &.namespace
       background-image: url("../images/namespace.png")
+    &.utility
+      background-image: url("../images/utility.png")
+
 
 .main
   width: 700px
@@ -100,7 +110,7 @@ body
 .article .alias,
 .article .deprecated-note
   margin-left: 140px
-  margin-bottom: 10px
+  margin-bottom: 20px
 
 .footer,
 #home
@@ -129,7 +139,10 @@ body
     font-size: 13px
     margin: 0
     color: #666;
-    
+
+h4
+  font-size: 16px
+  margin: 0
 
 .source a
   font-size: 10px
@@ -169,6 +182,8 @@ body
     background-image: url("../images/class_method.png")
   &.class_properties h3
     background-image: url("../images/class_property.png")
+  &.constants h3
+    background-image: url("../images/constant.png")
   &.constructor h3
     background-image: url("../images/constructor.png")
   &.description h3
@@ -325,8 +340,9 @@ p code
       margin: 0
 
 .alias a,
-section.superclass a,
-a.link-short
+a.link-short,
+.superclass a, .superclass a:visited
+h4 a, h4 a:visited
   border-bottom: 1px solid #888888
   color: #003366
   text-decoration: none

@@ -1,11 +1,7 @@
 
-/* line 138 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 138 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003138}}
-
-/* line 16 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000316}}
+/* line 16 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 article,
 aside,
 details,
@@ -19,9 +15,7 @@ section {
   display: block;
 }
 
-/* line 19 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000319}}
+/* line 19 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 audio,
 canvas,
 video {
@@ -30,23 +24,17 @@ video {
   *zoom: 1;
 }
 
-/* line 24 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000324}}
+/* line 24 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 audio:not([controls]) {
   display: none;
 }
 
-/* line 27 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000327}}
+/* line 27 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 [hidden] {
   display: none;
 }
 
-/* line 40 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000340}}
+/* line 40 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 html {
   font-size: 100%;
   overflow-y: scroll;
@@ -54,18 +42,14 @@ html {
   -ms-text-size-adjust: 100%;
 }
 
-/* line 46 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000346}}
+/* line 46 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 body {
   margin: 0;
   font-size: 13px;
   line-height: 1.231;
 }
 
-/* line 51 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000351}}
+/* line 51 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 body,
 button,
 input,
@@ -75,92 +59,68 @@ textarea {
   color: #222;
 }
 
-/* line 61 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000361}}
+/* line 61 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 ::-moz-selection {
   background: #fe57a1;
   color: #fff;
   text-shadow: none;
 }
 
-/* line 66 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000366}}
+/* line 66 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 ::selection {
   background: #fe57a1;
   color: #fff;
   text-shadow: none;
 }
 
-/* line 75 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000375}}
+/* line 75 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 a {
   color: #00e;
 }
 
-/* line 78 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000378}}
+/* line 78 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 a:visited {
   color: #551a8b;
 }
 
-/* line 81 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000381}}
+/* line 81 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 a:hover {
   color: #06e;
 }
 
-/* line 84 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000384}}
+/* line 84 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 a:focus {
   outline: thin dotted;
 }
 
-/* line 89 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000389}}
+/* line 89 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 a:hover,
 a:active {
   outline: 0;
 }
 
-/* line 96 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000396}}
+/* line 96 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 abbr[title] {
   border-bottom: 1px dotted;
 }
 
-/* line 99 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\0000399}}
+/* line 99 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 b,
 strong {
   font-weight: bold;
 }
 
-/* line 102 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003102}}
+/* line 102 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 blockquote {
   margin: 1em 40px;
 }
 
-/* line 105 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003105}}
+/* line 105 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 dfn {
   font-style: italic;
 }
 
-/* line 108 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003108}}
+/* line 108 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 hr {
   display: block;
   height: 1px;
@@ -170,18 +130,14 @@ hr {
   padding: 0;
 }
 
-/* line 116 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003116}}
+/* line 116 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 ins {
   background: #ff9;
   color: #000;
   text-decoration: none;
 }
 
-/* line 121 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003121}}
+/* line 121 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 mark {
   background: #ff0;
   color: #000;
@@ -189,9 +145,7 @@ mark {
   font-weight: bold;
 }
 
-/* line 128 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003128}}
+/* line 128 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 pre,
 code,
 kbd,
@@ -201,39 +155,29 @@ samp {
   font-size: 1em;
 }
 
-/* line 133 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003133}}
+/* line 133 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 pre {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
-/* line 137 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003137}}
+/* line 137 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 q {
   quotes: none;
 }
 
-/* line 140 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003140}}
+/* line 140 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 q:before,
 q:after {
   content: none;
 }
 
-/* line 143 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003143}}
+/* line 143 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 small {
   font-size: 85%;
 }
 
-/* line 146 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003146}}
+/* line 146 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 sub,
 sup {
   font-size: 75%;
@@ -242,39 +186,29 @@ sup {
   vertical-align: baseline;
 }
 
-/* line 152 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003152}}
+/* line 152 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 sup {
   top: -0.5em;
 }
 
-/* line 155 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003155}}
+/* line 155 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 sub {
   bottom: -0.25em;
 }
 
-/* line 162 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003162}}
+/* line 162 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 ul,
 ol {
   margin: 1em 0;
   padding: 0 0 0 40px;
 }
 
-/* line 166 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003166}}
+/* line 166 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 dd {
   margin: 0 0 0 40px;
 }
 
-/* line 169 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003169}}
+/* line 169 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 nav ul,
 nav ol {
   list-style: none;
@@ -283,64 +217,48 @@ nav ol {
   padding: 0;
 }
 
-/* line 184 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003184}}
+/* line 184 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 img {
   border: 0;
   -ms-interpolation-mode: bicubic;
   vertical-align: middle;
 }
 
-/* line 193 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003193}}
+/* line 193 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 svg:not(:root) {
   overflow: hidden;
 }
 
-/* line 200 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003200}}
+/* line 200 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 figure {
   margin: 0;
 }
 
-/* line 207 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003207}}
+/* line 207 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 form {
   margin: 0;
 }
 
-/* line 210 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003210}}
+/* line 210 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 fieldset {
   border: 0;
   margin: 0;
   padding: 0;
 }
 
-/* line 215 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003215}}
+/* line 215 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 label {
   cursor: pointer;
 }
 
-/* line 223 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003223}}
+/* line 223 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 legend {
   border: 0;
   *margin-left: -7px;
   padding: 0;
 }
 
-/* line 234 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003234}}
+/* line 234 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 button,
 input,
 select,
@@ -351,17 +269,13 @@ textarea {
   *vertical-align: middle;
 }
 
-/* line 244 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003244}}
+/* line 244 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 button,
 input {
   line-height: normal;
 }
 
-/* line 253 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003253}}
+/* line 253 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 button,
 input[type="button"],
 input[type="reset"],
@@ -371,18 +285,14 @@ input[type="submit"] {
   *overflow: visible;
 }
 
-/* line 262 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003262}}
+/* line 262 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
   padding: 0;
 }
 
-/* line 266 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003266}}
+/* line 266 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 input[type="search"] {
   -webkit-appearance: textfield;
   -moz-box-sizing: content-box;
@@ -390,34 +300,26 @@ input[type="search"] {
   box-sizing: content-box;
 }
 
-/* line 272 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003272}}
+/* line 272 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-/* line 279 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003279}}
+/* line 279 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
 
-/* line 288 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003288}}
+/* line 288 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 textarea {
   overflow: auto;
   vertical-align: top;
   resize: vertical;
 }
 
-/* line 294 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003294}}
+/* line 294 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 input:valid,
 textarea:valid,
 input:invalid,
@@ -425,37 +327,27 @@ textarea:invalid {
   background-color: #f0dddd;
 }
 
-/* line 303 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003303}}
+/* line 303 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 307 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_start\.styl}line{font-family:\00003307}}
+/* line 307 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
 td {
   vertical-align: top;
 }
 
-/* line 310 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 310 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003310}}
-
-/* line 1 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\000031}}
+/* line 1 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 body {
   font-family: Verdana, sans-serif;
   font-size: 14px;
   line-height: 1.5em;
 }
 
-/* line 7 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\000037}}
+/* line 7 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .sidebar {
   background: none repeat scroll 0 0 #eee;
   position: fixed;
@@ -468,35 +360,25 @@ body {
   overflow: auto;
 }
 
-/* line 18 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000318}}
+/* line 18 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .menu {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-/* line 23 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000323}}
+/* line 23 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .menu ul {
   margin-left: 10px;
   padding: 0;
   list-style: none;
 }
 
-/* line 28 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 28 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000328}}
+/* line 30 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-/* line 30 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000330}}
-
-/* line 31 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000331}}
+/* line 31 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .menu-item a,
 .menu-item a:link {
   background-position: 6px 50%;
@@ -509,103 +391,90 @@ body {
   white-space: nowrap;
 }
 
-/* line 41 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000341}}
+/* line 41 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .menu-item a:hover {
   background-color: #ccc;
 }
 
-/* line 44 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000344}}
+/* line 44 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .menu-item a.current,
 .menu-item a.current-parent {
   background-color: #ddd;
 }
 
-/* line 47 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 47 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+.menu-item a.section {
+  background-color: #000;
+  background: -moz-linear-gradient(#000 50%, #888) repeat scroll 0 0 transparent;
+  background: -webkit-linear-gradient(#000 50%, #888) repeat scroll 0 0 transparent;
+  background: linear-gradient(#000 50%, #888) repeat scroll 0 0 transparent;
+  color: #aaa;
+  padding: 6px 10px 6px 28px;
+}
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000347}}
+/* line 54 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .menu-item a.class {
   background-image: url("../images/class.png");
 }
 
-/* line 49 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000349}}
+/* line 56 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .menu-item a.class.deprecated {
   background-image: url("../images/class_deprecated.png");
 }
 
-/* line 51 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000351}}
+/* line 58 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .menu-item a.class-method {
   background-image: url("../images/class_method.png");
 }
 
-/* line 53 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000353}}
+/* line 60 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .menu-item a.class-property {
   background-image: url("../images/class_property.png");
 }
 
-/* line 55 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000355}}
+/* line 62 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .menu-item a.constructor {
   background-image: url("../images/constructor.png");
 }
 
-/* line 57 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000357}}
+/* line 64 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .menu-item a.instance-method {
   background-image: url("../images/instance_method.png");
 }
 
-/* line 59 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000359}}
+/* line 66 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .menu-item a.instance-property {
   background-image: url("../images/instance_property.png");
 }
 
-/* line 61 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000361}}
+/* line 68 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .menu-item a.mixin {
   background-image: url("../images/mixin.png");
 }
 
-/* line 63 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000363}}
+/* line 70 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .menu-item a.namespace {
   background-image: url("../images/namespace.png");
 }
 
-/* line 66 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 72 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+.menu-item a.utility {
+  background-image: url("../images/utility.png");
+}
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000366}}
+/* line 76 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .main {
   width: 700px;
   margin-left: 250;
 }
 
-/* line 70 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000370}}
+/* line 80 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .article,
 #home {
   margin-bottom: 70px;
 }
 
-/* line 74 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000374}}
+/* line 84 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .breadcrumbs {
   font-size: 12px;
   white-space: nowrap;
@@ -613,66 +482,50 @@ body {
   color: #ccc;
 }
 
-/* line 80 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000380}}
+/* line 90 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .breadcrumbs a {
   color: #ccc;
 }
 
-/* line 83 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000383}}
+/* line 93 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .breadcrumbs li {
   display: inline;
   margin: 0 4px 0 0;
 }
 
-/* line 87 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000387}}
+/* line 97 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .breadcrumbs li:after {
   content: "»";
   margin: 0 0 0 4px;
 }
 
-/* line 91 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000391}}
+/* line 101 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .breadcrumbs li:last-child:after {
   content: "";
   margin: 0;
 }
 
-/* line 95 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000395}}
+/* line 105 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 #home h1 {
   font-size: 30px;
 }
 
-/* line 98 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\0000398}}
+/* line 108 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .article header,
 .article .section,
 .article .alias,
 .article .deprecated-note {
   margin-left: 140px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-/* line 105 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003105}}
+/* line 115 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .footer,
 #home {
   margin-left: 140px;
 }
 
-/* line 109 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003109}}
+/* line 119 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .article h2 {
   position: relative;
   font-size: 30px;
@@ -680,9 +533,7 @@ body {
   line-height: 1;
 }
 
-/* line 115 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003115}}
+/* line 125 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .article h2 .type {
   display: block;
   color: #888;
@@ -693,30 +544,28 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 124 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 134 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003124}}
-
-/* line 125 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003125}}
+/* line 135 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .article h5 {
   font-size: 14px;
   margin: 0;
 }
 
-/* line 128 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003128}}
+/* line 138 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .article h6 {
   font-size: 13px;
   margin: 0;
   color: #666;
 }
 
-/* line 134 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 143 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+h4 {
+  font-size: 16px;
+  margin: 0;
+}
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003134}}
+/* line 147 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .source a {
   font-size: 10px;
   color: #aaa;
@@ -724,30 +573,22 @@ body {
   text-decoration: none;
 }
 
-/* line 140 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003140}}
+/* line 153 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .deprecated-note {
   color: #f00;
 }
 
-/* line 143 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003143}}
+/* line 156 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .article.deprecated h2 .name {
   text-decoration: line-through;
 }
 
-/* line 146 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003146}}
+/* line 159 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .section {
   position: relative;
 }
 
-/* line 149 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003149}}
+/* line 162 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .section h3 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-position: right 0px;
@@ -766,144 +607,111 @@ body {
   color: #888;
 }
 
-/* line 166 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003166}}
+/* line 179 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .section.classes h3 {
   background-image: url("../images/class.png");
 }
 
-/* line 168 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003168}}
+/* line 181 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .section.class_methods h3 {
   background-image: url("../images/class_method.png");
 }
 
-/* line 170 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003170}}
+/* line 183 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .section.class_properties h3 {
   background-image: url("../images/class_property.png");
 }
 
-/* line 172 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 185 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
+.section.constants h3 {
+  background-image: url("../images/constant.png");
+}
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003172}}
+/* line 187 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .section.constructor h3 {
   background-image: url("../images/constructor.png");
 }
 
-/* line 174 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003174}}
+/* line 189 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .section.description h3 {
   background-image: url("../images/description.png");
 }
 
-/* line 176 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003176}}
+/* line 191 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .section.instance_methods h3 {
   background-image: url("../images/instance_method.png");
 }
 
-/* line 178 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003178}}
+/* line 193 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .section.instance_properties h3 {
   background-image: url("../images/instance_property.png");
 }
 
-/* line 180 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003180}}
+/* line 195 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .section.mixins h3 {
   background-image: url("../images/mixin.png");
 }
 
-/* line 182 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003182}}
+/* line 197 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .section.namespaces h3 {
   background-image: url("../images/namespace.png");
 }
 
-/* line 184 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003184}}
+/* line 199 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .section.subclasses h3 {
   background-image: url("../images/subclass.png");
 }
 
-/* line 186 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003186}}
+/* line 201 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .section.superclass h3 {
   background-image: url("../images/superclass.png");
 }
 
-/* line 188 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003188}}
+/* line 203 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .section.utilities h3 {
   background-image: url("../images/utility.png");
 }
 
-/* line 191 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003191}}
+/* line 206 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .method-list {
   padding: 0;
   overflow: hidden;
 }
 
-/* line 195 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003195}}
+/* line 210 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .method-list li {
   list-style: none;
   margin-bottom: 7px;
   float: left;
 }
 
-/* line 200 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003200}}
+/* line 215 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .method-list li:after {
   content: ",";
   margin: 0 10px 0 2px;
 }
 
-/* line 203 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003203}}
+/* line 218 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .method-list li:last-child:after {
   content: "";
   margin: 0;
 }
 
-/* line 206 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003206}}
+/* line 221 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .method-list li a {
   border-bottom: 1px solid #888;
   color: #036;
   text-decoration: none;
 }
 
-/* line 211 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003211}}
+/* line 226 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .method-details-list {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-/* line 217 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003217}}
+/* line 232 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .signatures {
   background-color: #e0e8e0;
   padding: 3px 5px;
@@ -912,41 +720,31 @@ body {
   border-radius: 3px;
 }
 
-/* line 224 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003224}}
+/* line 239 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .signature ul {
   padding: 0;
   margin: 0;
 }
 
-/* line 228 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003228}}
+/* line 243 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .signature li {
   display: inline;
 }
 
-/* line 231 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003231}}
+/* line 246 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .signature ul.argument-types {
   display: inline;
   margin: 0;
   padding: 0;
 }
 
-/* line 236 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003236}}
+/* line 251 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .signature ul.argument-types:before {
   content: '→';
   margin: 0 5px;
 }
 
-/* line 240 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003240}}
+/* line 255 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .argument-details {
   padding: 0;
   margin: 0;
@@ -954,24 +752,18 @@ body {
   display: inline;
 }
 
-/* line 246 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003246}}
+/* line 261 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .argument-details li {
   display: inline;
 }
 
-/* line 249 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003249}}
+/* line 264 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .argument-name {
   color: #060;
   font-weight: bold;
 }
 
-/* line 253 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003253}}
+/* line 268 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .argument-details .argument-types ul {
   display: inline;
   margin: 0;
@@ -981,72 +773,52 @@ body {
   font-size: 11px;
 }
 
-/* line 261 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 276 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003261}}
+/* line 277 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 
-/* line 262 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003262}}
-
-/* line 263 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003263}}
+/* line 278 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .argument-types ul:before {
   content: '(';
   margin-right: 2px;
 }
 
-/* line 266 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003266}}
+/* line 281 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .argument-types ul:after {
   content: ')';
   margin-left: 2px;
 }
 
-/* line 269 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003269}}
+/* line 284 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .argument-types li {
   display: inline;
 }
 
-/* line 272 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003272}}
+/* line 287 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .argument-types li:after {
   content: "|";
   margin: 0 2px;
 }
 
-/* line 275 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003275}}
+/* line 290 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .argument-types li:last-child:after {
   content: "";
   margin: 0;
 }
 
-/* line 279 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003279}}
+/* line 294 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .argument-description:before {
   content: '—';
   margin-left: 5px;
   margin-right: 5px;
 }
 
-/* line 284 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003284}}
+/* line 299 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .argument-description p {
   display: inline;
 }
 
-/* line 288 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003288}}
+/* line 303 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 pre {
   border: 1px solid #ccc;
   padding: 5px;
@@ -1056,16 +828,12 @@ pre {
   overflow: auto;
 }
 
-/* line 297 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003297}}
+/* line 312 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 pre code {
   white-space: pre;
 }
 
-/* line 300 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003300}}
+/* line 315 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 p code {
   border: 1px solid #ccc;
   background-color: #f8f8f8;
@@ -1074,9 +842,7 @@ p code {
   font-size: 13px;
 }
 
-/* line 307 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003307}}
+/* line 322 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .alias {
   background-color: #fff6de;
   border: 1px solid #cc9;
@@ -1085,51 +851,42 @@ p code {
   padding: 3px 30px;
 }
 
-/* line 314 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003314}}
+/* line 329 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .alias ul {
   display: inline;
   padding: 0;
 }
 
-/* line 317 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003317}}
+/* line 332 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .alias li {
   display: inline;
 }
 
-/* line 320 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003320}}
+/* line 335 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .alias li:after {
   content: ",";
   margin: 0 5px 0 2px;
 }
 
-/* line 323 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003323}}
+/* line 338 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .alias li:last-child:after {
   content: "";
   margin: 0;
 }
 
-/* line 327 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003327}}
+/* line 342 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .alias a,
-section.superclass a,
-a.link-short {
+a.link-short,
+.superclass a,
+.superclass a:visited,
+h4 a,
+h4 a:visited {
   border-bottom: 1px solid #888;
   color: #036;
   text-decoration: none;
 }
 
-/* line 334 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003334}}
+/* line 350 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .footer {
   border-top: 1px solid #eee;
   color: #ccc;
@@ -1138,35 +895,25 @@ a.link-short {
   line-height: 1;
 }
 
-/* line 341 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/api\.styl}line{font-family:\00003341}}
+/* line 357 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/api.styl */
 .footer a {
   color: #ccc;
 }
 
-/* line 344 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 360 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\00003344}}
-
-/* line 1 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\000031}}
+/* line 1 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
 .pln {
   color: #000;
 }
 
-/* line 4 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\000034}}
+/* line 4 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
 ol.linenums {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-/* line 8 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\000038}}
+/* line 8 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
 li.L0,
 li.L1,
 li.L2,
@@ -1178,9 +925,7 @@ li.L8 {
   list-style-type: none;
 }
 
-/* line 11 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000311}}
+/* line 11 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
 li.L1,
 li.L3,
 li.L5,
@@ -1190,165 +935,121 @@ li.L9 {
 }
 @media screen {
 
-/* line 15 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000315}}
+/* line 15 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .str {
     color: #080;
   }
 
-/* line 18 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000318}}
+/* line 18 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .kwd {
     color: #008;
   }
 
-/* line 21 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000321}}
+/* line 21 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .com {
     color: #800;
   }
 
-/* line 24 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000324}}
+/* line 24 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .typ {
     color: #606;
   }
 
-/* line 27 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000327}}
+/* line 27 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .lit {
     color: #066;
   }
 
-/* line 30 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000330}}
+/* line 30 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .pun,
   .opn,
   .clo {
     color: #660;
   }
 
-/* line 33 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000333}}
+/* line 33 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .tag {
     color: #008;
   }
 
-/* line 36 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000336}}
+/* line 36 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .atn {
     color: #606;
   }
 
-/* line 39 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000339}}
+/* line 39 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .atv {
     color: #080;
   }
 
-/* line 42 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000342}}
+/* line 42 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .dec,
   .var {
     color: #606;
   }
 
-/* line 45 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000345}}
+/* line 45 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .fun {
     color: #f00;
   }
 }
 @media printprojection {
 
-/* line 49 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000349}}
+/* line 49 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .str {
     color: #060;
   }
 
-/* line 52 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000352}}
+/* line 52 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .kwd {
     color: #006;
     font-weight: 700;
   }
 
-/* line 56 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000356}}
+/* line 56 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .com {
     color: #600;
     font-style: italic;
   }
 
-/* line 60 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000360}}
+/* line 60 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .typ {
     color: #404;
     font-weight: 700;
   }
 
-/* line 64 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000364}}
+/* line 64 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .lit {
     color: #044;
   }
 
-/* line 67 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000367}}
+/* line 67 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .pun,
   .opn,
   .clo {
     color: #440;
   }
 
-/* line 70 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000370}}
+/* line 70 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .tag {
     color: #006;
     font-weight: 700;
   }
 
-/* line 74 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000374}}
+/* line 74 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .atn {
     color: #404;
   }
 
-/* line 77 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/prettify\.styl}line{font-family:\0000377}}
+/* line 77 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/prettify.styl */
   .atv {
     color: #060;
   }
 }
 
-/* line 80 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+/* line 80 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
 
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000380}}
-
-/* line 6 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\000036}}
+/* line 6 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
 .ir {
   display: block;
   border: 0;
@@ -1360,24 +1061,18 @@ li.L9 {
   direction: ltr;
 }
 
-/* line 16 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000316}}
+/* line 16 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
 .ir br {
   display: none;
 }
 
-/* line 19 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000319}}
+/* line 19 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
 .hidden {
   display: none;
   visibility: hidden;
 }
 
-/* line 23 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000323}}
+/* line 23 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -1389,9 +1084,7 @@ li.L9 {
   width: 1px;
 }
 
-/* line 34 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000334}}
+/* line 34 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -1402,44 +1095,32 @@ li.L9 {
   width: auto;
 }
 
-/* line 43 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000343}}
+/* line 43 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
 .invisible {
   visibility: hidden;
 }
 
-/* line 47 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000347}}
+/* line 47 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
 .clearfix:before,
 .clearfix:after {
   content: "";
   display: table;
 }
 
-/* line 51 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000351}}
+/* line 51 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
 .clearfix:after {
   clear: both;
 }
 
-/* line 54 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_end\.styl}line{font-family:\0000354}}
+/* line 54 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
 .clearfix {
   *zoom: 1;
 }
 
-/* line 57 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_print\.styl}line{font-family:\0000357}}
+/* line 57 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
 @media print {
 
-/* line 7 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_print\.styl}line{font-family:\000037}}
+/* line 7 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
   * {
     background: transparent;
     color: #000;
@@ -1449,78 +1130,58 @@ li.L9 {
     -ms-filter: none;
   }
 
-/* line 15 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_print\.styl}line{font-family:\0000315}}
+/* line 15 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
   a,
   a:visited {
     text-decoration: underline;
   }
 
-/* line 18 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_print\.styl}line{font-family:\0000318}}
+/* line 18 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
   a[href]:after {
     content: " (" attr(href) ")";
   }
 
-/* line 21 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_print\.styl}line{font-family:\0000321}}
+/* line 21 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
 
-/* line 24 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_print\.styl}line{font-family:\0000324}}
+/* line 24 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: "";
   }
 
-/* line 27 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_print\.styl}line{font-family:\0000327}}
+/* line 27 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
 
-/* line 31 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_print\.styl}line{font-family:\0000331}}
+/* line 31 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
   thead {
     display: table-header-group;
   }
 
-/* line 34 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_print\.styl}line{font-family:\0000334}}
+/* line 34 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
   tr,
   img {
     page-break-inside: avoid;
   }
 
-/* line 37 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_print\.styl}line{font-family:\0000337}}
+/* line 37 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
   img {
     max-width: 100%;
   }
 
-/* line 40 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_print\.styl}line{font-family:\0000340}}
+/* line 40 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
   @page {
     margin: 0.5cm;
   }
 
-/* line 43 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_print\.styl}line{font-family:\0000343}}
+/* line 43 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
   p,
   h2,
   h3 {
@@ -1528,9 +1189,7 @@ li.L9 {
     widows: 3;
   }
 
-/* line 47 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
-
-@media -stylus-debug-info{filename{font-family:file\:\/\/\/home\/dvv\/NODECA\/ndoc\/skins\/html5\/templates\/styles\/boilerplate_print\.styl}line{font-family:\0000347}}
+/* line 47 : /home/vitaly/Кодинг/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
   h2,
   h3 {
     page-break-after: avoid;
