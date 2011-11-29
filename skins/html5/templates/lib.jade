@@ -134,7 +134,7 @@ mixin article(obj, parents)
       collection = obj.children.filter(function(x){return x.type === 'namespace'});
       if collection.length
         .section.namespaces
-          h4 Namespaces
+          h3 Namespaces
           .content
             mixin short_description_list(collection)
 
@@ -297,10 +297,10 @@ mixin short_description_list(collection)
       if typeof obj === 'string'
         obj = list[obj]
       li.method-description
-        mixin link(obj)
+        h4
+          mixin link(obj)
         if obj.short_description
-          p
-            mixin markdown(obj.short_description)
+          mixin markdown(obj.short_description)
 
 
 mixin link(obj, short, classes)
