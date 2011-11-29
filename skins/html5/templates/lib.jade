@@ -10,39 +10,44 @@ mixin home()
           mixin short_description_list(tree)
 
 mixin menu()
-  for obj in tree
-    //-if obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
-    mixin menu_item(obj, 0)
+  ul.menu
+    for obj in tree
+      mixin menu_item(obj, 0)
 
 mixin menu_item(obj, level, short)
   if typeof obj === 'string'
     obj = list[obj]
-  li
-    .menu-item
-      mixin link(obj, short, [obj.type.replace(/ /g, '-'), obj.deprecated && 'deprecated', obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;}))
-      if obj.type === 'section' || obj.type === 'utility' || obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
-        if obj.children.length
-          ul.hidden1
-            for child in obj.children.filter(function(x){return x.type === 'utility'})
-              mixin menu_item(child, level + 1, true)
-            for child in obj.children.filter(function(x){return x.type === 'constructor'})
-              mixin menu_item(child, level + 1, true)
-            for child in obj.children.filter(function(x){return x.type === 'namespace'})
-              mixin menu_item(child, level + 1, true)
-            for child in obj.children.filter(function(x){return x.type === 'class'})
-              mixin menu_item(child, level + 1, true)
-            for child in obj.children.filter(function(x){return x.type === 'mixin'})
-              mixin menu_item(child, level + 1, true)
-            for child in obj.children.filter(function(x){return x.type === 'class method'})
-              mixin menu_item(child, level + 1, true)
-            for child in obj.children.filter(function(x){return x.type === 'class property'})
-              mixin menu_item(child, level + 1, true)
-            for child in obj.children.filter(function(x){return x.type === 'instance method'})
-              mixin menu_item(child, level + 1, true)
-            for child in obj.children.filter(function(x){return x.type === 'instance property'})
-              mixin menu_item(child, level + 1, true)
-            for child in obj.children.filter(function(x){return x.type === 'constant'})
-              mixin menu_item(child, level + 1, true)
+
+  //- N.B. skip unnamed articles. E.g., default documentation section
+  if obj.id !== ''
+
+    li
+      .menu-item
+        mixin link(obj, short, [obj.type.replace(/ /g, '-'), obj.deprecated && 'deprecated', obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;}))
+        if obj.type === 'section' || obj.type === 'utility' || obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
+
+  if obj.children.length
+    ul.hidden1
+      for child in obj.children.filter(function(x){return x.type === 'utility'})
+        mixin menu_item(child, level + 1, true)
+      for child in obj.children.filter(function(x){return x.type === 'constructor'})
+        mixin menu_item(child, level + 1, true)
+      for child in obj.children.filter(function(x){return x.type === 'namespace'})
+        mixin menu_item(child, level + 1, true)
+      for child in obj.children.filter(function(x){return x.type === 'class'})
+        mixin menu_item(child, level + 1, true)
+      for child in obj.children.filter(function(x){return x.type === 'mixin'})
+        mixin menu_item(child, level + 1, true)
+      for child in obj.children.filter(function(x){return x.type === 'class method'})
+        mixin menu_item(child, level + 1, true)
+      for child in obj.children.filter(function(x){return x.type === 'class property'})
+        mixin menu_item(child, level + 1, true)
+      for child in obj.children.filter(function(x){return x.type === 'instance method'})
+        mixin menu_item(child, level + 1, true)
+      for child in obj.children.filter(function(x){return x.type === 'instance property'})
+        mixin menu_item(child, level + 1, true)
+      for child in obj.children.filter(function(x){return x.type === 'constant'})
+        mixin menu_item(child, level + 1, true)
 
 
 //- way difficult to style. put on standby so far
