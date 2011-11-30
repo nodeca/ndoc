@@ -5,19 +5,17 @@
 //
 function hashChanged(path) {
   var el = $('div.menu-item a[href="'+path+'"]');
-  console.log(el);
+  //console.log(el);
   //console.log('HASH', path, el.data('id'));
   // forget current selection
   $('div.menu-item >a.current').removeClass('current');
   $('div.menu-item >a.current-parent').removeClass('current-parent');
-  if (false) {
-    // collapse menu
-    $('div.menu-item >ul').addClass('hidden');
-    // expand parent of `el`
-    el.parents('ul:eq(0)').removeClass('hidden');
-    // expand children of `el`
-    el.next().removeClass('hidden');
-  }
+  // collapse menu
+  $('div.menu-item +ul').addClass('hidden');
+  // expand parents of `el`
+  el.parents('ul').removeClass('hidden');
+  // expand children of `el`
+  el.parents('div.menu-item:eq(0)').next().removeClass('hidden');
   // set current selection
   el.parents('div.menu-item').find('>a').addClass('current-parent');
   el.addClass('current');

@@ -26,25 +26,24 @@ mixin menu_item(obj, level, parent)
     .menu-item
       short = level === 0 || parent.type === 'section' || !composite
       mixin link(obj, short, [obj.type.replace(/ /g, '-'), obj.deprecated && 'deprecated', obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;}))
-
-  if obj.children.length
-    ul
-      for child in obj.children.filter(function(x){return x.type === 'utility'})
-        mixin menu_item(child, level + 1, obj)
-      for child in obj.children.filter(function(x){return x.type === 'constructor'})
-        mixin menu_item(child, level + 1, obj)
-      for child in obj.children.filter(function(x){return x.type === 'namespace' || x.type === 'class' || x.type === 'mixin'})
-        mixin menu_item(child, level + 1, obj)
-      for child in obj.children.filter(function(x){return x.type === 'class method'})
-        mixin menu_item(child, level + 1, obj)
-      for child in obj.children.filter(function(x){return x.type === 'class property'})
-        mixin menu_item(child, level + 1, obj)
-      for child in obj.children.filter(function(x){return x.type === 'instance method'})
-        mixin menu_item(child, level + 1, obj)
-      for child in obj.children.filter(function(x){return x.type === 'instance property'})
-        mixin menu_item(child, level + 1, obj)
-      for child in obj.children.filter(function(x){return x.type === 'constant'})
-        mixin menu_item(child, level + 1, obj)
+    if obj.children.length
+      ul(class=hidden ? 'hidden' : '')
+        for child in obj.children.filter(function(x){return x.type === 'utility'})
+          mixin menu_item(child, level + 1, obj)
+        for child in obj.children.filter(function(x){return x.type === 'constructor'})
+          mixin menu_item(child, level + 1, obj)
+        for child in obj.children.filter(function(x){return x.type === 'namespace' || x.type === 'class' || x.type === 'mixin'})
+          mixin menu_item(child, level + 1, obj)
+        for child in obj.children.filter(function(x){return x.type === 'class method'})
+          mixin menu_item(child, level + 1, obj)
+        for child in obj.children.filter(function(x){return x.type === 'class property'})
+          mixin menu_item(child, level + 1, obj)
+        for child in obj.children.filter(function(x){return x.type === 'instance method'})
+          mixin menu_item(child, level + 1, obj)
+        for child in obj.children.filter(function(x){return x.type === 'instance property'})
+          mixin menu_item(child, level + 1, obj)
+        for child in obj.children.filter(function(x){return x.type === 'constant'})
+          mixin menu_item(child, level + 1, obj)
 
 
 mixin argument(arg)
@@ -79,7 +78,7 @@ mixin title(obj, parents)
     h2
       span.type #{obj.type}
       if obj.type === 'section'
-        span.name #{obj.id} section
+        span.name #{obj.name} section
       else
         span.name #{obj.id}
 
