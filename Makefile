@@ -10,8 +10,8 @@ playground: redo $(DOCS)
 	echo Open playground/index.html
 
 redo:
-	# force rebuild parser
-	rm -fr lib/parser.js
+	## force rebuild parser
+	#rm -fr lib/parser.js
 	# rebuild stylesheets
 	node_modules/.bin/stylus -l -o $(ROOT)/skins/default/skeleton/stylesheets/ $(ROOT)/skins/default/templates/styles/main.styl
 
