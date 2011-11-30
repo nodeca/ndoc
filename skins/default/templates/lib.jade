@@ -196,7 +196,12 @@ mixin article(obj, parents)
                       li.signature-returns
                         ul.argument-types
                           for type in sig.returns
-                            li.argument-type= (type || '?')
+                            s = type || '?'
+                            if type.ellipsis
+                              s = s + '...'
+                            if type.array
+                              s = '[ ' + s + ' ]'
+                            li.argument-type= s
 
           if obj.arguments
             ul.argument-list

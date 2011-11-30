@@ -252,8 +252,8 @@ value
   | BOOLEAN { $$ = Boolean($1) } 
   | REGEXP { $$ = new RegExp($1) }
   | name
-  | '[' value_list ']' { $$ = $2 }
-  | '[' value_list '...' ']' { $$ = $2; $$.ellipsis = true }
+  | '[' value_list ']' { $$ = $2; $$.array = true }
+  | '[' value_list '...' ']' { $$ = $2; $$.array = true; $$.ellipsis = true }
   | '{' key_value_list '}' { $$ = $2 }
   ;
 
