@@ -1,18 +1,23 @@
+# NDoc - JavaScript documentation generator
 
-# JavaScript PDoc parser
+NDoc is an inline comment parser and JavaScript documentation generator written in node.js.
+This project is inspired by [PDoc](http://pdoc.org/syntax.html). It tries to keep compatibility,
+but has some differences:
 
-An attempt to parse [PDoc](http://pdoc.org/syntax.html) with [node.js](http://nodejs.org)
+- NDoc is a CLI tool, not library. It doesn't require additional programming to execute.
+- Clarified sections syntax. Section now MUST be separated by empty line from the following comments
+- Added options for `deprecated` tag: you can set versions, when tag was deprecated and
+  when it will be removed.
+- Added new tags: `read-only`, `internal`, `chainable`
+
 
 ## How to Install
 
-   npm install ndoc
+We suppose, than you already have `node.js` and `npm` installed.
+If not - try [nvm](https://github.com/creationix/nvm). Then install NDoc globally
 
-## Quick start
+    npm install -g ndoc
 
-Go to your project's root directory and run
-
-    ndoc lib
-    open file://./doc/index.html
 
 ## Usage
 
@@ -39,10 +44,36 @@ Go to your project's root directory and run
       --view-source-label TXT   Text for "View source" link
       --skin PATH               Custom templates
 
+NDoc try to use defaults from `package.json` in current folder. That helps to minimize options count when building
+documentation for node.js projects. For example, you can just run:
+
+    ndoc ./lib
+
+
 ## Syntax
 
-[Syntax](ndoc/blob/master/syntax.md) is authored after [pdoc](https://github.com/tobie/pdoc), with some additional tags.
+[NDoc Syntax](syntax.md). It similar to [PDoc](https://github.com/tobie/pdoc) one, with some extentions.
+
+
+## For developpers
+
+If you like to make patches or develop skins - install NDoc in developper mode:
+
+    git clone [your_fork_url]
+    cd ndoc
+    npm install --dev
+
+(!) Note, than because of `jison` you should have to use 0.4.x node branch now. That restriction doesn't applies
+to usual install.
+
+After installation you can generate prototype documentation for test:
+
+    .bin/ndoc ./tests -o ./tests/doc
+
+Then open `./test/doc/index.html`. There are also some shortcuts in [Makefile](https://github.com/nodeca/ndoc/blob/master/Makefile),
+if you make skin changes and need to constantly rebuild samples.
+
 
 ## License
 
-[MIT](https://github.com/nodeca/ndoc/blob/master/LICENSE)
+This project is distributed under [MIT](https://github.com/nodeca/ndoc/blob/master/LICENSE) license.
