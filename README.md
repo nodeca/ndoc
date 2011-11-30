@@ -52,7 +52,8 @@ documentation for node.js projects. For example, you can just run:
 
 ## Syntax
 
-[NDoc Syntax](syntax.md). It similar to [PDoc](https://github.com/tobie/pdoc) one, with some extentions.
+[NDoc Syntax](https://github.com/nodeca/ndoc/blob/master/syntax.md).
+It similar to [PDoc](https://github.com/tobie/pdoc) one, with some extentions (see start of this doc for details).
 
 
 ## For developpers
