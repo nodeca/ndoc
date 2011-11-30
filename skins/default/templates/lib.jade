@@ -173,13 +173,13 @@ mixin article(obj, parents)
             .section.subclasses
               h3 Subclasses
               .content
-                mixin links(obj.subclasses.sort())
+                mixin links(obj.subclasses)
 
         if obj.included_mixins
           .section.mixins
             h3 Includes
             .content
-              mixin links(obj.included_mixins.sort())
+              mixin links(obj.included_mixins)
 
         collection = obj.children.filter(function(x){return x.type === 'utility'})
         if collection.length

@@ -1,7 +1,7 @@
 
-/* line 138 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 138 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 
-/* line 16 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 16 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 article,
 aside,
 details,
@@ -15,7 +15,7 @@ section {
   display: block;
 }
 
-/* line 19 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 19 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 audio,
 canvas,
 video {
@@ -24,17 +24,17 @@ video {
   *zoom: 1;
 }
 
-/* line 24 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 24 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 audio:not([controls]) {
   display: none;
 }
 
-/* line 27 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 27 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 [hidden] {
   display: none;
 }
 
-/* line 40 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 40 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 html {
   font-size: 100%;
   overflow-y: scroll;
@@ -42,14 +42,14 @@ html {
   -ms-text-size-adjust: 100%;
 }
 
-/* line 46 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 46 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 body {
   margin: 0;
   font-size: 13px;
   line-height: 1.231;
 }
 
-/* line 51 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 51 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 body,
 button,
 input,
@@ -59,68 +59,68 @@ textarea {
   color: #222;
 }
 
-/* line 61 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 61 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 ::-moz-selection {
   background: #fe57a1;
   color: #fff;
   text-shadow: none;
 }
 
-/* line 66 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 66 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 ::selection {
   background: #fe57a1;
   color: #fff;
   text-shadow: none;
 }
 
-/* line 75 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 75 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 a {
   color: #00e;
 }
 
-/* line 78 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 78 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 a:visited {
   color: #551a8b;
 }
 
-/* line 81 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 81 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 a:hover {
   color: #06e;
 }
 
-/* line 84 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 84 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 a:focus {
   outline: thin dotted;
 }
 
-/* line 89 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 89 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 a:hover,
 a:active {
   outline: 0;
 }
 
-/* line 96 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 96 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 abbr[title] {
   border-bottom: 1px dotted;
 }
 
-/* line 99 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 99 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 b,
 strong {
   font-weight: bold;
 }
 
-/* line 102 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 102 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 blockquote {
   margin: 1em 40px;
 }
 
-/* line 105 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 105 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 dfn {
   font-style: italic;
 }
 
-/* line 108 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 108 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 hr {
   display: block;
   height: 1px;
@@ -130,14 +130,14 @@ hr {
   padding: 0;
 }
 
-/* line 116 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 116 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 ins {
   background: #ff9;
   color: #000;
   text-decoration: none;
 }
 
-/* line 121 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 121 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 mark {
   background: #ff0;
   color: #000;
@@ -145,7 +145,7 @@ mark {
   font-weight: bold;
 }
 
-/* line 128 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 128 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 pre,
 code,
 kbd,
@@ -155,29 +155,29 @@ samp {
   font-size: 1em;
 }
 
-/* line 133 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 133 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 pre {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
-/* line 137 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 137 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 q {
   quotes: none;
 }
 
-/* line 140 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 140 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 q:before,
 q:after {
   content: none;
 }
 
-/* line 143 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 143 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 small {
   font-size: 85%;
 }
 
-/* line 146 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 146 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 sub,
 sup {
   font-size: 75%;
@@ -186,29 +186,29 @@ sup {
   vertical-align: baseline;
 }
 
-/* line 152 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 152 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 sup {
   top: -0.5em;
 }
 
-/* line 155 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 155 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 sub {
   bottom: -0.25em;
 }
 
-/* line 162 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 162 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 ul,
 ol {
   margin: 1em 0;
   padding: 0 0 0 40px;
 }
 
-/* line 166 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 166 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 dd {
   margin: 0 0 0 40px;
 }
 
-/* line 169 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 169 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 nav ul,
 nav ol {
   list-style: none;
@@ -217,48 +217,48 @@ nav ol {
   padding: 0;
 }
 
-/* line 184 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 184 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 img {
   border: 0;
   -ms-interpolation-mode: bicubic;
   vertical-align: middle;
 }
 
-/* line 193 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 193 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 svg:not(:root) {
   overflow: hidden;
 }
 
-/* line 200 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 200 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 figure {
   margin: 0;
 }
 
-/* line 207 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 207 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 form {
   margin: 0;
 }
 
-/* line 210 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 210 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 fieldset {
   border: 0;
   margin: 0;
   padding: 0;
 }
 
-/* line 215 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 215 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 label {
   cursor: pointer;
 }
 
-/* line 223 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 223 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 legend {
   border: 0;
   *margin-left: -7px;
   padding: 0;
 }
 
-/* line 234 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 234 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 button,
 input,
 select,
@@ -269,13 +269,13 @@ textarea {
   *vertical-align: middle;
 }
 
-/* line 244 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 244 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 button,
 input {
   line-height: normal;
 }
 
-/* line 253 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 253 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 button,
 input[type="button"],
 input[type="reset"],
@@ -285,14 +285,14 @@ input[type="submit"] {
   *overflow: visible;
 }
 
-/* line 262 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 262 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
   padding: 0;
 }
 
-/* line 266 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 266 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 input[type="search"] {
   -webkit-appearance: textfield;
   -moz-box-sizing: content-box;
@@ -300,26 +300,26 @@ input[type="search"] {
   box-sizing: content-box;
 }
 
-/* line 272 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 272 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
-/* line 279 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 279 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
 
-/* line 288 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 288 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 textarea {
   overflow: auto;
   vertical-align: top;
   resize: vertical;
 }
 
-/* line 294 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 294 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 input:valid,
 textarea:valid,
 input:invalid,
@@ -327,27 +327,27 @@ textarea:invalid {
   background-color: #f0dddd;
 }
 
-/* line 303 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 303 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 307 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_start.styl */
+/* line 307 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_start.styl */
 td {
   vertical-align: top;
 }
 
-/* line 310 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 310 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 
-/* line 1 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 1 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 body {
   font-family: Verdana, sans-serif;
   font-size: 14px;
   line-height: 1.5em;
 }
 
-/* line 7 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 7 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .sidebar {
   background: none repeat scroll 0 0 #eee;
   position: fixed;
@@ -360,25 +360,25 @@ body {
   overflow: auto;
 }
 
-/* line 18 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 18 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-/* line 23 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 23 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu ul {
   margin-left: 10px;
   padding: 0;
   list-style: none;
 }
 
-/* line 28 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 28 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 
-/* line 30 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 30 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 
-/* line 31 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 31 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a,
 .menu-item a:link {
   background-position: 6px 50%;
@@ -391,18 +391,18 @@ body {
   white-space: nowrap;
 }
 
-/* line 41 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 41 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a:hover {
   background-color: #ccc;
 }
 
-/* line 44 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 44 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.current,
 .menu-item a.current-parent {
   background-color: #ddd;
 }
 
-/* line 47 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 47 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.section {
   background-color: #000;
   background: -moz-linear-gradient(#000 50%, #888) repeat scroll 0 0 transparent;
@@ -412,69 +412,69 @@ body {
   padding: 6px 10px 6px 28px;
 }
 
-/* line 54 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 54 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.class {
   background-image: url("../images/class.png");
 }
 
-/* line 56 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 56 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.class.deprecated {
   background-image: url("../images/class_deprecated.png");
 }
 
-/* line 58 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 58 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.class-method {
   background-image: url("../images/class_method.png");
 }
 
-/* line 60 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 60 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.class-property {
   background-image: url("../images/class_property.png");
 }
 
-/* line 62 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 62 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.constructor {
   background-image: url("../images/constructor.png");
 }
 
-/* line 64 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 64 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.instance-method {
   background-image: url("../images/instance_method.png");
 }
 
-/* line 66 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 66 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.instance-property {
   background-image: url("../images/instance_property.png");
 }
 
-/* line 68 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 68 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.mixin {
   background-image: url("../images/mixin.png");
 }
 
-/* line 70 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 70 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.namespace {
   background-image: url("../images/namespace.png");
 }
 
-/* line 72 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 72 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.utility {
   background-image: url("../images/utility.png");
 }
 
-/* line 76 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 76 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .main {
   width: 700px;
   margin-left: 250;
 }
 
-/* line 80 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 80 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .article,
 #home {
   margin-bottom: 70px;
 }
 
-/* line 84 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 84 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .breadcrumbs {
   font-size: 12px;
   white-space: nowrap;
@@ -482,35 +482,35 @@ body {
   color: #ccc;
 }
 
-/* line 90 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 90 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .breadcrumbs a {
   color: #ccc;
 }
 
-/* line 93 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 93 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .breadcrumbs li {
   display: inline;
   margin: 0 4px 0 0;
 }
 
-/* line 97 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 97 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .breadcrumbs li:after {
   content: "»";
   margin: 0 0 0 4px;
 }
 
-/* line 101 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 101 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .breadcrumbs li:last-child:after {
   content: "";
   margin: 0;
 }
 
-/* line 105 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 105 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 #home h1 {
   font-size: 30px;
 }
 
-/* line 108 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 108 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .article header,
 .article .section,
 .article .alias,
@@ -519,13 +519,13 @@ body {
   margin-bottom: 20px;
 }
 
-/* line 115 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 115 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .footer,
 #home {
   margin-left: 140px;
 }
 
-/* line 119 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 119 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .article h2 {
   position: relative;
   font-size: 30px;
@@ -533,7 +533,7 @@ body {
   line-height: 1;
 }
 
-/* line 125 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 125 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .article h2 .type {
   display: block;
   color: #888;
@@ -544,28 +544,28 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 134 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 134 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 
-/* line 135 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 135 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .article h5 {
   font-size: 14px;
   margin: 0;
 }
 
-/* line 138 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 138 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .article h6 {
   font-size: 13px;
   margin: 0;
   color: #666;
 }
 
-/* line 143 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 143 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 h4 {
   font-size: 16px;
   margin: 0;
 }
 
-/* line 147 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 147 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .source a {
   font-size: 10px;
   color: #aaa;
@@ -573,22 +573,22 @@ h4 {
   text-decoration: none;
 }
 
-/* line 153 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 153 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .deprecated-note {
   color: #f00;
 }
 
-/* line 156 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 156 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .article.deprecated h2 .name {
   text-decoration: line-through;
 }
 
-/* line 159 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 159 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .section {
   position: relative;
 }
 
-/* line 162 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 162 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .section h3 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-position: right 0px;
@@ -607,111 +607,111 @@ h4 {
   color: #888;
 }
 
-/* line 179 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 179 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .section.classes h3 {
   background-image: url("../images/class.png");
 }
 
-/* line 181 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 181 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .section.class_methods h3 {
   background-image: url("../images/class_method.png");
 }
 
-/* line 183 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 183 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .section.class_properties h3 {
   background-image: url("../images/class_property.png");
 }
 
-/* line 185 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 185 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .section.constants h3 {
   background-image: url("../images/constant.png");
 }
 
-/* line 187 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 187 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .section.constructor h3 {
   background-image: url("../images/constructor.png");
 }
 
-/* line 189 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 189 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .section.description h3 {
   background-image: url("../images/description.png");
 }
 
-/* line 191 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 191 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .section.instance_methods h3 {
   background-image: url("../images/instance_method.png");
 }
 
-/* line 193 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 193 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .section.instance_properties h3 {
   background-image: url("../images/instance_property.png");
 }
 
-/* line 195 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 195 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .section.mixins h3 {
   background-image: url("../images/mixin.png");
 }
 
-/* line 197 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 197 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .section.namespaces h3 {
   background-image: url("../images/namespace.png");
 }
 
-/* line 199 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 199 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .section.subclasses h3 {
   background-image: url("../images/subclass.png");
 }
 
-/* line 201 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 201 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .section.superclass h3 {
   background-image: url("../images/superclass.png");
 }
 
-/* line 203 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 203 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .section.utilities h3 {
   background-image: url("../images/utility.png");
 }
 
-/* line 206 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 206 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .method-list {
   padding: 0;
   overflow: hidden;
 }
 
-/* line 210 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 210 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .method-list li {
   list-style: none;
   margin-bottom: 7px;
   float: left;
 }
 
-/* line 215 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 215 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .method-list li:after {
   content: ",";
   margin: 0 10px 0 2px;
 }
 
-/* line 218 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 218 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .method-list li:last-child:after {
   content: "";
   margin: 0;
 }
 
-/* line 221 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 221 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .method-list li a {
   border-bottom: 1px solid #888;
   color: #036;
   text-decoration: none;
 }
 
-/* line 226 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 226 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .method-details-list {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-/* line 232 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 232 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .signatures {
   background-color: #e0e8e0;
   padding: 3px 5px;
@@ -720,31 +720,31 @@ h4 {
   border-radius: 3px;
 }
 
-/* line 239 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 239 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .signature ul {
   padding: 0;
   margin: 0;
 }
 
-/* line 243 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 243 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .signature li {
   display: inline;
 }
 
-/* line 246 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 246 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .signature ul.argument-types {
   display: inline;
   margin: 0;
   padding: 0;
 }
 
-/* line 251 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 251 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .signature ul.argument-types:before {
   content: '→';
   margin: 0 5px;
 }
 
-/* line 255 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 255 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .argument-details {
   padding: 0;
   margin: 0;
@@ -752,18 +752,18 @@ h4 {
   display: inline;
 }
 
-/* line 261 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 261 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .argument-details li {
   display: inline;
 }
 
-/* line 264 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 264 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .argument-name {
   color: #060;
   font-weight: bold;
 }
 
-/* line 268 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 268 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .argument-details .argument-types ul {
   display: inline;
   margin: 0;
@@ -773,52 +773,52 @@ h4 {
   font-size: 11px;
 }
 
-/* line 276 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 276 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 
-/* line 277 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 277 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 
-/* line 278 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 278 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .argument-types ul:before {
   content: '(';
   margin-right: 2px;
 }
 
-/* line 281 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 281 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .argument-types ul:after {
   content: ')';
   margin-left: 2px;
 }
 
-/* line 284 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 284 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .argument-types li {
   display: inline;
 }
 
-/* line 287 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 287 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .argument-types li:after {
   content: "|";
   margin: 0 2px;
 }
 
-/* line 290 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 290 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .argument-types li:last-child:after {
   content: "";
   margin: 0;
 }
 
-/* line 294 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 294 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .argument-description:before {
   content: '—';
   margin-left: 5px;
   margin-right: 5px;
 }
 
-/* line 299 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 299 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .argument-description p {
   display: inline;
 }
 
-/* line 303 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 303 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 pre {
   border: 1px solid #ccc;
   padding: 5px;
@@ -828,12 +828,12 @@ pre {
   overflow: auto;
 }
 
-/* line 312 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 312 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 pre code {
   white-space: pre;
 }
 
-/* line 315 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 315 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 p code {
   border: 1px solid #ccc;
   background-color: #f8f8f8;
@@ -842,7 +842,7 @@ p code {
   font-size: 13px;
 }
 
-/* line 322 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 322 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .alias {
   background-color: #fff6de;
   border: 1px solid #cc9;
@@ -851,30 +851,30 @@ p code {
   padding: 3px 30px;
 }
 
-/* line 329 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 329 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .alias ul {
   display: inline;
   padding: 0;
 }
 
-/* line 332 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 332 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .alias li {
   display: inline;
 }
 
-/* line 335 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 335 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .alias li:after {
   content: ",";
   margin: 0 5px 0 2px;
 }
 
-/* line 338 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 338 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .alias li:last-child:after {
   content: "";
   margin: 0;
 }
 
-/* line 342 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 342 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .alias a,
 a.link-short,
 .superclass a,
@@ -886,7 +886,7 @@ h4 a:visited {
   text-decoration: none;
 }
 
-/* line 350 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 350 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .footer {
   border-top: 1px solid #eee;
   color: #ccc;
@@ -895,25 +895,25 @@ h4 a:visited {
   line-height: 1;
 }
 
-/* line 357 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/api.styl */
+/* line 357 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/api.styl */
 .footer a {
   color: #ccc;
 }
 
-/* line 360 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 360 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
 
-/* line 1 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 1 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
 .pln {
   color: #000;
 }
 
-/* line 4 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 4 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
 ol.linenums {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-/* line 8 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 8 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
 li.L0,
 li.L1,
 li.L2,
@@ -925,7 +925,7 @@ li.L8 {
   list-style-type: none;
 }
 
-/* line 11 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 11 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
 li.L1,
 li.L3,
 li.L5,
@@ -935,121 +935,121 @@ li.L9 {
 }
 @media screen {
 
-/* line 15 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 15 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .str {
     color: #080;
   }
 
-/* line 18 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 18 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .kwd {
     color: #008;
   }
 
-/* line 21 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 21 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .com {
     color: #800;
   }
 
-/* line 24 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 24 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .typ {
     color: #606;
   }
 
-/* line 27 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 27 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .lit {
     color: #066;
   }
 
-/* line 30 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 30 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .pun,
   .opn,
   .clo {
     color: #660;
   }
 
-/* line 33 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 33 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .tag {
     color: #008;
   }
 
-/* line 36 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 36 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .atn {
     color: #606;
   }
 
-/* line 39 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 39 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .atv {
     color: #080;
   }
 
-/* line 42 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 42 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .dec,
   .var {
     color: #606;
   }
 
-/* line 45 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 45 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .fun {
     color: #f00;
   }
 }
 @media printprojection {
 
-/* line 49 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 49 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .str {
     color: #060;
   }
 
-/* line 52 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 52 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .kwd {
     color: #006;
     font-weight: 700;
   }
 
-/* line 56 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 56 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .com {
     color: #600;
     font-style: italic;
   }
 
-/* line 60 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 60 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .typ {
     color: #404;
     font-weight: 700;
   }
 
-/* line 64 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 64 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .lit {
     color: #044;
   }
 
-/* line 67 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 67 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .pun,
   .opn,
   .clo {
     color: #440;
   }
 
-/* line 70 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 70 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .tag {
     color: #006;
     font-weight: 700;
   }
 
-/* line 74 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 74 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .atn {
     color: #404;
   }
 
-/* line 77 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/prettify.styl */
+/* line 77 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/prettify.styl */
   .atv {
     color: #060;
   }
 }
 
-/* line 80 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+/* line 80 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_end.styl */
 
-/* line 6 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+/* line 6 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_end.styl */
 .ir {
   display: block;
   border: 0;
@@ -1061,18 +1061,18 @@ li.L9 {
   direction: ltr;
 }
 
-/* line 16 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+/* line 16 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_end.styl */
 .ir br {
   display: none;
 }
 
-/* line 19 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+/* line 19 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_end.styl */
 .hidden {
   display: none;
   visibility: hidden;
 }
 
-/* line 23 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+/* line 23 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_end.styl */
 .visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
@@ -1084,7 +1084,7 @@ li.L9 {
   width: 1px;
 }
 
-/* line 34 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+/* line 34 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_end.styl */
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus {
   clip: auto;
@@ -1095,32 +1095,32 @@ li.L9 {
   width: auto;
 }
 
-/* line 43 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+/* line 43 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_end.styl */
 .invisible {
   visibility: hidden;
 }
 
-/* line 47 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+/* line 47 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_end.styl */
 .clearfix:before,
 .clearfix:after {
   content: "";
   display: table;
 }
 
-/* line 51 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+/* line 51 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_end.styl */
 .clearfix:after {
   clear: both;
 }
 
-/* line 54 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_end.styl */
+/* line 54 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_end.styl */
 .clearfix {
   *zoom: 1;
 }
 
-/* line 57 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
+/* line 57 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_print.styl */
 @media print {
 
-/* line 7 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
+/* line 7 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_print.styl */
   * {
     background: transparent;
     color: #000;
@@ -1130,58 +1130,58 @@ li.L9 {
     -ms-filter: none;
   }
 
-/* line 15 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
+/* line 15 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_print.styl */
   a,
   a:visited {
     text-decoration: underline;
   }
 
-/* line 18 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
+/* line 18 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_print.styl */
   a[href]:after {
     content: " (" attr(href) ")";
   }
 
-/* line 21 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
+/* line 21 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_print.styl */
   abbr[title]:after {
     content: " (" attr(title) ")";
   }
 
-/* line 24 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
+/* line 24 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_print.styl */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
     content: "";
   }
 
-/* line 27 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
+/* line 27 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_print.styl */
   pre,
   blockquote {
     border: 1px solid #999;
     page-break-inside: avoid;
   }
 
-/* line 31 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
+/* line 31 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_print.styl */
   thead {
     display: table-header-group;
   }
 
-/* line 34 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
+/* line 34 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_print.styl */
   tr,
   img {
     page-break-inside: avoid;
   }
 
-/* line 37 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
+/* line 37 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_print.styl */
   img {
     max-width: 100%;
   }
 
-/* line 40 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
+/* line 40 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_print.styl */
   @page {
     margin: 0.5cm;
   }
 
-/* line 43 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
+/* line 43 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_print.styl */
   p,
   h2,
   h3 {
@@ -1189,7 +1189,7 @@ li.L9 {
     widows: 3;
   }
 
-/* line 47 : /home/dvv/NODECA/ndoc/skins/html5/templates/styles/boilerplate_print.styl */
+/* line 47 : /home/dvv/NODECA/ndoc/skins/default/templates/styles/boilerplate_print.styl */
   h2,
   h3 {
     page-break-after: avoid;
