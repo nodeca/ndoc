@@ -274,3 +274,22 @@ Some methods can fire native or custom events. These are indicated below the arg
      *  ...
      **/
 
+Sugar
+----
+
+## Sections
+
+Sections are grouped parts of documentation. They don't add to element hierarchy, but just help to organize documentation.
+
+    /** 
+     *  == Section Name ==
+     *
+     *  Describe this section here.
+     **/
+
+## Short links
+
+Short links help to quickly refer some element. Supported are two flavors:
+
+  * `[[HREF]]`         - renders to <a href=HREF>HREF</a>
+  * `[[HREF ' ' TEXT]] - renders to <a href=HREF>TEXT</a>
