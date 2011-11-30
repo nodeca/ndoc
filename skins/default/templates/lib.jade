@@ -201,7 +201,7 @@ mixin article(obj, parents)
                               s = s + '...'
                             if type.array
                               s = '[ ' + s + ' ]'
-                            li.argument-type= s
+                            li.argument-type!= link(s)
 
           if obj.arguments
             ul.argument-list
@@ -235,16 +235,6 @@ mixin article(obj, parents)
         ul
           li
             mixin link(obj.alias_of)
-
-    //- if obj.related_to && obj.related_to
-      .related-to
-        | Related to:
-        mixin link(obj.related_to)
-
-
-  //-if obj.children.length
-    for child in obj.children
-      mixin article(child, parents.concat(obj))
 
   //- children
   for child in obj.children.filter(function(x){return x.type === 'section'})
@@ -290,12 +280,7 @@ mixin link(obj, short, classes)
   != link(obj, short, classes)
 
 mixin markdown(text, inline)
-  html = markdown(text)
-  if inline
-    //- FIXME: can't be done via CSS? The point is to compensate for <p>
-    html = html.slice(3, -4)
-  //- desugar [[foo#bar]] tokens into local links
-  - html = html.replace(/\[\[([\w.#$]+?)\]\]/g, function(all, id) { return link(id.replace(/#/g, '.prototype.'), false, ['link-short']); });
+  html = markdown(text, inline)
   != html
 
 
