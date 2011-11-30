@@ -839,7 +839,8 @@ pre code {
 }
 
 /* line 317 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
-p code {
+p code,
+li code {
   border: 1px solid #ccc;
   background-color: #f8f8f8;
   border-radius: 3px;
@@ -847,7 +848,7 @@ p code {
   font-size: 13px;
 }
 
-/* line 324 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 325 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .alias {
   background-color: #fff6de;
   border: 1px solid #cc9;
@@ -856,30 +857,30 @@ p code {
   padding: 3px 30px;
 }
 
-/* line 331 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 332 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .alias ul {
   display: inline;
   padding: 0;
 }
 
-/* line 334 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 335 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .alias li {
   display: inline;
 }
 
-/* line 337 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 338 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .alias li:after {
   content: ",";
   margin: 0 5px 0 2px;
 }
 
-/* line 340 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 341 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .alias li:last-child:after {
   content: "";
   margin: 0;
 }
 
-/* line 344 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 345 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .alias a,
 a.link-short,
 .superclass a,
@@ -891,7 +892,7 @@ h4 a:visited {
   text-decoration: none;
 }
 
-/* line 352 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 353 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .footer {
   border-top: 1px solid #eee;
   color: #ccc;
@@ -900,12 +901,12 @@ h4 a:visited {
   line-height: 1;
 }
 
-/* line 359 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 360 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .footer a {
   color: #ccc;
 }
 
-/* line 362 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/prettify.styl */
+/* line 363 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/prettify.styl */
 
 /* line 1 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/prettify.styl */
 .pln {
