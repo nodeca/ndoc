@@ -1,13 +1,5 @@
 * support comment starting w/o leading NL
-* reconcile name clashes. E.g. Ajax section and namespace of prototype.js
-* employ stylus
-* elaborate robuster highlighter
-* choose markdown:
-    "discount"  : "0.2.2",
-    "node-markdown": "0.1.0",
-    "robotskirt": "0.2.2", --- segfaults (found the cause -- empty input); broken output
-
-* ---drop signature() in favor of elaborated markup, if possible
+* elaborate robuster highlighter?
 
 Not assigned icons:
 
