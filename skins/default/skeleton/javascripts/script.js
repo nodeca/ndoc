@@ -58,12 +58,14 @@ $(document)
 .delegate('a[href^="#"]', 'click', function(ev) {
   var href = $(this).attr('href');
   var el = $('[id="' + href.substring(1) + '"]');
-  $('body').stop().animate({
-    scrollTop: el.offset().top
-  }, 500, function() {
-    location.hash = href;
-    hashChanged(href);
-  });
+  if (el.length) {
+    $('body').stop().animate({
+      scrollTop: el.offset().top
+    }, 500, function() {
+      location.hash = href;
+      hashChanged(href);
+    });
+  }
   return false;
 });
 

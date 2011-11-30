@@ -3,72 +3,49 @@ mixin home()
     //- readme
     != markdown(readme)
     //- sections
-    if Object.keys(tree).length
+    collection = tree.children.filter(function(x){return x.type === 'section'})
+    if collection.length
       article.sections
         h3 Sections
         .content
-          mixin short_description_list(tree)
+          mixin short_description_list(collection)
 
 mixin menu()
   ul.menu
-    for obj in tree
+    for obj in tree.children
       mixin menu_item(obj, 0)
 
-mixin menu_item(obj, level, short)
+mixin menu_item(obj, level, parent)
   if typeof obj === 'string'
     obj = list[obj]
 
-  //- N.B. skip unnamed articles. E.g., default documentation section
-  if obj.id !== ''
-
-    li
-      .menu-item
-        mixin link(obj, short, [obj.type.replace(/ /g, '-'), obj.deprecated && 'deprecated', obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;}))
-        if obj.type === 'section' || obj.type === 'utility' || obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
+  li
+    .menu-item
+      short = level === 0 || parent.type === 'section' || !(obj.type === 'section' || obj.type === 'utility' || obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin')
+      mixin link(obj, short, [obj.type.replace(/ /g, '-'), obj.deprecated && 'deprecated', obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;}))
 
   if obj.children.length
     ul.hidden1
       for child in obj.children.filter(function(x){return x.type === 'utility'})
-        mixin menu_item(child, level + 1, true)
+        mixin menu_item(child, level + 1, obj)
       for child in obj.children.filter(function(x){return x.type === 'constructor'})
-        mixin menu_item(child, level + 1, true)
+        mixin menu_item(child, level + 1, obj)
       for child in obj.children.filter(function(x){return x.type === 'namespace'})
-        mixin menu_item(child, level + 1, true)
+        mixin menu_item(child, level + 1, obj)
       for child in obj.children.filter(function(x){return x.type === 'class'})
-        mixin menu_item(child, level + 1, true)
+        mixin menu_item(child, level + 1, obj)
       for child in obj.children.filter(function(x){return x.type === 'mixin'})
-        mixin menu_item(child, level + 1, true)
+        mixin menu_item(child, level + 1, obj)
       for child in obj.children.filter(function(x){return x.type === 'class method'})
-        mixin menu_item(child, level + 1, true)
+        mixin menu_item(child, level + 1, obj)
       for child in obj.children.filter(function(x){return x.type === 'class property'})
-        mixin menu_item(child, level + 1, true)
+        mixin menu_item(child, level + 1, obj)
       for child in obj.children.filter(function(x){return x.type === 'instance method'})
-        mixin menu_item(child, level + 1, true)
+        mixin menu_item(child, level + 1, obj)
       for child in obj.children.filter(function(x){return x.type === 'instance property'})
-        mixin menu_item(child, level + 1, true)
+        mixin menu_item(child, level + 1, obj)
       for child in obj.children.filter(function(x){return x.type === 'constant'})
-        mixin menu_item(child, level + 1, true)
-
-
-//- way difficult to style. put on standby so far
-  mixin signature(obj, sig)
-    if sig.args
-      ul.args
-        for arg in sig.args
-          a = arg.name
-          c = []
-          -if (obj.bound) c.push('arg-bound')
-          if arg.default_value
-            a = a + ' = ' + arg.default_value
-          -if (arg.ellipsis) c.push('arg-ellipsis')
-          -if (arg.optional) c.push('arg-optional');
-          li.arg(class=c)
-            = a
-    if sig.returns
-      ul.returns
-        for ret in sig.returns
-          li.ret
-            = (ret || '?')
+        mixin menu_item(child, level + 1, obj)
 
 
 mixin argument(arg)
@@ -117,159 +94,158 @@ mixin article(obj, parents)
   if typeof obj === 'string'
     obj = list[obj]
 
-  //- N.B. skip unnamed articles. E.g., default documentation section
-  if obj.id !== ''
+  article.article(id=obj.path, class=[obj.deprecated && 'deprecated'].filter(function(x){return !!x;}))
 
-    article.article(id=obj.path, class=[obj.deprecated && 'deprecated'].filter(function(x){return !!x;}))
+    mixin title(obj, parents)
 
-      mixin title(obj, parents)
+    if obj.deprecated
+      .deprecated-note
+        | Deprecated
+        if obj.deprecated.since
+          | &nbsp;since #{obj.deprecated.since}
+          if obj.deprecated.off
+            | &nbsp;and will be removed on #{obj.deprecated.off}
 
-      if obj.deprecated
-        .deprecated-note
-          | Deprecated
-          if obj.deprecated.since
-            | &nbsp;since #{obj.deprecated.since}
-            if obj.deprecated.off
-              | &nbsp;and will be removed on #{obj.deprecated.off}
+    if obj.type === 'section' || obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
 
-      if obj.type === 'section' || obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
-
-        if obj.description
-          .section.description
-            h3 Description
-            .content
-              mixin markdown(obj.description)
-
-        collection = obj.children.filter(function(x){return x.type === 'namespace'});
-        if collection.length
-          .section.namespaces
-            h3 Namespaces
-            .content
-              mixin short_description_list(collection)
-
-        collection = obj.children.filter(function(x){return x.type === 'class'});
-        if collection.length
-          .section.classes
-            h3 Classes
-            .content
-              mixin short_description_list(collection)
-
-        collection = obj.children.filter(function(x){return x.type === 'mixin'});
-        if collection.length
-          .section.mixins
-            h3 Mixins
-            .content
-              mixin short_description_list(collection)
-
-        if obj.type === 'class'
-
-          if obj.superclass
-            .section.superclass
-              h3 Superclass
-              .content
-                mixin link(obj.superclass)
-
-          if obj.subclasses.length
-            .section.subclasses
-              h3 Subclasses
-              .content
-                mixin links(obj.subclasses)
-
-        if obj.included_mixins
-          .section.mixins
-            h3 Includes
-            .content
-              mixin links(obj.included_mixins)
-
-        collection = obj.children.filter(function(x){return x.type === 'utility'})
-        if collection.length
-          .section.utilities
-            h3 Utilities
-            .content
-              mixin links(collection)
-
-        collection = obj.children.filter(function(x){return x.type === 'constructor'})
-        if collection.length
-          .section.constructor
-            h3 Constructor
-            .content
-            ul.method-list
-              li
-                mixin link(collection[0])
-
-        //-console.log('HERE', obj.id, obj.children.length)
-        for selector, title in {'Class methods': ['class method', 'class_methods'], 'Class properties': ['class property', 'class_properties'], 'Instance methods': ['instance method', 'instance_methods'], 'Instance properties': ['instance property', 'instance_properties'], 'Constants': ['constant', 'constants']}
-          methods = obj.children.filter(function(x){return x.type === selector[0]})
-          if methods.length
-            .section(class='#{selector[1]}')
-              h3 #{title}
-              .content
-                ul.method-list
-                  for x in methods
-                    li
-                      mixin link(x, true)
-
-      else
-
-        .section.method(class=[obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;}))
+      if obj.description
+        .section.description
+          h3 Description
           .content
-            if obj.signatures
-              ul.signatures
-                for sig in obj.signatures
-                  li.signature
-                    ul
-                      li.signature-call
-                        != signature(obj, sig)
-                      if sig.returns
-                        li.signature-returns
-                          ul.argument-types
-                            for type in sig.returns
-                              li.argument-type= (type || '?')
-
-            if obj.arguments
-              ul.argument-list
-                for arg in obj.arguments
-                  mixin argument(arg)
-
             mixin markdown(obj.description)
-            if obj.methodized_self
-              p.note.
-                This method can be called <em>either</em> as an
-                a(href=obj.methodized_self) instance method
-                <em>or</em> as a generic method.
-                If calling as generic, pass the instance in as the first argument. 
-            else if obj.functionalized_self
-              p.note.
-                This method can be called <em>either</em> as an instance method <em>or</em> as a
-                a(href=obj.functionalized_self) generic method.
-                If calling as generic, pass the instance in as the first argument. 
 
-      if obj.aliases && obj.aliases.length
-        .alias.aliases
-          | Aliased as:
-          ul
-            for alias in obj.aliases
-              li
-                mixin link(alias)
+      collection = obj.children.filter(function(x){return x.type === 'namespace'});
+      if collection.length
+        .section.namespaces
+          h3 Namespaces
+          .content
+            mixin short_description_list(collection)
 
-      if obj.alias_of
-        .alias.alias-of
-          | Alias of:
-          ul
+      collection = obj.children.filter(function(x){return x.type === 'class'});
+      if collection.length
+        .section.classes
+          h3 Classes
+          .content
+            mixin short_description_list(collection)
+
+      collection = obj.children.filter(function(x){return x.type === 'mixin'});
+      if collection.length
+        .section.mixins
+          h3 Mixins
+          .content
+            mixin short_description_list(collection)
+
+      if obj.type === 'class'
+
+        if obj.superclass
+          .section.superclass
+            h3 Superclass
+            .content
+              mixin link(obj.superclass)
+
+        if obj.subclasses.length
+          .section.subclasses
+            h3 Subclasses
+            .content
+              mixin links(obj.subclasses)
+
+      if obj.included_mixins
+        .section.mixins
+          h3 Includes
+          .content
+            mixin links(obj.included_mixins)
+
+      collection = obj.children.filter(function(x){return x.type === 'utility'})
+      if collection.length
+        .section.utilities
+          h3 Utilities
+          .content
+            mixin links(collection)
+
+      collection = obj.children.filter(function(x){return x.type === 'constructor'})
+      if collection.length
+        .section.constructor
+          h3 Constructor
+          .content
+          ul.method-list
             li
-              mixin link(obj.alias_of)
+              mixin link(collection[0])
 
-      //- if obj.related_to && obj.related_to
-        .related-to
-          | Related to:
-          mixin link(obj.related_to)
+      //-console.log('HERE', obj.id, obj.children.length)
+      for selector, title in {'Class methods': ['class method', 'class_methods'], 'Class properties': ['class property', 'class_properties'], 'Instance methods': ['instance method', 'instance_methods'], 'Instance properties': ['instance property', 'instance_properties'], 'Constants': ['constant', 'constants']}
+        methods = obj.children.filter(function(x){return x.type === selector[0]})
+        if methods.length
+          .section(class='#{selector[1]}')
+            h3 #{title}
+            .content
+              ul.method-list
+                for x in methods
+                  li
+                    mixin link(x, true)
+
+    else
+
+      .section.method(class=[obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;}))
+        .content
+          if obj.signatures
+            ul.signatures
+              for sig in obj.signatures
+                li.signature
+                  ul
+                    li.signature-call
+                      != signature(obj, sig)
+                    if sig.returns
+                      li.signature-returns
+                        ul.argument-types
+                          for type in sig.returns
+                            li.argument-type= (type || '?')
+
+          if obj.arguments
+            ul.argument-list
+              for arg in obj.arguments
+                mixin argument(arg)
+
+          mixin markdown(obj.description)
+          if obj.methodized_self
+            p.note.
+              This method can be called <em>either</em> as an
+              a(href=obj.methodized_self) instance method
+              <em>or</em> as a generic method.
+              If calling as generic, pass the instance in as the first argument. 
+          else if obj.functionalized_self
+            p.note.
+              This method can be called <em>either</em> as an instance method <em>or</em> as a
+              a(href=obj.functionalized_self) generic method.
+              If calling as generic, pass the instance in as the first argument. 
+
+    if obj.aliases && obj.aliases.length
+      .alias.aliases
+        | Aliased as:
+        ul
+          for alias in obj.aliases
+            li
+              mixin link(alias)
+
+    if obj.alias_of
+      .alias.alias-of
+        | Alias of:
+        ul
+          li
+            mixin link(obj.alias_of)
+
+    //- if obj.related_to && obj.related_to
+      .related-to
+        | Related to:
+        mixin link(obj.related_to)
 
 
-    //-if obj.children.length
-      for child in obj.children
-        mixin article(child, parents.concat(obj))
+  //-if obj.children.length
+    for child in obj.children
+      mixin article(child, parents.concat(obj))
 
   //- children
+  for child in obj.children.filter(function(x){return x.type === 'section'})
+    mixin article(child, parents.concat(obj))
   for child in obj.children.filter(function(x){return x.type === 'utility'})
     mixin article(child, parents.concat(obj))
   for child in obj.children.filter(function(x){return x.type === 'constructor'})
@@ -294,7 +270,7 @@ mixin article(obj, parents)
 
 
 mixin api()
-  for obj in tree
+  for obj in tree.children
     mixin article(obj, [])
 
 
