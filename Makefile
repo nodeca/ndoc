@@ -11,7 +11,7 @@ playground: redo $(DOCS)
 
 redo:
 	## force rebuild parser
-	rm -fr lib/parser.js
+	#rm -fr lib/parser.js
 	# rebuild stylesheets
 	node_modules/.bin/stylus -l -o $(ROOT)/skins/default/skeleton/stylesheets/ $(ROOT)/skins/default/templates/styles/main.styl
 

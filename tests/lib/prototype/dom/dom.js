@@ -8,10 +8,9 @@
   // HTML content.
   var DIV = document.createElement('div');
 
-/** section: DOM
+/**
 * class Element
 **/
-
   /** section: DOM, related to: Element
    *  $(id) -> Element
    *  $(id...) -> [Element...]

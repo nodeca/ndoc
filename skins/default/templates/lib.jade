@@ -1,7 +1,7 @@
 mixin home()
   article#home
     //- readme
-    != markdown(readme)
+    mixin markdown(readme)
     //- sections
     collection = tree.children.filter(function(x){return x.type === 'section'})
     if collection.length

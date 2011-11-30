@@ -20,7 +20,7 @@ function hashChanged(path) {
   el.parents('div.menu-item').find('>a').addClass('current-parent');
   el.addClass('current');
   // set window title
-  document.title = document.title.substring(0, document.title.lastIndexOf(' | ')) + ' | ' + el.data('id');
+  document.title = document.title.substring(0, document.title.lastIndexOf(' | ')) + (el.data('id') ? ' | ' + el.data('id') : '');
   return false;
 }
 
