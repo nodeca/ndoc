@@ -1,11 +1,12 @@
 mixin home()
-  article#home
+  article#home.article
     //- readme
-    mixin markdown(readme)
+    .section.readme
+      mixin markdown(readme)
     //- sections
     collection = tree.children.filter(function(x){return x.type === 'section'})
     if collection.length
-      article.sections
+      .section.sections
         h3 Sections
         .content
           mixin short_description_list(collection)
