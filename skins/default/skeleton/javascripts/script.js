@@ -12,5 +12,8 @@ $(function () {
         return false;
       }
     });
+
+    // collapse all by default
+    $child.addClass('collapsed').hide('slow');
   });
 });
