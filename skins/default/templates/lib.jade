@@ -11,6 +11,11 @@ mixin home()
         .content
           mixin short_description_list(collection)
 
+mixin search()
+  form#search
+    input(type='search', size='20', title='Search', placeholder='Search')
+  ul#search-results.menu
+
 mixin menu()
   ul.menu
     for obj in tree.children
