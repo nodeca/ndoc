@@ -7,28 +7,18 @@ $(function () {
   };
 
 
-  var ACTIVE_CLASS = 'current',
-      ACTIVE_PARENT_CLASS = 'current-parent';
-
-
   var $window = $(window),
       $items = $('div.menu-item > a'),
       targets = [], // items and corresponding article offset
       $active = null; // active menu item
 
 
-  // deactivates item (used upon activation)
-  function deactivate($item) {
-    $item.removeClass(ACTIVE_CLASS);
-  }
-
   // activates item (used upon scrolling)
   function activate($item) {
-    if ($active) {
-      deactivate($active);
-    }
-
-    $active = $item.addClass(ACTIVE_CLASS);
+    $item.data('ndoc.childs').animate({
+      height: 'show',
+      opacity: 'show'
+    }, 'fast');
   }
 
 
@@ -70,7 +60,7 @@ $(function () {
     targets.push({
       item: $item,
       offset: $('[id="' + $item.attr('href').slice(1) + '"]').offset().top
-    });
+    }, 'fast');
 
     // collapse all by default
     $childs.data('ndoc.collapsed', true).hide();
