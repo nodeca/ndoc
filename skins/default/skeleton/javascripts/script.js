@@ -1,26 +1,31 @@
 $(function () {
   'use strict';
 
+  // extensions for jQuery allowing using data as markers
+  $.fn.toggleData = function toggleData(name) {
+    return this.data(name, !this.data(name));
+  };
+
+
+  var ACTIVE_CLASS = 'current',
+      ACTIVE_PARENT_CLASS = 'current-parent';
+
+
   var $window = $(window),
       $items = $('div.menu-item > a'),
-      targets = [],
-      $active = null;
+      targets = [], // items and corresponding article offset
+      $active = null; // active menu item
 
-  function toggle($item) {
-    $item.data('ndoc.menu-child').stop().toggleClass('collapsed').toggle('slow');
-  }
 
-  function deactivate($item) {
-    $item.removeClass('active');
-  }
-
+  // activates item (used upon scrolling)
   function activate($item) {
     if ($active) {
-      deactivate($active);
+      $active.removeClass(ACTIVE_CLASS);
     }
 
-    $active = $item.addClass('active');
+    $active = $item.addClass(ACTIVE_CLASS);
   }
+
 
   function processScroll() {
     var scrollTop = $window.scrollTop() + 10,
@@ -34,19 +39,19 @@ $(function () {
     }
   }
 
+
   $items.each(function () {
     var $item = $(this),
-        $child = $item.parent().next(),
-        $article = $('[id="' + $item.attr('href').slice(1) + '"]');
+        $childs = $item.parent().next();
 
-    // store cross references
-    $item.data('ndoc.menu-child', $child);
-    $child.data('ndoc.menu-parent', $item);
+    // cross-ref tree
+    $item.data('ndoc.parent', $item.parents('ul').eq(0).prev().children());
+    $item.data('ndoc.childs', $childs);
 
     // bind activator
     $item.click(function () {
-      toggle($item);
-      if ($child.hasClass('collapsed')) {
+      $childs.stop().toggleData('ndoc.collapsed').toggle('fast');
+      if ($childs.data('ndoc.collapsed')) {
         // prevent from switching to article
         return false;
       }
@@ -54,14 +59,16 @@ $(function () {
 
     // fill-in article offset
     targets.push({
-      offset: $article.offset().top,
-      item: $item
+      item: $item,
+      offset: $('[id="' + $item.attr('href').slice(1) + '"]').offset().top
     });
 
     // collapse all by default
-    toggle($item);
+    $childs.data('ndoc.collapsed', true).hide();
   });
 
 
+  // activate scroll spy
   $window.scroll(processScroll);
+  processScroll();
 });
