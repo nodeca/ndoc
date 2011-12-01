@@ -6,7 +6,11 @@ $(function () {
         $child = $item.parent().next();
 
     $item.click(function () {
-      $child.stop().toggle('normal');
+      $child.stop().toggleClass('collapsed').toggle('normal');
+      if ($child.hasClass('collapsed')) {
+        // prevent from switching to article
+        return false;
+      }
     });
   });
 });
