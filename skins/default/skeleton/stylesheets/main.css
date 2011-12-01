@@ -338,7 +338,9 @@ td {
   vertical-align: top;
 }
 
-/* line 310 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 1 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/mixins.styl */
+
+/* line 7 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 
 /* line 1 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 body {
@@ -405,9 +407,9 @@ body {
 /* line 47 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.section {
   background-color: #000;
-  background: -moz-linear-gradient(#000 50%, #888) repeat scroll 0 0 transparent;
-  background: -webkit-linear-gradient(#000 50%, #888) repeat scroll 0 0 transparent;
-  background: linear-gradient(#000 50%, #888) repeat scroll 0 0 transparent;
+  background: -moz-linear-gradient(#000 70%, #444) repeat scroll 0 0 transparent;
+  background: -webkit-linear-gradient(#000 70%, #444) repeat scroll 0 0 transparent;
+  background: linear-gradient(#000 70%, #444) repeat scroll 0 0 transparent;
   color: #aaa;
   padding: 6px 10px 6px 28px;
 }
@@ -722,6 +724,9 @@ h4 {
   padding: 3px 5px;
   margin: 0;
   list-style: none;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
   border-radius: 3px;
 }
 
@@ -828,6 +833,9 @@ pre {
   border: 1px solid #ccc;
   padding: 5px;
   background-color: #f8f8f8;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
   border-radius: 3px;
   font-size: 13px;
   overflow: auto;
@@ -843,6 +851,9 @@ p code,
 li code {
   border: 1px solid #ccc;
   background-color: #f8f8f8;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
   border-radius: 3px;
   padding: 0 3px;
   font-size: 13px;
@@ -852,6 +863,9 @@ li code {
 .alias {
   background-color: #fff6de;
   border: 1px solid #cc9;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -o-border-radius: 3px 3px 3px 3px;
   border-radius: 3px 3px 3px 3px;
   font-size: 12px;
   padding: 3px 30px;
