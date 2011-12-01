@@ -370,14 +370,31 @@ method
 returns
 
   /* anything */
-  : '?' { $$ = ['?'] }
+  : '?' { $$ = [{type: '?'}] }
 
   /* single */
-  | name_or_value { $$ = [$1] }
-/*  | name_or_value '...' { $$ = [$1]; $$.ellipsis = true } */
+  /* N.B. $1 can be either [NAME] with array and ellipsis attributes, or String NAME */
+  | name_or_value %{
+    var x = $1;
+    var ret = {
+      type: x
+    };
+    if (x.array) ret.array = x.array;
+    if (x.ellipsis) ret.ellipsis = x.ellipsis;
+    $$ = [ret];
+  }%
 
   /* alternation */
-  | returns '|' name_or_value { $$.push($3) }
+  /* N.B. $3 can be either [NAME] with array and ellipsis attributes, or String NAME */
+  | returns '|' name_or_value %{
+    var x = $3;
+    var ret = {
+      type: x
+    };
+    if (x.array) ret.array = x.array;
+    if (x.ellipsis) ret.ellipsis = x.ellipsis;
+    $$.push(ret);
+  }%
   ;
 
 

@@ -14,7 +14,7 @@ skin:
 	node_modules/.bin/stylus -l -o $(ROOT)/skins/default/skeleton/stylesheets/ $(ROOT)/skins/default/templates/styles/main.styl
 
 prototest:
-  # make bundled prototype doc
+	# make bundled prototype doc
 	rm -fr ./tests/doc
 	.bin/ndoc -o ./tests/doc ./tests
 

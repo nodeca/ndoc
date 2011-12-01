@@ -88,6 +88,7 @@ mixin title(obj, parents)
           = src_code_text || 'View source code'
 
 
+
 mixin article(obj, parents)
   if typeof obj === 'string'
     obj = list[obj]
@@ -195,13 +196,19 @@ mixin article(obj, parents)
                     if sig.returns
                       li.signature-returns
                         ul.argument-types
-                          for type in sig.returns
-                            s = type || '?'
-                            if type.ellipsis
-                              s = s + '...'
-                            if type.array
-                              s = '[ ' + s + ' ]'
-                            li.argument-type!= link(s)
+                          for ret in sig.returns
+                            //- N.B: type can be array. E.g. [ Element... ]
+                            //- N.B: type can be array. E.g. [ Element1, Element2 ]
+                            text = ''
+                            if (typeof ret.type !== 'string')
+                              - text = ret.type.map(function(r){ return link(r || '?');}).join(', ');
+                            else
+                              text = link(ret.type || '?')
+                            if ret.ellipsis
+                              text = text + '...'
+                            if ret.array
+                              text = '[ ' + text + ' ]'
+                            li.argument-type!= text
 
           if obj.arguments
             ul.argument-list
@@ -276,8 +283,11 @@ mixin short_description_list(collection)
           mixin markdown(obj.short_description)
 
 
+
 mixin link(obj, short, classes)
   != link(obj, short, classes)
+
+
 
 mixin markdown(text, inline)
   html = markdown(text, inline)
