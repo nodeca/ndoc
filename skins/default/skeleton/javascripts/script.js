@@ -73,9 +73,9 @@ $(document)
 //
 $(function(){
   // setup code prettifier
-  //$('pre >code').addClass('prettyprint');
+  $('pre >code').addClass('prettyprint');
   //$('#home pre >code').removeClass('prettyprint');
-  //prettyPrint();
+  prettyPrint();
   // honor initial hash
   hashChanged(location.href.replace(/(^.*)#/, '#'));
 });
