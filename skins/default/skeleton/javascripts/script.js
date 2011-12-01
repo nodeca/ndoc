@@ -85,4 +85,8 @@ $(function () {
   // activate scroll spy
   $window.scroll(function () { $.throttle(250, processScroll); });
   processScroll();
+
+  // init prettyprint
+  $('pre > code').addClass('prettyprint');
+  prettyPrint();
 });
