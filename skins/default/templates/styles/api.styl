@@ -20,20 +20,33 @@ body
   margin: 0
   list-style: none
 
+  a
+    padding: 3px 10px 3px 28px
+    background-position: 6px 50%
+    background-repeat: no-repeat
   ul
-    margin-left: 10px
     padding: 0
     list-style: none
+
+    a
+      padding-left: 38px
+      background-position: 16px 50%
+    ul a
+      padding-left: 48px
+      background-position: 26px 50%
+    ul ul a
+      padding-left: 58px
+      background-position: 36px 50%
+    ul ul ul a
+      padding-left: 68px
+      background-position: 46px 50%
 
 .menu-item
 
   a
     &, &:link
-      background-position: 6px 50%
-      background-repeat: no-repeat
       color: #333333
       display: block
-      padding: 3px 10px 3px 28px
       text-align: left
       text-decoration: none
       white-space: nowrap
