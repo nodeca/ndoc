@@ -3,6 +3,7 @@ $(function () {
 
   var $window = $(window),
       $items = $('div.menu-item > a'),
+      $results = $('#search-results').hide(), // search results
       targets = [], // items and corresponding article offset
       $active = null; // active menu item
 
@@ -42,7 +43,7 @@ $(function () {
     }
   }
 
-
+  // init menu items
   $items.each(function () {
     var $item = $(this),
         $childs = $item.parent().next(),
@@ -53,7 +54,7 @@ $(function () {
     $item.data('ndoc.childs', $childs);
 
     // bind activator
-    $item.click(function () {
+    $item.on('click', function () {
       if ($item.hasClass('current') && !$childs.data('ndoc.collapsed')) {
         $childs.data('ndoc.collapsed', true).animate({
           height: 'hide',
@@ -73,7 +74,7 @@ $(function () {
     targets.push({
       item: $item,
       offset: $('[id="' + $item.attr('href').slice(1) + '"]').offset().top
-    }, 'fast');
+    });
 
     // collapse all 2nd levels
     if (0 != $parent.length) {
@@ -81,9 +82,39 @@ $(function () {
     }
   });
 
+  function updateSearchResults() {
+    $results.empty();
+
+    if ('' == this.value) {
+      $results.hide();
+      return;
+    }
+
+    $results.show();
+
+    $items.filter('[data-id*="' + this.value + '"]').each(function () {
+      var $item = $(this);
+      $('<div class="menu-item">').append(
+        $item.clone(false)
+          .text($item.data('id'))
+          .on('click', function () {
+            $item.trigger('click');
+          })
+      ).appendTo($results);
+    });
+  }
+
+  // init search
+  $('#search')
+    // prevent from form submit
+    .on('submit', function () { return false; })
+    .find('input')
+      .on('keyup', $.throttle(250, updateSearchResults))
+      // click - cuz i don't know what event fied on input clear in Chrome
+      .on('change click', updateSearchResults);
 
   // activate scroll spy
-  $window.scroll(function () { $.throttle(250, processScroll); });
+  $window.scroll($.throttle(250, processScroll));
   processScroll();
 
   // init prettyprint

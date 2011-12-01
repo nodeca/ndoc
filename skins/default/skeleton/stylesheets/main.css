@@ -381,6 +381,12 @@ body {
 }
 
 /* line 32 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+#search-results {
+  z-index: 1000;
+  background-color: #fff;
+}
+
+/* line 36 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu {
   padding: 0;
   margin: 0;
@@ -390,50 +396,51 @@ body {
   position: absolute;
   overflow-x: hidden;
   overflow-y: auto;
+  width: 240px;
 }
 
-/* line 42 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 47 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu a {
   padding: 3px 10px 3px 28px;
   background-position: 6px 50%;
   background-repeat: no-repeat;
 }
 
-/* line 46 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 51 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu ul {
   padding: 0;
   list-style: none;
 }
 
-/* line 50 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 55 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu ul a {
   padding-left: 38px;
   background-position: 16px 50%;
 }
 
-/* line 53 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 58 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu ul ul a {
   padding-left: 48px;
   background-position: 26px 50%;
 }
 
-/* line 56 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 61 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu ul ul ul a {
   padding-left: 58px;
   background-position: 36px 50%;
 }
 
-/* line 59 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 64 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu ul ul ul ul a {
   padding-left: 68px;
   background-position: 46px 50%;
 }
 
-/* line 63 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 68 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 
-/* line 65 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 70 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 
-/* line 66 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 71 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a,
 .menu-item a:link {
   color: #333;
@@ -443,23 +450,23 @@ body {
   white-space: nowrap;
 }
 
-/* line 73 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 78 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.deprecated {
   opacity: 0.5;
 }
 
-/* line 76 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 81 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.current,
 .menu-item a.current-parent {
   background-color: #ddd;
 }
 
-/* line 79 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 84 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a:hover {
   background-color: #ccc;
 }
 
-/* line 82 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 87 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.section {
   background-color: #000;
   background: -moz-linear-gradient(#000 70%, #444) repeat scroll 0 0 transparent;
@@ -469,68 +476,68 @@ body {
   padding: 6px 10px 6px 28px;
 }
 
-/* line 89 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 94 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.class {
   background-image: url("../images/class.png");
 }
 
-/* line 91 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 96 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.class-method {
   background-image: url("../images/class_method.png");
 }
 
-/* line 93 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 98 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.class-property {
   background-image: url("../images/class_property.png");
 }
 
-/* line 95 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 100 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.constant {
   background-image: url("../images/constant.png");
 }
 
-/* line 97 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 102 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.constructor {
   background-image: url("../images/constructor.png");
 }
 
-/* line 99 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 104 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.instance-method {
   background-image: url("../images/instance_method.png");
 }
 
-/* line 101 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 106 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.instance-property {
   background-image: url("../images/instance_property.png");
 }
 
-/* line 103 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 108 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.mixin {
   background-image: url("../images/mixin.png");
 }
 
-/* line 105 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 110 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.namespace {
   background-image: url("../images/namespace.png");
 }
 
-/* line 107 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 112 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.utility {
   background-image: url("../images/utility.png");
 }
 
-/* line 110 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 115 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .main {
   width: 700px;
   margin-left: 250px;
 }
 
-/* line 114 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 119 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .article {
   margin-bottom: 70px;
 }
 
-/* line 117 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 122 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .breadcrumbs {
   font-size: 12px;
   white-space: nowrap;
@@ -538,35 +545,35 @@ body {
   color: #ccc;
 }
 
-/* line 123 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 128 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .breadcrumbs a {
   color: #ccc;
 }
 
-/* line 126 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 131 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .breadcrumbs li {
   display: inline;
   margin: 0 4px 0 0;
 }
 
-/* line 130 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 135 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .breadcrumbs li:after {
   content: "»";
   margin: 0 0 0 4px;
 }
 
-/* line 134 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 139 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .breadcrumbs li:last-child:after {
   content: "";
   margin: 0;
 }
 
-/* line 138 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 143 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 #home h1 {
   font-size: 30px;
 }
 
-/* line 141 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 146 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .article .readme,
 .article header,
 .article .section,
@@ -576,12 +583,12 @@ body {
   margin-bottom: 20px;
 }
 
-/* line 149 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 154 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .footer {
   margin-left: 140px;
 }
 
-/* line 152 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 157 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .article h2 {
   position: relative;
   font-size: 30px;
@@ -589,7 +596,7 @@ body {
   line-height: 1;
 }
 
-/* line 158 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 163 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .article h2 .type {
   display: block;
   color: #888;
@@ -600,28 +607,28 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* line 167 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 172 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 
-/* line 168 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 173 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .article h5 {
   font-size: 14px;
   margin: 0;
 }
 
-/* line 171 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 176 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .article h6 {
   font-size: 13px;
   margin: 0;
   color: #666;
 }
 
-/* line 176 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 181 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 h4 {
   font-size: 16px;
   margin: 0;
 }
 
-/* line 180 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 185 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .source a {
   font-size: 10px;
   color: #aaa;
@@ -629,22 +636,22 @@ h4 {
   text-decoration: none;
 }
 
-/* line 186 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 191 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .deprecated-note {
   color: #f00;
 }
 
-/* line 189 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 194 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .article.deprecated h2 .name {
   text-decoration: line-through;
 }
 
-/* line 192 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 197 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section {
   position: relative;
 }
 
-/* line 195 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 200 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section h3 {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   background-position: right 0px;
@@ -663,116 +670,116 @@ h4 {
   color: #888;
 }
 
-/* line 212 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 217 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section.classes h3 {
   background-image: url("../images/class.png");
 }
 
-/* line 214 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 219 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section.class_methods h3 {
   background-image: url("../images/class_method.png");
 }
 
-/* line 216 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 221 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section.class_properties h3 {
   background-image: url("../images/class_property.png");
 }
 
-/* line 218 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 223 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section.constants h3 {
   background-image: url("../images/constant.png");
 }
 
-/* line 220 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 225 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section.constructor h3 {
   background-image: url("../images/constructor.png");
 }
 
-/* line 222 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 227 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section.description h3 {
   background-image: url("../images/description.png");
 }
 
-/* line 224 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 229 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section.instance_methods h3 {
   background-image: url("../images/instance_method.png");
 }
 
-/* line 226 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 231 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section.instance_properties h3 {
   background-image: url("../images/instance_property.png");
 }
 
-/* line 228 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 233 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section.mixins h3 {
   background-image: url("../images/mixin.png");
 }
 
-/* line 230 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 235 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section.namespaces h3 {
   background-image: url("../images/namespace.png");
 }
 
-/* line 232 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 237 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section.subclasses h3 {
   background-image: url("../images/subclass.png");
 }
 
-/* line 234 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 239 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section.superclass h3 {
   background-image: url("../images/superclass.png");
 }
 
-/* line 236 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 241 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section.utilities h3 {
   background-image: url("../images/utility.png");
 }
 
-/* line 239 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 244 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section.sections h3 {
   background-image: url("../images/section.png");
 }
 
-/* line 243 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 248 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .method-list {
   padding: 0;
   overflow: hidden;
 }
 
-/* line 247 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 252 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .method-list li {
   list-style: none;
   margin-bottom: 7px;
   float: left;
 }
 
-/* line 252 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 257 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .method-list li:after {
   content: ",";
   margin: 0 10px 0 2px;
 }
 
-/* line 255 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 260 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .method-list li:last-child:after {
   content: "";
   margin: 0;
 }
 
-/* line 258 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 263 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .method-list li a {
   border-bottom: 1px solid #888;
   color: #036;
   text-decoration: none;
 }
 
-/* line 263 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 268 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .method-details-list {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-/* line 269 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 274 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .signatures {
   background-color: #e0e8e0;
   padding: 3px 5px;
@@ -784,31 +791,31 @@ h4 {
   border-radius: 3px;
 }
 
-/* line 276 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 281 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .signature ul {
   padding: 0;
   margin: 0;
 }
 
-/* line 280 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 285 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .signature li {
   display: inline;
 }
 
-/* line 283 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 288 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .signature ul.argument-types {
   display: inline;
   margin: 0;
   padding: 0;
 }
 
-/* line 288 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 293 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .signature ul.argument-types:before {
   content: '→';
   margin: 0 5px;
 }
 
-/* line 292 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 297 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .argument-details {
   padding: 0;
   margin: 0;
@@ -816,18 +823,18 @@ h4 {
   display: inline;
 }
 
-/* line 298 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 303 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .argument-details li {
   display: inline;
 }
 
-/* line 301 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 306 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .argument-name {
   color: #060;
   font-weight: bold;
 }
 
-/* line 305 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 310 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .argument-details .argument-types ul {
   display: inline;
   margin: 0;
@@ -837,52 +844,52 @@ h4 {
   font-size: 11px;
 }
 
-/* line 313 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 318 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 
-/* line 314 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 319 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 
-/* line 315 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 320 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .argument-types ul:before {
   content: '(';
   margin-right: 2px;
 }
 
-/* line 318 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 323 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .argument-types ul:after {
   content: ')';
   margin-left: 2px;
 }
 
-/* line 321 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 326 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .argument-types li {
   display: inline;
 }
 
-/* line 324 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 329 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .argument-types li:after {
   content: "|";
   margin: 0 2px;
 }
 
-/* line 327 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 332 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .argument-types li:last-child:after {
   content: "";
   margin: 0;
 }
 
-/* line 331 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 336 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .argument-description:before {
   content: '—';
   margin-left: 5px;
   margin-right: 5px;
 }
 
-/* line 336 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 341 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .argument-description p {
   display: inline;
 }
 
-/* line 340 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 345 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 pre {
   border: 1px solid #ccc;
   padding: 5px;
@@ -895,12 +902,12 @@ pre {
   overflow: auto;
 }
 
-/* line 349 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 354 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 pre code {
   white-space: pre;
 }
 
-/* line 352 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 357 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 p code,
 li code {
   border: 1px solid #ccc;
@@ -913,7 +920,7 @@ li code {
   font-size: 13px;
 }
 
-/* line 360 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 365 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .alias {
   background-color: #fff6de;
   border: 1px solid #cc9;
@@ -925,30 +932,30 @@ li code {
   padding: 3px 30px;
 }
 
-/* line 367 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 372 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .alias ul {
   display: inline;
   padding: 0;
 }
 
-/* line 370 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 375 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .alias li {
   display: inline;
 }
 
-/* line 373 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 378 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .alias li:after {
   content: ",";
   margin: 0 5px 0 2px;
 }
 
-/* line 376 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 381 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .alias li:last-child:after {
   content: "";
   margin: 0;
 }
 
-/* line 380 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 385 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .section a,
 .readme a {
   text-decoration: none;
@@ -956,7 +963,7 @@ li code {
   border-bottom: 1px dashed #888;
 }
 
-/* line 385 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 390 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .alias a,
 a.link-short,
 .superclass a,
@@ -968,7 +975,7 @@ a.link-short,
   text-decoration: none;
 }
 
-/* line 393 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 398 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .footer {
   border-top: 1px solid #eee;
   color: #ccc;
@@ -977,12 +984,12 @@ a.link-short,
   line-height: 1;
 }
 
-/* line 400 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
+/* line 405 : /home/ixti/projects/ndoc/skins/default/templates/styles/api.styl */
 .footer a {
   color: #ccc;
 }
 
-/* line 403 : /home/ixti/projects/ndoc/skins/default/templates/styles/prettify.styl */
+/* line 408 : /home/ixti/projects/ndoc/skins/default/templates/styles/prettify.styl */
 
 /* line 1 : /home/ixti/projects/ndoc/skins/default/templates/styles/prettify.styl */
 .pln {
