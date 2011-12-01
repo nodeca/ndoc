@@ -937,8 +937,8 @@ li code {
 a.link-short,
 .superclass a,
 .superclass a:visited,
-h4 a,
-h4 a:visited {
+.section h4 a,
+.section h4 a:visited {
   border-bottom: 1px solid #888;
   color: #036;
   text-decoration: none;

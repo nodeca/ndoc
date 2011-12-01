@@ -22,7 +22,8 @@ skin:
 prototest:
 	# make bundled prototype doc
 	rm -fr ./tests/doc
-	.bin/ndoc -o ./tests/doc ./tests
+	cd tests && $(ROOT)/.bin/ndoc -o doc -i README.md -l 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' --package-name "Prototype"  --package-version v1.7 lib
+#	.bin/ndoc -o ./tests/doc ./tests
 
 $(DOCS): $(LIBS)
 	echo Compiling documentation for $(@D)
