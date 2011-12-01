@@ -1,12 +1,6 @@
 $(function () {
   'use strict';
 
-  // extensions for jQuery allowing using data as markers
-  $.fn.toggleData = function toggleData(name) {
-    return this.data(name, !this.data(name));
-  };
-
-
   var $window = $(window),
       $items = $('div.menu-item > a'),
       targets = [], // items and corresponding article offset
@@ -60,17 +54,19 @@ $(function () {
 
     // bind activator
     $item.click(function () {
-      activate($item);
-
-      $childs.stop().toggleData('ndoc.collapsed').animate({
-        height: 'toggle',
-        opacity: 'toggle'
-      });
-
-      if ($childs.data('ndoc.collapsed')) {
-        // prevent from switching to article
+      if ($item.hasClass('current') && !$childs.data('ndoc.collapsed')) {
+        $childs.data('ndoc.collapsed', true).animate({
+          height: 'hide',
+          opacity: 'hide'
+        });
         return false;
       }
+
+      activate($item);
+      $childs.data('ndoc.collapsed', false).animate({
+        height: 'show',
+        opacity: 'show'
+      });
     });
 
     // fill-in article offset
