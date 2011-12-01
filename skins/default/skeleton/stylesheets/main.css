@@ -421,8 +421,8 @@ body {
 }
 
 /* line 54 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
-.menu-item a:hover {
-  background-color: #ccc;
+.menu-item a.deprecated {
+  opacity: 0.5;
 }
 
 /* line 57 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
@@ -432,6 +432,11 @@ body {
 }
 
 /* line 60 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+.menu-item a:hover {
+  background-color: #ccc;
+}
+
+/* line 63 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.section {
   background-color: #000;
   background: -moz-linear-gradient(#000 70%, #444) repeat scroll 0 0 transparent;
@@ -441,57 +446,52 @@ body {
   padding: 6px 10px 6px 28px;
 }
 
-/* line 67 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 70 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.class {
   background-image: url("../images/class.png");
 }
 
-/* line 69 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
-.menu-item a.class.deprecated {
-  background-image: url("../images/class_deprecated.png");
-}
-
-/* line 71 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 72 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.class-method {
   background-image: url("../images/class_method.png");
 }
 
-/* line 73 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 74 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.class-property {
   background-image: url("../images/class_property.png");
 }
 
-/* line 75 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 76 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.constant {
   background-image: url("../images/constant.png");
 }
 
-/* line 77 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 78 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.constructor {
   background-image: url("../images/constructor.png");
 }
 
-/* line 79 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 80 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.instance-method {
   background-image: url("../images/instance_method.png");
 }
 
-/* line 81 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 82 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.instance-property {
   background-image: url("../images/instance_property.png");
 }
 
-/* line 83 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 84 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.mixin {
   background-image: url("../images/mixin.png");
 }
 
-/* line 85 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 86 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.namespace {
   background-image: url("../images/namespace.png");
 }
 
-/* line 87 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 88 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .menu-item a.utility {
   background-image: url("../images/utility.png");
 }

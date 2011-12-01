@@ -51,11 +51,14 @@ body
       text-decoration: none
       white-space: nowrap
 
-    &:hover
-      background-color: #ccc
+    &.deprecated
+      opacity 0.5
 
     &.current, &.current-parent
       background-color: #ddd
+
+    &:hover
+      background-color: #ccc
 
     &.section
       background-color: #000
@@ -66,8 +69,6 @@ body
       padding: 6px 10px 6px 28px
     &.class
       background-image: url("../images/class.png")
-      &.deprecated
-        background-image: url("../images/class_deprecated.png")
     &.class-method
       background-image: url("../images/class_method.png")
     &.class-property
@@ -86,7 +87,6 @@ body
       background-image: url("../images/namespace.png")
     &.utility
       background-image: url("../images/utility.png")
-
 
 .main
   width: 700px
