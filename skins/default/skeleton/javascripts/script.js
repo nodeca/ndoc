@@ -17,10 +17,15 @@ $(function () {
       $active = null; // active menu item
 
 
+  // deactivates item (used upon activation)
+  function deactivate($item) {
+    $item.removeClass(ACTIVE_CLASS);
+  }
+
   // activates item (used upon scrolling)
   function activate($item) {
     if ($active) {
-      $active.removeClass(ACTIVE_CLASS);
+      deactivate($active);
     }
 
     $active = $item.addClass(ACTIVE_CLASS);
@@ -50,7 +55,11 @@ $(function () {
 
     // bind activator
     $item.click(function () {
-      $childs.stop().toggleData('ndoc.collapsed').toggle('fast');
+      $childs.stop().toggleData('ndoc.collapsed').animate({
+        height: 'toggle',
+        opacity: 'toggle'
+      });
+
       if ($childs.data('ndoc.collapsed')) {
         // prevent from switching to article
         return false;
