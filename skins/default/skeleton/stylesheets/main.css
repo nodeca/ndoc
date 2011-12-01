@@ -926,6 +926,13 @@ li code {
 }
 
 /* line 360 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+.section a {
+  text-decoration: none;
+  color: #068;
+  border-bottom: 1px dashed #888;
+}
+
+/* line 365 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .alias a,
 a.link-short,
 .superclass a,
@@ -937,7 +944,7 @@ h4 a:visited {
   text-decoration: none;
 }
 
-/* line 368 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 373 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .footer {
   border-top: 1px solid #eee;
   color: #ccc;
@@ -946,12 +953,12 @@ h4 a:visited {
   line-height: 1;
 }
 
-/* line 375 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
+/* line 380 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/api.styl */
 .footer a {
   color: #ccc;
 }
 
-/* line 378 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/prettify.styl */
+/* line 383 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/prettify.styl */
 
 /* line 1 : /home/vitaly/Кодинг/ndoc/skins/default/templates/styles/prettify.styl */
 .pln {
