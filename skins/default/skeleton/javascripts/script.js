@@ -16,7 +16,7 @@ $(function () {
   }
 
   // activates item (used upon scrolling)
-  function activate($item) {
+  function activate($item, expandParents) {
     if ($active) {
       $active.removeClass('current');
       eachParent($active, function ($parent) {
@@ -26,24 +26,21 @@ $(function () {
 
     $active = $item.addClass('current');
 
-    $item.data('ndoc.childs').data('ndoc.collapsed', false).animate({
-      height: 'show',
-      opacity: 'show'
-    });
-
     eachParent($item, function ($parent) {
       $parent.addClass('current-parent');
-      $parent.data('ndoc.childs')
-        .data('ndoc.collapsed', false)
-        .animate({
-          height: 'show',
-          opacity: 'show'
-        });
+      if (expandParents) {
+        $parent.data('ndoc.childs')
+          .data('ndoc.collapsed', false)
+          .animate({
+            height: 'show',
+            opacity: 'show'
+          });
+      }
     });
   }
 
 
-  function processScroll() {
+  function processScroll(evt, expandParents) {
     var scrollTop = $window.scrollTop() + 10,
         i = targets.length;
     
@@ -51,7 +48,7 @@ $(function () {
       $active !== targets[i].item
         && scrollTop >= targets[i].offset
         && (!targets[i + 1].offset || scrollTop <= targets[i + 1].offset)
-        && activate(targets[i].item);
+        && activate(targets[i].item, expandParents);
     }
   }
 
@@ -76,6 +73,11 @@ $(function () {
       }
 
       activate($item);
+
+      $item.data('ndoc.childs').data('ndoc.collapsed', false).animate({
+        height: 'show',
+        opacity: 'show'
+      });
     });
 
     // fill-in article offset
@@ -121,8 +123,11 @@ $(function () {
       // click - cuz i don't know what event fied on input clear in Chrome
       .on('change click', updateSearchResults);
 
+  // dirtyhack until we'll fix scrollspy
+  $window.on('scroll', $.throttle(250, processScroll));
+
   // initial jump (for permalinks)
-  processScroll();
+  processScroll(null, true);
 
   // init prettyprint
   $('pre > code').addClass('prettyprint');
