@@ -1,0 +1,84 @@
+diff -Naur -x .git prototype.orig/src/prototype/dom/dom.js prototype/src/prototype/dom/dom.js
+--- prototype.orig/src/prototype/dom/dom.js	2011-12-02 08:37:54.755505912 +0000
++++ prototype/src/prototype/dom/dom.js	2011-12-02 08:43:53.723932119 +0000
+@@ -1468,6 +1468,7 @@
+   
+   /**
+    *  Element.siblings(@element) -> [Element...]
++   *
+    *  Collects all of element's siblings and returns them as an [[Array]] of
+    *  elements.
+    *
+diff -Naur -x .git prototype.orig/src/prototype/dom/event.js prototype/src/prototype/dom/event.js
+--- prototype.orig/src/prototype/dom/event.js	2011-12-02 08:37:54.759503912 +0000
++++ prototype/src/prototype/dom/event.js	2011-12-02 08:44:48.860350150 +0000
+@@ -1132,6 +1132,7 @@
+   Element.addMethods({
+     /**
+      *  Element.fire(@element, eventName[, memo[, bubble = true]]) -> Event
++     *
+      *  See [[Event.fire]].
+      *
+      *  Fires a custom event with the current element as its target.
+@@ -1177,18 +1178,21 @@
+ 
+     /**
+      *  Element.observe(@element, eventName, handler) -> Element
++     *
+      *  See [[Event.observe]].
+     **/
+     observe:       observe,
+ 
+     /**
+      *  Element.stopObserving(@element[, eventName[, handler]]) -> Element
++     *
+      *  See [[Event.stopObserving]].
+     **/
+     stopObserving: stopObserving,
+     
+     /**
+      *  Element.on(@element, eventName[, selector], callback) -> Element
++     *
+      *  See [[Event.on]].
+     **/
+     on:            on
+diff -Naur -x .git prototype.orig/src/prototype/dom/selector.js prototype/src/prototype/dom/selector.js
+--- prototype.orig/src/prototype/dom/selector.js	2011-12-02 08:37:54.763501912 +0000
++++ prototype/src/prototype/dom/selector.js	2011-12-02 08:43:29.020290105 +0000
+@@ -125,7 +125,7 @@
+    *  Prototype.Selector.find(elements, expression[, index = 0]) -> Element
+    *  - elements (Enumerable): a collection of DOM elements.
+    *  - expression (String): A CSS selector.
+-   *  - index: Numeric index of the match to return, defaults to 0.
++   *  - index (?): Numeric index of the match to return, defaults to 0.
+    *
+    *  Filters the given collection of elements with `expression` and returns the
+    *  first matching element (or the `index`th matching element if `index` is
+diff -Naur -x .git prototype.orig/src/prototype/dom.js prototype/src/prototype/dom.js
+--- prototype.orig/src/prototype/dom.js	2011-12-02 08:37:54.751507912 +0000
++++ prototype/src/prototype/dom.js	2011-12-02 08:42:44.278672079 +0000
+@@ -8,6 +8,7 @@
+ 
+ /**
+  *  == DOM ==
++ *
+  *  Extensions to DOM elements, plus other utilities for DOM traversal
+  *  and modification.
+  *
+diff -Naur -x .git prototype.orig/src/prototype/lang/range.js prototype/src/prototype/lang/range.js
+--- prototype.orig/src/prototype/lang/range.js	2011-12-02 08:37:54.767499912 +0000
++++ prototype/src/prototype/lang/range.js	2011-12-02 08:43:07.291160094 +0000
+@@ -94,11 +94,13 @@
+   function initialize(start, end, exclusive) {
+     /**
+      *  ObjectRange#start -> ?
++     *
+      *  The lower bounding value of the range.
+     **/
+     this.start = start;
+     /**
+      *  ObjectRange#end -> ?
++     *
+      *  The upper bounding value of the range.
+     **/
+     this.end = end;
