@@ -17,7 +17,7 @@ playground: $(DOCS)
 
 skin:
 	# rebuild stylesheets
-	node_modules/.bin/stylus -l -o $(ROOT)/skins/default/skeleton/stylesheets/ $(ROOT)/skins/default/templates/styles/main.styl
+	node_modules/.bin/stylus -o $(ROOT)/skins/default/skeleton/stylesheets/ $(ROOT)/skins/default/templates/styles/main.styl
 
 prototest:
 	# make bundled prototype doc
