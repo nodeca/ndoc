@@ -322,9 +322,11 @@ body {
 .menu-item a.deprecated {
   opacity: 0.5;
 }
-.menu-item a.current,
-.menu-item a.current-parent {
+.menu-item a.current {
   background-color: #ddd;
+}
+.menu-item a.current-parent {
+  background-color: #eee;
 }
 .menu-item a:hover {
   background-color: #ccc;
