@@ -21,16 +21,14 @@ skin:
 
 prototest:
 	# make bundled prototype doc
-	rm -fr ./tests/doc
-	cd tests && $(ROOT)/.bin/ndoc -o doc -i README.md -l 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' --package-name "Prototype"  --package-version v1.7 lib
+	rm -fr ./tests/prototype/doc
+	cd tests/prototype && $(ROOT)/.bin/ndoc -o doc -i README.markdown -l 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' --package-name "Prototype"  --package-version v1.7 src
 #	.bin/ndoc -o ./tests/doc ./tests
 
 $(DOCS): $(LIBS)
 	echo Compiling documentation for $(@D)
 	#rm lib/parser.js
 	rm -fr $@
-	if 
-	#cd $(@D) && $(ROOT)/.bin/ndoc -o doc -i README.md -l '{url}/{file}#L{line}' --package-json=package.json lib
 	cd $(@D) && $(ROOT)/.bin/ndoc -o doc -i README.md --package-json=package.json lib
 	#mkdir -p $@ && cd $(@D) && $(ROOT)/.bin/ndoc -o doc/tree.json -f json -i README.md -l '{url}/{file}#L{line}' --package-json=package.json lib
 	#mkdir -p $@ && cd $(@D) && $(ROOT)/.bin/ndoc -o doc/tree.js -f js -i README.md -l '{url}/{file}#L{line}' --package-json=package.json lib
