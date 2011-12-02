@@ -121,8 +121,7 @@ $(function () {
       // click - cuz i don't know what event fied on input clear in Chrome
       .on('change click', updateSearchResults);
 
-  // activate scroll spy
-  $window.scroll($.throttle(250, processScroll));
+  // initial jump (for permalinks)
   processScroll();
 
   // init prettyprint
