@@ -111,7 +111,7 @@ world
       var re = new RegExp('\n' + lead[0], 'g');
       desq = desq.substring(lead[0].length).replace(re, '\n');
     }
-    x.description = desq;
+    x.description = desq.trim();
     // short description lasts until the first empty line
     x.short_description = x.description.replace(/\n\n[\s\S]*$/, '\n');
     x.line = ($5.line + 1);
