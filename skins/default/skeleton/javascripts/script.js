@@ -123,7 +123,7 @@ $(function () {
       // click - cuz i don't know what event fied on input clear in Chrome
       .on('change click', updateSearchResults);
 
-  // dirtyhack until we'll fix scrollspy
+  // init scrollspy
   $window.on('scroll', $.throttle(250, processScroll));
 
   // initial jump (for permalinks)
