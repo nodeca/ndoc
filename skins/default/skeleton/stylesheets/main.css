@@ -268,6 +268,7 @@ body {
 #search-results {
   z-index: 1000;
   background-color: #fff;
+  display: none;
 }
 .menu {
   padding: 0;

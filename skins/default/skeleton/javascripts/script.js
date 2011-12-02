@@ -3,7 +3,7 @@ $(function () {
 
   var $window = $(window),
       $items = $('div.menu-item > a'),
-      $results = $('#search-results').hide(), // search results
+      $results = $('#search-results'), // search results
       targets = [], // items and corresponding article offset
       $active = null; // active menu item
 
@@ -33,6 +33,12 @@ $(function () {
 
     eachParent($item, function ($parent) {
       $parent.addClass('current-parent');
+      $parent.data('ndoc.childs')
+        .data('ndoc.collapsed', false)
+        .animate({
+          height: 'show',
+          opacity: 'show'
+        });
     });
   }
 
