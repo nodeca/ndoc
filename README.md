@@ -71,7 +71,7 @@ After installation is done you can generate prototype documentation for test:
 
     .bin/ndoc ./tests -o ./tests/doc
 
-Then open `./test/doc/index.html`. There are also some shortcuts in [Makefile](https://github.com/nodeca/ndoc/blob/master/Makefile),
+Then open `./test/doc/index.html`. Here is [hosted doc example](http://nodeca.github.com/ndoc/tests/doc/). There are also some shortcuts in [Makefile](https://github.com/nodeca/ndoc/blob/master/Makefile),
 if you make skin changes and need to constantly rebuild samples.
 
 
