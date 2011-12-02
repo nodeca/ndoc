@@ -33,12 +33,6 @@ $(function () {
 
     eachParent($item, function ($parent) {
       $parent.addClass('current-parent');
-      $parent.data('ndoc.childs')
-        .data('ndoc.collapsed', false)
-        .animate({
-          height: 'show',
-          opacity: 'show'
-        });
     });
   }
 
