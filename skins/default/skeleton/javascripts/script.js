@@ -25,8 +25,20 @@ $(function () {
     }
 
     $active = $item.addClass('current');
-    eachParent($active, function ($parent) {
+
+    $item.data('ndoc.childs').data('ndoc.collapsed', false).animate({
+      height: 'show',
+      opacity: 'show'
+    });
+
+    eachParent($item, function ($parent) {
       $parent.addClass('current-parent');
+      $parent.data('ndoc.childs')
+        .data('ndoc.collapsed', false)
+        .animate({
+          height: 'show',
+          opacity: 'show'
+        });
     });
   }
 
@@ -64,10 +76,6 @@ $(function () {
       }
 
       activate($item);
-      $childs.data('ndoc.collapsed', false).animate({
-        height: 'show',
-        opacity: 'show'
-      });
     });
 
     // fill-in article offset
