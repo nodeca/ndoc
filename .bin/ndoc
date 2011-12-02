@@ -67,7 +67,7 @@ var opts = require('nomnom')
     abbr: 'l',
     full: 'link-format',
     help: 'Format for link to source file [{file}#L{line}]',
-    default: '../{file}#L{line}',
+    //default: '../{file}#L{line}',
     metavar: 'FMT',
   })
   .option('skin', {
@@ -92,6 +92,10 @@ try {
   opts.packageUrl = opts.packageUrl || (package_json.repository && package_json.repository.url || package_json.repository) || '';
   opts.packageUrl = opts.packageUrl.replace('git://', 'https://').replace(/(\.git$|$)/, '/blob/master');
   opts.packageTitle = opts.packageTitle || package_json.description || opts.packageName || '';
+  // FIXME: guesswork: valid package.json means github.com link format
+  if (!opts.linkFormat) {
+    opts.linkFormat = '{url}/{file}#L{line}';
+  }
 } catch(err) {}
 
 //
@@ -120,13 +124,15 @@ Util.walk_many(opts.path, '\.' + opts.extension + '$', function(filename, stat, 
   }
   // build tree
   var ndoc = new NDoc(files, {
-    // given package URL, file name and line in the file, format link to source file
-    formatLink: function(file, line) {
-      return Util.normalize(opts.linkFormat
+    // given package URL, file name and line in the file, format link to source file.
+    // do so only if `packageUrl` is set or `linkFormat` is set
+    formatLink: (opts.linkFormat || opts.packageUrl) && function(file, line) {
+      var r = opts.linkFormat
         .replace(/\{url\}/g, opts.packageUrl || '')
         .replace(/\{file\}/g, file)
         .replace(/\{line\}/g, line)
-      );
+      ;
+      return Util.normalize(r);
     }
   });
   //console.log(ndoc.toJSON());
