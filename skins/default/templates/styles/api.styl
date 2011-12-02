@@ -5,29 +5,31 @@ body
 
 
 .sidebar
-  background: none repeat scroll 0 0 #eee
+  background: none repeat scroll 0 0 #f8f8f8
   position: fixed
   top: 0
   bottom: 0
   left: 0
   width: 240px
   font-size: 14px
+  overflow: hidden
 
 #search
-  background-color: #94bae7
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#4a79a5), to(#94bae7));
-  background: -webkit-linear-gradient(top, #4a79a5, #94bae7);
-  background: -moz-linear-gradient(top, #4a79a5, #94bae7);
-  background: -ms-linear-gradient(top, #4a79a5, #94bae7);
-  background: -o-linear-gradient(top, #4a79a5, #94bae7);
-  border-bottom: 1px solid #31659c
-  padding: 5px 0
-  height: 24px
+  background-color: #eee
+  padding: 7px 0
+  height: 30px
+  box-shadow: 0 0 5px #AAAAAA
 
   input
     width: 90%
     margin: auto
+    margin-top: 3px
+    padding 4px;
     display: block
+    background-color: #f8f8f8
+    border: 0px none
+    border-radius: 3px
+    box-shadow: 0 0 2px #666666 inset
 
 #search-results
   z-index: 1000
@@ -38,7 +40,7 @@ body
   padding: 0
   margin: 0
   list-style: none
-  top: 35px
+  top: 45px
   bottom: 0
   position: absolute
   overflow-x: hidden
@@ -79,8 +81,10 @@ body
     &.deprecated
       opacity 0.5
 
-    &.current, &.current-parent
+    &.current
       background-color: #ddd
+    &.current-parent
+      background-color: #eee
 
     &:hover
       background-color: #ccc
