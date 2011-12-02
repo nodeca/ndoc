@@ -3,7 +3,7 @@ $(function () {
 
   var $window = $(window),
       $items = $('div.menu-item > a'),
-      $results = $('#search-results').hide(), // search results
+      $results = $('#search-results'), // search results
       targets = [], // items and corresponding article offset
       $active = null; // active menu item
 
@@ -121,8 +121,7 @@ $(function () {
       // click - cuz i don't know what event fied on input clear in Chrome
       .on('change click', updateSearchResults);
 
-  // activate scroll spy
-  $window.scroll($.throttle(250, processScroll));
+  // initial jump (for permalinks)
   processScroll();
 
   // init prettyprint
