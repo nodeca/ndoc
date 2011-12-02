@@ -82,3 +82,14 @@ diff -Naur -x .git prototype.orig/src/prototype/lang/range.js prototype/src/prot
       *  The upper bounding value of the range.
      **/
      this.end = end;
+diff -Naur -x .git prototype.orig/src/prototype/lang.js prototype/src/prototype/lang.js
+--- prototype.orig/src/prototype/lang.js	2011-12-02 08:37:54.763501912 +0000
++++ prototype/src/prototype/lang.js	2011-12-02 09:45:53.633523259 +0000
+@@ -15,6 +15,7 @@
+ 
+ /**
+  * == Language ==
++ *
+  * Additions to JavaScript's "standard library" and extensions to
+  * built-in JavaScript objects.
+ **/
