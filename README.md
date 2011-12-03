@@ -64,9 +64,6 @@ If you like to make patches or develop skins - install NDoc in developer mode:
     cd ndoc
     npm install --dev
 
-(!) Note, that because of `jison` you have to use 0.4.x node branch for now. This restriction doesn't apply
-to usual install.
-
 After installation is done you can generate prototype documentation for test:
 
     .bin/ndoc ./tests -o ./tests/doc
