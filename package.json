@@ -17,7 +17,7 @@
     "fs-tools"  : "0.1.0"
   },
   "devDependencies": {
-    "jison"     : "https://github.com/zaach/jison/tarball/master",
+    "jison"     : "0.2.12",
     "stylus"    : "0.19.3"
   },
   "preferGlobal": true
