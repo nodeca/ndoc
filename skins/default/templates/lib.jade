@@ -1,5 +1,5 @@
 mixin home()
-  article#home.article
+  article#home.article(data-title='Home')
     //- readme
     .readme
       mixin markdown(readme)
@@ -99,7 +99,8 @@ mixin article(obj, parents)
   if typeof obj === 'string'
     obj = list[obj]
 
-  article.article(id=obj.path, class=[obj.deprecated && 'deprecated'].filter(function(x){return !!x;}))
+  title = obj.id + (obj.type ? ' (' + obj.type + ')' : '')
+  article.article(id=obj.path, data-title=title, class=[obj.deprecated && 'deprecated'].filter(function(x){return !!x;}))
 
     mixin title(obj, parents)
 

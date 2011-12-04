@@ -7,11 +7,17 @@ $(function () {
       $results = $('#search-results'), // search results
       targets = [], // items and corresponding article offset
       $active = null, // active article
-      title = []; // base (general) part of title
+      baseTitle = document.title; // base (general) part of title
 
-  // TODO: this should be specified inline by generator
-  //       e.g. `<script>window.NDOC_CONFIG = { baseTitle: 'Foobar' }</script>
-  title.push(document.title.split(' | ').shift());
+  function getTitle($article) {
+    var title = [baseTitle];
+
+    if ($article.data('title')) {
+      title.push($article.data('title'));
+    }
+
+    return title.join(' | ');
+  }
 
   function eachParent($item, callback) {
     var $parent = $item.data('ndoc.parent');
@@ -37,8 +43,7 @@ $(function () {
     $active = $article;
 
     // update title
-    // TODO: articles should have data-title attribute
-    document.title = title.concat([ $article.attr('id') ]).join(' | ');
+    document.title = getTitle($article);
 
     $item = $active.data('ndoc.item') || $empty;
     $item.addClass('current');
@@ -61,10 +66,11 @@ $(function () {
         i = targets.length;
     
     while (i--) {
-      $active !== targets[i].article
-        && scrollTop >= targets[i].offset
-        && (!targets[i + 1].offset || scrollTop <= targets[i + 1].offset)
-        && activate(targets[i].article, expandParents);
+      if ($active !== targets[i].article && scrollTop >= targets[i].offset
+          && (!targets[i + 1].offset || scrollTop <= targets[i + 1].offset)) {
+        activate(targets[i].article, expandParents)
+        return;
+      }
     }
   }
 
@@ -147,9 +153,6 @@ $(function () {
 
   // init scrollspy
   $window.on('scroll', $.throttle(250, processScroll));
-
-  // initial jump (for permalinks)
-  processScroll(null, true);
 
   // init prettyprint
   $('pre > code').addClass('prettyprint');
