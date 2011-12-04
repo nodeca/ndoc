@@ -154,6 +154,9 @@ $(function () {
   // init scrollspy
   $window.on('scroll', $.throttle(250, processScroll));
 
+  // initial jump (required for FF only - Chrome don't need it)
+  processScroll(null, true);
+
   // init prettyprint
   $('pre > code').addClass('prettyprint');
   prettyPrint();
