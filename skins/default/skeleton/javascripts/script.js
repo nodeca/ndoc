@@ -1,11 +1,17 @@
 $(function () {
   'use strict';
 
-  var $window = $(window),
+  var $empty = $(), // empty set used upon activtion
+      $window = $(window),
       $items = $('div.menu-item > a'),
       $results = $('#search-results'), // search results
       targets = [], // items and corresponding article offset
-      $active = null; // active menu item
+      $active = null, // active article
+      title = []; // base (general) part of title
+
+  // TODO: this should be specified inline by generator
+  //       e.g. `<script>window.NDOC_CONFIG = { baseTitle: 'Foobar' }</script>
+  title.push(document.title.split(' | ').shift());
 
   function eachParent($item, callback) {
     var $parent = $item.data('ndoc.parent');
@@ -16,16 +22,26 @@ $(function () {
   }
 
   // activates item (used upon scrolling)
-  function activate($item, expandParents) {
+  function activate($article, expandParents) {
+    var $item;
+
     if ($active) {
-      $active.removeClass('current');
-      eachParent($active, function ($parent) {
+      $item = $active.data('ndoc.item') || $empty;
+      $item.removeClass('current');
+      eachParent($item, function ($parent) {
         $parent.removeClass('current-parent');
       });
     }
 
-    $active = $item.addClass('current');
+    // set new active article
+    $active = $article;
 
+    // update title
+    // TODO: articles should have data-title attribute
+    document.title = title.concat([ $article.attr('id') ]).join(' | ');
+
+    $item = $active.data('ndoc.item') || $empty;
+    $item.addClass('current');
     eachParent($item, function ($parent) {
       $parent.addClass('current-parent');
       if (expandParents) {
@@ -45,22 +61,34 @@ $(function () {
         i = targets.length;
     
     while (i--) {
-      $active !== targets[i].item
+      $active !== targets[i].article
         && scrollTop >= targets[i].offset
         && (!targets[i + 1].offset || scrollTop <= targets[i + 1].offset)
-        && activate(targets[i].item, expandParents);
+        && activate(targets[i].article, expandParents);
     }
   }
+
+  // init articles
+  $('article.article').each(function () {
+    var $article = $(this);
+
+    targets.push({
+      article: $article,
+      offset: $article.offset().top
+    });
+  });
 
   // init menu items
   $items.each(function () {
     var $item = $(this),
         $childs = $item.parent().next(),
-        $parent = $item.parents('ul').eq(0).prev().children();
+        $parent = $item.parents('ul').eq(0).prev().children(),
+        $article = $('[id="' + $item.attr('href').slice(1) + '"]');
 
-    // cross-ref tree
+    // cross-refs
     $item.data('ndoc.parent', $parent);
     $item.data('ndoc.childs', $childs);
+    $article.data('ndoc.item', $item);
 
     // bind activator
     $item.on('click', function () {
@@ -72,18 +100,12 @@ $(function () {
         return false;
       }
 
-      activate($item);
+      activate($article);
 
       $item.data('ndoc.childs').data('ndoc.collapsed', false).animate({
         height: 'show',
         opacity: 'show'
       });
-    });
-
-    // fill-in article offset
-    targets.push({
-      item: $item,
-      offset: $('[id="' + $item.attr('href').slice(1) + '"]').offset().top
     });
 
     // collapse all 2nd levels
