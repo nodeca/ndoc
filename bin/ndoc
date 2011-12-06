@@ -33,7 +33,7 @@ var opts = require('nomnom')
     abbr: 'f',
     help: 'Documentation format [html]',
     choices: ['html', 'json', 'js'],
-    metavar: '<html|json|js>',
+    metavar: 'FMT',
     default: 'html',
   })
   .option('index', {
@@ -42,25 +42,15 @@ var opts = require('nomnom')
     metavar: 'FILE',
     default: 'README.md',
   })
-  .option('packageJson', {
-    full: 'package-json',
-    help: 'Package description file [package.json]',
+  .option('manifest', {
+    full: 'manifest',
+    help: 'Package description file in JSON format [package.json]',
     metavar: 'FILE',
     default: 'package.json',
   })
-  .option('packageName', {
-    full: 'package-name',
-    help: 'Package name',
-    metavar: 'STRING',
-  })
-  .option('packageVersion', {
-    full: 'package-version',
-    help: 'Package version',
-    metavar: 'STRING',
-  })
-  .option('packageTitle', {
-    full: 'package-title',
-    help: 'Package title',
+  .option('title', {
+    full: 'title',
+    help: 'Documentation title. If omitted, it will be guessed from manifest, if any',
     metavar: 'STRING',
   })
   .option('linkFormat', {
@@ -85,7 +75,7 @@ var opts = require('nomnom')
     full: 'broken-links',
     help: 'What to do if broken link occured [hide]',
     choices: ['show', 'hide', 'throw'],
-    metavar: '<show|hide|throw>',
+    metavar: 'ACTION',
   })
   .parse();
 
@@ -93,17 +83,23 @@ var opts = require('nomnom')
 // read missing data from package.json, if any
 //
 try {
-  var package_json = JSON.parse(Util.read(opts.packageJson));
-  opts.packageName = opts.packageName || package_json.name || '';
-  opts.packageVersion = opts.packageVersion || package_json.version || '';
-  opts.packageUrl = opts.packageUrl || (package_json.repository && package_json.repository.url || package_json.repository) || '';
-  opts.packageUrl = opts.packageUrl.replace('git://', 'https://').replace(/(\.git$|$)/, '/blob/master');
-  opts.packageTitle = opts.packageTitle || package_json.description || opts.packageName || '';
-  // FIXME: guesswork: valid package.json means github.com link format
-  if (!opts.linkFormat) {
-    opts.linkFormat = '{url}/{file}#L{line}';
-  }
-} catch(err) {}
+  var manifest = JSON.parse(Util.read(opts.manifest));
+} catch(err) {
+  manifest = {};
+}
+opts.packageName = manifest.name || '';
+opts.packageVersion = manifest.version || '';
+// fix title
+if (!opts.title) {
+  opts.title = (opts.packageName + ' ' + opts.packageVersion + ' API documentation').trim();
+}
+opts.packageUrl = manifest.homepage;
+// FIXME: guesswork: valid package.json means github.com link format
+if (!opts.linkFormat) {
+  opts.linkFormat = '{url}/{file}#L{line}';
+}
+
+console.log(opts);
 
 //
 // read index file

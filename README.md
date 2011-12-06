@@ -37,13 +37,11 @@ If not - try [nvm](https://github.com/creationix/nvm). Then install NDoc globall
                                 {file} is substituted with the name of the source file
                                 {line} is substituted with the line number within the source file
                                 E.g. http://github.com/nodeca/ndoc/{file}#L{line}
-      --package-json PATH       Package manifest [package.json]
-      --package-name NAME       Package name
-      --package-version VER     Project version
-      --package-title TITLE     Package title
+      --manifest PATH           Package manifest in JSON format [package.json]
+      --title TITLE             Documentation title
       --view-source-label TXT   Text for "View source" link
       --skin PATH               Custom templates
-      -b, --broken-links        What to do if broken link occured. Can be one of 'show', 'hide', 'throw'.
+      -b, --broken-links ACTION What to do if broken link occured. Can be one of 'show', 'hide', 'throw'.
                                 Default is 'hide'
 
 NDoc tries to use defaults from `package.json` in current folder. That helps to minimize options count when building
