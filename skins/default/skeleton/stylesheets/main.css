@@ -404,6 +404,7 @@ body {
 .article header,
 .article .section,
 .article .alias,
+.article .related-to,
 .article .deprecated-note {
   margin-left: 140px;
   margin-bottom: 20px;
@@ -649,6 +650,16 @@ li code {
   font-size: 12px;
   padding: 3px 30px;
 }
+.related-to {
+  background-color: #fff6de;
+  border: 1px solid #cc9;
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -o-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  font-size: 12px;
+  padding: 3px 30px;
+}
 .alias {
   background-color: #fff6de;
   border: 1px solid #cc9;
@@ -681,6 +692,7 @@ li code {
   border-bottom: 1px dashed #888;
 }
 .alias a,
+.related-to a,
 a.link-short,
 .superclass a,
 .superclass a:visited,

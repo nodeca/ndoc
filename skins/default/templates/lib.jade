@@ -238,7 +238,8 @@ mixin article(obj, parents)
 
     if obj.related_to
       .related-to
-        | Related to: != mixin link(obj.related_to)
+        | Related to:
+        mixin link(obj.related_to)
 
   //- children
   for child in obj.children.filter(function(x){return x.type === 'section'})
