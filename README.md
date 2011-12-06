@@ -43,6 +43,8 @@ If not - try [nvm](https://github.com/creationix/nvm). Then install NDoc globall
       --package-title TITLE     Package title
       --view-source-label TXT   Text for "View source" link
       --skin PATH               Custom templates
+      -b, --broken-links        What to do if broken link occured. Can be one of 'show', 'hide', 'throw'.
+                                Default is 'hide'
 
 NDoc tries to use defaults from `package.json` in current folder. That helps to minimize options count when building
 documentation for node.js projects. For example, you can just run:

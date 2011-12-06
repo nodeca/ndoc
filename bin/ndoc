@@ -80,6 +80,13 @@ var opts = require('nomnom')
     help: 'Text for "View source" link',
     metavar: 'STRING',
   })
+  .option('brokenLinks', {
+    abbr: 'b',
+    full: 'broken-links',
+    help: 'What to do if broken link occured [hide]',
+    choices: ['show', 'hide', 'throw'],
+    metavar: '<show|hide|throw>',
+  })
   .parse();
 
 //

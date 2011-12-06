@@ -22,7 +22,7 @@ skin:
 prototest:
 	# make bundled prototype doc
 	rm -fr ./tests/doc
-	cd tests/prototype && $(ROOT)/bin/ndoc -o ../doc -i README.markdown -l 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' --package-name "Prototype"  --package-version v1.7 src
+	cd tests/prototype && $(ROOT)/bin/ndoc -o ../doc -b show -i README.markdown -l 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' --package-name "Prototype"  --package-version v1.7 src
 #	bin/ndoc -o ./tests/doc ./tests
 
 $(DOCS): $(LIBS)
