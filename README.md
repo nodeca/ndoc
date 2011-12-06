@@ -37,7 +37,7 @@ If not - try [nvm](https://github.com/creationix/nvm). Then install NDoc globall
                                 {file} is substituted with the name of the source file
                                 {line} is substituted with the line number within the source file
                                 E.g. http://github.com/nodeca/ndoc/{file}#L{line}
-      --manifest PATH           Package manifest in JSON format [package.json]
+      --manifest PATH | JSON    Package manifest in JSON format. Either path to file, or inline. [package.json]
       --title TITLE             Documentation title
       --view-source-label TXT   Text for "View source" link
       --skin PATH               Custom templates

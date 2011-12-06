@@ -44,8 +44,8 @@ var opts = require('nomnom')
   })
   .option('manifest', {
     full: 'manifest',
-    help: 'Package description file in JSON format [package.json]',
-    metavar: 'FILE',
+    help: 'Package description in JSON format. Either path of the file, or inline. [package.json]',
+    metavar: 'PATH | JSON',
     default: 'package.json',
   })
   .option('title', {
@@ -81,40 +81,57 @@ var opts = require('nomnom')
   .parse();
 
 //
-// helpers
-//
-function get(o, path) {
-  var r = o;
-  var parts = path.split('.');
-  while (r && parts[0]) {
-    r = r[parts[0]];
-    parts.shift();
-  }
-  return r;
-}
-
-//
-// read missing data from package.json, if any
+// read manifest either from file, or from option value
 //
 try {
   var manifest = JSON.parse(Util.read(opts.manifest));
 } catch(err) {
-  manifest = {};
-}
-opts.manifest = manifest;
-opts.packageName = manifest.name || '';
-opts.packageVersion = manifest.version || '';
-// fix title
-if (!opts.title) {
-  opts.title = (opts.packageName + ' ' + opts.packageVersion + ' API documentation').trim();
-}
-opts.packageUrl = get(manifest, 'repository.url') || get(manifest, 'repository');//manifest.homepage;
-// FIXME: guesswork: valid package.json means github.com link format
-if (!opts.linkFormat) {
-  opts.linkFormat = '{url}/{file}#L{line}';
+  try {
+    manifest = JSON.parse(opts.manifest);
+  } catch(err) {
+    manifest = {};
+  }
 }
 
-console.log(opts);
+//
+// flatten manifest structure, to allow easier access
+//
+(function(){
+var options = {};
+function flatten(o, path) {
+  for (var i in o) {
+    var p = path ? path + '.' + i : i;
+    options[p] = o[i];
+    if (Object(o[i]) === o[i]) {
+      flatten(o[i], p);
+    }
+  }
+}
+flatten(manifest);
+manifest = options;
+})();
+
+
+// try to collect critical variables
+opts.package = manifest;
+opts.package.name = opts.package.name || '';
+opts.package.version = opts.package.version || '';
+opts.package.url = opts.package['repository.url'] || opts.package['repository'] || '';
+opts.package.url = opts.package.url.replace(/^git:\/\//, 'https://').replace(/\.git$/, '');
+// fix title
+if (!opts.title) {
+  opts.title = (opts.package.name + ' ' + opts.package.version + ' API documentation').trim();
+}
+// FIXME: guesswork: valid package.json means github.com link format
+if (!opts.linkFormat) {
+  if (opts.package.url.match(/\/\/github\.com\//)) {
+    opts.linkFormat = '{url}/{file}#L{line}';
+  } else {
+    opts.linkFormat = '{url}/{file}';
+  }
+}
+
+//console.log(opts);
 
 //
 // read index file
@@ -144,9 +161,9 @@ Util.walk_many(opts.path, '\.' + opts.extension + '$', function(filename, stat, 
   var ndoc = new NDoc(files, {
     // given package URL, file name and line in the file, format link to source file.
     // do so only if `packageUrl` is set or `linkFormat` is set
-    formatLink: (opts.linkFormat || opts.packageUrl) && function(file, line) {
+    formatLink: (opts.linkFormat || opts.package.url) && function(file, line) {
       var r = opts.linkFormat
-        .replace(/\{url\}/g, opts.packageUrl || '')
+        .replace(/\{url\}/g, opts.package.url || '')
         .replace(/\{file\}/g, file)
         .replace(/\{line\}/g, line)
       ;
