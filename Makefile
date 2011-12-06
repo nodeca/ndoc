@@ -4,16 +4,15 @@ DIRS = $(addprefix playground/,$(shell ls playground | sed '/index.html/d'))
 LIBS = $(addsuffix /lib,$(DIRS))
 DOCS = $(addsuffix /doc,$(DIRS))
 
-PROJECT =  $(notdir ${PWD})
-TMP_DIR = /tmp/${PROJECT}-$(shell date +%s)
-
-REMOTE_NAME ?= origin
-REMOTE_REPO ?= $(shell git config --get remote.${REMOTE_NAME}.url)
-
 playground: $(DOCS)
 	echo Indexing
 	echo $(DOCS) | sed -r 's~playground/(\S+)/doc~<li><a href="\1/doc/index.html">\1</a></li>~g' | sed 'i<html><body><ul>' | sed 'a</ul></body></html>' >$@/index.html
 	echo Open playground/index.html
+
+doc: doc/index.html
+doc/index.html: lib
+	rm -fr $(@D)
+	bin/ndoc $^
 
 skin:
 	# rebuild stylesheets
@@ -22,7 +21,7 @@ skin:
 prototest:
 	# make bundled prototype doc
 	rm -fr ./tests/doc
-	cd tests/prototype && $(ROOT)/bin/ndoc -o ../doc -b show -i README.markdown -l 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' --title "Prototype v1.7" src
+	cd tests/prototype && $(ROOT)/bin/ndoc -o ../doc -b show -i README.markdown -l 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' -t "Prototype v1.7" src
 #	bin/ndoc -o ./tests/doc ./tests
 
 $(DOCS): $(LIBS)
@@ -32,6 +31,12 @@ $(DOCS): $(LIBS)
 	cd $(@D) && $(ROOT)/bin/ndoc -o doc -i README.md --package-json=package.json lib
 	#mkdir -p $@ && cd $(@D) && $(ROOT)/bin/ndoc -o doc/tree.json -f json -i README.md -l '{url}/{file}#L{line}' --package-json=package.json lib
 	#mkdir -p $@ && cd $(@D) && $(ROOT)/bin/ndoc -o doc/tree.js -f js -i README.md -l '{url}/{file}#L{line}' --package-json=package.json lib
+
+PROJECT =  $(notdir ${PWD})
+TMP_DIR = /tmp/${PROJECT}-$(shell date +%s)
+
+REMOTE_NAME ?= origin
+REMOTE_REPO ?= $(shell git config --get remote.${REMOTE_NAME}.url)
 
 proto-pages:
 	@if test -z ${REMOTE_REPO} ; then \
@@ -54,4 +59,4 @@ proto-pages:
 	@echo 'URL: http://nodeca.github.com/ndoc/tests/doc/'
 
 .SILENT:
-.PHONY: playground redo $(DOCS)
+.PHONY: playground redo doc $(DOCS)

@@ -42,15 +42,11 @@ var opts = require('nomnom')
     metavar: 'FILE',
     default: 'README.md',
   })
-  .option('manifest', {
-    full: 'manifest',
-    help: 'Package description in JSON format [package.json]',
-    metavar: 'PATH | JSON',
-    default: 'package.json',
-  })
   .option('title', {
     full: 'title',
+    abbr: 't',
     help: 'Documentation title. If omitted, it will be guessed from manifest, if any',
+    default: '{package.name} {package.version} API documentation',
     metavar: 'STRING',
   })
   .option('linkFormat', {
@@ -84,7 +80,7 @@ var opts = require('nomnom')
 // read manifest from file
 //
 try {
-  var manifest = JSON.parse(Util.read(opts.manifest));
+  var manifest = JSON.parse(Util.read('package.json'));
 } catch(err) {
   manifest = {};
 }
@@ -107,6 +103,15 @@ flatten(manifest);
 manifest = options;
 })();
 
+function interpolate(string, file, line) {
+  var r = string
+    .replace(/\{url\}/g, opts.package.url || '')
+    .replace(/\{file\}/g, file)
+    .replace(/\{line\}/g, line)
+    .replace(/\{package\.([^}]+)\}/g, function(all, path) { return opts.package[path]; })
+  ;
+  return Util.normalize(r);
+}
 
 // try to collect critical variables
 opts.package = manifest;
@@ -114,10 +119,6 @@ opts.package.name = opts.package.name || '';
 opts.package.version = opts.package.version || '';
 opts.package.url = opts.package['repository.url'] || opts.package['repository'] || '';
 opts.package.url = opts.package.url.replace(/^git:\/\//, 'https://').replace(/\.git$/, '');
-// fix title
-if (!opts.title) {
-  opts.title = (opts.package.name + ' ' + opts.package.version + ' API documentation').trim();
-}
 // FIXME: guesswork: valid package.json means github.com link format
 if (!opts.linkFormat) {
   if (opts.package.url.match(/\/\/github\.com\//)) {
@@ -125,6 +126,13 @@ if (!opts.linkFormat) {
   } else {
     opts.linkFormat = '{url}/{file}';
   }
+}
+// guess title?
+if (!opts.title) {
+  opts.title = (opts.package.name + ' ' + opts.package.version + ' API documentation').trim();
+// or interpolate title
+} else {
+  opts.title = interpolate(opts.title);
 }
 
 //console.log(opts);
@@ -157,14 +165,7 @@ Util.walk_many(opts.path, '\.' + opts.extension + '$', function(filename, stat, 
   var ndoc = new NDoc(files, {
     // given package URL, file name and line in the file, format link to source file.
     // do so only if `packageUrl` is set or `linkFormat` is set
-    formatLink: (opts.linkFormat || opts.package.url) && function(file, line) {
-      var r = opts.linkFormat
-        .replace(/\{url\}/g, opts.package.url || '')
-        .replace(/\{file\}/g, file)
-        .replace(/\{line\}/g, line)
-      ;
-      return Util.normalize(r);
-    }
+    formatLink: (opts.linkFormat || opts.package.url) && interpolate.bind(null, opts.linkFormat)
   });
   //console.log(ndoc.toJSON());
 

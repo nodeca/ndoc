@@ -32,20 +32,20 @@ If not - try [nvm](https://github.com/creationix/nvm). Then install NDoc globall
       -e, --extension STRING    Source files extension [js]
       -f, --format <html|js>    Documentation format [html]
       -i, --index PATH          Index file [README.md]
+      -t TITLE, --title TITLE   Documentation title
+                                Supports interpolation. See notes for --link-format.
       -l FMT, --link-format FMT String format for link to source file [{file}#L{line}]
                                 {url} is substituted with the URL of repository read from manifest file
                                 {file} is substituted with the name of the source file
                                 {line} is substituted with the line number within the source file
                                 E.g. http://github.com/nodeca/ndoc/{file}#L{line}
-      --manifest PATH | JSON    Package manifest in JSON format. Either path to file, or inline. [package.json]
-      --title TITLE             Documentation title
+                                {package.XXX} is substituted with XXX key of package.json, if any
       --view-source-label TXT   Text for "View source" link
       --skin PATH               Custom templates
       -b, --broken-links ACTION What to do if broken link occured. Can be one of 'show', 'hide', 'throw'.
                                 Default is 'hide'
 
-NDoc tries to use defaults from `package.json` in current folder. That helps to minimize options count when building
-documentation for node.js projects. For example, you can just run:
+NDoc tries to use defaults from `package.json` in current folder. That helps to minimize options count when building documentation for node.js projects. For example, you can just run:
 
     ndoc ./lib
 
