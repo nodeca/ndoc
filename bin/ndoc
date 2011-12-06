@@ -110,7 +110,7 @@ function interpolate(string, file, line) {
     .replace(/\{line\}/g, line)
     .replace(/\{package\.([^}]+)\}/g, function(all, path) { return opts.package[path]; })
   ;
-  return Util.normalize(r);
+  return r;
 }
 
 // try to collect critical variables
@@ -165,7 +165,9 @@ Util.walk_many(opts.path, '\.' + opts.extension + '$', function(filename, stat, 
   var ndoc = new NDoc(files, {
     // given package URL, file name and line in the file, format link to source file.
     // do so only if `packageUrl` is set or `linkFormat` is set
-    formatLink: (opts.linkFormat || opts.package.url) && interpolate.bind(null, opts.linkFormat)
+    formatLink: (opts.linkFormat || opts.package.url) && function(file, line) {
+      return Util.normalize(interpolate(opts.linkFormat, file, line));
+    }
   });
   //console.log(ndoc.toJSON());
 
