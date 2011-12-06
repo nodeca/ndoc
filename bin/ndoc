@@ -44,7 +44,7 @@ var opts = require('nomnom')
   })
   .option('manifest', {
     full: 'manifest',
-    help: 'Package description in JSON format. Either path of the file, or inline. [package.json]',
+    help: 'Package description in JSON format [package.json]',
     metavar: 'PATH | JSON',
     default: 'package.json',
   })
@@ -81,16 +81,12 @@ var opts = require('nomnom')
   .parse();
 
 //
-// read manifest either from file, or from option value
+// read manifest from file
 //
 try {
   var manifest = JSON.parse(Util.read(opts.manifest));
 } catch(err) {
-  try {
-    manifest = JSON.parse(opts.manifest);
-  } catch(err) {
-    manifest = {};
-  }
+  manifest = {};
 }
 
 //
