@@ -210,14 +210,15 @@ mixin article(obj, parents)
                 mixin argument(arg)
 
           mixin markdown(obj.description)
+
           if obj.methodized_self
-            p.note.
+            p.note.methodized
               This method can be called <em>either</em> as an
               a(href=obj.methodized_self) instance method
               <em>or</em> as a generic method.
               If calling as generic, pass the instance in as the first argument. 
           else if obj.functionalized_self
-            p.note.
+            p.note.functionalized
               This method can be called <em>either</em> as an instance method <em>or</em> as a
               a(href=obj.functionalized_self) generic method.
               If calling as generic, pass the instance in as the first argument. 
@@ -236,6 +237,11 @@ mixin article(obj, parents)
         ul
           li
             mixin link(obj.alias_of)
+
+    if obj.related_to
+      .related-to
+        | Related to:
+          mixin link(obj.related_to)
 
   //- children
   for child in obj.children.filter(function(x){return x.type === 'section'})
