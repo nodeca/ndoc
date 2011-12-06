@@ -213,10 +213,13 @@ mixin article(obj, parents)
 
           if obj.methodized_self
             p.note.methodized
-              This method can be called <em>either</em> as an <a href="#{obj.methodized_self}">instance method</a> <em>or</em> as a generic method. If calling as generic, pass the instance in as the first argument.
+              | This method can be called <em>either</em> as an <a href="##{obj.methodized_self}" class="link-short">instance method</a>
+              | <em>or</em> as a generic method. If calling as generic, pass the instance in as the first argument.
           else if obj.functionalized_self
             p.note.functionalized
-              This method can be called <em>either</em> as an instance method <em>or</em> as a <a href="#{obj.functionalized_self}">generic method</a>. If calling as generic, pass the instance in as the first argument.
+              | This method can be called <em>either</em> as an instance method <em>or</em> as a
+              |  <a href="##{obj.functionalized_self}" class="link-short">generic method</a>.
+              | If calling as generic, pass the instance in as the first argument.
 
     if obj.aliases && obj.aliases.length
       .alias.aliases
