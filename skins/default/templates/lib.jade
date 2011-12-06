@@ -1,16 +1,3 @@
-mixin home()
-  article#home.article(data-title='Home')
-    //- readme
-    .readme
-      mixin markdown(readme)
-    //- sections
-    collection = tree.children.filter(function(x){return x.type === 'section'})
-    if collection.length
-      .section.sections
-        h3 Sections
-        .content
-          mixin short_description_list(collection)
-
 mixin search()
   form#search
     input(type='search', size='20', title='Search', placeholder='Search')
@@ -91,7 +78,7 @@ mixin title(obj, parents)
     if obj.href
       .source
         a(href=obj.href)
-          = src_code_text || 'View source code'
+          = viewSourceLabel
 
 
 

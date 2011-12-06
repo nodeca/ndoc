@@ -68,6 +68,7 @@ var opts = require('nomnom')
   .option('viewSourceLabel', {
     full: 'view-source-label',
     help: 'Text for "View source" link',
+    default: 'View source code',
     metavar: 'STRING',
   })
   .option('brokenLinks', {
@@ -80,6 +81,19 @@ var opts = require('nomnom')
   .parse();
 
 //
+// helpers
+//
+function get(o, path) {
+  var r = o;
+  var parts = path.split('.');
+  while (r && parts[0]) {
+    r = r[parts[0]];
+    parts.shift();
+  }
+  return r;
+}
+
+//
 // read missing data from package.json, if any
 //
 try {
@@ -87,13 +101,14 @@ try {
 } catch(err) {
   manifest = {};
 }
+opts.manifest = manifest;
 opts.packageName = manifest.name || '';
 opts.packageVersion = manifest.version || '';
 // fix title
 if (!opts.title) {
   opts.title = (opts.packageName + ' ' + opts.packageVersion + ' API documentation').trim();
 }
-opts.packageUrl = manifest.homepage;
+opts.packageUrl = get(manifest, 'repository.url') || get(manifest, 'repository');//manifest.homepage;
 // FIXME: guesswork: valid package.json means github.com link format
 if (!opts.linkFormat) {
   opts.linkFormat = '{url}/{file}#L{line}';
