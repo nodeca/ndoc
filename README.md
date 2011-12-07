@@ -32,9 +32,9 @@ If not - try [nvm](https://github.com/creationix/nvm). Then install NDoc globall
       -e, --extension STRING    Source files extension [js]
       -f, --format <html|js>    Documentation format [html]
       -i, --index PATH          Index file [README.md]
-      -t TITLE, --title TITLE   Documentation title
+      -t, --title TITLE         Documentation title
                                 Supports interpolation. See notes for --link-format.
-      -l FMT, --link-format FMT String format for link to source file [{file}#L{line}]
+      -l, --link-format         FMT String format for link to source file [{file}#L{line}]
                                 {url} is substituted with the URL of repository read from manifest file
                                 {file} is substituted with the name of the source file
                                 {line} is substituted with the line number within the source file
@@ -45,7 +45,7 @@ If not - try [nvm](https://github.com/creationix/nvm). Then install NDoc globall
       -b, --broken-links ACTION What to do if broken link occured. Can be one of 'show', 'hide', 'throw'.
                                 Default is 'hide'
 
-NDoc tries to use defaults from `package.json` in current folder. That helps to minimize options count when building documentation for node.js projects. For example, you can just run:
+NDoc uses data from `package.json` in current folder, if found one. This helps to minimize number of options when building documentation for node.js projects. For example, you can just run:
 
     ndoc ./lib
 
@@ -66,7 +66,7 @@ If you like to make patches or develop skins - install NDoc in developer mode:
 
 After installation is done you can generate prototype documentation for test:
 
-    .bin/ndoc ./tests -o ./tests/doc
+    bin/ndoc ./tests -o ./tests/doc
 
 Then open `./test/doc/index.html`. Here is [hosted doc example](http://nodeca.github.com/ndoc/tests/doc/). There are also some shortcuts in [Makefile](https://github.com/nodeca/ndoc/blob/master/Makefile),
 if you make skin changes and need to constantly rebuild samples.
