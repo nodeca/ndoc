@@ -26,7 +26,7 @@ prototest:
 
 $(DOCS): $(LIBS)
 	echo Compiling documentation for $(@D)
-	rm lib/parser.js
+	#rm lib/parser.js
 	rm -fr $@
 	cd $(@D) && $(ROOT)/bin/ndoc -o doc -i README.md --package-json=package.json lib
 	#mkdir -p $@ && cd $(@D) && $(ROOT)/bin/ndoc -o doc/tree.json -f json -i README.md -l '{url}/{file}#L{line}' --package-json=package.json lib
