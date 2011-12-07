@@ -1,24 +1,38 @@
 {
-  "name"        : "ndoc",
-  "description" : "pdoc made in node.js",
-  "version"     : "1.0.0",
-  "homepage"    : "https://github.com/nodeca/ndoc",
-  "author"      : "Vladimir Dronnikov <dronnikov@gmail.com>",
-  "constributors": [ "Aleksey V Zapparov <ixti@member.fsf.org> (http://www.ixti.net/)" ],
-  "bugs"        : { "url": "https://github.com/nodeca/ndoc/issues" },
-  "license"     : { "type": "MIT", "url": "https://github.com/nodeca/ndoc/blob/master/LICENSE" },
-  "repository"  : { "type": "git", "url": "git://github.com/nodeca/ndoc.git" },
-  "bin"         : { "ndoc": "bin/ndoc" },
-  "engines"     : { "node": "> 0.4.11 < 0.7.0" },
-  "dependencies": {
-    "nomnom"    : "1.5.1",
-    "jade"      : "0.18.0",
-    "marked"    : "0.1.4",
-    "fs-tools"  : "0.1.0"
-  },
-  "devDependencies": {
-    "jison"     : "0.2.12",
-    "stylus"    : "0.19.3"
-  },
-  "preferGlobal": true
+  "name"            : "ndoc",
+  "version"         : "1.0.0",
+  "description"     : "JavaScript API documentor with simple syntax that generates human-friendly documentation.",
+  "keywords"        : [
+                        "api", "doc", "apidoc", "jsdoc", "autodoc",
+                        "documentation", "documentor", "pdoc", "prototype"
+                      ],
+  "homepage"        : "https://github.com/nodeca/ndoc",
+
+  "author"          : "Vladimir Dronnikov <dronnikov@gmail.com>",
+  "constributors"   : [
+                        "Vitaly Puzrin (http://rcdesign.ru)",
+                        "Aleksey V Zapparov <ixti@member.fsf.org> (http://www.ixti.net/)"
+                      ],
+
+  "bugs"            : { "url": "https://github.com/nodeca/ndoc/issues" },
+  "license"         : { "type": "MIT", "url": "https://github.com/nodeca/ndoc/blob/master/LICENSE" },
+  "repository"      : { "type": "git", "url": "git://github.com/nodeca/ndoc.git" },
+
+  "bin"             : { "ndoc": "bin/ndoc" },
+  "main"            : "./lib/index.js",
+
+  "dependencies"    : {
+                        "nomnom"    : "1.5.1",
+                        "jade"      : "0.18.0",
+                        "marked"    : "0.1.4",
+                        "fs-tools"  : "0.1.0"
+                      },
+  "devDependencies" : {
+                        "jison"     : "0.2.12",
+                        "stylus"    : "0.19.3"
+                      },
+
+  "engines"         : { "node": "> 0.4.11" },
+
+  "preferGlobal"    : true
 }
