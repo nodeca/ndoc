@@ -67,7 +67,7 @@ $(function () {
     
     while (i--) {
       if ($active !== targets[i].article && scrollTop >= targets[i].offset
-          && (!targets[i + 1].offset || scrollTop <= targets[i + 1].offset)) {
+          && (!targets[i + 1] || scrollTop <= targets[i + 1].offset)) {
         activate(targets[i].article, expandParents)
         return;
       }
