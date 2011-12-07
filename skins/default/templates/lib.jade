@@ -210,15 +210,16 @@ mixin article(obj, parents)
 
           mixin markdown(obj.description)
 
-          if obj.methodized
+          if obj.bound && ~obj.bound.indexOf('#')
             p.note.methodized
-              | This method can be called <em>either</em> as an <a href="##{obj.methodized}" class="link-short">instance method</a>
-              | <em>or</em> as a generic method. If calling as generic, pass the instance in as the first argument.
-          else if obj.functionalized
+              | This method can be called <em>either</em> as an 
+              != link(obj.bound, 'instance method', ['link-short'])
+              |  <em>or</em> as a generic method. If calling as generic, pass the instance in as the first argument.
+          else if obj.bound && !~obj.bound.indexOf('#')
             p.note.functionalized
-              | This method can be called <em>either</em> as an instance method <em>or</em> as a
-              |  <a href="##{obj.functionalized}" class="link-short">generic method</a>.
-              | If calling as generic, pass the instance in as the first argument.
+              | This method can be called <em>either</em> as an instance method <em>or</em> as a 
+              != link(obj.bound, 'generic method', ['link-short'])
+              |. If calling as generic, pass the instance in as the first argument.
 
     if obj.aliases && obj.aliases.length
       .alias.aliases
