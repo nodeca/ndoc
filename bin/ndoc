@@ -122,9 +122,7 @@ opts.package.url = opts.package.url.replace(/^git:\/\//, 'https://').replace(/\.
 // FIXME: guesswork: valid package.json means github.com link format
 if (!opts.linkFormat) {
   if (opts.package.url.match(/\/\/github\.com\//)) {
-    opts.linkFormat = '{url}/{file}#L{line}';
-  } else {
-    opts.linkFormat = '{url}/{file}';
+    opts.linkFormat = '{url}/blob/master/{file}#L{line}';
   }
 }
 // guess title?
