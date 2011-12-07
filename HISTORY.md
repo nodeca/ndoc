@@ -1,7 +1,7 @@
 1.0.0 / 2011-12-07
 ------------------
 
-* Total refactoring + feature-compleete now
+* Total refactoring + feature-complete now
 * Skin rewrite
 * `Prototype` as test
 
