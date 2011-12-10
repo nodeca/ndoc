@@ -2,6 +2,7 @@
 ------------------
 
 * Fixed highlight of last menu item after scroll, closes #17
+* Fixed boilerplate layout
 
 
 1.0.1 / 2011-12-07
