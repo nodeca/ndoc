@@ -8,7 +8,7 @@ DOCS = $(addsuffix /doc,$(DIRS))
 
 lint:
 	@if test ! `which jslint` ; then \
-		echo "You need 'jslint' installed in order to generate docs." >&2 ; \
+		echo "You need 'jslint' installed in order to run lint." >&2 ; \
 		echo "  $ make dev-deps" >&2 ; \
 		exit 128 ; \
 		fi
