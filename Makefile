@@ -1,8 +1,21 @@
+PATH        := ./node_modules/.bin:${PATH}
+
 ROOT = $(shell pwd)
 
 DIRS = $(addprefix playground/,$(shell ls playground | sed '/index.html/d'))
 LIBS = $(addsuffix /lib,$(DIRS))
 DOCS = $(addsuffix /doc,$(DIRS))
+
+lint:
+	@if test ! `which jslint` ; then \
+		echo "You need 'jslint' installed in order to generate docs." >&2 ; \
+		echo "  $ make dev-deps" >&2 ; \
+		exit 128 ; \
+		fi
+	# (node)    -> Node.JS compatibility mode
+	# (indent)  -> indentation level (2 spaces)
+	# (nomen)   -> tolerate underscores in identifiers (e.g. `var _val = 1`)
+	jslint --node --nomen --indent=2 ./lib/index.js ./lib/util.js ./bin/ndoc
 
 playground: $(DOCS)
 	echo Indexing
