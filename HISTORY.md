@@ -3,6 +3,7 @@
 
 * Fixed highlight of last menu item after scroll, closes #17
 * Fixed boilerplate layout
+* Fixed missed slash in links to source code, closes #19
 
 
 1.0.1 / 2011-12-07
