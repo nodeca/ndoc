@@ -185,7 +185,7 @@ mixin article(obj, parents)
                 li.signature
                   ul
                     li.signature-call
-                      != signature(obj, sig)
+                      = signature(obj, sig)
                     if sig.returns
                       li.signature-returns
                         ul.argument-types
