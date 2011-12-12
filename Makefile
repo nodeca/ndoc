@@ -15,7 +15,7 @@ lint:
 	# (node)    -> Node.JS compatibility mode
 	# (indent)  -> indentation level (2 spaces)
 	# (nomen)   -> tolerate underscores in identifiers (e.g. `var _val = 1`)
-	jslint --node --nomen --indent=2 ./lib/index.js ./lib/util.js ./bin/ndoc
+	node_modules/.bin/jslint --node --nomen --indent=2 ./lib/index.js ./lib/util.js ./bin/ndoc
 
 playground: $(DOCS)
 	echo Indexing
