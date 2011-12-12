@@ -15,11 +15,9 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 
 <INITIAL>\s+                /* skip whitespaces */
 <INITIAL>"/**"/([^/])       this.begin('tags'); return '/**'
-<INITIAL>"###*"/([^/])      this.begin('tags'); return '/**'
 <INITIAL>.*                 /* skip vanilla code */
 
 <tags>"**/"                 this.popState(); return '**/'
-<tags>"*###"                this.popState(); return '**/'
 <tags>\s*[\n]               this.popState(); this.begin('def')
 <tags>", "                  return ',' /* list separator */
 <tags>": "                  return ':' /* key/value delimiter */
@@ -40,9 +38,8 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 <tags>{name}                return 'NAME'
 
 <def>"**/"                  this.popState(); return '**/'
-<def>"*###"                 this.popState(); return '**/'
 <def>"*"\s*?[\n][\s\S]*?/"**/" return 'TEXT'
-<def>"*"\s*?[\n][\s\S]*?/"*###" return 'TEXT'
+<def>"*"\s*[\n]"123123123"             return 'NL'
 <def>\s+                    /* skip whitespaces */
 <def>")"\s*":"              this.begin('arg'); return '):'
 <def>"*"\s*"-"              return '*-'
@@ -80,8 +77,7 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 
 <arg>[\s\S]*?/("*"\s*[-\n]) this.popState(); return 'TEXT'
 
-<comment>[\s\S]*?/"**/"     this.popState(); return 'TEXT'
-<comment>[\s\S]*?/"*###"    this.popState(); return 'TEXT'
+<comment>[\s\S]*?/"**/"     this.popState(); console.log('LEFTCOMM'); return 'TEXT'
 
 /lex
 
@@ -92,6 +88,8 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 
 file
 
+  /*: world EOF { console.log(require('util').inspect($$, false, 4)); return $$ }*/
+/*  : world EOF { console.log(JSON.stringify($$)); return $$ } */
   : world EOF { return $$ }
   ;
 

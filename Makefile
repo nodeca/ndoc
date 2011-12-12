@@ -31,11 +31,6 @@ skin:
 	# rebuild stylesheets
 	node_modules/.bin/stylus -o $(ROOT)/skins/default/skeleton/stylesheets/ $(ROOT)/skins/default/templates/styles/main.styl
 
-coffeetest:
-	#rm lib/parser.js
-	rm -fr ./tests/coffee/doc
-	cd tests/coffee && $(ROOT)/bin/ndoc -o doc -e coffee src
-
 prototest:
 	# make bundled prototype doc
 	rm -fr ./tests/doc

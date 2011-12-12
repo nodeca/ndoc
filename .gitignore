@@ -2,4 +2,3 @@ node_modules
 doc
 playground*
 tests/doc
-tests/coffee/doc
