@@ -1,10 +1,6 @@
 #!/usr/bin/env node
-(function(){
 'use strict';
 
-/*jslint nomen: false */
-var base_dir = __dirname;
-/*jslint nomen: true*/
 var exec = require('child_process').exec;
 var Util = require('../lib/util');
 var NDoc = require('../lib');
@@ -60,8 +56,8 @@ var opts = require('nomnom')
     metavar: 'FMT',
   })
   .option('skin', {
-    help: 'Custom templates [' + base_dir + '/../skins/default' + ']',
-    default: Util.join(base_dir, '..', 'skins', 'default'),
+    help: 'Custom templates [' + __dirname + '/../skins/default' + ']',
+    default: Util.join(__dirname, '..', 'skins', 'default'),
     metavar: 'PATH',
   })
   .option('viewSourceLabel', {
@@ -205,5 +201,3 @@ Util.walk_many(opts.path, '\\.' + opts.extension + '$', function(filename, stat,
 
   }
 });
-
-}());
