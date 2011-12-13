@@ -65,7 +65,7 @@ proto-pages:
 	mkdir ${TMP_DIR}
 	touch ${TMP_DIR}/.nojekyll
 	mkdir -p ${TMP_DIR}/tests/doc \
-		&& cp -r tests/doc/* ${TMP_DIR}/tests/doc
+		&& cp -r tests/prototype-doc/* ${TMP_DIR}/tests/doc
 	cd ${TMP_DIR} && \
 		git init && \
 		git add . && \
