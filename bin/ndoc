@@ -81,28 +81,28 @@ var opts = require('nomnom')
 var manifest = {};
 try {
   manifest = JSON.parse(Util.read('package.json'));
-} catch(err1) {
+} catch (err1) {
 }
 
 //
 // flatten manifest structure, to allow easier access
 //
-(function(){
-var options = {};
-function flatten(o, path) {
-  var i;
-  for (i in o) {
-    if (o.hasOwnProperty(i)) {
-      var p = path ? path + '.' + i : i;
-      options[p] = o[i];
-      if (o[i] && typeof o[i] === 'object') {
-        flatten(o[i], p);
+(function () {
+  var options = {};
+  function flatten(o, path) {
+    var i, p;
+    for (i in o) {
+      if (o.hasOwnProperty(i)) {
+        p = path ? path + '.' + i : i;
+        options[p] = o[i];
+        if (o[i] && typeof o[i] === 'object') {
+          flatten(o[i], p);
+        }
       }
     }
   }
-}
-flatten(manifest);
-manifest = options;
+  flatten(manifest);
+  manifest = options;
 }());
 
 function interpolate(string, file, line) {
@@ -110,8 +110,7 @@ function interpolate(string, file, line) {
     .replace(/\{url\}/g, opts.package.url || '')
     .replace(/\{file\}/g, file)
     .replace(/\{line\}/g, line)
-    .replace(/\{package\.([^}]+)\}/g, function(all, path) { return opts.package[path]; })
-  ;
+    .replace(/\{package\.([^}]+)\}/g, function (all, path) { return opts.package[path]; });
   return r;
 }
 
@@ -142,7 +141,7 @@ if (!opts.title) {
 //
 try {
   opts.index = Util.read(opts.index);
-} catch(err2) {
+} catch (err2) {
   opts.index = '';
 }
 
@@ -152,20 +151,21 @@ try {
 // collect sources
 //
 var files = [];
-Util.walk_many(opts.path, '\\.' + opts.extension + '$', function(filename, stat, cb) {
+Util.walk_many(opts.path, '\\.' + opts.extension + '$', function (filename, stat, cb) {
   //console.log('Processing', filename);
   files.push(filename);
   cb();
-}, function(err) {
+}, function (err) {
+  var ndoc, output;
   if (err) {
     console.error(err.message || err);
     process.exit(1);
   }
   // build tree
-  var ndoc = new NDoc(files, {
+  ndoc = new NDoc(files, {
     // given package URL, file name and line in the file, format link to source file.
     // do so only if `packageUrl` is set or `linkFormat` is set
-    formatLink: (opts.linkFormat || opts.package.url) && function(file, line) {
+    formatLink: (opts.linkFormat || opts.package.url) && function (file, line) {
       //return Util.normalize(interpolate(opts.linkFormat, file, line));
       return interpolate(opts.linkFormat, file, line);
     }
@@ -173,31 +173,31 @@ Util.walk_many(opts.path, '\\.' + opts.extension + '$', function(filename, stat,
   //console.log(ndoc.toJSON());
 
   // output tree
-  var output = opts.output;
+  output = opts.output;
   switch (opts.format) {
 
-    case 'json':
-      Util.write(output, ndoc.toJSON(opts));
-      break;
+  case 'json':
+    Util.write(output, ndoc.toJSON(opts));
+    break;
 
-    case 'js':
-      Util.write(output, 'var ndoc = ' + ndoc.toJSON(opts) + ';');
-      break;
+  case 'js':
+    Util.write(output, 'var ndoc = ' + ndoc.toJSON(opts) + ';');
+    break;
 
-    case 'html':
-      Util.copy(Util.join(opts.skin, 'skeleton'), output, function(err) {
-        if (err) {
-          console.error(err.message || err);
-          process.exit(1);
-        }
-        var html = ndoc.toHTML(opts);
-        Util.write(Util.join(output, 'index.html'), html);
-      });
-      break;
+  case 'html':
+    Util.copy(Util.join(opts.skin, 'skeleton'), output, function (err) {
+      if (err) {
+        console.error(err.message || err);
+        process.exit(1);
+      }
+      var html = ndoc.toHTML(opts);
+      Util.write(Util.join(output, 'index.html'), html);
+    });
+    break;
 
-    default:
-      console.error(opts.format + ': not supported');
-      process.exit(1);
+  default:
+    console.error(opts.format + ': not supported');
+    process.exit(1);
 
   }
 });
