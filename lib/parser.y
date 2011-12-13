@@ -180,6 +180,7 @@ ndoc
   | namespace
   | class
   | mixin
+  | event_emitter
   | signatures
   | signatures argument_descriptions { $$.arguments = $2 }
   ;
@@ -292,7 +293,6 @@ namespace
   : name { $$ = {id: $1, type: 'namespace'}; }
   ;
 
-
 class
 
   /* vanilla */
@@ -363,6 +363,10 @@ method
   | name '(' '@' args ')' { $$ = {id: $1, type: 'method', args: $4, bound: true} }
   ;
 
+event_emitter
+
+  : name STRING ',' name '(' args ')' { $$ = {section: $1, id: $2, type: 'event_emitter', args: $6} }
+  ;
 
 returns
 
@@ -433,4 +437,6 @@ arg
 
   /* with ellipsis */
   | arg '...' { $$.ellipsis = true }
+
+  | NAME '(' ')' { $$ = {name: $1 + $2 + $3}; $$.callback = 'true' }
   ;
