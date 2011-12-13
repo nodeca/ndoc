@@ -1,6 +1,6 @@
-PATH        := ./node_modules/.bin:${PATH}
-
 ROOT = $(shell pwd)
+
+PATH := $(ROOT)/node_modules/.bin:$(PATH)
 
 DIRS = $(addprefix playground/,$(shell ls playground | sed '/index.html/d'))
 LIBS = $(addsuffix /lib,$(DIRS))
