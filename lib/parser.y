@@ -39,7 +39,6 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 
 <def>"**/"                  this.popState(); return '**/'
 <def>"*"\s*?[\n][\s\S]*?/"**/" return 'TEXT'
-<def>"*"\s*[\n]"123123123"             return 'NL'
 <def>\s+                    /* skip whitespaces */
 <def>")"\s*":"              this.begin('arg'); return '):'
 <def>"*"\s*"-"              return '*-'
@@ -88,8 +87,6 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 
 file
 
-  /*: world EOF { console.log(require('util').inspect($$, false, 4)); return $$ }*/
-/*  : world EOF { console.log(JSON.stringify($$)); return $$ } */
   : world EOF { return $$ }
   ;
 
