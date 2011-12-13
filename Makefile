@@ -37,6 +37,12 @@ prototest:
 	cd tests/prototype && $(ROOT)/bin/ndoc -o ../doc -b show -i README.markdown -l 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' -t "Prototype v1.7" src
 #	bin/ndoc -o ./tests/doc ./tests
 
+test:
+	# Testing parssing of event
+	rm lib/parser.js
+	rm -fr ./tests/events/doc
+	cd tests/events && $(ROOT)/bin/ndoc -o doc .
+
 $(DOCS): $(LIBS)
 	echo Compiling documentation for $(@D)
 	#rm lib/parser.js
