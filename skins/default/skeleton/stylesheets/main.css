@@ -363,11 +363,17 @@ body {
 .menu-item a.instance-property {
   background-image: url("../images/instance_property.png");
 }
+.menu-item a.method {
+  background-image: url("../images/method.png");
+}
 .menu-item a.mixin {
   background-image: url("../images/mixin.png");
 }
 .menu-item a.namespace {
   background-image: url("../images/namespace.png");
+}
+.menu-item a.property {
+  background-image: url("../images/property.png");
 }
 .menu-item a.utility {
   background-image: url("../images/utility.png");
