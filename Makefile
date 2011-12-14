@@ -31,11 +31,19 @@ skin:
 	# rebuild stylesheets
 	node_modules/.bin/stylus -o $(ROOT)/skins/default/skeleton/stylesheets/ $(ROOT)/skins/default/templates/styles/main.styl
 
-prototest:
-	# make bundled prototype doc
-	rm -fr ./tests/doc
-	cd tests/prototype && $(ROOT)/bin/ndoc -o ../doc -b show -i README.markdown -l 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' -t "Prototype v1.7" src
-#	bin/ndoc -o ./tests/doc ./tests
+test-prototype:
+	rm -fr ./tests/prototype-doc
+	$(ROOT)/bin/ndoc -o ./tests/prototype-doc -b show -i README.markdown \
+		-l 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' \
+		-t "Prototype v1.7" \
+		./tests/prototype/src
+
+test-features:
+	rm -fr ./tests/features-doc
+	$(ROOT)/bin/ndoc -o ./tests/features-doc -b show -t "NDoc new features" \
+		./tests/features
+
+test: test-prototype test-features
 
 test:
 	# Testing parssing of event
@@ -46,10 +54,8 @@ test:
 $(DOCS): $(LIBS)
 	echo Compiling documentation for $(@D)
 	#rm lib/parser.js
-	rm -fr $@
+	rm -rf $@
 	cd $(@D) && $(ROOT)/bin/ndoc -o doc -i README.md --package-json=package.json lib
-	#mkdir -p $@ && cd $(@D) && $(ROOT)/bin/ndoc -o doc/tree.json -f json -i README.md -l '{url}/{file}#L{line}' --package-json=package.json lib
-	#mkdir -p $@ && cd $(@D) && $(ROOT)/bin/ndoc -o doc/tree.js -f js -i README.md -l '{url}/{file}#L{line}' --package-json=package.json lib
 
 PROJECT =  $(notdir ${PWD})
 TMP_DIR = /tmp/${PROJECT}-$(shell date +%s)
@@ -65,7 +71,7 @@ proto-pages:
 	mkdir ${TMP_DIR}
 	touch ${TMP_DIR}/.nojekyll
 	mkdir -p ${TMP_DIR}/tests/doc \
-		&& cp -r tests/doc/* ${TMP_DIR}/tests/doc
+		&& cp -r tests/prototype-doc/* ${TMP_DIR}/tests/doc
 	cd ${TMP_DIR} && \
 		git init && \
 		git add . && \
