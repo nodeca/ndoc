@@ -1,6 +1,6 @@
-PATH        := ./node_modules/.bin:${PATH}
-
 ROOT = $(shell pwd)
+
+PATH := $(ROOT)/node_modules/.bin:$(PATH)
 
 DIRS = $(addprefix playground/,$(shell ls playground | sed '/index.html/d'))
 LIBS = $(addsuffix /lib,$(DIRS))
@@ -15,7 +15,7 @@ lint:
 	# (node)    -> Node.JS compatibility mode
 	# (indent)  -> indentation level (2 spaces)
 	# (nomen)   -> tolerate underscores in identifiers (e.g. `var _val = 1`)
-	node_modules/.bin/jslint --node --nomen --indent=2 ./lib/index.js ./lib/util.js ./bin/ndoc
+	node_modules/.bin/jslint --node --nomen --regexp --indent=2 ./lib/index.js ./lib/util.js ./bin/ndoc
 
 playground: $(DOCS)
 	echo Indexing
@@ -36,6 +36,12 @@ prototest:
 	rm -fr ./tests/doc
 	cd tests/prototype && $(ROOT)/bin/ndoc -o ../doc -b show -i README.markdown -l 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' -t "Prototype v1.7" src
 #	bin/ndoc -o ./tests/doc ./tests
+
+test:
+	# Testing parsing of event
+	rm -f lib/parser.js
+	rm -fr ./tests/events/doc
+	cd tests/events && $(ROOT)/bin/ndoc -o doc .
 
 $(DOCS): $(LIBS)
 	echo Compiling documentation for $(@D)

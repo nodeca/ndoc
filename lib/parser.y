@@ -224,6 +224,7 @@ name
   : NAME
   | name '.' NAME { $$ += $2 + $3 }
   | name '#' NAME { $$ += $2 + $3 }
+  | name '@' NAME { $$ += $2 + $3 }
   ;
 
 

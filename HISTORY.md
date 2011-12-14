@@ -1,4 +1,4 @@
-?.?.? / ????-??-??
+1.0.2 / 2011-12-13
 ------------------
 
 * Fixed highlight of last menu item after scroll, closes #17

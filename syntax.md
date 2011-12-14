@@ -59,12 +59,12 @@ However, methods, functions, etc. may have several signatures, hence may require
      *  ...
      **/
      
-## Arguments
+### Arguments
 
 For all methods, functions, etc. parentheses around the arguments are required even if no arguments are present.
 The syntax for arguments is as follows:
 
-### required arguments
+#### required arguments
 
     /** 
      *  Event.stop(event) -> Event
@@ -72,7 +72,7 @@ The syntax for arguments is as follows:
      *  ...
      **/
      
-### optional arguments
+#### optional arguments
 
 Optional arguments are surrounded by squared brackets (`[]`).
 
@@ -103,7 +103,7 @@ Arguments can be described below the EBNF description using the following syntax
     
     - argumentName (acceptedType | otherAcceptedType | ...): description.
      
-## Supported EBNF types
+### Supported EBNF types
 
 **BIG FAT WARNING**: EBNF descriptions **must be separated by an empty comment line** from the rest of description:
 
@@ -123,7 +123,7 @@ Arguments can be described below the EBNF description using the following syntax
      *  Regular method markdown goes here.
      **/
      
-### Namespace
+#### Namespace
 
     /** 
      *  Ajax
@@ -137,7 +137,7 @@ Arguments can be described below the EBNF description using the following syntax
      *  ...
      **/
      
-### Classes
+#### Classes
 
 Classes require a `class` prefix:
 
@@ -166,7 +166,7 @@ Included mixins are indicated like so:
      *  ...
      **/
 
-### Mixins
+#### Mixins
 
 Mixins are indicated by a `mixin` prefix:
 
@@ -176,7 +176,7 @@ Mixins are indicated by a `mixin` prefix:
      *  ...
      **/
 
-### Constructors
+#### Constructors
 
 Constructors require the `new` prefix and their arguments.
 
@@ -192,7 +192,7 @@ Constructors require the `new` prefix and their arguments.
      *  ...
      **/
      
-### Class Methods
+#### Class Methods
 
 Class methods are identified by a dot (`.`).
 
@@ -202,7 +202,7 @@ Class methods are identified by a dot (`.`).
      *  ...
      **/
 
-### Instance Methods
+#### Instance Methods
 
 Instance methods are identified by the hash symbol (`#`).
 
@@ -212,7 +212,7 @@ Instance methods are identified by the hash symbol (`#`).
      *  ...
      **/
      
-### Utilities
+#### Utilities
 
 Utilities are global functions starting with a dollar-sign (`$`).
 
@@ -222,7 +222,7 @@ Utilities are global functions starting with a dollar-sign (`$`).
      *  ...
      **/
      
-### Methodized Methods
+#### Methodized Methods
 
 Methodized methods are methods which are both available as a class method and an instance method, in which case the first argument becomes the instance object itself. For example, all of `Element`'s instance methods are methodized and thus also available as class methods of `Element`. Methodized methods are indicated by prefixing their first argument with the `@` symbol.
 
@@ -232,7 +232,7 @@ Methodized methods are methods which are both available as a class method and an
      *  ...
      **/
      
-### Class Properties
+#### Class Properties
 
 Class properties are identified by a dot (`.`).
 
@@ -242,7 +242,7 @@ Class properties are identified by a dot (`.`).
      *  ...
      **/
      
-### Instance Properties
+#### Instance Properties
 
 Instance properties are identified by the hash symbol (`#`).
 
@@ -252,7 +252,7 @@ Instance properties are identified by the hash symbol (`#`).
      *  ...
      **/
      
-### Constants
+#### Constants
 
 Constant must have their value specified using the equal sign (`=`).
 
@@ -262,7 +262,7 @@ Constant must have their value specified using the equal sign (`=`).
      *  ...
      **/
      
-## Events
+### Events
 
 Some methods can fire native or custom events. These are indicated below the arguments descriptions:
 
@@ -277,7 +277,7 @@ Some methods can fire native or custom events. These are indicated below the arg
 Sugar
 ----
 
-## Sections
+### Sections
 
 Sections are grouped parts of documentation. They don't add to element hierarchy, but just help to organize documentation.
 
@@ -287,9 +287,16 @@ Sections are grouped parts of documentation. They don't add to element hierarchy
      *  Describe this section here.
      **/
 
-## Short links
+### Short links
 
 Short links help to quickly refer some element. Supported are two flavors:
 
-  * `[[HREF]]`         - renders to <a href=HREF>HREF</a>
-  * `[[HREF ' ' TEXT]] - renders to <a href=HREF>TEXT</a>
+  * `[[Method.Name]]`         - renders to `<a href=HREF>Method.Name</a>`
+  * `[[Method.Name TEXT]]`    - renders to `<a href=HREF>TEXT</a>`
+
+Difference from PDoc
+--------------------
+
+1. Descriptions should be ALWAYS separated by empty line from the upper string (signature, section, tags...).
+2. `deprecated` can have options.
+3. Additional tags - read-only, internal, chainable
