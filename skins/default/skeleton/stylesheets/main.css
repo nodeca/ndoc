@@ -354,6 +354,9 @@ body {
 .menu-item a.constructor {
   background-image: url("../images/constructor.png");
 }
+.menu-item a.event {
+  background-image: url("../images/event.png");
+}
 .menu-item a.instance-method {
   background-image: url("../images/instance_method.png");
 }
@@ -489,6 +492,9 @@ h4 {
 }
 .section.description h3 {
   background-image: url("../images/description.png");
+}
+.section.events h3 {
+  background-image: url("../images/event.png");
 }
 .section.instance_methods h3 {
   background-image: url("../images/instance_method.png");
