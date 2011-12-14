@@ -164,7 +164,7 @@ ndoc_and_includes_and_fires
 
   : ndoc
   | ndoc INCLUDES names { $$.included_mixins = $3 }
-  | ndoc FIRES events { $$.events = $3 }
+  /*| ndoc FIRES events { $$.events = $3 }*/
   ;
 
 
