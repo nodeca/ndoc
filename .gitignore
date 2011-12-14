@@ -1,4 +1,5 @@
 node_modules
 doc
 playground*
-tests/doc
+tests/prototype-doc
+tests/features-doc
