@@ -39,7 +39,7 @@ test-prototype:
 		./tests/prototype/src
 
 test-features:
-	rm -f lib/parser.js
+	#rm -f lib/parser.js
 	rm -fr ./tests/features-doc
 	$(ROOT)/bin/ndoc -o ./tests/features-doc -b show -t "NDoc new features" \
 		./tests/features
