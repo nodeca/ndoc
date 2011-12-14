@@ -39,21 +39,16 @@ test-prototype:
 		./tests/prototype/src
 
 test-features:
+	rm -f lib/parser.js
 	rm -fr ./tests/features-doc
 	$(ROOT)/bin/ndoc -o ./tests/features-doc -b show -t "NDoc new features" \
 		./tests/features
 
 test: test-prototype test-features
 
-test:
-	# Testing parssing of event
-	rm lib/parser.js
-	rm -fr ./tests/events/doc
-	cd tests/events && $(ROOT)/bin/ndoc -o doc .
-
 $(DOCS): $(LIBS)
 	echo Compiling documentation for $(@D)
-	#rm lib/parser.js
+	#rm -f lib/parser.js
 	rm -rf $@
 	cd $(@D) && $(ROOT)/bin/ndoc -o doc -i README.md --package-json=package.json lib
 

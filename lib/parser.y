@@ -429,6 +429,9 @@ arg
   /* vanilla */
   : NAME { $$ = {name: $1} }
 
+  /* callback */
+  | NAME '(' args ')' { $$ = {name: $1, args: $3} }
+
   /* with default value */
   | arg '=' name_or_value { $$.default_value = $3 }
 

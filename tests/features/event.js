@@ -1,5 +1,5 @@
 /**
- *  http.server@head(request, socket, head)
+ *  NDoc@head(request, socket, head)
  *
  *  Emitted each time a client requests a http upgrade. If this
  *  event isn't listened for, then clients requesting an upgrade
