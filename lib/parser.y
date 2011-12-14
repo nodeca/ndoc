@@ -164,7 +164,7 @@ ndoc_and_includes_and_fires
 
   : ndoc
   | ndoc INCLUDES names { $$.included_mixins = $3 }
-  | ndoc FIRES events { $$.events = $3 }
+  /*| ndoc FIRES events { $$.events = $3 }*/
   ;
 
 
@@ -224,6 +224,7 @@ name
   : NAME
   | name '.' NAME { $$ += $2 + $3 }
   | name '#' NAME { $$ += $2 + $3 }
+  | name '@' NAME { $$ += $2 + $3 }
   ;
 
 
@@ -427,6 +428,9 @@ arg
 
   /* vanilla */
   : NAME { $$ = {name: $1} }
+
+  /* callback */
+  | NAME '(' args ')' { $$ = {name: $1, args: $3} }
 
   /* with default value */
   | arg '=' name_or_value { $$.default_value = $3 }
