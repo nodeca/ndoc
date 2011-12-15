@@ -354,17 +354,26 @@ body {
 .menu-item a.constructor {
   background-image: url("../images/constructor.png");
 }
+.menu-item a.event {
+  background-image: url("../images/event.png");
+}
 .menu-item a.instance-method {
   background-image: url("../images/instance_method.png");
 }
 .menu-item a.instance-property {
   background-image: url("../images/instance_property.png");
 }
+.menu-item a.method {
+  background-image: url("../images/method.png");
+}
 .menu-item a.mixin {
   background-image: url("../images/mixin.png");
 }
 .menu-item a.namespace {
   background-image: url("../images/namespace.png");
+}
+.menu-item a.property {
+  background-image: url("../images/property.png");
 }
 .menu-item a.utility {
   background-image: url("../images/utility.png");
@@ -489,6 +498,9 @@ h4 {
 }
 .section.description h3 {
   background-image: url("../images/description.png");
+}
+.section.events h3 {
+  background-image: url("../images/event.png");
 }
 .section.instance_methods h3 {
   background-image: url("../images/instance_method.png");

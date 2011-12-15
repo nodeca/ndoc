@@ -1,3 +1,11 @@
+1.0.3 / 2011-12-14
+------------------
+
+* Added events support,
+* Added nested arguments support in signatures (for callbacks & iterators)
+* Added back icons for global methods/properties
+
+
 1.0.2 / 2011-12-13
 ------------------
 

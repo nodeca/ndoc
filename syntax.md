@@ -262,14 +262,12 @@ Constant must have their value specified using the equal sign (`=`).
      *  ...
      **/
      
-### Events
+#### Events
 
-Some methods can fire native or custom events. These are indicated below the arguments descriptions:
+Events are identified by `@`:
 
     /** 
-     *  Ajax.Request#respondToReadyState(readyState) -> undefined
-     *  - readyState (Number): a number from 0 to 4 corresponding to the state of the request.
-     *  fires ajax:created, ajax:completed
+     *  Features@head(request, socket, head)
      *
      *  ...
      **/
@@ -299,4 +297,5 @@ Difference from PDoc
 
 1. Descriptions should be ALWAYS separated by empty line from the upper string (signature, section, tags...).
 2. `deprecated` can have options.
-3. Additional tags - read-only, internal, chainable
+3. Additional tags - read-only, internal, chainable.
+4. Events support.

@@ -1,9 +1,5 @@
 /**
- *  class NDoc
- **/
-
-/**
- *  NDoc.ticksInSignatureArguments([example = 'foobar']) -> Void
+ *  Features
  *
- *  `foobar` should be surrounded with ticks.
+ *  Features and issues at a glance :))
  **/

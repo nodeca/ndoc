@@ -9,6 +9,7 @@ but has some differences:
 - Added options for `deprecated` tag: you can set versions, when tag was deprecated and
   when it will be removed.
 - Added new tags: `read-only`, `internal`, `chainable`
+- Events support.
 
 
 ## How to Install
@@ -66,9 +67,9 @@ If you like to make patches or develop skins - install NDoc in developer mode:
 
 After installation is done you can generate prototype documentation for test:
 
-    bin/ndoc ./tests -o ./tests/doc
+    make test
 
-Then open `./test/doc/index.html`. Here is [hosted doc example](http://nodeca.github.com/ndoc/tests/doc/). There are also some shortcuts in [Makefile](https://github.com/nodeca/ndoc/blob/master/Makefile),
+Then open `./test/proto-doc/index.html`. Here is [hosted doc example](http://nodeca.github.com/ndoc/tests/doc/). There are also some shortcuts in [Makefile](https://github.com/nodeca/ndoc/blob/master/Makefile),
 if you make skin changes and need to constantly rebuild samples.
 
 
