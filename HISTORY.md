@@ -1,3 +1,10 @@
+1.0.4 / 2011-12-15
+------------------
+
+* Styled new tags (read-only, internal, chainable). Closes #11.
+* Fixed signatures with complex params. Closes #30.
+
+
 1.0.3 / 2011-12-14
 ------------------
 
