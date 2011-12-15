@@ -48,7 +48,7 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 <def>\"(?:{esc}["bfnrt/{esc}]|{esc}"u"[a-fA-F0-9]{4}|[^"{esc}])*\"  yytext = yytext.substr(1,yyleng-2); return 'STRING'
 <def>\'(?:{esc}["bfnrt/{esc}]|{esc}"u"[a-fA-F0-9]{4}|[^'{esc}])*\'  yytext = yytext.substr(1,yyleng-2); return 'STRING'
 <def>{int}{frac}?{exp}?\b   return 'NUMBER'
-<def>\/(?:[^\/]|"\\/")*\/   return 'REGEXP'
+<def>\/(?:[^\/]|"\\/")*\/[gim]* return 'REGEXP'
 <def>"true"                 return 'BOOLEAN'
 <def>"false"                return 'BOOLEAN'
 <def>"#"                    return '#'
@@ -247,9 +247,24 @@ value
 
   : STRING { $$ = String($1) }
   | NUMBER { $$ = Number($1) }
-  | BOOLEAN { $$ = Boolean($1) } 
+  | BOOLEAN { $$ = $1 === 'true' ? true : false }
   | REGEXP { $$ = new RegExp($1) }
   | name
+  | '[' value_list ']' { $$ = $2; $$.array = true }
+  | '[' value_list '...' ']' { $$ = $2; $$.array = true; $$.ellipsis = true }
+  | '{' key_value_list '}' { $$ = $2 }
+  ;
+
+
+value2
+
+  : STRING { $$ = {value: String($1), type: 'string'} }
+  | NUMBER { $$ = {value: Number($1), type: 'number'} }
+  | TRUE { $$ = {value: true, type: 'boolean'} }
+  | FALSE { $$ = {value: false, type: 'boolean'} }
+  | NULL { $$ = {value: null, type: 'null'} }
+  | REGEXP { $$ = {value: $1, type: 'regexp'} }
+  | name { $$ = {value: $1, type: 'name'} }
   | '[' value_list ']' { $$ = $2; $$.array = true }
   | '[' value_list '...' ']' { $$ = $2; $$.array = true; $$.ellipsis = true }
   | '{' key_value_list '}' { $$ = $2 }
