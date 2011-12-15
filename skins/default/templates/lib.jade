@@ -88,9 +88,18 @@ mixin article(obj, parents)
     obj = list[obj]
 
   title = obj.id + (obj.type ? ' (' + obj.type + ')' : '')
-  article.article(id=obj.path, data-title=title, class=[obj.deprecated && 'deprecated'].filter(function(x){return !!x;}))
+  article.article(id=obj.path, data-title=title)
 
     mixin title(obj, parents)
+
+    if obj.readonly || obj.chainable || obj.internal
+      .labels
+        if obj.readonly
+          span.read-only Read-Only
+        if obj.chainable
+          span.chainable Chainable
+        if obj.internal
+          span.internal Internal
 
     if obj.deprecated
       .deprecated-note
@@ -179,7 +188,7 @@ mixin article(obj, parents)
 
     else
 
-      .section.method(class=[obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;}))
+      .section.method
         .content
           if obj.signatures
             ul.signatures
