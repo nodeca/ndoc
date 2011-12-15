@@ -150,7 +150,7 @@ tag
   : DEPRECATED { $$ = {deprecated: true} }
   | DEPRECATED ':' NUMBER { $$ = {deprecated: {from: $3}} }
   | DEPRECATED ':' NUMBER '..' NUMBER { $$ = {deprecated: {from: $3, off: $5}} }
-  | READONLY { $$ = {read_only: true} }
+  | READONLY { $$ = {readonly: true} }
   | INTERNAL { $$ = {internal: true} }
   | CHAINABLE { $$ = {chainable: true} }
   | SECTION ':' name { $$ = {section: $3} }
