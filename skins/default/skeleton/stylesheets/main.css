@@ -418,6 +418,10 @@ body {
   margin-left: 140px;
   margin-bottom: 20px;
 }
+.article .labels {
+  margin-left: 140px;
+  margin-bottom: 10px;
+}
 .footer {
   margin-left: 140px;
 }
@@ -454,6 +458,28 @@ h4 {
   color: #aaa;
   margin-left: 10px;
   text-decoration: none;
+}
+.labels span {
+  -webkit-border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -o-border-radius: 3px 3px 3px 3px;
+  border-radius: 3px 3px 3px 3px;
+  color: #fff;
+  font-size: 9.75px;
+  font-weight: bold;
+  padding: 1px 3px 2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+span.read-only {
+  background-color: #888;
+}
+span.internal {
+  background-color: #888;
+}
+span.chainable {
+  background-color: #888;
 }
 .deprecated-note {
   color: #f00;
