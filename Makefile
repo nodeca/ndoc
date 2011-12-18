@@ -44,7 +44,7 @@ test-features:
 	$(ROOT)/bin/ndoc -o ./tests/features-doc -b show -t "NDoc new features" \
 		./tests/features
 
-test: test-prototype test-features
+test: lint test-prototype test-features
 
 $(DOCS): $(LIBS)
 	echo Compiling documentation for $(@D)
