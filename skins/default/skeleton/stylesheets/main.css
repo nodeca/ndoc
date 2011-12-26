@@ -473,13 +473,13 @@ h4 {
   margin-right: 10px;
 }
 span.read-only {
-  background-color: #888;
+  background-color: #62cffc;
 }
 span.internal {
-  background-color: #888;
+  background-color: #f89406;
 }
 span.chainable {
-  background-color: #888;
+  background-color: #46a546;
 }
 .deprecated-note {
   color: #f00;
