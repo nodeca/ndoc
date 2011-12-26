@@ -95,11 +95,11 @@ mixin article(obj, parents)
     if obj.readonly || obj.chainable || obj.internal
       .labels
         if obj.readonly
-          span.read-only Read-Only
+          span.read-only read-only
         if obj.chainable
-          span.chainable Chainable
+          span.chainable chainable
         if obj.internal
-          span.internal Internal
+          span.internal internal
 
     if obj.deprecated
       .deprecated-note
