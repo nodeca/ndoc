@@ -1,3 +1,9 @@
+1.0.5 / 2012-01-04
+------------------
+
+* Updated `Marked` version. Now supports ``` blocks. Thanks to chjj.
+
+
 1.0.4 / 2011-12-15
 ------------------
 
