@@ -122,6 +122,8 @@ Arguments can be described below the EBNF description using the following syntax
      *
      *  Regular method markdown goes here.
      **/
+
+Descriptions are parsed as markdown markup, with github-style extension for code blocks 
      
 #### Namespace
 
