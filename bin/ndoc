@@ -106,6 +106,9 @@ try {
 }());
 
 function interpolate(string, file, line) {
+  if (file) {
+    file = file.replace(/\\/g, '/');
+  }
   var r = string
     .replace(/\{url\}/g, opts.package.url || '')
     .replace(/\{file\}/g, file)
