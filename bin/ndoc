@@ -166,8 +166,8 @@ Util.walk_many(opts.path, '\\.' + opts.extension + '$', function (filename, stat
     // given package URL, file name and line in the file, format link to source file.
     // do so only if `packageUrl` is set or `linkFormat` is set
     formatLink: (opts.linkFormat || opts.package.url) && function (file, line) {
-      //return Util.normalize(interpolate(opts.linkFormat, file, line));
-      return interpolate(opts.linkFormat, file, line);
+      // '\' -> '/' for windows
+      return interpolate(opts.linkFormat, file.replace(/\\/g, '/'), line);
     }
   });
   //console.log(ndoc.toJSON());
