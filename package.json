@@ -1,6 +1,6 @@
 {
   "name"            : "ndoc",
-  "version"         : "1.0.5",
+  "version"         : "1.0.6",
   "description"     : "JavaScript API documentor with simple syntax.",
   "keywords"        : [
                         "api", "doc", "apidoc", "jsdoc", "autodoc",
@@ -10,7 +10,7 @@
 
   "author"          : "Vladimir Dronnikov <dronnikov@gmail.com>",
   "constributors"   : [
-                        "Vitaly Puzrin (http://rcdesign.ru)",
+                        "Vitaly Puzrin <vitaly@rcdesign.ru> (http://rcdesign.ru)",
                         "Aleksey V Zapparov <ixti@member.fsf.org> (http://www.ixti.net/)"
                       ],
 

@@ -1,7 +1,14 @@
+1.0.6 / 2012-02-05
+------------------
+
+* Fixed links to sources for windows (forced '\' to '/'). Closes #37.
+  Thanks to Sascha Drews (perfusorius).
+
 1.0.5 / 2012-01-04
 ------------------
 
-* Updated `Marked` version. Now supports ``` blocks. Thanks to chjj.
+* Updated `Marked` version. Now supports ``` blocks.
+  Thanks to Christopher Jeffrey (chjj).
 
 
 1.0.4 / 2011-12-15
