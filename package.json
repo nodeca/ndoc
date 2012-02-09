@@ -25,7 +25,7 @@
                         "nomnom"    : "1.5.1",
                         "jade"      : "0.18.0",
                         "marked"    : "0.1.9",
-                        "fs-tools"  : "0.2.0"
+                        "fs-tools"  : "0.2.1"
                       },
   "devDependencies" : {
                         "jison"     : "0.2.12",
