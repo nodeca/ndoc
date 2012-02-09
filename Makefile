@@ -44,23 +44,6 @@ dev-deps:
 	npm install --dev
 
 
-gh-pages:
-	@if test -z ${REMOTE_REPO} ; then \
-		echo 'Remote repo URL not found' >&2 ; \
-		exit 128 ; \
-		fi
-	$(MAKE) doc && \
-		cp -r ./doc ${TMP_PATH} && \
-		touch ${TMP_PATH}/.nojekyll
-	cd ${TMP_PATH} && \
-		git init && \
-		git add . && \
-		git commit -q -m 'Recreated docs'
-	cd ${TMP_PATH} && \
-		git remote add remote ${REMOTE_REPO} && \
-		git push --force remote +master:gh-pages 
-	rm -rf ${TMP_PATH}
-
 publish:
 	@if test 0 -ne `git status --porcelain | wc -l` ; then \
 		echo "Unclean working tree. Commit or stash changes first." >&2 ; \
@@ -72,6 +55,11 @@ publish:
 		fi
 	git tag ${NPM_VERSION} && git push origin ${NPM_VERSION}
 	npm publish https://github.com/${GITHUB_PROJ}/tarball/${NPM_VERSION}
+
+
+compile-parser: lib/parser.js
+lib/parser.js:
+	node ./support/compile-parser.js > ./lib/parser.js
 
 
 todo:
