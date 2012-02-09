@@ -1,21 +1,91 @@
-ROOT = $(shell pwd)
+ROOT        := $(shell pwd)
+PATH        := ${ROOT}./node_modules/.bin:${PATH}
 
-PATH := $(ROOT)/node_modules/.bin:$(PATH)
+NPM_PACKAGE := $(shell node -e 'console.log(require("./package.json").name)')
+NPM_VERSION := $(shell node -e 'console.log(require("./package.json").version)')
 
-DIRS = $(addprefix playground/,$(shell ls playground | sed '/index.html/d'))
-LIBS = $(addsuffix /lib,$(DIRS))
-DOCS = $(addsuffix /doc,$(DIRS))
+TMP_PATH    := /tmp/${NPM_PACKAGE}-$(shell date +%s)
+
+REMOTE_NAME ?= origin
+REMOTE_REPO ?= $(shell git config --get remote.${REMOTE_NAME}.url)
+
+CURR_HEAD   := $(firstword $(shell git show-ref --hash HEAD | cut --bytes=-6) master)
+GITHUB_PROJ := nodeca/${NPM_PACKAGE}
+SRC_URL_FMT := https://github.com/${GITHUB_PROJ}/blob/${CURR_HEAD}/{file}\#L{line}
+
+
+help:
+	echo "make help       - Print this help"
+	echo "make lint       - Lint sources with JSHint"
+	echo "make test       - Lint sources and run all tests"
+	echo "make doc        - Build API docs"
+	echo "make dev-deps   - Install developer dependencies"
+	echo "make gh-pages   - Build and push API docs into gh-pages branch"
+	echo "make publish    - Set new version tag and publish npm package"
+	echo "make todo       - Find and list all TODOs"
+
 
 lint:
-	@if test ! `which jslint` ; then \
-		echo "You need 'jslint' installed in order to run lint." >&2 ; \
+	if test ! `which jshint` ; then \
+		echo "You need 'jshint' installed in order to run lint." >&2 ; \
 		echo "  $ make dev-deps" >&2 ; \
 		exit 128 ; \
 		fi
-	# (node)    -> Node.JS compatibility mode
-	# (indent)  -> indentation level (2 spaces)
-	# (nomen)   -> tolerate underscores in identifiers (e.g. `var _val = 1`)
-	node_modules/.bin/jslint --node --nomen --regexp --indent=2 ./lib/index.js ./lib/util.js ./bin/ndoc
+	jshint . --show-non-errors
+
+
+dev-deps:
+	@if test ! `which npm` ; then \
+		echo "You need 'npm' installed." >&2 ; \
+		echo "  See: http://npmjs.org/" >&2 ; \
+		exit 128 ; \
+		fi
+	npm install jshint -g
+	npm install --dev
+
+
+gh-pages:
+	@if test -z ${REMOTE_REPO} ; then \
+		echo 'Remote repo URL not found' >&2 ; \
+		exit 128 ; \
+		fi
+	$(MAKE) doc && \
+		cp -r ./doc ${TMP_PATH} && \
+		touch ${TMP_PATH}/.nojekyll
+	cd ${TMP_PATH} && \
+		git init && \
+		git add . && \
+		git commit -q -m 'Recreated docs'
+	cd ${TMP_PATH} && \
+		git remote add remote ${REMOTE_REPO} && \
+		git push --force remote +master:gh-pages 
+	rm -rf ${TMP_PATH}
+
+publish:
+	@if test 0 -ne `git status --porcelain | wc -l` ; then \
+		echo "Unclean working tree. Commit or stash changes first." >&2 ; \
+		exit 128 ; \
+		fi
+	@if test 0 -ne `git tag -l ${NPM_VERSION} | wc -l` ; then \
+		echo "Tag ${NPM_VERSION} exists. Update package.json" >&2 ; \
+		exit 128 ; \
+		fi
+	git tag ${NPM_VERSION} && git push origin ${NPM_VERSION}
+	npm publish https://github.com/${GITHUB_PROJ}/tarball/${NPM_VERSION}
+
+
+todo:
+	grep 'TODO' -n -r ./lib 2>/dev/null || test true
+
+
+.PHONY: publish lint test doc dev-deps gh-pages todo playground redo $(DOCS)
+.SILENT: help lint test doc todo
+
+
+DIRS         = $(addprefix playground/,$(shell ls playground 2>/dev/null | sed '/index.html/d'))
+LIBS         = $(addsuffix /lib,$(DIRS))
+DOCS         = $(addsuffix /doc,$(DIRS))
+
 
 playground: $(DOCS)
 	echo Indexing
@@ -52,12 +122,6 @@ $(DOCS): $(LIBS)
 	rm -rf $@
 	cd $(@D) && $(ROOT)/bin/ndoc -o doc -i README.md --package-json=package.json lib
 
-PROJECT =  $(notdir ${PWD})
-TMP_DIR = /tmp/${PROJECT}-$(shell date +%s)
-
-REMOTE_NAME ?= origin
-REMOTE_REPO ?= $(shell git config --get remote.${REMOTE_NAME}.url)
-
 proto-pages:
 	@if test -z ${REMOTE_REPO} ; then \
 		echo 'Remote repo URL not found' >&2 ; \
@@ -77,6 +141,3 @@ proto-pages:
 	rm -rf ${TMP_DIR}
 	@echo
 	@echo 'URL: http://nodeca.github.com/ndoc/tests/doc/'
-
-.SILENT:
-.PHONY: playground redo doc $(DOCS)
