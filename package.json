@@ -3,8 +3,7 @@
   "version"         : "1.0.7",
   "description"     : "JavaScript API documentor with simple syntax.",
   "keywords"        : [
-                        "api", "doc", "apidoc", "jsdoc", "autodoc",
-                        "documentation", "documentor", "pdoc", "prototype"
+                        "api", "doc", "apidoc", "documentation", "pdoc"
                       ],
   "homepage"        : "https://github.com/nodeca/ndoc",
 
