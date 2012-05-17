@@ -83,7 +83,7 @@ playground: $(DOCS)
 doc: doc/index.html
 doc/index.html: lib
 	rm -fr $(@D)
-	bin/ndoc $^
+	bin/ndoc.js $^
 
 skin:
 	# rebuild stylesheets
@@ -91,7 +91,7 @@ skin:
 
 test-prototype:
 	rm -fr ./tests/prototype-doc
-	$(ROOT)/bin/ndoc -o ./tests/prototype-doc -b show -i README.markdown \
+	$(ROOT)/bin/ndoc.js -o ./tests/prototype-doc -b show -i README.markdown \
 		-l 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' \
 		-t "Prototype v1.7" \
 		./tests/prototype/src
@@ -99,7 +99,7 @@ test-prototype:
 test-features:
 	#rm -f lib/parser.js
 	rm -fr ./tests/features-doc
-	$(ROOT)/bin/ndoc -o ./tests/features-doc -b show -t "NDoc new features" \
+	$(ROOT)/bin/ndoc.js -o ./tests/features-doc -b show -t "NDoc new features" \
 		./tests/features
 
 test: lint test-prototype test-features
@@ -108,7 +108,7 @@ $(DOCS): $(LIBS)
 	echo Compiling documentation for $(@D)
 	#rm -f lib/parser.js
 	rm -rf $@
-	cd $(@D) && $(ROOT)/bin/ndoc -o doc -i README.md --package-json=package.json lib
+	cd $(@D) && $(ROOT)/bin/ndoc.js -o doc -i README.md --package-json=package.json lib
 
 proto-pages:
 	@if test -z ${REMOTE_REPO} ; then \
