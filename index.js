@@ -1,1 +1,1 @@
-module.exports = require('./ndoc');
+module.exports = require('./lib/ndoc');
