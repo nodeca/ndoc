@@ -1,15 +1,22 @@
+#!/usr/bin/env node
+
+
 'use strict';
+
 
 // stdlib
 var Fs = require('fs');
 var Path = require('path');
 var exec = require('child_process').exec;
 
+
 // 3rd-party
-var FsTools = require('fs-tools');
+var FsTools         = require('fs-tools');
+var ArgumentParser  = require('argparse').ArgumentParser;
+
 
 // internal
-var NDoc = require('./index');
+var NDoc = require('..');
 
 
 // walk_many(paths, pattern, iterator, callback)
@@ -45,76 +52,90 @@ function walk_many(paths, pattern, iterator, callback) {
 //
 // parse options
 //
-var opts = require('nomnom')
-  .option('path', {
-    position: 0,
-    list: true,
-    required: true,
-    help: 'Source files location',
-    metavar: 'PATH',
-  })
-  .option('extension', {
-    abbr: 'e',
-    help: 'Source files extension [js]',
-    metavar: 'STRING',
-    default: 'js',
-  })
-  .option('output', {
-    abbr: 'o',
-    help: 'Resulting file(s) location [doc]',
-    metavar: 'PATH',
-    default: 'doc',
-  })
-  .option('format', {
-    abbr: 'f',
-    help: 'Documentation format [html]',
-    choices: ['html', 'json', 'js'],
-    metavar: 'FMT',
-    default: 'html',
-  })
-  .option('index', {
-    abbr: 'i',
-    help: 'Index file [README.md]',
-    metavar: 'FILE',
-    default: 'README.md',
-  })
-  .option('title', {
-    full: 'title',
-    abbr: 't',
-    help: 'Documentation title. If omitted, it will be guessed from manifest, if any',
-    default: '{package.name} {package.version} API documentation',
-    metavar: 'STRING',
-  })
-  .option('linkFormat', {
-    abbr: 'l',
-    full: 'link-format',
-    help: 'Format for link to source file [{file}#L{line}]',
-    //default: '../{file}#L{line}',
-    metavar: 'FMT',
-  })
-  .option('skin', {
-    help: 'Custom templates [' + __dirname + '/../skins/default' + ']',
-    default: Path.join(__dirname, '..', 'skins', 'default'),
-    metavar: 'PATH',
-  })
-  .option('viewSourceLabel', {
-    full: 'view-source-label',
-    help: 'Text for "View source" link',
-    default: 'View source code',
-    metavar: 'STRING',
-  })
-  .option('brokenLinks', {
-    abbr: 'b',
-    full: 'broken-links',
-    help: 'What to do if broken link occured [hide]',
-    choices: ['show', 'hide', 'throw'],
-    metavar: 'ACTION',
-  })
-  .parse();
+
+
+var cli = new ArgumentParser({
+  prog:     'ndoc',
+  version:  require('../package.json').version,
+  addHelp:  true
+});
+
+
+cli.addArgument(['path'], {
+  help:         'Source files location',
+  metavar:      'PATH',
+  action:       'append',
+  nargs:        '+'
+});
+
+cli.addArgument(['-e', '--extension'], {
+  help:         'Source files extension',
+  metavar:      'STRING',
+  defaultValue: 'js'
+});
+
+cli.addArgument(['-o', '--output'], {
+  help:         'Resulting file(s) location',
+  metavar:      'PATH',
+  defaultValue: 'doc'
+});
+
+cli.addArgument(['-f', '--format'], {
+  help:         'Documentation format',
+  choices:      ['html', 'json', 'js'],
+  metavar:      'FORMAT',
+  defaultValue: 'html'
+});
+
+cli.addArgument(['-i', '--index'], {
+  help:         'Index file',
+  metavar:      'FILE',
+  defaultValue: 'README.md'
+});
+
+cli.addArgument(['-t', '--title'], {
+  help:         'Documentation title. If omitted, it will be guessed from manifest, if any',
+  metavar:      'STRING',
+  defaultValue: '{package.name} {package.version} API documentation'
+});
+
+cli.addArgument(['-l', '--link-format'], {
+  dest:         'linkFormat',
+  help:         'Format for link to source file',
+  metavar:      'FORMAT',
+  defaultValue: '{file}#L{line}'
+});
+
+cli.addArgument(['--skin'], {
+  help:         'Custom templates',
+  metavar:      'PATH',
+  defaultValue: Path.join(__dirname, '..', 'skins', 'default')
+});
+
+cli.addArgument(['--view-source-label'], {
+  dest:         'viewSourceLabel',
+  help:         'Text for "View source" link',
+  metavar:      'STRING',
+  defaultValue: 'View source code'
+});
+
+cli.addArgument(['-b', '--broken-links'], {
+  dest:         'brokenLinks',
+  help:         'What to do if broken link occured',
+  choices:      ['show', 'hide', 'throw'],
+  metavar:      'ACTION',
+  defaultValue: 'show'
+});
+
+
+var opts = cli.parseArgs();
+
 
 //
 // read manifest from file
 //
+
+
 var manifest = {};
 try {
   // not using require for node < v0.4 caompatibility
