@@ -4,4 +4,4 @@ node_modules/
 tmp/
 tests/
 skins/
-lib/parser.js
+lib/ndoc/parser.js

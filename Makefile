@@ -1,5 +1,5 @@
 ROOT        := $(shell pwd)
-PATH        := ${ROOT}./node_modules/.bin:${PATH}
+PATH        := ${ROOT}/node_modules/.bin:${PATH}
 
 NPM_PACKAGE := $(shell node -e 'console.log(require("./package.json").name)')
 NPM_VERSION := $(shell node -e 'console.log(require("./package.json").version)')
@@ -57,9 +57,18 @@ publish:
 	npm publish https://github.com/${GITHUB_PROJ}/tarball/${NPM_VERSION}
 
 
-compile-parser: lib/parser.js
-lib/parser.js:
-	node ./support/compile-parser.js lib/parser.y > ./lib/parser.js
+lib/ndoc/parser.js:
+	@if test ! `which jison` ; then \
+		echo "You need 'jison' installed in order to compile parser." >&2 ; \
+		echo "  $ make dev-deps" >&2 ; \
+		exit 128 ; \
+		fi
+	jison src/parser.y && mv parser.js lib/ndoc/parser.js
+
+
+compile-parser:
+	rm -f lib/ndoc/parser.js
+	$(MAKE) lib/ndoc/parser.js
 
 
 todo:
