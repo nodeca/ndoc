@@ -11,6 +11,7 @@ var exec = require('child_process').exec;
 
 
 // 3rd-party
+var _               = require('underscore');
 var FsTools         = require('fs-tools');
 var ArgumentParser  = require('argparse').ArgumentParser;
 
@@ -80,13 +81,6 @@ cli.addArgument(['-o', '--output'], {
   defaultValue: 'doc'
 });
 
-cli.addArgument(['-f', '--format'], {
-  help:         'Documentation format',
-  choices:      ['html', 'json', 'js'],
-  metavar:      'FORMAT',
-  defaultValue: 'html'
-});
-
 cli.addArgument(['-i', '--index'], {
   help:         'Index file',
   metavar:      'FILE',
@@ -106,12 +100,6 @@ cli.addArgument(['-l', '--link-format'], {
   defaultValue: '{file}#L{line}'
 });
 
-cli.addArgument(['--skin'], {
-  help:         'Custom templates',
-  metavar:      'PATH',
-  defaultValue: Path.join(__dirname, '..', 'skins', 'default')
-});
-
 cli.addArgument(['--view-source-label'], {
   dest:         'viewSourceLabel',
   help:         'Text for "View source" link',
@@ -125,6 +113,21 @@ cli.addArgument(['-b', '--broken-links'], {
   choices:      ['show', 'hide', 'throw'],
   metavar:      'ACTION',
   defaultValue: 'show'
+});
+
+
+cli.addArgument(['-r', '--render'], {
+  help:         'Documentation renderer',
+  choices:      _.keys(NDoc.RENDERERS),
+  metavar:      'RENDERER',
+  defaultValue: 'html'
+});
+
+
+_.each(NDoc.RENDERERS, function (renderer) {
+  _.each(renderer.args || [], function (args) {
+    cli.addArgument(args.keys, args.opts);
+  });
 });
 
 
@@ -215,7 +218,8 @@ walk_many(opts.path, '\\.' + opts.extension + '$', function (filename, stat, cb)
   files.push(filename);
   cb();
 }, function (err) {
-  var ndoc, output;
+  var ndoc;
+
   if (err) {
     console.error(err.message || err);
     process.exit(1);
@@ -232,38 +236,10 @@ walk_many(opts.path, '\\.' + opts.extension + '$', function (filename, stat, cb)
   //console.log(ndoc.toJSON());
 
   // output tree
-  output = opts.output;
-  switch (opts.format) {
-
-  case 'json':
-    Fs.writeFileSync(output, ndoc.toJSON(opts));
-    break;
-
-  case 'js':
-    Fs.writeFileSync(output, 'var ndoc = ' + ndoc.toJSON(opts) + ';');
-    break;
-
-  case 'html':
-    Path.exists(output, function (exists) {
-      if (exists) {
-        console.error("Output directory '" + output + "' already exists");
-        process.exit(1);
-      }
-
-      FsTools.copy(Path.join(opts.skin, 'skeleton'), output, function (err) {
-        if (err) {
-          console.error(err.message || err);
-          process.exit(1);
-        }
-        var html = ndoc.toHTML(opts);
-        Fs.writeFileSync(Path.join(output, 'index.html'), html);
-      });
-    });
-    break;
-
-  default:
-    console.error(opts.format + ': not supported');
-    process.exit(1);
-
-  }
+  ndoc.render(opts.render, opts, function (err) {
+    if (err) {
+      console.error(err.message || err);
+      process.exit(1);
+    }
+  });
 });
