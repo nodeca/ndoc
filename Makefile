@@ -57,18 +57,19 @@ publish:
 	npm publish https://github.com/${GITHUB_PROJ}/tarball/${NPM_VERSION}
 
 
-lib/ndoc/parser.js:
+lib/ndoc/parsers/javascript.js:
 	@if test ! `which jison` ; then \
-		echo "You need 'jison' installed in order to compile parser." >&2 ; \
+		echo "You need 'jison' installed in order to compile parsers." >&2 ; \
 		echo "  $ make dev-deps" >&2 ; \
 		exit 128 ; \
 		fi
-	jison src/parser.y && mv parser.js lib/ndoc/parser.js
+	jison src/js-parser.y && mv js-parser.js lib/ndoc/parsers/javascript.js
 
 
-compile-parser:
-	rm -f lib/ndoc/parser.js
-	$(MAKE) lib/ndoc/parser.js
+compile-parsers:
+	mkdir -p lib/ndoc/parsers/
+	rm -f lib/ndoc/parsers/javascript.js
+	$(MAKE) lib/ndoc/parsers/javascript.js
 
 
 todo:
