@@ -6,21 +6,22 @@ var Fs = require('fs');
 
 
 // 3rd-party
-var Jison   = require('jison');
-var BNF     = require('jison/lib/jison/bnf');
-var NomNom  = require('nomnom');
+var Jison           = require('jison');
+var BNF             = require('jison/lib/jison/bnf');
+var ArgumentParser  = require('argparse').ArgumentParser;
 
 
-NomNom.option('path', {
-  position: 0,
-  list:     false,
-  required: true,
+var cli = new ArgumentParser({addHelp:  true});
+
+
+cli.addArgument(['path'], {
   help:     'Parser definition',
-  metavar:  'PATH'
+  metavar:  'PATH',
+  nargs:    1
 });
 
 
-var grammar = Fs.readFileSync(Fs.realpathSync(NomNom.parse().path), 'utf8');
+var grammar = Fs.readFileSync(Fs.realpathSync(cli.parseArgs().path.shift()), 'utf8');
 var parser  = new Jison.Parser(BNF.parse(grammar));
 
 

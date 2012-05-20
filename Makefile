@@ -59,7 +59,7 @@ publish:
 
 compile-parser: lib/parser.js
 lib/parser.js:
-	node ./support/compile-parser.js > ./lib/parser.js
+	node ./support/compile-parser.js lib/parser.y > ./lib/parser.js
 
 
 todo:
