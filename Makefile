@@ -95,10 +95,6 @@ doc/index.html: lib
 	rm -fr $(@D)
 	bin/ndoc.js $^
 
-skin:
-	# rebuild stylesheets
-	node_modules/.bin/stylus -o $(ROOT)/skins/default/skeleton/stylesheets/ $(ROOT)/skins/default/templates/styles/main.styl
-
 test-prototype:
 	rm -fr ./tests/prototype-doc
 	$(ROOT)/bin/ndoc.js -o ./tests/prototype-doc -b show -i README.markdown \
