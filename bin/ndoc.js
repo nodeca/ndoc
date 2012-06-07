@@ -109,7 +109,7 @@ cli.addArgument(['--view-source-label'], {
 
 cli.addArgument(['-b', '--broken-links'], {
   dest:         'brokenLinks',
-  help:         'What to do if broken link occured',
+  help:         'What to do if broken link occurred',
   choices:      ['show', 'hide', 'throw'],
   metavar:      'ACTION',
   defaultValue: 'show'
