@@ -26,6 +26,9 @@ head
 
 body
 
+  - if (ribbon)
+    a.ribbon(href='#{ribbonLink}', title='#{ribbonTitle}')
+
   //- Navigation
   nav.sidebar
     mixin search()
