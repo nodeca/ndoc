@@ -6,7 +6,6 @@
 
 // stdlib
 var Fs = require('fs');
-var Path = require('path');
 var exec = require('child_process').exec;
 
 
@@ -72,7 +71,7 @@ cli.addArgument(['-e', '--extension'], {
   help:         'Source files extension',
   metavar:      'STRING',
   action:       'append',
-  defaultValue: 'js'
+  defaultValue: ['js']
 });
 
 cli.addArgument(['-o', '--output'], {
@@ -212,10 +211,6 @@ try {
 //
 // prepare extension pattern
 //
-if (!(opts.extensions instanceof Array)) {
-  // Is this a argparse bug?
-  opts.extensions = [opts.extensions];
-}
 opts.extensions.forEach(function (arg, idx) {
   opts.extensions[idx] = '\\.' + arg;
 });
