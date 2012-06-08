@@ -32,9 +32,7 @@ function walk_many(paths, pattern, iterator, callback) {
     var path;
 
     // get next path
-    while (paths.length) {
-      path = paths.shift();
-    }
+    path = paths.shift();
 
     // skip empty path or report real error
     if (err || !path) {
@@ -62,7 +60,7 @@ var cli = new ArgumentParser({
 });
 
 
-cli.addArgument(['path'], {
+cli.addArgument(['paths'], {
   help:         'Source files location',
   metavar:      'PATH',
   action:       'append',
@@ -70,8 +68,10 @@ cli.addArgument(['path'], {
 });
 
 cli.addArgument(['-e', '--extension'], {
+  dest:         'extensions',
   help:         'Source files extension',
   metavar:      'STRING',
+  action:       'append',
   defaultValue: 'js'
 });
 
@@ -210,10 +210,22 @@ try {
 //console.error(opts); process.exit(0);
 
 //
+// prepare extension pattern
+//
+if (!(opts.extensions instanceof Array)) {
+  // Is this a argparse bug?
+  opts.extensions = [opts.extensions];
+}
+opts.extensions.forEach(function (arg, idx) {
+  opts.extensions[idx] = '\\.' + arg;
+});
+var extensionPattern = '(' + opts.extensions.join('|') + ')$';
+
+//
 // collect sources
 //
 var files = [];
-walk_many(opts.path, '\\.' + opts.extension + '$', function (filename, stat, cb) {
+walk_many(opts.paths, extensionPattern, function (filename, stat, cb) {
   //console.log('Processing', filename);
   files.push(filename);
   cb();
