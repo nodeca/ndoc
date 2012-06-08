@@ -32,9 +32,7 @@ function walk_many(paths, pattern, iterator, callback) {
     var path;
 
     // get next path
-    while (paths.length) {
-      path = paths.shift();
-    }
+    path = paths.shift();
 
     // skip empty path or report real error
     if (err || !path) {
