@@ -70,6 +70,7 @@ cli.addArgument(['path'], {
 cli.addArgument(['-e', '--extension'], {
   help:         'Source files extension',
   metavar:      'STRING',
+  action:       'append',
   defaultValue: 'js'
 });
 
@@ -208,10 +209,18 @@ try {
 //console.error(opts); process.exit(0);
 
 //
+// prepare extension pattern
+//
+opts.extension.forEach(function (arg, idx) {
+  opts.extension[idx] = '\\.' + arg;
+});
+var extensionPattern = '(' + opts.extension.join('|') + ')$';
+
+//
 // collect sources
 //
 var files = [];
-walk_many(opts.path, '\\.' + opts.extension + '$', function (filename, stat, cb) {
+walk_many(opts.path, extensionPattern, function (filename, stat, cb) {
   //console.log('Processing', filename);
   files.push(filename);
   cb();
