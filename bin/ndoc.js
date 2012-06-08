@@ -60,7 +60,7 @@ var cli = new ArgumentParser({
 });
 
 
-cli.addArgument(['path'], {
+cli.addArgument(['paths'], {
   help:         'Source files location',
   metavar:      'PATH',
   action:       'append',
@@ -68,6 +68,7 @@ cli.addArgument(['path'], {
 });
 
 cli.addArgument(['-e', '--extension'], {
+  dest:         'extensions',
   help:         'Source files extension',
   metavar:      'STRING',
   action:       'append',
@@ -211,16 +212,16 @@ try {
 //
 // prepare extension pattern
 //
-opts.extension.forEach(function (arg, idx) {
-  opts.extension[idx] = '\\.' + arg;
+opts.extensions.forEach(function (arg, idx) {
+  opts.extensions[idx] = '\\.' + arg;
 });
-var extensionPattern = '(' + opts.extension.join('|') + ')$';
+var extensionPattern = '(' + opts.extensions.join('|') + ')$';
 
 //
 // collect sources
 //
 var files = [];
-walk_many(opts.path, extensionPattern, function (filename, stat, cb) {
+walk_many(opts.paths, extensionPattern, function (filename, stat, cb) {
   //console.log('Processing', filename);
   files.push(filename);
   cb();
