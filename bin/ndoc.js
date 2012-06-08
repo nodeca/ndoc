@@ -212,6 +212,10 @@ try {
 //
 // prepare extension pattern
 //
+if (!(opts.extensions instanceof Array)) {
+  // Is this a argparse bug?
+  opts.extensions = [opts.extensions];
+}
 opts.extensions.forEach(function (arg, idx) {
   opts.extensions[idx] = '\\.' + arg;
 });
