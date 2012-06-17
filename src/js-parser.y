@@ -5,6 +5,7 @@ int     "-"?(?:[0-9]|[1-9][0-9]+)
 exp     (?:[eE][-+]?[0-9]+)
 frac    (?:\.[0-9]+)
 name    (?:[$_a-zA-Z][$_a-zA-Z0-9]*)
+eventend   (?:[^@(\s]+)
 notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->"))
 
 %x INITIAL tags def arg comment
@@ -36,6 +37,7 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 <tags>"related to"          return 'RELATEDTO'
 <tags>"belongs to"          return 'BELONGSTO'
 <tags>{name}                return 'NAME'
+<tags>{eventend}            return 'EVENTEND'
 
 <def>"**/"                  this.popState(); return '**/'
 <def>"*"\s*?[\n][\s\S]*?/"**/" return 'TEXT'
@@ -73,6 +75,7 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 <def>"mixin"                return 'MIXIN'
 <def>"new"                  return 'NEW'
 <def>{name}                 return 'NAME'
+<def>{eventend}             return 'EVENTEND'
 
 <arg>[\s\S]*?/("*"\s*[-\n]) this.popState(); return 'TEXT'
 
@@ -194,12 +197,19 @@ argument_descriptions
 
 argument_description
 
-  : '*-' name '(' names_alternation ')' { $$ = {name: $2, types: $4} }
-  | '*-' name '(' names_alternation '):' TEXT %{
+  : '*-' NAME '(' names_alternation ')' { $$ = {name: $2, types: $4} }
+  | '*-' NAME '(' names_alternation '):' TEXT %{
     $$ = {
       name: $2,
       types: $4,
       description: $6.replace(/(?:\s*\*\s*|\s+)/g, ' ').replace(/(^\s*|\s*$)/g, '')
+    };
+  }%
+  | '*-' NAME ':' TEXT %{
+    $$ = {
+      name: $2,
+      types: "mixed",
+      description: $4.replace(/(?:\s*\*\s*|\s+)/g, ' ').replace(/(^\s*|\s*$)/g, '')
     };
   }%
   ;
@@ -215,16 +225,24 @@ events
 event
 
   : NAME
-  | event ':' NAME { $$ += $2 + $3 }
+  | event ':' NAME { $$ += $2 + $3 } /* why? */
+  | event '.' NAME { $$ += $2 + $3 }
+  | event '@' NAME { $$ += $2 + $3 }
+  | event EVENTEND { $$ += $2 }
   ;
 
 
-name
+name_or_namespace
 
   : NAME
-  | name '.' NAME { $$ += $2 + $3 }
-  | name '#' NAME { $$ += $2 + $3 }
-  | name '@' NAME { $$ += $2 + $3 }
+  | name_or_namespace '.' NAME { $$ += $2 + $3 }
+  ;
+
+name
+
+  : name_or_namespace
+  | name_or_namespace '#' NAME  { $$ += $2 + $3 }
+  | name_or_namespace '@' event { $$ += $2 + $3 }
   ;
 
 
