@@ -3,3 +3,4 @@ doc
 playground*
 tests/prototype-doc
 tests/features-doc
+.cache/
