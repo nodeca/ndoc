@@ -22,7 +22,7 @@
 
   "dependencies"    : {
                         "argparse"    : "0.1.0",
-                        "mincer"      : "0.2.0",
+                        "mincer"      : "git://github.com/nodeca/mincer.git",
                         "uglify-js"   : "1.2.6",
                         "csso"        : "1.2.12",
                         "jade"        : "0.26.0",
