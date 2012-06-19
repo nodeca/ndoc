@@ -21,7 +21,7 @@
   "main"            : "./lib/index.js",
 
   "dependencies"    : {
-                        "argparse"    : "0.1.0",
+                        "argparse"    : "0.1.2",
                         "mincer"      : "git://github.com/nodeca/mincer.git",
                         "uglify-js"   : "1.2.6",
                         "csso"        : "1.2.12",
