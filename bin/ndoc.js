@@ -6,6 +6,7 @@
 
 // stdlib
 var Fs = require('fs');
+var Path = require('path');
 var exec = require('child_process').exec;
 
 
@@ -45,6 +46,20 @@ function walk_many(paths, pattern, iterator, callback) {
 
   next();
 }
+
+// preprocess custom renderers
+(function (cli) {
+  cli.addArgument(['--use'], {action: 'append', defaultValue: []});
+  cli.parseKnownArgs().shift().use.forEach(function (pathname) {
+    try {
+      var file = /^\./.test(pathname) ? Path.resolve(process.cwd(), pathname) : pathname;
+      NDoc.registerRenderer(require(file));
+    } catch (err) {
+      console.error('Failed add renderer: ' + pathname + '\n\n' + err.toString());
+      process.exit(1);
+    }
+  });
+}(new ArgumentParser({addHelp: false})));
 
 
 //
@@ -92,6 +107,12 @@ cli.addArgument(['-r', '--render'], {
   choices:      _.keys(NDoc.RENDERERS),
   metavar:      'RENDERER',
   defaultValue: 'html'
+});
+
+cli.addArgument(['--use'], {
+  help:         'Add custom renderer',
+  metavar:      'RENDERER',
+  action:       'append'
 });
 
 
