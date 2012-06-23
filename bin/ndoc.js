@@ -80,40 +80,12 @@ cli.addArgument(['-o', '--output'], {
   defaultValue: 'doc'
 });
 
-cli.addArgument(['-i', '--index'], {
-  help:         'Index file',
-  metavar:      'FILE',
-  defaultValue: 'README.md'
-});
-
-cli.addArgument(['-t', '--title'], {
-  help:         'Documentation title. If omitted, it will be guessed from manifest, if any',
-  metavar:      'STRING',
-  defaultValue: '{package.name} {package.version} API documentation'
-});
-
 cli.addArgument(['-l', '--link-format'], {
   dest:         'linkFormat',
   help:         'Format for link to source file',
   metavar:      'FORMAT',
   defaultValue: '{file}#L{line}'
 });
-
-cli.addArgument(['--view-source-label'], {
-  dest:         'viewSourceLabel',
-  help:         'Text for "View source" link',
-  metavar:      'STRING',
-  defaultValue: 'View source code'
-});
-
-cli.addArgument(['-b', '--broken-links'], {
-  dest:         'brokenLinks',
-  help:         'What to do if broken link occurred',
-  choices:      ['show', 'hide', 'throw'],
-  metavar:      'ACTION',
-  defaultValue: 'show'
-});
-
 
 cli.addArgument(['-r', '--render'], {
   help:         'Documentation renderer',
@@ -187,26 +159,6 @@ if (!opts.linkFormat) {
     opts.linkFormat = '{url}/blob/master/{file}#L{line}';
   }
 }
-// guess title?
-if (!opts.title) {
-  opts.title = (opts.package.name + ' ' + opts.package.version + ' API documentation').trim();
-// or interpolate title
-} else {
-  opts.title = interpolate(opts.title);
-}
-
-//console.log(opts);
-
-//
-// read index file
-//
-try {
-  opts.index = Fs.readFileSync(opts.index, 'utf8');
-} catch (err2) {
-  opts.index = '';
-}
-
-//console.error(opts); process.exit(0);
 
 //
 // prepare extension pattern

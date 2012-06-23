@@ -97,13 +97,12 @@ doc/index.html: lib
 
 test-prototype:
 	rm -fr ./tests/prototype-doc
-	$(ROOT)/bin/ndoc.js -o ./tests/prototype-doc -b show -i README.markdown \
+	$(ROOT)/bin/ndoc.js -o ./tests/prototype-doc -b show -i ./tests/prototype/README.markdown \
 		-l 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' \
 		-t "Prototype v1.7" \
 		./tests/prototype/src
 
 test-features:
-	#rm -f lib/parser.js
 	rm -fr ./tests/features-doc
 	$(ROOT)/bin/ndoc.js -o ./tests/features-doc -b show -t "NDoc new features" \
 		./tests/features
