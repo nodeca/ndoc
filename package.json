@@ -17,7 +17,7 @@
   "license"         : { "type": "MIT", "url": "https://github.com/nodeca/ndoc/blob/master/LICENSE" },
   "repository"      : { "type": "git", "url": "git://github.com/nodeca/ndoc.git" },
 
-  "bin"             : { "ndoc": "bin/ndoc.js" },
+  "bin"             : { "ndoc": "libexec/ndoc.js" },
   "main"            : "./lib/index.js",
 
   "dependencies"    : {
