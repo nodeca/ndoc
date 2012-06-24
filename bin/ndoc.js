@@ -48,7 +48,7 @@ function walk_many(paths, pattern, iterator, callback) {
 }
 
 // preprocess plugins
-(NDoc.cli.parseKnownArgs().shift().use || []).forEach(function (pathname) {
+NDoc.cli.parseKnownArgs().shift().use.forEach(function (pathname) {
   try {
     var file = /^\./.test(pathname) ? Path.resolve(process.cwd(), pathname) : pathname;
     NDoc.use(require(file));
@@ -130,8 +130,30 @@ var extensionPattern = '(' + opts.extensions.join('|') + ')$';
 //
 var files = [];
 walk_many(opts.paths, extensionPattern, function (filename, stat, cb) {
-  //console.log('Processing', filename);
-  files.push(filename);
+  var realpath = Path.resolve(filename),
+      include = _.all(opts.exclude, function (pattern) {
+        if (/^\.\.?\//.test(pattern)) {
+          pattern = Path.resolve(process.cwd(), pattern);
+        }
+
+        pattern = pattern.toString().replace(/\*\*|\*|\?|\\.|\./g, function (m) {
+          switch (m[0]) {
+            case "*": return "**" === m ? ".+?" : "[^/]+?";
+            case "?": return "[^/]?";
+            case ".": return "\\.";
+            // handle `\\.` part
+            default:  return m;
+          }
+        });
+
+        pattern = new RegExp('^' + pattern + '$');
+        return !(new RegExp(pattern)).test(realpath);
+      });
+
+  if (include) {
+    files.push(filename);
+  }
+
   cb();
 }, function (err) {
   var ndoc;
