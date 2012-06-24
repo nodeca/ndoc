@@ -4,6 +4,6 @@ node_modules/
 tmp/
 tests/
 skins/
-lib/ndoc/renderers/html/
+lib/ndoc/plugins/renderers/html/
 lib/ndoc/parsers/javascript.js
 .cache/

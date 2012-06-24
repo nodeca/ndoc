@@ -47,19 +47,16 @@ function walk_many(paths, pattern, iterator, callback) {
   next();
 }
 
-// preprocess custom renderers
-(function (cli) {
-  cli.addArgument(['--use'], {action: 'append', defaultValue: []});
-  cli.parseKnownArgs().shift().use.forEach(function (pathname) {
-    try {
-      var file = /^\./.test(pathname) ? Path.resolve(process.cwd(), pathname) : pathname;
-      NDoc.registerRenderer(require(file));
-    } catch (err) {
-      console.error('Failed add renderer: ' + pathname + '\n\n' + err.toString());
-      process.exit(1);
-    }
-  });
-}(new ArgumentParser({addHelp: false})));
+// preprocess plugins
+(NDoc.cli.parseKnownArgs().shift().use || []).forEach(function (pathname) {
+  try {
+    var file = /^\./.test(pathname) ? Path.resolve(process.cwd(), pathname) : pathname;
+    NDoc.use(require(file));
+  } catch (err) {
+    console.error('Failed add renderer: ' + pathname + '\n\n' + err.toString());
+    process.exit(1);
+  }
+});
 
 
 //
@@ -67,63 +64,7 @@ function walk_many(paths, pattern, iterator, callback) {
 //
 
 
-var cli = new ArgumentParser({
-  prog:     'ndoc',
-  version:  require('../package.json').version,
-  addHelp:  true
-});
-
-
-cli.addArgument(['paths'], {
-  help:         'Source files location',
-  metavar:      'PATH',
-  action:       'append',
-  nargs:        '+'
-});
-
-cli.addArgument(['-e', '--extension'], {
-  dest:         'extensions',
-  help:         'Source files extension',
-  metavar:      'STRING',
-  action:       'append',
-  defaultValue: ['js']
-});
-
-cli.addArgument(['-o', '--output'], {
-  help:         'Resulting file(s) location',
-  metavar:      'PATH',
-  defaultValue: 'doc'
-});
-
-cli.addArgument(['-l', '--link-format'], {
-  dest:         'linkFormat',
-  help:         'Format for link to source file',
-  metavar:      'FORMAT',
-  defaultValue: '{file}#L{line}'
-});
-
-cli.addArgument(['-r', '--render'], {
-  help:         'Documentation renderer',
-  choices:      _.keys(NDoc.RENDERERS),
-  metavar:      'RENDERER',
-  defaultValue: 'html'
-});
-
-cli.addArgument(['--use'], {
-  help:         'Add custom renderer',
-  metavar:      'RENDERER',
-  action:       'append'
-});
-
-
-_.each(NDoc.RENDERERS, function (renderer) {
-  _.each(renderer.args || [], function (args) {
-    cli.addArgument(args.keys, args.opts);
-  });
-});
-
-
-var opts = cli.parseArgs();
+var opts = NDoc.cli.parseArgs();
 
 
 //
@@ -131,12 +72,7 @@ var opts = cli.parseArgs();
 //
 
 
-var manifest = {};
-try {
-  // not using require for node < v0.4 caompatibility
-  manifest = JSON.parse(Fs.readFileSync('package.json', 'utf8'));
-} catch (err1) {
-}
+var manifest = require(process.cwd() + '/package.json');
 
 //
 // flatten manifest structure, to allow easier access
