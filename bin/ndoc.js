@@ -140,6 +140,7 @@ walk_many(opts.paths, extensionPattern, function (filename, stat, cb) {
     console.error(err.message || err);
     process.exit(1);
   }
+
   // build tree
   ndoc = new NDoc(files, {
     // given package URL, file name and line in the file, format link to source file.
@@ -149,7 +150,6 @@ walk_many(opts.paths, extensionPattern, function (filename, stat, cb) {
       return interpolate(opts.linkFormat, file.replace(/\\/g, '/'), line);
     }
   });
-  //console.log(ndoc.toJSON());
 
   // output tree
   ndoc.render(opts.render, opts, function (err) {
