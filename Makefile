@@ -81,9 +81,9 @@ todo:
 .SILENT: help lint test doc todo
 
 
-DIRS         = $(addprefix playground/,$(shell ls playground 2>/dev/null | sed '/index.html/d'))
-LIBS         = $(addsuffix /lib,$(DIRS))
-DOCS         = $(addsuffix /doc,$(DIRS))
+DIRS = $(addprefix playground/,$(shell ls playground 2>/dev/null | sed '/index.html/d'))
+LIBS = $(addsuffix /lib,$(DIRS))
+DOCS = $(addsuffix /doc,$(DIRS))
 
 
 playground: $(DOCS)
