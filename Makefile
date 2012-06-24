@@ -93,7 +93,8 @@ playground: $(DOCS)
 
 doc: lib
 	rm -fr doc
-	bin/ndoc.js --exclude './lib/ndoc/plugins/renderers/html/**' --output doc lib
+	bin/ndoc.js lib --exclude './lib/ndoc/plugins/renderers/html/**' \
+		--render html --index 'README.md' --ribbon --output doc
 
 test-prototype:
 	rm -fr ./tests/prototype-doc
