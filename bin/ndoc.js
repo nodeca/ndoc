@@ -32,7 +32,7 @@ function walk_many(paths, pattern, iterator, callback) {
   paths = paths.slice();
 
   function next(err) {
-    var path;
+    var path, stats;
 
     // get next path
     path = paths.shift();
@@ -43,8 +43,15 @@ function walk_many(paths, pattern, iterator, callback) {
       return;
     }
 
-    // do walk path
-    FsTools.walk(path, pattern, iterator, next);
+    stats = Fs.statSync(path);
+
+    if (stats.isDirectory()) {
+      // do walk path
+      FsTools.walk(path, pattern, iterator, next);
+      return;
+    }
+
+    iterator(path, stats, next);
   }
 
   next();
