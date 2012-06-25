@@ -32,7 +32,8 @@ If not - try [nvm](https://github.com/creationix/nvm). Then install NDoc globall
       -h, --help                Output usage information
       -o, --output PATH         Resulting file(s) location [doc]
       -e, --extension STRING    Source files extension [js]
-      -f, --format <html|js>    Documentation format [html]
+      -p, --parser <ndoc>       Documentation parser [ndoc]
+      -r, --render <html|json>  Documentation rendering format [html]
       -i, --index PATH          Index file [README.md]
       -t, --title TITLE         Documentation title
                                 Supports interpolation. See notes for --link-format.
@@ -50,6 +51,18 @@ If not - try [nvm](https://github.com/creationix/nvm). Then install NDoc globall
 NDoc uses data from `package.json` in current folder, if found one. This helps to minimize number of options when building documentation for node.js projects. For example, you can just run:
 
     ndoc ./lib
+
+
+## API
+
+``` javascript
+NDoc.parse('ndoc', ['lib/my-module.js'], {}, function (err, ast) {
+  // ...
+  NDoc.render('html', ast, {}, function (err) {
+    // ...
+  });
+});
+```
 
 
 ## Syntax

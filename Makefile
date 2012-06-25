@@ -64,7 +64,7 @@ lib/ndoc/plugins/parsers/ndoc/parser.js:
 		echo "  $ make dev-deps" >&2 ; \
 		exit 128 ; \
 		fi
-	jison src/js-parser.y && mv js-parser.js lib/ndoc/plugins/parsers/ndoc/parser.js
+	jison src/ndoc-parser.y && mv js-parser.js lib/ndoc/plugins/parsers/ndoc/parser.js
 
 
 compile-parsers:
