@@ -20,6 +20,9 @@ var ArgumentParser  = require('argparse').ArgumentParser;
 var NDoc = require('..');
 
 
+////////////////////////////////////////////////////////////////////////////////
+
+
 // walk_many(paths, pattern, iterator, callback)
 // - paths (Array): array of paths to sequentially walk
 //
@@ -47,7 +50,15 @@ function walk_many(paths, pattern, iterator, callback) {
   next();
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+//
 // preprocess plugins
+//
+
+
 NDoc.cli.parseKnownArgs().shift().use.forEach(function (pathname) {
   try {
     var file = /^\./.test(pathname) ? Path.resolve(process.cwd(), pathname) : pathname;
@@ -156,7 +167,7 @@ walk_many(opts.paths, extensionPattern, function (filename, stat, cb) {
 
   cb();
 }, function (err) {
-  var ndoc;
+  var ast;
 
   if (err) {
     console.error(err.message || err);
@@ -165,7 +176,7 @@ walk_many(opts.paths, extensionPattern, function (filename, stat, cb) {
 
   // build tree
   try {
-    ndoc = new NDoc(files, _.extend({
+    ast = new NDoc(files, _.extend({
       // given package URL, file name and line in the file, format link to source file.
       // do so only if `packageUrl` is set or `linkFormat` is set
       formatLink: (opts.linkFormat || opts.package.url) && function (file, line) {
@@ -179,7 +190,7 @@ walk_many(opts.paths, extensionPattern, function (filename, stat, cb) {
   }
 
   // output tree
-  ndoc.render(opts.render, opts, function (err) {
+  NDoc.render(opts.renderer, ast, opts, function (err) {
     if (err) {
       console.error(err.message || err);
       process.exit(1);
