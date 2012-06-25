@@ -164,14 +164,19 @@ walk_many(opts.paths, extensionPattern, function (filename, stat, cb) {
   }
 
   // build tree
-  ndoc = new NDoc(files, {
-    // given package URL, file name and line in the file, format link to source file.
-    // do so only if `packageUrl` is set or `linkFormat` is set
-    formatLink: (opts.linkFormat || opts.package.url) && function (file, line) {
-      // '\' -> '/' for windows
-      return interpolate(opts.linkFormat, file.replace(/\\/g, '/'), line);
-    }
-  });
+  try {
+    ndoc = new NDoc(files, _.extend({
+      // given package URL, file name and line in the file, format link to source file.
+      // do so only if `packageUrl` is set or `linkFormat` is set
+      formatLink: (opts.linkFormat || opts.package.url) && function (file, line) {
+        // '\' -> '/' for windows
+        return interpolate(opts.linkFormat, file.replace(/\\/g, '/'), line);
+      }
+    }, opts));
+  } catch (err) {
+    console.error('FATAL:', err.stack || err.message || err);
+    process.exit(1);
+  }
 
   // output tree
   ndoc.render(opts.render, opts, function (err) {
