@@ -1,7 +1,9 @@
-1.0.8 / In progress...
+2.0.0 / In progress...
 ----------------------
 
 * Replace nomnom with argparse
+* Update all dependencies
+* Grand refactoring
 
 1.0.7 / 2012-02-09
 ------------------
