@@ -390,7 +390,7 @@ returns
   | name_or_value %{
     var x = $1;
     var ret = {
-      type: x
+      type: String(x)
     };
     if (x.array) ret.array = x.array;
     if (x.ellipsis) ret.ellipsis = x.ellipsis;
