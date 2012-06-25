@@ -6,7 +6,8 @@ mixin search()
 mixin menu()
   ul.menu
     for obj in tree.children
-      mixin menu_item(obj, 0)
+      if (showInternals || !obj.internal)
+        mixin menu_item(obj, 0)
 
 mixin menu_item(obj, level, parent)
   if typeof obj === 'string'
@@ -278,7 +279,8 @@ mixin article(obj, parents)
 
 mixin api()
   for obj in tree.children
-    mixin article(obj, [])
+    if (showInternals || !obj.internal)
+      mixin article(obj, [])
 
 
 
