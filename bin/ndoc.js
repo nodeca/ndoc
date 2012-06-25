@@ -67,9 +67,12 @@ function walk_many(paths, pattern, iterator, callback) {
 
 
 NDoc.cli.parseKnownArgs().shift().use.forEach(function (pathname) {
+  if (/^\./.test(pathname)) {
+    pathname = Path.resolve(process.cwd(), pathname);
+  }
+
   try {
-    var file = /^\./.test(pathname) ? Path.resolve(process.cwd(), pathname) : pathname;
-    NDoc.use(require(file));
+    NDoc.use(require(pathname));
   } catch (err) {
     console.error('Failed add renderer: ' + pathname + '\n\n' + err.toString());
     process.exit(1);
