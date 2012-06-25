@@ -20,6 +20,9 @@ var ArgumentParser  = require('argparse').ArgumentParser;
 var NDoc = require('..');
 
 
+////////////////////////////////////////////////////////////////////////////////
+
+
 // walk_many(paths, pattern, iterator, callback)
 // - paths (Array): array of paths to sequentially walk
 //
@@ -29,7 +32,7 @@ function walk_many(paths, pattern, iterator, callback) {
   paths = paths.slice();
 
   function next(err) {
-    var path;
+    var path, stats;
 
     // get next path
     path = paths.shift();
@@ -40,14 +43,29 @@ function walk_many(paths, pattern, iterator, callback) {
       return;
     }
 
-    // do walk path
-    FsTools.walk(path, pattern, iterator, next);
+    stats = Fs.statSync(path);
+
+    if (stats.isDirectory()) {
+      // do walk path
+      FsTools.walk(path, pattern, iterator, next);
+      return;
+    }
+
+    iterator(path, stats, next);
   }
 
   next();
 }
 
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+//
 // preprocess plugins
+//
+
+
 NDoc.cli.parseKnownArgs().shift().use.forEach(function (pathname) {
   try {
     var file = /^\./.test(pathname) ? Path.resolve(process.cwd(), pathname) : pathname;
@@ -156,28 +174,33 @@ walk_many(opts.paths, extensionPattern, function (filename, stat, cb) {
 
   cb();
 }, function (err) {
-  var ndoc;
+  var ast, parser_options;
 
   if (err) {
     console.error(err.message || err);
     process.exit(1);
   }
 
-  // build tree
-  ndoc = new NDoc(files, {
+  parser_options = {
     // given package URL, file name and line in the file, format link to source file.
     // do so only if `packageUrl` is set or `linkFormat` is set
     formatLink: (opts.linkFormat || opts.package.url) && function (file, line) {
       // '\' -> '/' for windows
       return interpolate(opts.linkFormat, file.replace(/\\/g, '/'), line);
     }
-  });
+  };
 
-  // output tree
-  ndoc.render(opts.render, opts, function (err) {
+  NDoc.parse('ndoc', files, parser_options, function (err, ast) {
     if (err) {
       console.error(err.message || err);
       process.exit(1);
     }
+
+    NDoc.render(opts.renderer, ast, opts, function (err) {
+      if (err) {
+        console.error(err.message || err);
+        process.exit(1);
+      }
+    });
   });
 });

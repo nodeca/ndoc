@@ -1,8 +1,9 @@
 ROOT        := $(shell pwd)
 PATH        := ${ROOT}/node_modules/.bin:${PATH}
 
-NPM_PACKAGE := $(shell node -e 'console.log(require("./package.json").name)')
-NPM_VERSION := $(shell node -e 'console.log(require("./package.json").version)')
+NPM_PACKAGE := $(shell node -e 'process.stdout.write(require("./package.json").name)')
+NPM_VERSION := $(shell node -e 'process.stdout.write(require("./package.json").version)')
+HOMEPAGE    := $(shell node -e 'process.stdout.write(require("./package.json").homepage)')
 
 TMP_PATH    := /tmp/${NPM_PACKAGE}-$(shell date +%s)
 
@@ -57,14 +58,14 @@ publish:
 	npm publish https://github.com/${GITHUB_PROJ}/tarball/${NPM_VERSION}
 
 
-lib: lib/ndoc/parsers/javascript.js
-lib/ndoc/parsers/javascript.js:
+lib: lib/ndoc/plugins/parsers/ndoc/parser.js
+lib/ndoc/plugins/parsers/ndoc/parser.js:
 	@if test ! `which jison` ; then \
 		echo "You need 'jison' installed in order to compile parsers." >&2 ; \
 		echo "  $ make dev-deps" >&2 ; \
 		exit 128 ; \
 		fi
-	jison src/js-parser.y && mv js-parser.js lib/ndoc/parsers/javascript.js
+	jison src/ndoc-parser.y && mv ndoc-parser.js lib/ndoc/plugins/parsers/ndoc/parser.js
 
 
 compile-parsers:
@@ -94,7 +95,7 @@ playground: $(DOCS)
 doc: lib
 	rm -fr doc
 	$(ROOT)/bin/ndoc lib --exclude './lib/ndoc/plugins/renderers/html/**' \
-		--render html --index 'README.md' --ribbon --output doc
+		--render html --index 'README.md' --gh-ribbon "${HOMEPAGE}" --output doc
 
 test-prototype:
 	rm -fr ./tests/prototype-doc
