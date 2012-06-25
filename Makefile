@@ -95,7 +95,8 @@ playground: $(DOCS)
 doc: lib
 	rm -fr doc
 	$(ROOT)/bin/ndoc lib --exclude './lib/ndoc/plugins/renderers/html/**' \
-		--render html --index 'README.md' --gh-ribbon "${HOMEPAGE}" --output doc
+		--render html --package ./package.json --link-format "${SRC_URL_FMT}" \
+		--index 'README.md' --gh-ribbon "@package.homepage" --output doc
 
 test-prototype:
 	rm -fr ./tests/prototype-doc

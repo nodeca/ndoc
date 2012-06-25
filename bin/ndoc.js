@@ -85,54 +85,8 @@ NDoc.cli.parseKnownArgs().shift().use.forEach(function (pathname) {
 var opts = NDoc.cli.parseArgs();
 
 
-//
-// read manifest from file
-//
-
-
-var manifest = require(process.cwd() + '/package.json');
-
-//
-// flatten manifest structure, to allow easier access
-//
-(function () {
-  var options = {};
-  function flatten(o, path) {
-    var i, p;
-    for (i in o) {
-      if (o.hasOwnProperty(i)) {
-        p = path ? path + '.' + i : i;
-        options[p] = o[i];
-        if (o[i] && typeof o[i] === 'object') {
-          flatten(o[i], p);
-        }
-      }
-    }
-  }
-  flatten(manifest);
-  manifest = options;
-}());
-
 function interpolate(string, file, line) {
-  var r = string
-    .replace(/\{url\}/g, opts.package.url || '')
-    .replace(/\{file\}/g, file)
-    .replace(/\{line\}/g, line)
-    .replace(/\{package\.([^}]+)\}/g, function (all, path) { return opts.package[path]; });
-  return r;
-}
-
-// try to collect critical variables
-opts.package = manifest;
-opts.package.name = opts.package.name || '';
-opts.package.version = opts.package.version || '';
-opts.package.url = opts.package['repository.url'] || opts.package.repository || '';
-opts.package.url = opts.package.url.replace(/^git:\/\//, 'https://').replace(/\.git$/, '');
-// FIXME: guesswork: valid package.json means github.com link format
-if (!opts.linkFormat) {
-  if (opts.package.url.match(/\/\/github\.com\//)) {
-    opts.linkFormat = '{url}/blob/master/{file}#L{line}';
-  }
+  return string.replace(/\{file\}/g, file).replace(/\{line\}/g, line);
 }
 
 //
