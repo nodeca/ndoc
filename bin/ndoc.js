@@ -167,33 +167,33 @@ walk_many(opts.paths, extensionPattern, function (filename, stat, cb) {
 
   cb();
 }, function (err) {
-  var ast;
+  var ast, parser_options;
 
   if (err) {
     console.error(err.message || err);
     process.exit(1);
   }
 
-  // build tree
-  try {
-    ast = new NDoc(files, _.extend({
-      // given package URL, file name and line in the file, format link to source file.
-      // do so only if `packageUrl` is set or `linkFormat` is set
-      formatLink: (opts.linkFormat || opts.package.url) && function (file, line) {
-        // '\' -> '/' for windows
-        return interpolate(opts.linkFormat, file.replace(/\\/g, '/'), line);
-      }
-    }, opts));
-  } catch (err) {
-    console.error('FATAL:', err.stack || err.message || err);
-    process.exit(1);
-  }
+  parser_options = {
+    // given package URL, file name and line in the file, format link to source file.
+    // do so only if `packageUrl` is set or `linkFormat` is set
+    formatLink: (opts.linkFormat || opts.package.url) && function (file, line) {
+      // '\' -> '/' for windows
+      return interpolate(opts.linkFormat, file.replace(/\\/g, '/'), line);
+    }
+  };
 
-  // output tree
-  NDoc.render(opts.renderer, ast, opts, function (err) {
+  NDoc.parse(opts.parser, files, parser_options, function (err, ast) {
     if (err) {
       console.error(err.message || err);
       process.exit(1);
     }
+
+    NDoc.render(opts.renderer, ast, opts, function (err) {
+      if (err) {
+        console.error(err.message || err);
+        process.exit(1);
+      }
+    });
   });
 });
