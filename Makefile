@@ -1,8 +1,9 @@
 ROOT        := $(shell pwd)
 PATH        := ${ROOT}/node_modules/.bin:${PATH}
 
-NPM_PACKAGE := $(shell node -e 'console.log(require("./package.json").name)')
-NPM_VERSION := $(shell node -e 'console.log(require("./package.json").version)')
+NPM_PACKAGE := $(shell node -e 'process.stdout.write(require("./package.json").name)')
+NPM_VERSION := $(shell node -e 'process.stdout.write(require("./package.json").version)')
+HOMEPAGE    := $(shell node -e 'process.stdout.write(require("./package.json").homepage)')
 
 TMP_PATH    := /tmp/${NPM_PACKAGE}-$(shell date +%s)
 
@@ -94,7 +95,7 @@ playground: $(DOCS)
 doc: lib
 	rm -fr doc
 	$(ROOT)/bin/ndoc lib --exclude './lib/ndoc/plugins/renderers/html/**' \
-		--render html --index 'README.md' --ribbon --output doc
+		--render html --index 'README.md' --gh-ribbon "${HOMEPAGE}" --output doc
 
 test-prototype:
 	rm -fr ./tests/prototype-doc
