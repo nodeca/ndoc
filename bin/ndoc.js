@@ -183,7 +183,7 @@ walk_many(opts.paths, extensionPattern, function (filename, stat, cb) {
     }
   };
 
-  NDoc.parse(opts.parser, files, parser_options, function (err, ast) {
+  NDoc.parse('ndoc', files, parser_options, function (err, ast) {
     if (err) {
       console.error(err.message || err);
       process.exit(1);
