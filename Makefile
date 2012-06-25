@@ -100,14 +100,15 @@ doc: lib
 
 test-prototype:
 	rm -fr ./tests/prototype-doc
-	$(ROOT)/bin/ndoc -o ./tests/prototype-doc -b show -i ./tests/prototype/README.markdown \
-		-l 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' \
-		-t "Prototype v1.7" \
+	$(ROOT)/bin/ndoc -o ./tests/prototype-doc --broken-links show \
+		--index ./tests/prototype/README.markdown \
+		--link-format 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' \
+		--title "Prototype v1.7" \
 		./tests/prototype/src
 
 test-features:
 	rm -fr ./tests/features-doc
-	$(ROOT)/bin/ndoc -o ./tests/features-doc -b show -t "NDoc new features" \
+	$(ROOT)/bin/ndoc -o ./tests/features-doc --broken-links show -t "NDoc new features" \
 		./tests/features
 
 test: lint test-prototype test-features
@@ -116,7 +117,7 @@ $(DOCS): $(LIBS)
 	echo Compiling documentation for $(@D)
 	#rm -f lib/parser.js
 	rm -rf $@
-	cd $(@D) && $(ROOT)/bin/ndoc -o doc -i README.md --package-json=package.json lib
+	cd $(@D) && $(ROOT)/bin/ndoc -o doc -i README.md --package ./package.json lib
 
 proto-pages:
 	@if test -z ${REMOTE_REPO} ; then \
