@@ -136,7 +136,9 @@ function interpolate(string, file, line) {
 // collect sources
 //
 var files = [];
-walk_many(opts.paths, /\.js$/, function (filename, stat, cb) {
+var exts  = _.keys(require('../lib/ndoc/parsers')).map(function (ext) { return ext.substring(1); });
+
+walk_many(opts.paths, new RegExp('[.](?:' + exts.join('|') + ')$'), function (filename, stat, cb) {
   var realpath = path.resolve(filename),
       include = _.all(opts.exclude, function (pattern) {
         if (/^\.\.?\//.test(pattern)) {
