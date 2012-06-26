@@ -5,8 +5,8 @@
 
 
 // stdlib
-var Fs = require('fs');
-var Path = require('path');
+var fs = require('fs');
+var path = require('path');
 var exec = require('child_process').exec;
 
 
@@ -18,6 +18,32 @@ var ArgumentParser  = require('argparse').ArgumentParser;
 
 // internal
 var NDoc = require('..');
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+// parse string in a BASH style
+// inspired by Shellwords module of Ruby
+var SHELLWORDS_PATTERN = /\s*(?:([^\s\\\'\"]+)|'((?:[^\'\\]|\\.)*)'|"((?:[^\"\\]|\\.)*)")/;
+function shellwords(line) {
+  var words = [], match, field;
+
+  while (line) {
+    match = SHELLWORDS_PATTERN.exec(line);
+
+    if (!match || !match[0]) {
+      line = false;
+    } else {
+      line  = line.substr(match[0].length);
+      field = (match[1] || match[2] || match[3] || '').replace(/\\(.)/, '$1');
+
+      words.push(field);
+    }
+  }
+
+  return words;
+}
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -43,7 +69,7 @@ function walk_many(paths, pattern, iterator, callback) {
       return;
     }
 
-    stats = Fs.statSync(path);
+    stats = fs.statSync(path);
 
     if (stats.isDirectory()) {
       // do walk path
@@ -61,6 +87,20 @@ function walk_many(paths, pattern, iterator, callback) {
 ////////////////////////////////////////////////////////////////////////////////
 
 
+NDoc.cli.addArgument(['--noenv'], {
+  help:   'Ignore .ndocrc',
+  action: 'storeTrue'
+});
+
+
+if (-1 === process.argv.indexOf('--noenv')) {
+  if (fs.existsSync('./.ndocrc')) {
+    var rcflags = shellwords(fs.readFileSync('./.ndocrc', 'utf8'));
+    process.argv = process.argv.concat(rcflags);
+  }
+}
+
+
 //
 // preprocess plugins
 //
@@ -68,7 +108,7 @@ function walk_many(paths, pattern, iterator, callback) {
 
 NDoc.cli.parseKnownArgs().shift().use.forEach(function (pathname) {
   if (/^\./.test(pathname)) {
-    pathname = Path.resolve(process.cwd(), pathname);
+    pathname = path.resolve(process.cwd(), pathname);
   }
 
   try {
@@ -97,10 +137,10 @@ function interpolate(string, file, line) {
 //
 var files = [];
 walk_many(opts.paths, /\.js$/, function (filename, stat, cb) {
-  var realpath = Path.resolve(filename),
+  var realpath = path.resolve(filename),
       include = _.all(opts.exclude, function (pattern) {
         if (/^\.\.?\//.test(pattern)) {
-          pattern = Path.resolve(process.cwd(), pattern);
+          pattern = path.resolve(process.cwd(), pattern);
         }
 
         pattern = pattern.toString().replace(/\*\*|\*|\?|\\.|\./g, function (m) {
