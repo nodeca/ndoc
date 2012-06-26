@@ -1,0 +1,3 @@
+--exclude './lib/ndoc/plugins/renderers/html/assets/**'
+--exclude './lib/ndoc/plugins/renderers/html/vendors/**'
+--exclude './lib/ndoc/plugins/parsers/ndoc/parser.js'
