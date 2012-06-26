@@ -1,6 +1,7 @@
 2.0.0 / In progress...
 ----------------------
 
+* Update Node API for 0.8 compatibility with shims for Node 0.6.
 * Recognition of events with deep objets. Closes #45. Thanks to Sannis.
 * Allow dots and semicolumns in event names. Closes #46. Thanks to Sannis.
 * Add github ribbon (optional) to html renderer. Closes #5.
