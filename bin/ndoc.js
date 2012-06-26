@@ -49,44 +49,6 @@ function shellwords(line) {
 ////////////////////////////////////////////////////////////////////////////////
 
 
-// walk_many(paths, pattern, iterator, callback)
-// - paths (Array): array of paths to sequentially walk
-//
-// Other arguments correspond to those of [[FsTools.walk]]
-function walk_many(paths, pattern, iterator, callback) {
-  // don't touch original array
-  paths = paths.slice();
-
-  function next(err) {
-    var path, stats;
-
-    // get next path
-    path = paths.shift();
-
-    // skip empty path or report real error
-    if (err || !path) {
-      callback(err);
-      return;
-    }
-
-    stats = fs.statSync(path);
-
-    if (stats.isDirectory()) {
-      // do walk path
-      FsTools.walk(path, pattern, iterator, next);
-      return;
-    }
-
-    iterator(path, stats, next);
-  }
-
-  next();
-}
-
-
-////////////////////////////////////////////////////////////////////////////////
-
-
 NDoc.cli.addArgument(['--noenv'], {
   help:   'Ignore .ndocrc',
   action: 'storeTrue'
@@ -135,36 +97,8 @@ function interpolate(string, file, line) {
 //
 // collect sources
 //
-var files = [];
-var exts  = _.keys(require('../lib/ndoc/parsers')).map(function (ext) { return ext.substring(1); });
 
-walk_many(opts.paths, new RegExp('[.](?:' + exts.join('|') + ')$'), function (filename, stat, cb) {
-  var realpath = path.resolve(filename),
-      include = _.all(opts.exclude, function (pattern) {
-        if (/^\.\.?\//.test(pattern)) {
-          pattern = path.resolve(process.cwd(), pattern);
-        }
-
-        pattern = pattern.toString().replace(/\*\*|\*|\?|\\.|\./g, function (m) {
-          switch (m[0]) {
-            case "*": return "**" === m ? ".+?" : "[^/]+?";
-            case "?": return "[^/]?";
-            case ".": return "\\.";
-            // handle `\\.` part
-            default:  return m;
-          }
-        });
-
-        pattern = new RegExp('^' + pattern + '$');
-        return !(new RegExp(pattern)).test(realpath);
-      });
-
-  if (include) {
-    files.push(filename);
-  }
-
-  cb();
-}, function (err) {
+NDoc.cli.findFiles(opts.paths, opts.exclude, function (err, files) {
   var parser_options;
 
   if (err) {
@@ -181,7 +115,7 @@ walk_many(opts.paths, new RegExp('[.](?:' + exts.join('|') + ')$'), function (fi
     }
   };
 
-  NDoc.parse('ndoc', files, parser_options, function (err, ast) {
+  NDoc.parse(files, parser_options, function (err, ast) {
     if (err) {
       console.error(err.message || err);
       process.exit(1);
