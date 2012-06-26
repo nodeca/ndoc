@@ -123,7 +123,7 @@ walk_many(opts.paths, /\.js$/, function (filename, stat, cb) {
 
   cb();
 }, function (err) {
-  var ast, parser_options;
+  var parser_options;
 
   if (err) {
     console.error(err.message || err);
