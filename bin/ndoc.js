@@ -93,18 +93,10 @@ function interpolate(string, file, line) {
 }
 
 //
-// prepare extension pattern
-//
-opts.extensions.forEach(function (arg, idx) {
-  opts.extensions[idx] = '\\.' + arg;
-});
-var extensionPattern = '(' + opts.extensions.join('|') + ')$';
-
-//
 // collect sources
 //
 var files = [];
-walk_many(opts.paths, extensionPattern, function (filename, stat, cb) {
+walk_many(opts.paths, /\.js$/, function (filename, stat, cb) {
   var realpath = Path.resolve(filename),
       include = _.all(opts.exclude, function (pattern) {
         if (/^\.\.?\//.test(pattern)) {
