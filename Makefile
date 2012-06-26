@@ -109,7 +109,7 @@ test-prototype:
 test-features:
 	rm -fr ./tests/features-doc
 	$(ROOT)/bin/ndoc -o ./tests/features-doc --broken-links show -t "NDoc new features" \
-		./tests/features
+		--gh-ribbon @package.homepage ./tests/features
 
 test: lint test-prototype test-features
 

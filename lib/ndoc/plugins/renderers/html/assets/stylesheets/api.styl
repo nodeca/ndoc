@@ -1,16 +1,44 @@
+@import nib
+
 body
   font-family: Verdana,sans-serif
   font-size: 14px
   line-height: 1.5em
+  // That's to hide ribbon outsides
+  position relative
+  overflow hidden
 
-.github-ribbon
-  background-image: url(asset_data_uri("ribbon.png"))
-  position: absolute
-  top: 0
-  right: 0
-  width: 149px;
-  height: 149px;
-  border: 0
+
+.gh-ribbon
+  position absolute
+  right -60px
+  top 44px
+  z-index 10000
+  background-color #686868
+  padding 1px 0
+  transform rotate(45deg)
+  width 230px
+  box-shadow 0 0 2px #6666
+  font-family "Helvetica Neue",Helvetica,Arial,sans-serif
+  display none
+  a
+    display block
+    color #fff
+    text-decoration none
+    border 1px solid #ccc
+    font-size 13px
+    font-weight bold
+    padding 4px 50px 2px
+    text-align center
+    outline none
+    &:hover
+      text-decoration none
+// use moderniser to show only fo browsers,
+// wich supports rotation
+.csstransforms .gh-ribbon
+  display block
+
+
 
 .sidebar
   background: none repeat scroll 0 0 #f8f8f8
@@ -99,9 +127,7 @@ body
 
     &.section
       background-color: #000
-      background: -moz-linear-gradient(#000 70%, #444) repeat scroll 0 0 transparent
-      background: -webkit-linear-gradient(#000 70%, #444) repeat scroll 0 0 transparent
-      background: linear-gradient(#000 70%, #444) repeat scroll 0 0 transparent
+      background: linear-gradient(top, #000 70%, #444) repeat scroll 0 0 transparent
       color: #aaa;
       padding: 6px 10px 6px 28px
     &.class
