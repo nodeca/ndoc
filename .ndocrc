@@ -3,4 +3,4 @@
 --gh-ribbon   "@package.homepage"
 --output      "doc"
 --render      "html"
---link-format "{package.homepage}/blob/master/{file}#L{line}"
+--link-format "{@package.homepage}/blob/master/{file}#L{line}"

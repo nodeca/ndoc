@@ -12,7 +12,6 @@ REMOTE_REPO ?= $(shell git config --get remote.${REMOTE_NAME}.url)
 
 CURR_HEAD   := $(firstword $(shell git show-ref --hash HEAD | cut -b -6) master)
 GITHUB_PROJ := nodeca/${NPM_PACKAGE}
-SRC_URL_FMT := https://github.com/${GITHUB_PROJ}/blob/${CURR_HEAD}/{file}\#L{line}
 
 
 help:
@@ -98,7 +97,7 @@ doc: lib
 		--exclude './lib/ndoc/plugins/renderers/html/assets/**' \
 		--exclude './lib/ndoc/plugins/renderers/html/vendors/**' \
 		--exclude './lib/ndoc/plugins/parsers/ndoc/parser.js' \
-		--link-format "${SRC_URL_FMT}"
+		--link-format "{@package.homepage}/blob/${CURR_HEAD}/{file}\#L{line}"
 
 test-prototype:
 	rm -fr ./tests/prototype-doc
