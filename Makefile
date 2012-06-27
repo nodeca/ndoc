@@ -94,14 +94,14 @@ playground: $(DOCS)
 doc: lib
 	rm -fr doc
 	$(ROOT)/bin/ndoc lib \
-		--exclude './lib/ndoc/plugins/renderers/html/assets/**' \
-		--exclude './lib/ndoc/plugins/renderers/html/vendors/**' \
-		--exclude './lib/ndoc/plugins/parsers/ndoc/parser.js' \
-		--link-format "{@package.homepage}/blob/${CURR_HEAD}/{file}\#L{line}"
+		--exclude 'lib/ndoc/plugins/renderers/html/assets/**' \
+		--exclude 'lib/ndoc/plugins/renderers/html/vendors/**' \
+		--exclude 'lib/ndoc/plugins/parsers/ndoc/parser.js' \
+		--link-format "{@package.homepage}/blob/${CURR_HEAD}/{file}#L{line}"
 
 test-prototype:
 	rm -fr ./tests/prototype-doc
-	$(ROOT)/bin/ndoc -o ./tests/prototype-doc --broken-links show \
+	$(ROOT)/bin/ndoc --noenv -o ./tests/prototype-doc --broken-links show \
 		--index ./tests/prototype/README.markdown \
 		--link-format 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' \
 		--title "Prototype v1.7" \
@@ -109,7 +109,7 @@ test-prototype:
 
 test-features:
 	rm -fr ./tests/features-doc
-	$(ROOT)/bin/ndoc -o ./tests/features-doc --broken-links show -t "NDoc new features" \
+	$(ROOT)/bin/ndoc --noenv -o ./tests/features-doc --broken-links show -t "NDoc new features" \
 		--gh-ribbon @package.homepage ./tests/features
 
 test: lint test-prototype test-features
