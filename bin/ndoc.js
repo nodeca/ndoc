@@ -17,7 +17,8 @@ var ArgumentParser  = require('argparse').ArgumentParser;
 
 
 // internal
-var NDoc = require('..');
+var NDoc        = require('..');
+var interpolate = require('../lib/ndoc/common').interpolate;
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -58,7 +59,7 @@ NDoc.cli.addArgument(['--noenv'], {
 if (-1 === process.argv.indexOf('--noenv')) {
   if (fs.existsSync('./.ndocrc')) {
     var rcflags = shellwords(fs.readFileSync('./.ndocrc', 'utf8'));
-    process.argv = process.argv.concat(rcflags);
+    [].splice.apply(process.argv, [2, 0].concat(rcflags));
   }
 }
 
@@ -89,11 +90,6 @@ NDoc.cli.parseKnownArgs().shift().use.forEach(function (pathname) {
 
 var opts = NDoc.cli.parseArgs();
 
-
-function interpolate(string, file, line) {
-  return string.replace(/\{file\}/g, file).replace(/\{line\}/g, line);
-}
-
 //
 // collect sources
 //
@@ -110,8 +106,12 @@ NDoc.cli.findFiles(opts.paths, opts.exclude, function (err, files) {
     // given package URL, file name and line in the file, format link to source file.
     // do so only if `packageUrl` is set or `linkFormat` is set
     formatLink: (opts.linkFormat || opts.package.url) && function (file, line) {
+      var link;
+
       // '\' -> '/' for windows
-      return interpolate(opts.linkFormat, file.replace(/\\/g, '/'), line);
+      file = file.replace(/\\/g, '/');
+      link = opts.linkFormat.replace(/\{file\}/g, file).replace(/\{line\}/g, line);
+      return interpolate(link, opts);
     }
   };
 
