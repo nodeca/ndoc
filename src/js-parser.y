@@ -26,6 +26,7 @@ notdef  (?!"class"|"mixin"|"new"|"=="|[$_a-zA-Z][$_a-zA-Z0-9.#]*\s*(?:$|[(=]|"->
 <tags>"#"                   return '#'
 <tags>"."                   return '.'
 <tags>\s+                   /* skip whitespaces */
+<tags>[0-9]+(?:\.[0-9]+)*\b return 'VERSION'
 <tags>{int}{frac}?{exp}?\b  return 'NUMBER'
 <tags>"deprecated"          return 'DEPRECATED'
 <tags>"read-only"           return 'READONLY'
@@ -151,8 +152,8 @@ tag_list
 tag
 
   : DEPRECATED { $$ = {deprecated: true} }
-  | DEPRECATED ':' NUMBER { $$ = {deprecated: {from: $3}} }
-  | DEPRECATED ':' NUMBER '..' NUMBER { $$ = {deprecated: {from: $3, off: $5}} }
+  | DEPRECATED ':' VERSION { $$ = {deprecated: {from: $3}} }
+  | DEPRECATED ':' VERSION '..' VERSION { $$ = {deprecated: {from: $3, off: $5}} }
   | READONLY { $$ = {readonly: true} }
   | INTERNAL { $$ = {internal: true} }
   | CHAINABLE { $$ = {chainable: true} }
