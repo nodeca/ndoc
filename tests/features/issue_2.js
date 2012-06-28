@@ -1,7 +1,7 @@
 /**
  *  Issue_2
  *
- *  ##### long <code> lines splitted in Chrome/Opera after highlight
+ *  ##### long &lt;code&gt; lines splitted in Chrome/Opera after highlight
  *
  *  Long lines in code blocks are splitted, no horizontal scroll appears. Any
  *  ideas how to fix?
