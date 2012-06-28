@@ -83,9 +83,9 @@ Then open `./tests/prototype-doc/index.html`. Here is [hosted doc example](http:
 
 #### Custom parsers and renderers
 
-You can create and use your own parser/renderer via `use` option. Get one of the
-[parsers][parsers] or [renderers][renderers] as a base template, copy it into
-separate folder, create package.json, modify it to fit your needs, and then
+You can create and use your own parser/renderer via `--use` option. Get one of
+the [parsers][parsers] or [renderers][renderers] as a base template, copy it
+into separate folder. Create package.json and modify it to fit your needs. Then
 attach it with `--use my-module` argument.
 
 [parsers]: https://github.com/nodeca/ndoc/blob/master/lib/ndoc/plugins/parsers
