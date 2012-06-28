@@ -66,7 +66,33 @@ If not - try [nvm](https://github.com/creationix/nvm). Then install NDoc globall
       --noenv                         Ignore .ndocrc
 
 
-## Using NDoc as module
+## Syntax
+
+[NDoc Syntax](https://github.com/nodeca/ndoc/blob/master/syntax.md).
+It is similar to [PDoc](https://github.com/tobie/pdoc) one, with some extentions (see start of this doc for details).
+
+
+## For developers
+
+You can generate prototype documentation for test:
+
+    make test
+
+Then open `./tests/prototype-doc/index.html`. Here is [hosted doc example](http://nodeca.github.com/ndoc/tests/prototype/).
+
+
+#### Custom parsers and renderers
+
+You can create and use your own parser/renderer via `use` option. Get one of the
+[parsers][parsers] or [renderers][renderers] as a base template, copy it into
+separate folder, create package.json, modify it to fit your needs, and then
+attach it with `--use my-module` argument.
+
+[parsers]: https://github.com/nodeca/ndoc/blob/master/lib/ndoc/plugins/parsers
+[renderers]: https://github.com/nodeca/ndoc/blob/master/lib/ndoc/plugins/renderers
+
+
+#### Using NDoc as module
 
 You can use NDoc as module, for example, to override default options processing.
 
@@ -94,31 +120,6 @@ NDoc.parse(['lib/my-module.js'], options, function (err, ast) {
   });
 });
 ```
-
-
-## Syntax
-
-[NDoc Syntax](https://github.com/nodeca/ndoc/blob/master/syntax.md).
-It is similar to [PDoc](https://github.com/tobie/pdoc) one, with some extentions (see start of this doc for details).
-
-
-## For developers
-
-You can generate prototype documentation for test:
-
-    make test
-
-Then open `./tests/prototype-doc/index.html`. Here is [hosted doc example](http://nodeca.github.com/ndoc/tests/prototype/).
-
-
-#### Custom parsers and renderers
-
-You can add your own parser/renderer and include it via `NDoc.use()` method (or
-`--use MODULE` argument in command line. See built-in [parsers][parsers] and
-[renderers][renderers] for examples.
-
-[parsers]: https://github.com/nodeca/ndoc/blob/master/lib/ndoc/plugins/parsers
-[renderers]: https://github.com/nodeca/ndoc/blob/master/lib/ndoc/plugins/renderers
 
 
 ## License
