@@ -152,8 +152,8 @@ tag_list
 tag
 
   : DEPRECATED { $$ = {deprecated: true} }
-  | DEPRECATED ':' VERSION { $$ = {deprecated: {from: $3}} }
-  | DEPRECATED ':' VERSION '..' VERSION { $$ = {deprecated: {from: $3, off: $5}} }
+  | DEPRECATED ':' VERSION { $$ = {deprecated: {since: $3}} }
+  | DEPRECATED ':' VERSION '..' VERSION { $$ = {deprecated: {since: $3, off: $5}} }
   | READONLY { $$ = {readonly: true} }
   | INTERNAL { $$ = {internal: true} }
   | CHAINABLE { $$ = {chainable: true} }
