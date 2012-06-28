@@ -97,7 +97,7 @@ doc: lib
 		--exclude 'lib/ndoc/plugins/renderers/html/assets/**' \
 		--exclude 'lib/ndoc/plugins/renderers/html/vendors/**' \
 		--exclude 'lib/ndoc/plugins/parsers/ndoc/parser.js' \
-		--link-format "{@package.homepage}/blob/${CURR_HEAD}/{file}#L{line}"
+		--link-format "{package.homepage}/blob/${CURR_HEAD}/{file}#L{line}"
 
 test-prototype:
 	rm -fr ./tests/prototype-doc
@@ -110,7 +110,7 @@ test-prototype:
 test-features:
 	rm -fr ./tests/features-doc
 	$(ROOT)/bin/ndoc --noenv -o ./tests/features-doc --broken-links show -t "NDoc new features" \
-		--gh-ribbon @package.homepage ./tests/features
+		--gh-ribbon '{package.homepage}' ./tests/features
 
 test: lint test-prototype test-features
 
