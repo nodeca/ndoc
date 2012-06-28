@@ -75,12 +75,11 @@ mixin title(obj, parents)
       span.type #{obj.type}
       if obj.type === 'section'
         span.name #{obj.name} section
-      if obj.id_prefix
-        span.name
-          span.name_prefix #{obj.id_prefix}
-          | #{obj.id_suffix}
       else
-        span.name #{obj.id}
+        span.name
+          if obj.name_prefix
+            span.name_prefix #{obj.name_prefix}
+          | #{obj.name}
 
     if obj.href
       .source
