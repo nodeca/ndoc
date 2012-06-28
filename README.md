@@ -23,43 +23,68 @@ If not - try [nvm](https://github.com/creationix/nvm). Then install NDoc globall
 
 ## Usage
 
-    ndoc [options] <path>...
+    usage: ndoc [-h] [-v] [--exclude PATTERN] [--output PATH] [--use PLUGIN]
+                [--render RENDERER] [--link-format FORMAT] [--template TEMPLATE]
+                [--show-all] [--package PACKAGE] [--index FILE] [--gh-ribbon URL]
+                [--broken-links ACTION] [--noenv]
+                PATH [PATH ...]
 
-    path PATH                   Source files location
+    Positional arguments:
+      PATH                    Source files location
 
-    Options:
+    Optional arguments:
+      -h, --help              Show this help message and exit.
+      -v, --version           Show program's version number and exit.
+      --exclude PATTERN       Pathnames to exclude. Pathnames might be absolute
+                              or relative and might have wildcards:
+                                - `*` Matches single directory or file:
+                                  /foo/* matches /foo/bar but not /foo/bar/baz
+                                - `**` Matches files and directries recursively:
+                                  /foo** matches /foo/bar, /foo/bar/baz, etc.
+                                - `?` Matches exactly one non-slash character
+      --output PATH           Resulting file(s) location
+      --use PLUGIN            Use custom plugin
+      --render RENDERER       Documentation renderer
+      --link-format FORMAT    Format for link to source file. This can
+                              have "special" variables:
+                                - {file} - Current file
+                                - {line} - Current line
+                                - {package.*} - Any package.json variable
+      --title TEMPLATE        Documentation title template. You can use any
+                              of `{package.*}` variables for interpolation,
+                              e.g.: `My App {package.version}`
+      --show-all              By default `internal` methods/properties are
+                              not shown. This trigger makes ndoc show all
+                              methods/properties
+      --package PACKAGE       Read specified package.json FILE. Read
+                              `package.json` in current folder, if found,
+                              by default.
+      --index FILE            Index file
+      --gh-ribbon URL         Add "Fork me on GitHub" ribbon with given URL.
+                              You can use `{package.*}` variables here.
+      --broken-links ACTION   What to do if broken link occurred
+      --noenv                 Ignore .ndocrc
 
-      -h, --help                Output usage information
-      -o, --output PATH         Resulting file(s) location [doc]
-      -e, --extension STRING    Source files extension [js]
-      -p, --parser <ndoc>       Documentation parser [ndoc]
-      -r, --render <html|json>  Documentation rendering format [html]
-      -i, --index PATH          Index file [README.md]
-      -t, --title TITLE         Documentation title
-                                Supports interpolation. See notes for --link-format.
-      -l, --link-format         FMT String format for link to source file [{file}#L{line}]
-                                {url} is substituted with the URL of repository read from manifest file
-                                {file} is substituted with the name of the source file
-                                {line} is substituted with the line number within the source file
-                                E.g. http://github.com/nodeca/ndoc/{file}#L{line}
-                                {package.XXX} is substituted with XXX key of package.json, if any
-      --view-source-label TXT   Text for "View source" link
-      --skin PATH               Custom templates
-      -b, --broken-links ACTION What to do if broken link occured. Can be one of 'show', 'hide', 'throw'.
-                                Default is 'hide'
 
-NDoc uses data from `package.json` in current folder, if found one. This helps to minimize number of options when building documentation for node.js projects. For example, you can just run:
-
-    ndoc ./lib
-
-
-## API
+## API Usage
 
 ``` javascript
-NDoc.parse('ndoc', ['lib/my-module.js'], {}, function (err, ast) {
-  // ...
-  NDoc.render('html', ast, {}, function (err) {
-    // ...
+var options = {
+  linkFormat  : 'http://example.com/{file}#{line}',
+  output:     : 'doc'
+};
+
+NDoc.parse(['lib/my-module.js'], options, function (err, ast) {
+  if (err) {
+    console.error(err);
+    process.exit(1);
+  }
+
+  NDoc.render('html', ast, options, function (err) {
+    if (err) {
+      console.error(err);
+      process.exit(1);
+    }
   });
 });
 ```
