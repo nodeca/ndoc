@@ -23,56 +23,62 @@ If not - try [nvm](https://github.com/creationix/nvm). Then install NDoc globall
 
 ## Usage
 
-    usage: ndoc [-h] [-v] [--exclude PATTERN] [--output PATH] [--use PLUGIN]
-                [--render RENDERER] [--link-format FORMAT] [--template TEMPLATE]
-                [--show-all] [--package PACKAGE] [--index FILE] [--gh-ribbon URL]
+    usage: ndoc [-h] [-v] [--exclude PATTERN] [-o PATH] [--use PLUGIN]
+                [-r RENDERER] [--link-format FORMAT] [-t TEMPLATE] [--show-all]
+                [--package PACKAGE] [--index FILE] [--gh-ribbon URL]
                 [--broken-links ACTION] [--noenv]
-                PATH [PATH ...]
+                PATH[PATH ...]
 
     Positional arguments:
-      PATH                    Source files location
+      PATH                            Source files location
 
     Optional arguments:
-      -h, --help              Show this help message and exit.
-      -v, --version           Show program's version number and exit.
-      --exclude PATTERN       Pathnames to exclude. Pathnames might be absolute
-                              or relative and might have wildcards:
-                                - `*` Matches single directory or file:
-                                  /foo/* matches /foo/bar but not /foo/bar/baz
-                                - `**` Matches files and directries recursively:
-                                  /foo** matches /foo/bar, /foo/bar/baz, etc.
-                                - `?` Matches exactly one non-slash character
-      --output PATH           Resulting file(s) location
-      --use PLUGIN            Use custom plugin
-      --render RENDERER       Documentation renderer
-      --link-format FORMAT    Format for link to source file. This can
-                              have "special" variables:
-                                - {file} - Current file
-                                - {line} - Current line
-                                - {package.*} - Any package.json variable
-      --title TEMPLATE        Documentation title template. You can use any
-                              of `{package.*}` variables for interpolation,
-                              e.g.: `My App {package.version}`
-      --show-all              By default `internal` methods/properties are
-                              not shown. This trigger makes ndoc show all
-                              methods/properties
-      --package PACKAGE       Read specified package.json FILE. Read
-                              `package.json` in current folder, if found,
-                              by default.
-      --index FILE            Index file
-      --gh-ribbon URL         Add "Fork me on GitHub" ribbon with given URL.
-                              You can use `{package.*}` variables here.
-      --broken-links ACTION   What to do if broken link occurred
-      --noenv                 Ignore .ndocrc
+      -h, --help                      Show this help message and exit.
+      -v, --version                   Show program's version number and exit.
+      --exclude PATTERN               Pathnames to exclude. Pathnames might be 
+                                      absolute or relative and might have 
+                                      wildcards: - `*` Matches single directory 
+                                      or file: /foo/* matches /foo/bar but not 
+                                      /foo/bar/baz - `**` Matches files and 
+                                      directries recursively: /foo** matches 
+                                      /foo/bar, /foo/bar/baz, etc. - `?` Matches 
+                                      exactly one non-slash character
+      -o PATH, --output PATH          Resulting file(s) location
+      --use PLUGIN                    Use custom plugin
+      -r RENDERER, --render RENDERER  Documentation renderer
+      --link-format FORMAT            Format for link to source file. This can 
+                                      have variables: - {file} - Current file - 
+                                      {line} - Current line - {package.*} - Any 
+                                      package.json variable
+      -t TEMPLATE, --title TEMPLATE   Documentation title template. You can use 
+                                      any of `{package.*}` variables for 
+                                      interpolation, e.g.: `My App {package.
+                                      version}`
+      --show-all                      By default `internal` methods/properties 
+                                      are not shown. This trigger makes ndoc show 
+                                      all methods/properties
+      --package PACKAGE               Read specified package.json FILE.
+      --index FILE                    Index file
+      --gh-ribbon URL                 Add "Fork me on GitHub" ribbon with given 
+                                      URL. You can use `{package.*}` variables 
+                                      here.
+      --broken-links ACTION           What to do if broken link occurred
+      --noenv                         Ignore .ndocrc
 
 
-## API Usage
+## Using NDoc as module
+
+You can use NDoc as module, for example, to override default options processing.
 
 ``` javascript
+var NDoc = require('ndoc');
+
+
 var options = {
   linkFormat  : 'http://example.com/{file}#{line}',
   output:     : 'doc'
 };
+
 
 NDoc.parse(['lib/my-module.js'], options, function (err, ast) {
   if (err) {
@@ -98,18 +104,21 @@ It is similar to [PDoc](https://github.com/tobie/pdoc) one, with some extentions
 
 ## For developers
 
-If you like to make patches or develop skins - install NDoc in developer mode:
-
-    git clone [your_fork_url]
-    cd ndoc
-    npm install --dev
-
-After installation is done you can generate prototype documentation for test:
+You can generate prototype documentation for test:
 
     make test
 
-Then open `./tests/prototype-doc/index.html`. Here is [hosted doc example](http://nodeca.github.com/ndoc/tests/prototype/). There are also some shortcuts in [Makefile](https://github.com/nodeca/ndoc/blob/master/Makefile),
-if you make skin changes and need to constantly rebuild samples.
+Then open `./tests/prototype-doc/index.html`. Here is [hosted doc example](http://nodeca.github.com/ndoc/tests/prototype/).
+
+
+#### Custom parsers and renderers
+
+You can add your own parser/renderer and include it via `NDoc.use()` method (or
+`--use MODULE` argument in command line. See built-in [parsers][parsers] and
+[renderers][renderers] for examples.
+
+[parsers]: https://github.com/nodeca/ndoc/blob/master/lib/ndoc/plugins/parsers
+[renderers]: https://github.com/nodeca/ndoc/blob/master/lib/ndoc/plugins/renderers
 
 
 ## License
