@@ -1,4 +1,5 @@
 ROOT        := $(shell pwd)
+
 PATH        := ${ROOT}/node_modules/.bin:${PATH}
 
 NPM_PACKAGE := $(shell node -e 'process.stdout.write(require("./package.json").name)')
@@ -57,20 +58,19 @@ publish:
 	npm publish https://github.com/${GITHUB_PROJ}/tarball/${NPM_VERSION}
 
 
-lib: lib/ndoc/plugins/parsers/ndoc/parser.js
-lib/ndoc/plugins/parsers/ndoc/parser.js:
+lib: lib/ndoc/plugins/parsers/javascript/parser.js
+lib/ndoc/plugins/parsers/javascript/parser.js:
 	@if test ! `which jison` ; then \
 		echo "You need 'jison' installed in order to compile parsers." >&2 ; \
 		echo "  $ make dev-deps" >&2 ; \
 		exit 128 ; \
 		fi
-	jison src/ndoc-parser.y && mv ndoc-parser.js lib/ndoc/plugins/parsers/ndoc/parser.js
+	jison src/js-parser.y && mv js-parser.js lib/ndoc/plugins/parsers/javascript/parser.js
 
 
-compile-parsers:
-	mkdir -p lib/ndoc/parsers/
-	rm -f lib/ndoc/parsers/javascript.js
-	$(MAKE) lib/ndoc/parsers/javascript.js
+recompile-parsers:
+	rm -f lib/ndoc/plugins/parsers/javascript/parser.js
+	$(MAKE) lib
 
 
 todo:
@@ -96,7 +96,7 @@ doc: lib
 	$(ROOT)/bin/ndoc lib \
 		--exclude 'lib/ndoc/plugins/renderers/html/assets/**' \
 		--exclude 'lib/ndoc/plugins/renderers/html/vendors/**' \
-		--exclude 'lib/ndoc/plugins/parsers/ndoc/parser.js' \
+		--exclude 'lib/ndoc/plugins/parsers/javascript/parser.js' \
 		--link-format "{package.homepage}/blob/${CURR_HEAD}/{file}#L{line}"
 
 test-prototype:
