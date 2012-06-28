@@ -106,6 +106,7 @@ var options = NDoc.cli.parseArgs();
 //
 
 options.title = template(options.title || '', {'package': options.package});
+options.index = options.index || '';
 
 //
 // collect sources, parse into ast, render
