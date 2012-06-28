@@ -12,12 +12,14 @@ var exec = require('child_process').exec;
 
 // 3rd-party
 var _               = require('underscore');
+var async           = require('async');
 var FsTools         = require('fs-tools');
 var ArgumentParser  = require('argparse').ArgumentParser;
 
 
 // internal
-var NDoc = require('..');
+var NDoc      = require('..');
+var template  = require('../lib/ndoc/common').template;
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -43,6 +45,16 @@ function shellwords(line) {
   }
 
   return words;
+}
+
+
+function exit(err) {
+    if (err) {
+      console.error(err.message || err);
+      process.exit(1);
+    }
+
+    process.exit(0);
 }
 
 
@@ -76,8 +88,7 @@ NDoc.cli.parseKnownArgs().shift().use.forEach(function (pathname) {
   try {
     NDoc.use(require(pathname));
   } catch (err) {
-    console.error('Failed add renderer: ' + pathname + '\n\n' + err.toString());
-    process.exit(1);
+    exit('Failed add renderer: ' + pathname + '\n\n' + err.toString());
   }
 });
 
@@ -87,29 +98,27 @@ NDoc.cli.parseKnownArgs().shift().use.forEach(function (pathname) {
 //
 
 
-var opts = NDoc.cli.parseArgs();
+var options = NDoc.cli.parseArgs();
+
 
 //
-// collect sources
+// Post-process some of the options
 //
 
-NDoc.cli.findFiles(opts.paths, opts.exclude, function (err, files) {
-  if (err) {
-    console.error(err.message || err);
-    process.exit(1);
+options.title = template(options.title || '', {'@package': options.package});
+
+//
+// collect sources, parse into ast, render
+//
+
+async.waterfall([
+  function collect_files(next) {
+    NDoc.cli.findFiles(options.paths, options.exclude, next);
+  },
+  function parse_files(files, next) {
+    NDoc.parse(files, options, next);
+  },
+  function render_ast(ast, next) {
+    NDoc.render(options.renderer, ast, options, next);
   }
-
-  NDoc.parse(files, opts, function (err, ast) {
-    if (err) {
-      console.error(err.message || err);
-      process.exit(1);
-    }
-
-    NDoc.render(opts.renderer, ast, opts, function (err) {
-      if (err) {
-        console.error(err.message || err);
-        process.exit(1);
-      }
-    });
-  });
-});
+], exit);
