@@ -17,8 +17,7 @@ var ArgumentParser  = require('argparse').ArgumentParser;
 
 
 // internal
-var NDoc        = require('..');
-var interpolate = require('../lib/ndoc/common').interpolate;
+var NDoc = require('..');
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -95,27 +94,12 @@ var opts = NDoc.cli.parseArgs();
 //
 
 NDoc.cli.findFiles(opts.paths, opts.exclude, function (err, files) {
-  var parser_options;
-
   if (err) {
     console.error(err.message || err);
     process.exit(1);
   }
 
-  parser_options = {
-    // given package URL, file name and line in the file, format link to source file.
-    // do so only if `packageUrl` is set or `linkFormat` is set
-    formatLink: (opts.linkFormat || opts.package.url) && function (file, line) {
-      var link;
-
-      // '\' -> '/' for windows
-      file = file.replace(/\\/g, '/');
-      link = opts.linkFormat.replace(/\{file\}/g, file).replace(/\{line\}/g, line);
-      return interpolate(link, opts);
-    }
-  };
-
-  NDoc.parse(files, parser_options, function (err, ast) {
+  NDoc.parse(files, opts, function (err, ast) {
     if (err) {
       console.error(err.message || err);
       process.exit(1);
