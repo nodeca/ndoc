@@ -1261,7 +1261,7 @@
     stopObserving: stopObserving.methodize(),
     
     /**
-     *  Element.on(@element, eventName[, selector], callback) -> Event.Handler
+     *  document.on(@element, eventName[, selector], callback) -> Event.Handler
      *  
      *  See [[Event.on]].
     **/

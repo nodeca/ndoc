@@ -118,7 +118,7 @@ world
     x.line = ($5.line + 1);
     // register
     if ($$[x.id]) {
-      console.error('name clash: ' + x.id);
+      throw new Error('name clash: ' + x.id);
     }
     $$[x.id] = x;
     // FIXME: remove once tree is build ok
