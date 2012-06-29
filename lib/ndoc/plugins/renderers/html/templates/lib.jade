@@ -305,9 +305,9 @@ mixin link(obj, short, classes)
 
 
 
-mixin markdown(text, inline)
-  html = markdown(text, inline)
-  != html
+mixin markdown(text)
+  html_raw = markdown(text)
+  != html_raw
 
 
 
