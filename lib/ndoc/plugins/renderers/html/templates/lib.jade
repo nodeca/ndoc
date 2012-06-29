@@ -53,7 +53,7 @@ mixin argument(arg)
               li.argument-type= type
       if arg.description
         li.argument-description
-          mixin markdown(arg.description)
+          mixin markdown(arg.description, true)
 
 
 mixin title(obj, parents)
@@ -296,7 +296,7 @@ mixin short_description_list(collection)
         h4
           mixin link(obj)
         if obj.short_description
-          mixin markdown(obj.short_description)
+          mixin markdown(obj.short_description, true)
 
 
 
@@ -305,8 +305,8 @@ mixin link(obj, short, classes)
 
 
 
-mixin markdown(text)
-  html_raw = markdown(text)
+mixin markdown(text, no_highlight)
+  html_raw = markdown(text, no_highlight)
   != html_raw
 
 
