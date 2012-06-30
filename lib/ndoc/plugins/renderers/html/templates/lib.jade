@@ -1,117 +1,15 @@
-mixin search()
-  form#search
-    input(type='search', size='20', title='Search', placeholder='Search')
-  ul#search-results.menu
-
-mixin menu()
-  ul.menu
-    for obj in tree.children
-      if (showInternals || !obj.internal)
-        mixin menu_item(obj, 0)
-
-mixin menu_item(obj, level, parent)
-  if typeof obj === 'string'
-    obj = list[obj]
-
-  composite = (obj.type === 'section' || obj.type === 'utility' || obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin')
-  hidden = !( level <= 1 || composite )
-  //-li(class=hidden ? 'hidden' : '')
-  li
-    .menu-item
-      short = level === 0 || parent.type === 'section' || !composite
-      mixin link(obj, short, [obj.type.replace(/ /g, '-'), obj.deprecated && 'deprecated', obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(function(x){return !!x;}))
-    if obj.children.length
-      ul(class=hidden ? 'hidden' : '')
-        for child in obj.children.filter(function(x){return x.type === 'utility'})
-          mixin menu_item(child, level + 1, obj)
-        for child in obj.children.filter(function(x){return x.type === 'constructor'})
-          mixin menu_item(child, level + 1, obj)
-        for child in obj.children.filter(function(x){return x.type === 'namespace' || x.type === 'class' || x.type === 'mixin'})
-          mixin menu_item(child, level + 1, obj)
-        for child in obj.children.filter(function(x){return x.type === 'event'})
-          mixin menu_item(child, level + 1, obj)
-        for child in obj.children.filter(function(x){return x.type === 'class method'})
-          mixin menu_item(child, level + 1, obj)
-        for child in obj.children.filter(function(x){return x.type === 'class property'})
-          mixin menu_item(child, level + 1, obj)
-        for child in obj.children.filter(function(x){return x.type === 'instance method'})
-          mixin menu_item(child, level + 1, obj)
-        for child in obj.children.filter(function(x){return x.type === 'instance property'})
-          mixin menu_item(child, level + 1, obj)
-        for child in obj.children.filter(function(x){return x.type === 'constant'})
-          mixin menu_item(child, level + 1, obj)
-
-
-mixin argument(arg)
-  li.argument
-    ul.argument-details
-      li.argument-name= arg.name
-      if arg.types
-        li.argument-types
-          ul
-            for type, i in arg.types
-              li.argument-type= type
-      if arg.description
-        li.argument-description
-          mixin markdown(arg.description, true)
-
-
-mixin title(obj, parents)
-  header
-
-    //- breadcrumbs
-
-    ul.breadcrumbs
-      li
-        a(href='#home') Home
-      for crumb in parents
-        if crumb.id
-          li
-            mixin link(crumb, true)
-      li
-        mixin link(obj, true)
-
-    h2
-      span.type #{obj.type}
-      if obj.type === 'section'
-        span.name #{obj.name} section
-      else
-        span.name
-          if obj.name_prefix
-            span.name_prefix #{obj.name_prefix}
-          | #{obj.name}
-
-    if obj.href
-      .source
-        a(href=obj.href) View source
-
-
+//
+// Single document
+/////////////////////////////////////////
 
 mixin article(obj, parents)
   if typeof obj === 'string'
     obj = list[obj]
 
   title = obj.id + (obj.type ? ' (' + obj.type + ')' : '')
-  article.article(id=obj.path, data-title=title)
+  article.docblock(id=obj.path, data-title=title)
 
-    mixin title(obj, parents)
-
-    if obj.readonly || obj.chainable || obj.internal
-      .labels
-        if obj.readonly
-          span.read-only read-only
-        if obj.chainable
-          span.chainable chainable
-        if obj.internal
-          span.internal internal
-
-    if obj.deprecated
-      .deprecated-note
-        | Deprecated
-        if obj.deprecated.since
-          | &nbsp;since #{obj.deprecated.since}
-          if obj.deprecated.off
-            | &nbsp;and will be removed on #{obj.deprecated.off}
+    include _doc_header.jade 
 
     if obj.type === 'section' || obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
 
@@ -194,34 +92,10 @@ mixin article(obj, parents)
 
       .section.method
         .content
-          if obj.signatures
-            ul.signatures
-              for sig in obj.signatures
-                li.signature
-                  ul
-                    li.signature-call
-                      = signature(obj, sig)
-                    if sig.returns
-                      li.signature-returns
-                        ul.argument-types
-                          for ret in sig.returns
-                            //- N.B: type can be array. E.g. [ Element... ]
-                            //- N.B: type can be array. E.g. [ Element1, Element2 ]
-                            text = ''
-                            if (typeof ret.type !== 'string')
-                              - text = ret.type.map(function(r){ return link(r || '?', true, ['link-short']);}).join(', ');
-                            else
-                              text = link(ret.type || '?', true, ['link-short'])
-                            if ret.ellipsis
-                              text = text + '...'
-                            if ret.array
-                              text = '[ ' + text + ' ]'
-                            li.argument-type!= text
 
-          if obj.arguments
-            ul.argument-list
-              for arg in obj.arguments
-                mixin argument(arg)
+          include _signatures.jade
+
+          include _arguments.jade
 
           mixin markdown(obj.description)
 
@@ -306,8 +180,7 @@ mixin link(obj, short, classes)
 
 
 mixin markdown(text, no_highlight)
-  html_raw = markdown(text, no_highlight)
-  != html_raw
+  != markdown(text, no_highlight)
 
 
 

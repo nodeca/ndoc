@@ -1,0 +1,91 @@
+.menu
+  padding: 0
+  margin: 0
+  list-style: none
+  top: 45px
+  bottom: 0
+  position: absolute
+  overflow-x: hidden
+  overflow-y: auto
+  width: 240px
+
+  a
+    border 0
+    padding 3px 10px 3px 28px
+    background-position 6px 50%
+    background-repeat no-repeat
+    display block
+    transition all .3s ease
+
+    color: #333333
+    display: block
+    text-align: left
+    text-decoration: none
+    white-space: nowrap
+
+    // States
+    &.deprecated
+      opacity 0.5
+    &.current
+      background-color: #ddd
+    &.current-parent
+      background-color: #eee
+
+    &:hover
+      background-color: #ccc
+
+    // Section - special case
+    &.section
+      background-color: #000
+      background: linear-gradient(top, #000 70%, #444) repeat scroll 0 0 transparent
+      color: #aaa;
+      padding: 6px 10px 6px 28px
+
+    // Icons
+    &.class
+      background-image: url(asset_data_uri("class.png"))
+    &.class-method
+      background-image: url(asset_data_uri("class_method.png"))
+    &.class-property
+      background-image: url(asset_data_uri("class_property.png"))
+    &.constant
+      background-image: url(asset_data_uri("constant.png"))
+    &.constructor
+      background-image: url(asset_data_uri("constructor.png"))
+    &.event
+      background-image: url(asset_data_uri("event.png"))
+    &.instance-method
+      background-image: url(asset_data_uri("instance_method.png"))
+    &.instance-property
+      background-image: url(asset_data_uri("instance_property.png"))
+    &.method
+      background-image: url(asset_data_uri("method.png"))
+    &.mixin
+      background-image: url(asset_data_uri("mixin.png"))
+    &.namespace
+      background-image: url(asset_data_uri("namespace.png"))
+    &.property
+      background-image: url(asset_data_uri("property.png"))
+    &.utility
+      background-image: url(asset_data_uri("utility.png"))
+
+  // offsets for nested blocks
+  ul
+    padding 0
+    margin 0
+    list-style none
+    a
+      padding-left: 38px
+      background-position: 16px 50%
+    ul
+      a
+        padding-left: 48px
+        background-position: 26px 50%
+      ul
+        a
+          padding-left: 58px
+          background-position: 36px 50%
+        ul
+          a
+            padding-left: 68px
+            background-position: 46px 50%
