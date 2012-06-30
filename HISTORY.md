@@ -1,15 +1,15 @@
 2.0.0 / In progress...
 ----------------------
 
-* Update Node API for 0.8 compatibility with shims for Node 0.6.
-* Recognition of events with deep objets. Closes #45. Thanks to Sannis.
-* Allow dots and semicolumns in event names. Closes #46. Thanks to Sannis.
-* Add github ribbon (optional) to html renderer. Closes #5.
-* Search in HTML renderer is now case-insensitive.
-* Support multiple folders/files.
-* Replace nomnom with argparse
-* Update all dependencies
-* Grand refactoring
+* Multiple bugfixes (see ussue tracker).
+* Internal methods are now skipped by default.
+* Bundled mode (all doc in single file), layout/styles cleanup.
+* Reorganized options (see new help).
+* Options can be loaded from file now.
+* Ability to add github ribbon.
+* Multiple folders/files support.
+* Grand refactoring.
+
 
 1.0.7 / 2012-02-09
 ------------------
@@ -17,11 +17,13 @@
 * Improve error reporting.
 * Partial code cleanup.
 
+
 1.0.6 / 2012-02-05
 ------------------
 
 * Fixed links to sources for windows (forced '\' to '/'). Closes #37.
   Thanks to Sascha Drews (perfusorius).
+
 
 1.0.5 / 2012-01-04
 ------------------
