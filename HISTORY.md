@@ -1,14 +1,15 @@
 2.0.0 / In progress...
 ----------------------
 
-* Multiple bugfixes (see ussue tracker).
 * Internal methods are now skipped by default.
+* Stop on collisions, instead of warning
 * Bundled mode (all doc in single file), layout/styles cleanup.
 * Reorganized options (see new help).
 * Options can be loaded from file now.
 * Ability to add github ribbon.
 * Multiple folders/files support.
 * Grand refactoring.
+* Multiple bugfixes (see ussue tracker).
 
 
 1.0.7 / 2012-02-09
