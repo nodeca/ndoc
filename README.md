@@ -1,22 +1,24 @@
 # NDoc - JavaScript documentation generator
 [![Build Status](https://secure.travis-ci.org/nodeca/ndoc.png)](http://travis-ci.org/nodeca/ndoc)
 
-NDoc is an inline comment parser and JavaScript documentation generator written in node.js.
-This project is inspired by [PDoc](http://pdoc.org/syntax.html). It tries to keep compatibility,
-but has some differences:
+NDoc is an inline comment parser and JavaScript documentation generator written
+in Node.JS. This project was inspired by [PDoc](http://pdoc.org/syntax.html).
+It tries to keep compatibility, but has some differences:
 
-- NDoc is a CLI tool, not library. It doesn't require additional programming to execute.
-- Clarified EBNF syntax. Definitions now **MUST** be separated with an empty line from the following comments.
-- Added options for `deprecated` tag: you can set versions, when tag was deprecated and
-  when it will be removed.
+- NDoc is primarily a CLI tool, so you don't need to code your documentor,
+  although it can be easily used as [library](#using-ndoc-as-module).
+- Clarified EBNF syntax. Definitions now **MUST** be separated with an empty
+  line from the following comments.
+- Added options for `deprecated` tag: you can set versions, when tag was
+  deprecated and when method/property will be removed.
 - Added new tags: `read-only`, `internal`, `chainable`
 - Events support.
 
 
 ## How to Install
 
-We suppose that you already have `node.js` and `npm` installed.
-If not - try [nvm](https://github.com/creationix/nvm). Then install NDoc globally
+We suppose that you already have `Node` and `npm` installed.
+If not - try [nvm](https://github.com/creationix/nvm).
 
     npm install -g ndoc
 
@@ -63,7 +65,8 @@ If not - try [nvm](https://github.com/creationix/nvm). Then install NDoc globall
 ## Syntax
 
 [NDoc Syntax](https://github.com/nodeca/ndoc/blob/master/syntax.md).
-It is similar to [PDoc](https://github.com/tobie/pdoc) one, with some extentions (see start of this doc for details).
+It is similar to [PDoc](https://github.com/tobie/pdoc) one, with some
+extentions (see start of this doc for details).
 
 
 ## For developers
@@ -72,7 +75,8 @@ You can generate prototype documentation for test:
 
     make test
 
-Then open `./tests/prototype-doc/index.html`. Here is [hosted doc example](http://nodeca.github.com/ndoc/tests/prototype/).
+Then open `./tests/prototype-doc/index.html`.
+Here is [hosted example](http://nodeca.github.com/ndoc/tests/prototype/).
 
 
 #### Custom parsers and renderers
