@@ -35,33 +35,27 @@ If not - try [nvm](https://github.com/creationix/nvm). Then install NDoc globall
     Optional arguments:
       -h, --help                      Show this help message and exit.
       -v, --version                   Show program's version number and exit.
-      --exclude PATTERN               Pathnames to exclude. Pathnames might be 
-                                      absolute or relative and might have 
-                                      wildcards: - `*` Matches single directory 
-                                      or file: /foo/* matches /foo/bar but not 
-                                      /foo/bar/baz - `**` Matches files and 
-                                      directries recursively: /foo** matches 
-                                      /foo/bar, /foo/bar/baz, etc. - `?` Matches 
-                                      exactly one non-slash character
+      --exclude PATTERN               Glob patterns of filenames to exclude. You 
+                                      can use wildcards (?, *, **) in this 
+                                      patterns. See [minimatch] module for 
+                                      detailed information.
       -o PATH, --output PATH          Resulting file(s) location
       --use PLUGIN                    Use custom plugin
       -r RENDERER, --render RENDERER  Documentation renderer
-      --link-format FORMAT            Format for link to source file. This can 
-                                      have variables: - {file} - Current file - 
-                                      {line} - Current line - {package.*} - Any 
-                                      package.json variable
+      --link-format FORMAT            View sources link format. You can use 
+                                      `{file}` and `{line}` and any of `{package.
+                                      *}` variables for interpolation.
       -t TEMPLATE, --title TEMPLATE   Documentation title template. You can use 
                                       any of `{package.*}` variables for 
-                                      interpolation, e.g.: `My App {package.
-                                      version}`
+                                      interpolation.
       --show-all                      By default `internal` methods/properties 
                                       are not shown. This trigger makes ndoc show 
                                       all methods/properties
       --package PACKAGE               Read specified package.json FILE.
       --index FILE                    Index file
       --gh-ribbon URL                 Add "Fork me on GitHub" ribbon with given 
-                                      URL. You can use `{package.*}` variables 
-                                      here.
+                                      URL. You can use any of `{package.*}` 
+                                      variables for interpolation.
       --broken-links ACTION           What to do if broken link occurred
       --noenv                         Ignore .ndocrc
 
