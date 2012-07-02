@@ -1,5 +1,5 @@
-2.0.0 / In progress...
-----------------------
+2.0.0 / 2012-07-02
+------------------
 
 * `Internal` methods are now skipped by default.
 * Stop on collisions, instead of warning
