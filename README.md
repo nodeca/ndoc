@@ -37,23 +37,26 @@ If not - try [nvm](https://github.com/creationix/nvm).
     Optional arguments:
       -h, --help                      Show this help message and exit.
       -v, --version                   Show program's version number and exit.
-      --exclude PATTERN               Glob patterns of filenames to exclude. You 
-                                      can use wildcards (?, *, **) in this 
-                                      patterns. See [minimatch] module for 
-                                      detailed information.
-      -o PATH, --output PATH          Resulting file(s) location
-      --use PLUGIN                    Use custom plugin
-      -r RENDERER, --render RENDERER  Documentation renderer
+      --exclude PATTERN               Glob patterns of filenames to exclude (you 
+                                      can use wildcards: ?, *, **).
+      -o PATH, --output PATH          Resulting file(s) location.
+      --use PLUGIN                    Load custom plugin.
+      -r RENDERER, --render RENDERER  Documentation renderer (html, json). More 
+                                      can be added by custom plugins.
       --link-format FORMAT            View sources link format. You can use 
                                       `{file}` and `{line}` and any of `{package.
-                                      *}` variables for interpolation.
+                                      *}` variables for interpolation. DEFAULT: 
+                                      `{file}#L{line}`
       -t TEMPLATE, --title TEMPLATE   Documentation title template. You can use 
                                       any of `{package.*}` variables for 
-                                      interpolation.
+                                      interpolation. DEFAULT: `{package.name} 
+                                      {package.version} API documentation`
       --show-all                      By default `internal` methods/properties 
                                       are not shown. This trigger makes ndoc show 
                                       all methods/properties
-      --package PACKAGE               Read specified package.json FILE.
+      --package PACKAGE               Read specified package.json FILE. When not 
+                                      specified, read ./package.json if such file 
+                                      exists.
       --index FILE                    Index file
       --gh-ribbon URL                 Add "Fork me on GitHub" ribbon with given 
                                       URL. You can use any of `{package.*}` 
