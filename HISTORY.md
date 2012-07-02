@@ -1,13 +1,15 @@
 2.0.0 / In progress...
 ----------------------
 
-* Internal methods are now skipped by default.
+* `Internal` methods are now skipped by default.
 * Stop on collisions, instead of warning
 * Bundled mode (all doc in single file), layout/styles cleanup.
-* Reorganized options (see new help).
-* Options can be loaded from file now.
+* Highlight on build time (no more hangs on big docs load)
 * Ability to add github ribbon.
 * Multiple folders/files support.
+* Parcers/Generators can be attached as external modules
+* Reorganized options (see new help).
+* Options can be loaded from file now.
 * Grand refactoring.
 * Multiple bugfixes (see ussue tracker).
 
