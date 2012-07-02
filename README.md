@@ -43,10 +43,10 @@ If not - try [nvm](https://github.com/creationix/nvm).
       --use PLUGIN                    Load custom plugin.
       -r RENDERER, --render RENDERER  Documentation renderer (html, json). More 
                                       can be added by custom plugins.
-      --link-format FORMAT            View sources link format. You can use 
-                                      `{file}` and `{line}` and any of `{package.
-                                      *}` variables for interpolation. DEFAULT: 
-                                      `{file}#L{line}`
+      --link-format FORMAT            View sources link (no links by default) 
+                                      format. You can use `{file}` and `{line}` 
+                                      and any of `{package.*}` variables for 
+                                      interpolation.
       -t TEMPLATE, --title TEMPLATE   Documentation title template. You can use 
                                       any of `{package.*}` variables for 
                                       interpolation. DEFAULT: `{package.name} 
@@ -57,11 +57,13 @@ If not - try [nvm](https://github.com/creationix/nvm).
       --package PACKAGE               Read specified package.json FILE. When not 
                                       specified, read ./package.json if such file 
                                       exists.
-      --index FILE                    Index file
+      --index FILE                    Index file (with introduction text), e.g. 
+                                      README.md file.
       --gh-ribbon URL                 Add "Fork me on GitHub" ribbon with given 
                                       URL. You can use any of `{package.*}` 
                                       variables for interpolation.
-      --broken-links ACTION           What to do if broken link occurred
+      --broken-links ACTION           What to do if broken link occurred (show, 
+                                      hide, throw). DEFAULT: `show`.
       --noenv                         Ignore .ndocrc
 
 
