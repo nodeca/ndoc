@@ -11,10 +11,7 @@ var exec = require('child_process').exec;
 
 
 // 3rd-party
-var _               = require('underscore');
-var async           = require('async');
-var FsTools         = require('fs-tools');
-var ArgumentParser  = require('argparse').ArgumentParser;
+var async = require('async');
 
 
 // internal
@@ -23,29 +20,6 @@ var template  = require('../lib/ndoc/common').template;
 
 
 ////////////////////////////////////////////////////////////////////////////////
-
-
-// parse string in a BASH style
-// inspired by Shellwords module of Ruby
-var SHELLWORDS_PATTERN = /\s*(?:([^\s\\\'\"]+)|'((?:[^\'\\]|\\.)*)'|"((?:[^\"\\]|\\.)*)")/;
-function shellwords(line) {
-  var words = [], match, field;
-
-  while (line) {
-    match = SHELLWORDS_PATTERN.exec(line);
-
-    if (!match || !match[0]) {
-      line = false;
-    } else {
-      line  = line.substr(match[0].length);
-      field = (match[1] || match[2] || match[3] || '').replace(/\\(.)/, '$1');
-
-      words.push(field);
-    }
-  }
-
-  return words;
-}
 
 
 function exit(err) {
@@ -67,11 +41,8 @@ NDoc.cli.addArgument(['--noenv'], {
 });
 
 
-if (-1 === process.argv.indexOf('--noenv')) {
-  if (fs.existsSync('./.ndocrc')) {
-    var rcflags = shellwords(fs.readFileSync('./.ndocrc', 'utf8'));
-    [].splice.apply(process.argv, [2, 0].concat(rcflags));
-  }
+if (-1 === process.argv.indexOf('--noenv') && fs.existsSync('.ndocrc')) {
+  NDoc.cli.readEnvFile('.ndocrc');
 }
 
 
