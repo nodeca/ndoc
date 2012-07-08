@@ -50,6 +50,10 @@ publish:
 		echo "Unclean working tree. Commit or stash changes first." >&2 ; \
 		exit 128 ; \
 		fi
+	@if test 0 -ne `git fetch ; git status | grep '^# Your branch' | wc -l` ; then \
+		echo "Local/Remote history differs. Please push/pull changes." >&2 ; \
+		exit 128 ; \
+		fi
 	@if test 0 -ne `git tag -l ${NPM_VERSION} | wc -l` ; then \
 		echo "Tag ${NPM_VERSION} exists. Update package.json" >&2 ; \
 		exit 128 ; \
