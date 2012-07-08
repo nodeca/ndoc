@@ -1,3 +1,9 @@
+2.0.1 / In development
+----------------------
+
+* Enhance `.ndocrc` reader to support comments.
+
+
 2.0.0 / 2012-07-02
 ------------------
 
