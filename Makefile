@@ -93,12 +93,7 @@ playground: $(DOCS)
 
 doc: lib
 	rm -fr doc
-	$(ROOT)/bin/ndoc lib \
-		--exclude 'lib/ndoc/plugins/renderers/html/assets/**' \
-		--exclude 'lib/ndoc/plugins/renderers/html/vendors/**' \
-		--exclude 'lib/ndoc/plugins/parsers/javascript/parser.js' \
-		--link-format "{package.homepage}/blob/${CURR_HEAD}/{file}#L{line}" \
-		--show-all
+	$(ROOT)/bin/ndoc --link-format "{package.homepage}/blob/${CURR_HEAD}/{file}#L{line}"
 
 test-prototype:
 	rm -fr ./tests/prototype-doc

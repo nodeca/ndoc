@@ -1,6 +1,29 @@
---index       "./README.md"
---package     "./package.json"
---gh-ribbon   "{package.homepage}"
---output      "doc"
---render      "html"
---link-format "{package.homepage}/blob/master/{file}#L{line}"
+#
+# Common nodeca config
+################################################################################
+
+--index         "./README.md"
+--package       "./package.json"
+--gh-ribbon     "{package.homepage}"
+--output        "doc"
+--render        "html"
+--link-format   "{package.homepage}/blob/master/{file}#L{line}"
+--broken-links  "throw"
+
+
+#
+# Paths with sources
+################################################################################
+
+lib
+
+
+#
+# Project specific configuration
+################################################################################
+
+--exclude       "lib/ndoc/plugins/renderers/html/assets/**"
+--exclude       "lib/ndoc/plugins/renderers/html/vendors/**"
+--exclude       "lib/ndoc/plugins/parsers/javascript/parser.js"
+
+--show-all
