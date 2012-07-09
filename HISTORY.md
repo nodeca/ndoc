@@ -13,11 +13,11 @@
 * Highlight on build time (no more hangs on big docs load)
 * Ability to add github ribbon.
 * Multiple folders/files support.
-* Parcers/Generators can be attached as external modules
+* Parsers/Generators can be attached as external modules
 * Reorganized options (see new help).
 * Options can be loaded from file now.
 * Grand refactoring.
-* Multiple bugfixes (see ussue tracker).
+* Multiple bugfixes (see issue tracker).
 
 
 1.0.7 / 2012-02-09
