@@ -1,5 +1,11 @@
-2.0.1 / In development
+2.0.2 / In development
 ----------------------
+
+* Improve cli.findFiles excludes. Now they support functions.
+
+
+2.0.1 / 2012-07-08
+------------------
 
 * Enhance `.ndocrc` reader to support comments.
 
