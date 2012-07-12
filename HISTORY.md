@@ -1,7 +1,7 @@
 2.0.2 / In development
 ----------------------
 
-* Improve cli.findFiles excludes. Now they support functions.
+* [API] cli.findFiles now support functions.
 
 
 2.0.1 / 2012-07-08
