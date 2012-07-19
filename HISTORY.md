@@ -1,6 +1,7 @@
 2.0.2 / In development
 ----------------------
 
+* Add `--alias <from>:<to>` option. Closes #58.
 * [API] cli.findFiles now support functions.
 
 
