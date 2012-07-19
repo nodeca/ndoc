@@ -73,6 +73,14 @@ var options = NDoc.cli.parseArgs();
 
 
 //
+// Process aliases
+//
+
+options.aliases.forEach(function (pair) {
+  NDoc.extensionAlias.apply(null, pair.split(':'));
+});
+
+//
 // Post-process some of the options
 //
 
