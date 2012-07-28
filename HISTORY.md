@@ -1,3 +1,9 @@
+2.0.3 / 2012-07-29
+------------------
+
+* Fixed name/prefix for nested event items. Thanks to @Sannis.
+
+
 2.0.2 / 2012-07-19
 ------------------
 

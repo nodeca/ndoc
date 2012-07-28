@@ -1,6 +1,6 @@
 {
   "name"            : "ndoc",
-  "version"         : "2.0.2",
+  "version"         : "2.0.3",
   "description"     : "JavaScript API documentor with simple syntax.",
   "keywords"        : [
                         "api", "doc", "apidoc", "documentation", "pdoc"
