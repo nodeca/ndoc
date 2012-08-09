@@ -1,3 +1,9 @@
+2.0.4 / 2012-08-09
+
+* Fixed main index file path (when ndoc used as library)
+* Updated dependencies versions
+
+
 2.0.3 / 2012-07-29
 ------------------
 
