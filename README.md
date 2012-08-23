@@ -27,7 +27,7 @@ npm install -g ndoc
 
 ## Usage
 
-``` plain
+``` dos
 usage: ndoc [-h] [-v] [--exclude PATTERN] [-o PATH] [--use PLUGIN]
             [--alias MAPPING] [-r RENDERER] [--link-format FORMAT]
             [-t TEMPLATE] [--show-all] [--package PACKAGE] [--index FILE]
@@ -85,7 +85,9 @@ extentions (see start of this doc for details).
 
 You can generate prototype documentation for test:
 
-    make test
+``` bash
+make test
+```
 
 Then open `./tests/prototype-doc/index.html`.
 Here is [hosted example](http://nodeca.github.com/ndoc/tests/prototype/).
