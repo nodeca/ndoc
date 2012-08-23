@@ -20,12 +20,14 @@ It tries to keep compatibility, but has some differences:
 We suppose that you already have `Node` and `npm` installed.
 If not - try [nvm](https://github.com/creationix/nvm).
 
-    npm install -g ndoc
+``` bash
+npm install -g ndoc
+```
 
 
 ## Usage
 
-```
+``` plain
 usage: ndoc [-h] [-v] [--exclude PATTERN] [-o PATH] [--use PLUGIN]
             [--alias MAPPING] [-r RENDERER] [--link-format FORMAT]
             [-t TEMPLATE] [--show-all] [--package PACKAGE] [--index FILE]
