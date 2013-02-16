@@ -1,4 +1,13 @@
+2.0.5 / 2013-02-16
+------------------
+
+* Fixed bug, that caused problems with new `argparse`
+* Updated dependencies
+* Updated linting rules
+
+
 2.0.4 / 2012-08-09
+------------------
 
 * Fixed main index file path (when ndoc used as library)
 * Updated dependencies versions
