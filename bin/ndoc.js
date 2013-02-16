@@ -7,7 +7,6 @@
 // stdlib
 var fs = require('fs');
 var path = require('path');
-var exec = require('child_process').exec;
 
 
 // 3rd-party
@@ -23,12 +22,12 @@ var template  = require('../lib/ndoc/common').template;
 
 
 function exit(err) {
-    if (err) {
-      console.error(err.message || err);
-      process.exit(1);
-    }
+  if (err) {
+    console.error(err.message || err);
+    process.exit(1);
+  }
 
-    process.exit(0);
+  process.exit(0);
 }
 
 
