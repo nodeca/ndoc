@@ -1,22 +1,10 @@
-// -*- mode: js; -*-
-
 {
   var none,
   entities = {},
   entity = Entity();
 
   function Entity(){
-    return {
-      /*
-      section: none,
-      alias_of: none,
-      related_to: none,
-      readonly: false,
-      internal: false,
-      chainable: false,
-      deprecated: false
-      */
-    };
+    return {};
   }
 }
 
@@ -34,7 +22,8 @@ skip
 
 entity
   = '/**' _* tags? FEED* ndoc_and_includes_and_fires FEED* description? (
-    '**/' { /* capture line number workaround */
+    '**/' {
+      /* capture line number workaround */
       if(typeof line !== 'undefined'){
         entity.line = line + 1;
       }
