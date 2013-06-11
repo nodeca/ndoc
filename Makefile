@@ -15,6 +15,9 @@ CURR_HEAD   := $(firstword $(shell git show-ref --hash HEAD | cut -b -6) master)
 GITHUB_PROJ := nodeca/${NPM_PACKAGE}
 
 
+JS_PGEN     ?= jison
+
+
 help:
 	echo "make help       - Print this help"
 	echo "make lint       - Lint sources with JSHint"
@@ -63,14 +66,24 @@ publish:
 
 
 lib: lib/ndoc/plugins/parsers/javascript/parser.js
-lib/ndoc/plugins/parsers/javascript/parser.js:
+ifeq ($(JS_PGEN),jison)
+lib/ndoc/plugins/parsers/javascript/parser.js: src/js-parser.y
 	@if test ! `which jison` ; then \
 		echo "You need 'jison' installed in order to compile parsers." >&2 ; \
 		echo "  $ make dev-deps" >&2 ; \
 		exit 128 ; \
 		fi
-	jison src/js-parser.y && mv js-parser.js lib/ndoc/plugins/parsers/javascript/parser.js
-
+	jison < $< > $@
+endif
+ifeq ($(JS_PGEN),pegjs)
+lib/ndoc/plugins/parsers/javascript/parser.js: src/js-parser.peg
+	@if test ! `which pegjs` ; then \
+		echo "You need 'pegjs' installed in order to compile parsers." >&2 ; \
+		echo "  $ make dev-deps" >&2 ; \
+		exit 128 ; \
+		fi
+	pegjs --track-line-and-column $< $@
+endif
 
 recompile-parsers:
 	rm -f lib/ndoc/plugins/parsers/javascript/parser.js
