@@ -1,0 +1,409 @@
+// -*- mode: js; -*-
+
+{
+  var none,
+  entities = {},
+  entity = Entity();
+
+  function Entity(){
+    return {
+      /*
+      section: none,
+      alias_of: none,
+      related_to: none,
+      readonly: false,
+      internal: false,
+      chainable: false,
+      deprecated: false
+      */
+    };
+  }
+}
+
+file
+  = chunk* { return entities; }
+
+chunk
+  = skip
+  / entity
+  / ANY
+
+skip
+  = STRING
+  / COMMENT
+
+entity
+  = '/**' _* tags? FEED* ndoc_and_includes_and_fires FEED* description? (
+    '**/' { /* capture line number workaround */
+      if(typeof line !== 'undefined'){
+        entity.line = line + 1;
+      }
+    }
+  ) {
+    entities[entity.id] = entity;
+    entity = Entity(); /* init new supposed entity */
+  }
+
+tags
+  = tag ( _* ',' _* tags )?
+
+tag
+  = 'deprecated' ( _* ':' _* since:version _* '..' _* off:version { entity.deprecated = {since: since, off:off}; }
+                   / _* ':' _* since:version { entity.deprecated = {since: since}; }
+                   / { entity.deprecated = true; } )
+  / id:( 'read-only' / 'internal' / 'chainable' ) {
+    entity[id.replace(/\-/g, '')] = true;
+  }
+  / id:( 'section' / 'alias of' / 'related to' / 'belongs to' ) _* ':' _* name:name {
+    entity[id.replace(/\ /g, '_')] = name;
+  }
+
+ndoc_and_includes_and_fires
+  = ndoc ( INCLUDES includes:names { entity.included_mixins = includes; } )?
+  /*/ ndoc FIRES events { $$.events = $3 }*/
+
+description
+  = value:PROPER_TEXT {
+    entity.description = value;
+    // short description lasts until the first empty line
+    entity.short_description = entity.description.replace(/\n\n[\s\S]*$/, '\n');
+  }
+
+ndoc
+  = signatures args:argument_descriptions? {
+    if(args){
+      entity.arguments = args;
+    }
+  }
+  / class
+  / mixin
+  / section
+  / namespace
+
+argument_descriptions
+  = FEED+ first:argument_description rest:argument_descriptions? {
+    var args = rest || [];
+    args.unshift(first);
+    return args;
+  }
+
+argument_description
+  = '-' name:NAME
+  types:( _* '(' _* ntypes:names_alternation _* ')' { return ntypes; } )?
+  desc:( _* ':' ndesc:TEXT { return proper(ndesc); } )? {
+    return {
+      name: name,
+      types: types || 'mixed',
+      description: desc || ''
+    };
+  }
+
+events
+  = first:event rest:( ',' nested:events { return nested; } )? {
+    rest = rest || [];
+    rest.unshift(first);
+    return rest;
+  }
+
+event
+  = first:NAME rest:( sp:( ':' / '.' / '@' / '-' ) id:event { return sp + id; } )? {
+    return first + rest;
+  }
+
+name_or_namespace
+  = first:NAME rest:( '.' nested:name_or_namespace { return nested; } )? {
+    return first + (rest ? '.' + rest : '');
+  }
+
+name
+  = first:name_or_namespace rest:( '@' event
+                                   / '#' NAME
+                                   / ) {
+    return first + rest.join('');
+  }
+
+names
+  = first:name rest:( _* ',' _* names:names { return names; } )? {
+    var names = rest || [];
+    names.unshift(first);
+    return names;
+  }
+
+names_alternation
+  = '?' { return []; }
+  / first:name rest:( _* '|' _* alts:names_alternation { return alts; } )? {
+    var alts = rest || [];
+    alts.unshift(name);
+    return alts;
+  }
+
+value
+  = value:( STRING
+            / NULL
+            / NUMBER
+            / BOOLEAN
+            / REGEXP
+            / name
+          ) {
+    return value;
+  }
+  / '[' values:value_list? ellipsis:'...'? ']' {
+    value = values || [];
+    values.array = true;
+    if(ellipsis){
+      values.ellipsis = true;
+    }
+    return values;
+  }
+  / '{' values:key_value_list? '}' {
+    return values || [];
+  }
+
+value_list
+  = first:value rest:( _* ',' _* next:value_list { return next; } )? {
+    rest = rest || [];
+    rest.unshift(first);
+    return rest;
+  }
+
+key_value_list
+  = key:key _* ':' _* value:value rest:( _* ',' _* next:key_value_list { return next; } )? {
+    rest = rest || {};
+    rest[key] = value;
+    return rest;
+  }
+
+key
+  = STRING
+  / NAME
+
+section
+  = '==' _* id:name _* '==' {
+    entity.id = id;
+    entity.type = 'section';
+  }
+
+namespace
+  = id:name {
+    entity.id = id;
+    entity.type = 'namespace';
+  }
+
+class
+  = 'class' _ id:name superclass:( _* '<' _* nested:name { return nested; } )? {
+    entity.id = id;
+    entity.type = 'class';
+    entity.superclass = superclass || none;
+  }
+
+mixin
+  = 'mixin' _* id:name {
+    entity.id = id;
+    entity.type = 'mixin';
+  }
+
+property
+  = id:name _* '->' _* returns:returns {
+    entity.id = id;
+    entity.type = 'property';
+    entity.returns = returns;
+  }
+
+constant
+  = id:name _* '=' _* returns:returns {
+    entity.id = id;
+    entity.type = 'constant';
+    entity.returns = returns;
+  }
+
+signatures
+  = FEED* signature signatures?
+  {
+    entity.signatures = entity.signatures || [];
+    entity.signatures.unshift({
+      args: entity.args,
+      returns: entity.returns
+    });
+    
+    delete entity.args;
+    delete entity.returns;
+  }
+
+signature
+  = method returns:( _* '->' _* nested:returns { return nested; } )? {
+    entity.returns = returns || none;
+  }
+  / property
+  / constant
+  /* constructor */
+  / 'new' _+ method {
+    entity.id = entity.id + '.new';
+    entity.type = 'constructor';
+  }
+
+method
+  = id:name _* '(' _* bound:'@'? _* args:args? _* ')' {
+    entity.id = id;
+    entity.type = 'method';
+    entity.args = args || [];
+    if(bound){
+      entity.bound = true;
+    }
+  }
+
+returns
+  /* anything */
+  = '?' {
+    return [
+      {type: '?'}
+    ];
+  }
+  / first:value rest:( '|' nested:returns { return nested; } )? {
+    rest = rest || [];
+    var ret = {
+      type: String(first)
+    };
+    if(first.array){
+      ret.array = true;
+    }
+    if(first.ellipsis){
+      ret.ellipsis = true;
+    }
+    rest.unshift(ret);
+    return rest;
+  }
+
+args
+  = first:arg? rest:( _* ',' _* args:args { return args; } )? opt:( _* ( ',' _* )? '[' _* args:args _* ']' { return args; } )? {
+    rest = rest || [];
+    if(first){
+      rest.unshift(first);
+    }
+    if(opt){
+      for(var i = 0; i < opt.length; i++){
+        opt[i].optional = true;
+      }
+      rest = rest.concat(opt);
+    }
+    return rest;
+  }
+
+arg
+  = name:NAME args:( _* '(' _* a:args _* ')' { return a; } )?
+  ext:( _* '=' _* value:value { return {value:value}; } /* with default value */
+        / _* '...' { return {ellipsis:true}; } /* with ellipsis */
+      )?
+  {
+    var arg = {
+      name: name
+    };
+    if(args){
+      arg.args = args;
+    }
+    if(none !== ext.value){
+      arg.default_value = ext.value;
+    }
+    if(ext.ellipsis){
+      arg.allipsis = true;
+    }
+    return arg;
+  }
+
+version
+  = first:[0-9]+ rest:( '.' v:version { return v; } )? {
+    return first.join('') + (rest ? '.' + rest : '');
+  }
+
+FIRES
+  = '*' _ 'fires'
+
+INCLUDES
+  = '*' _ 'includes'
+
+NUMBER
+  = int_sign:[-]? int_part:( first:[1-9] rest:[0-9]+ { return first + rest.join(''); } / [0-9] )
+    frac_part:( '.' digits:[0-9]+ { return '.' + digits.join(''); } )?
+    exp_part:( [eE] sign:[\-\+]? digits:[0-9]+ { return 'e' + ('-' === sign ? sign : '') + digits.join(''); } )?
+  { return parseFloat(int_sign + int_part + frac_part + exp_part); }
+
+STRING
+  = '"' content:( /* double quoted strings */
+    [^\"\\] /* ordinary chars */
+      / [\\] escaped:( /* escaped sequences */
+        [\"bfnrt/\\] /* controll chars */
+          / 'u' codes:([a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]) { return 'u' + codes.join(''); } /* unicode char codes */
+      ) {
+        return '\\' + escaped;
+      }
+  )* '"' {
+    return content.join('');
+  }
+  / "'" content:( /* single quoted strings */
+    [^\'\\] /* ordinary chars */
+      / [\\] escaped:( /* escaped sequences */
+        [\'bfnrt/\\] /* controll chars */
+          / 'u' codes:([a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]) { return 'u' + codes.join(''); } /* unicode char codes */
+      ) {
+        return '\\' + escaped;
+      }
+  )* "'" {
+    return content.join('');
+  }
+
+COMMENT
+  = '/*' &[^*] content:( [^*]
+                         / chunk:( [*] [^/] ) { return chunk.join(''); }
+                       )* '*/' { return content.join(''); }
+
+NAME
+  = first:[$_a-zA-Z] rest:[$_a-zA-Z0-9]* {
+    return first + rest.join('');
+  }
+
+REGEXP
+  = '/' expression:( '\\/' / [^/] )* '/' flags:[gim]* {
+    return new RegExp(expression.join(''), flags.join(''));
+  }
+
+BOOLEAN
+  = 'true'i { return true; }
+  / 'false'i { return false; }
+
+NULL
+  = 'null'i { return null; }
+
+TEXT
+  = content:( [^*] / nested:( [*] [*]? [^/] ) { return nested.join(''); } )* {
+    return content.join('');
+  }
+
+/*
+TEXT
+  = FEED chunk:( [^\n]* [\n] ) next:( TEXT )? {
+    return chunk[0].join('') + chunk[1] + (next || '');
+  }
+*/
+
+PROPER_TEXT
+  = content:TEXT {
+    return content
+      .replace(/[\ \t\r]+/g, ' ')
+      .replace(/[\n][\ \t]*\*[\ \t]*/g, '\n')
+      .replace(/^\s*/, '')
+      .replace(/\s*$/, '');
+  }
+
+event_end
+  = [^@(\s]+
+
+ANY
+  = .
+
+FEED
+  = $ ( _* '*' &[^*] ) _*
+
+_ /* white space */
+  = [\ \t]
+
+$ /* line feed */
+  = [\r]? [\n]
