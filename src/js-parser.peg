@@ -17,7 +17,7 @@ chunk
   / ANY
 
 skip
-  = STRING
+  = QUOTED_STRING
   / COMMENT
 
 entity
@@ -127,7 +127,7 @@ names_alternation
   }
 
 value
-  = value:( STRING
+  = value:( QUOTED_STRING
             / NULL
             / NUMBER
             / BOOLEAN
@@ -163,7 +163,7 @@ key_value_list
   }
 
 key
-  = STRING
+  = QUOTED_STRING
   / NAME
 
 section
@@ -315,27 +315,13 @@ NUMBER
     exp_part:( [eE] sign:[\-\+]? digits:[0-9]+ { return 'e' + ('-' === sign ? sign : '') + digits.join(''); } )?
   { return parseFloat(int_sign + int_part + frac_part + exp_part); }
 
-STRING
-  = '"' content:( /* double quoted strings */
-    [^\"\\] /* ordinary chars */
-      / [\\] escaped:( /* escaped sequences */
-        [\"bfnrt/\\] /* controll chars */
-          / 'u' codes:([a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]) { return 'u' + codes.join(''); } /* unicode char codes */
-      ) {
-        return '\\' + escaped;
-      }
-  )* '"' {
+QUOTED_STRING
+/* double quoted strings */
+  = [\"] content:( [\\] [\"] { return '\\"'; } / [\\] [\n] { return '\n'; } / [^\"\n] )* [\"] {
     return content.join('');
   }
-  / "'" content:( /* single quoted strings */
-    [^\'\\] /* ordinary chars */
-      / [\\] escaped:( /* escaped sequences */
-        [\'bfnrt/\\] /* controll chars */
-          / 'u' codes:([a-fA-F0-9][a-fA-F0-9][a-fA-F0-9][a-fA-F0-9]) { return 'u' + codes.join(''); } /* unicode char codes */
-      ) {
-        return '\\' + escaped;
-      }
-  )* "'" {
+/* single quoted strings */
+  / [\'] content:( [\\] [\'] { return '\\\''; } / [\\] [\n] { return '\n'; } / [^\'\n] )* [\'] {
     return content.join('');
   }
 
