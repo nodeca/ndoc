@@ -62,32 +62,29 @@ description
   }
 
 ndoc
-  = signatures args:argument_descriptions? {
-    if(args){
-      entity.arguments = args;
-    }
-  }
+  = signatures ( FEED argument_descriptions )?
   / class
   / mixin
   / section
   / namespace
 
 argument_descriptions
-  = FEED+ first:argument_description rest:argument_descriptions? {
-    var args = rest || [];
-    args.unshift(first);
-    return args;
-  }
+  = argument_description ( FEED argument_descriptions )?
 
 argument_description
-  = '-' name:NAME
+  = '-' _* name:NAME
   types:( _* '(' _* ntypes:names_alternation _* ')' { return ntypes; } )?
-  desc:( _* ':' ndesc:TEXT { return proper(ndesc); } )? {
-    return {
+  desc:( _* ':' _* ndesc:argument_description_TEXT_BLOCK { return ndesc; } )? {
+    (entity.arguments = entity.arguments || []).push({
       name: name,
       types: types || 'mixed',
       description: desc || ''
-    };
+    });
+  }
+
+argument_description_TEXT_BLOCK
+  = !( CLOSE / '-' _* NAME / FEED ) first:TEXT_CHUNK rest:( FEED nested:argument_description_TEXT_BLOCK { return '\n' + nested; } )? {
+    return first + rest;
   }
 
 events
@@ -209,7 +206,7 @@ constant
   }
 
 signatures
-  = FEED* signature signatures?
+  = signature ( FEED signatures )?
   {
     entity.signatures = entity.signatures || [];
     entity.signatures.unshift({
