@@ -21,8 +21,8 @@ skip
   / COMMENT
 
 entity
-  = '/**' _* tags? FEED* ndoc_and_includes_and_fires FEED* description? (
-    '**/' {
+  = OPEN tags? FEED+ ndoc_and_includes_and_fires ( FEED description )? FEED* (
+    CLOSE {
       /* capture line number workaround */
       if(typeof line !== 'undefined'){
         entity.line = line + 1;
@@ -373,6 +373,12 @@ event_end
 
 ANY
   = .
+
+OPEN
+  = '/**' _*
+
+CLOSE
+  = ( $ _* )? '**/'
 
 FEED
   = $ ( _* '*' &[^*] ) _*
