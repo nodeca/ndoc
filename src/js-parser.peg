@@ -120,7 +120,7 @@ names
 
 names_alternation
   = '?' { return []; }
-  / first:name rest:( _* '|' _* alts:names_alternation { return alts; } )? {
+  / name:name rest:( _* '|' _* alts:names_alternation { return alts; } )? {
     var alts = rest || [];
     alts.unshift(name);
     return alts;
