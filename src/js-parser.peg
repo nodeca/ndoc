@@ -55,10 +55,10 @@ ndoc_and_includes_and_fires
   /*/ ndoc FIRES events { $$.events = $3 }*/
 
 description
-  = value:PROPER_TEXT {
+  = FEED+ value:TEXT_BLOCK {
     entity.description = value;
     // short description lasts until the first empty line
-    entity.short_description = entity.description.replace(/\n\n[\s\S]*$/, '\n');
+    entity.short_description = entity.description.replace(/\n\n[\s\S]*$/, '');
   }
 
 ndoc
@@ -350,29 +350,15 @@ BOOLEAN
 NULL
   = 'null'i { return null; }
 
-TEXT
-  = content:( [^*] / nested:( [*] [*]? [^/] ) { return nested.join(''); } )* {
-    return content.join('');
-  }
+TEXT_CHUNK
+  = first:[^\r\n] rest:( !FEED TEXT_CHUNK? / &FEED '' ) {
+  return first + rest.join('');
+}
 
-/*
-TEXT
-  = FEED chunk:( [^\n]* [\n] ) next:( TEXT )? {
-    return chunk[0].join('') + chunk[1] + (next || '');
+TEXT_BLOCK
+  = !CLOSE first:TEXT_CHUNK rest:( feed:( FEED { return '\n'; } )+ text:TEXT_BLOCK { return feed.join('') + text; } )? {
+    return first + rest;
   }
-*/
-
-PROPER_TEXT
-  = content:TEXT {
-    return content
-      .replace(/[\ \t\r]+/g, ' ')
-      .replace(/[\n][\ \t]*\*[\ \t]*/g, '\n')
-      .replace(/^\s*/, '')
-      .replace(/\s*$/, '');
-  }
-
-event_end
-  = [^@(\s]+
 
 ANY
   = .
@@ -384,7 +370,7 @@ CLOSE
   = ( $ _* )? '**/'
 
 FEED
-  = $ ( _* '*' &[^*] ) _*
+  = $ _* '*' !'*' _*
 
 _ /* white space */
   = [\ \t]
