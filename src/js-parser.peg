@@ -179,14 +179,14 @@ namespace
   }
 
 class
-  = 'class' _ id:name superclass:( _* '<' _* nested:name { return nested; } )? {
+  = 'class' _+ id:name superclass:( _* '<' _* nested:name { return nested; } )? {
     entity.id = id;
     entity.type = 'class';
     entity.superclass = superclass || none;
   }
 
 mixin
-  = 'mixin' _* id:name {
+  = 'mixin' _+ id:name {
     entity.id = id;
     entity.type = 'mixin';
   }
