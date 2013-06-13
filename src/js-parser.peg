@@ -4,7 +4,10 @@
   entity = Entity();
 
   function Entity(){
-    return {};
+    return {
+      description: '',
+      short_description: ''
+    };
   }
 }
 
