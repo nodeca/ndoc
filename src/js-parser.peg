@@ -51,8 +51,8 @@ tag
   }
 
 ndoc_and_includes_and_fires
-  = ndoc ( INCLUDES includes:names { entity.included_mixins = includes; } )?
-  /*/ ndoc FIRES events { $$.events = $3 }*/
+  = ndoc ( 'includes' _+ includes:names { entity.included_mixins = includes; }
+           / 'fires' _+ events:events { entity.events = events; } )?
 
 description
   = FEED+ value:TEXT_BLOCK {
@@ -302,12 +302,6 @@ version
   = first:[0-9]+ rest:( '.' v:version { return v; } )? {
     return first.join('') + (rest ? '.' + rest : '');
   }
-
-FIRES
-  = '*' _ 'fires'
-
-INCLUDES
-  = '*' _ 'includes'
 
 NUMBER
   = int_sign:[-]? int_part:( first:[1-9] rest:[0-9]+ { return first + rest.join(''); } / [0-9] )
