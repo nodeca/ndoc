@@ -53,21 +53,6 @@ CLOSE
 tags
   = tag ( _* ',' _* tags )?
 
-tag
-  = 'deprecated' ( _* ':' _* since:version _* '..' _* off:version { entity.deprecated = {since: since, off:off}; }
-                   / _* ':' _* since:version { entity.deprecated = {since: since}; }
-                   / { entity.deprecated = true; } )
-  / id:'read-only' {
-    entity.readonly = true;
-  }
-  / id:( 'internal' / 'chainable' ) {
-    entity[id] = true;
-  }
-  / id:( 'section' / 'alias of' / 'related to' / 'belongs to' ) _* ':' _* name:name {
-    /* `alias of' -> `alias_of' */
-    entity[id.replace(/\ /g, '_')] = name;
-  }
-
 heading
   = FEED+ ( signatures
           / class
@@ -86,6 +71,54 @@ description
 /* Empty description */
   / FEED*
 
+tag
+  = 'deprecated' ( _* ':' _* since:version _* '..' _* off:version { entity.deprecated = {since: since, off:off}; }
+                   / _* ':' _* since:version { entity.deprecated = {since: since}; }
+                   / { entity.deprecated = true; } )
+  / id:'read-only' {
+    entity.readonly = true;
+  }
+  / id:( 'internal' / 'chainable' ) {
+    entity[id] = true;
+  }
+  / id:( 'section' / 'alias of' / 'related to' / 'belongs to' ) _* ':' _* name:name {
+    /* `alias of' -> `alias_of' */
+    entity[id.replace(/\ /g, '_')] = name;
+  }
+
+version
+  = first:[0-9]+ rest:( '.' v:version { return v; } )? {
+    return first.join('') + (rest ? '.' + rest : '');
+  }
+
+signatures
+  = bare_signatures ( FEED argument_descriptions )?
+
+class
+  = 'class' _+ id:name superclass:( _* '<' _* nested:name { return nested; } )? {
+    entity.id = id;
+    entity.type = 'class';
+    entity.superclass = superclass || none;
+  }
+
+mixin
+  = 'mixin' _+ id:name {
+    entity.id = id;
+    entity.type = 'mixin';
+  }
+
+section
+  = '==' _* id:name _* '==' {
+    entity.id = id;
+    entity.type = 'section';
+  }
+
+namespace
+  = id:name {
+    entity.id = id;
+    entity.type = 'namespace';
+  }
+
 includes
   = 'includes' _+ includes:names {
     entity.included_mixins = includes;
@@ -94,26 +127,6 @@ includes
 fires
   = 'fires' _+ events:events {
     entity.events = events;
-  }
-
-argument_descriptions
-  = argument_description ( FEED argument_descriptions )?
-
-argument_description
-  = '-' _* name:NAME
-  types:( _* '(' _* ntypes:names_alternation _* ')' { return ntypes; } )?
-  desc:( _* ':' _* ndesc:argument_description_TEXT_BLOCK { return ndesc; } )? {
-    (entity.arguments = entity.arguments || []).push({
-      name: name,
-      types: types || 'mixed',
-      description: desc || ''
-    });
-  }
-
-argument_description_TEXT_BLOCK
-  = !( CLOSE / '-' _* NAME / ( 'includes' / 'fires' ) _+ names / FEED )
-  first:TEXT_CHUNK rest:( FEED nested:argument_description_TEXT_BLOCK { return '\n' + nested; } )? {
-    return first + rest;
   }
 
 events
@@ -155,90 +168,6 @@ names_alternation
     return alts;
   }
 
-VALUE
-  = QUOTED_STRING
-  / NULL
-  / NUMBER
-  / BOOLEAN
-  / REGEXP
-  / ARRAY
-  / OBJECT
-  / name
-
-ARRAY
-  = '[' values:ARRAY_ENTRIES? ellipsis:'...'? ']' {
-    value = values || [];
-    values.array = true;
-    if(ellipsis){
-      values.ellipsis = true;
-    }
-    return values;
-  }
-
-ARRAY_ENTRIES
-  = first:VALUE rest:( _* ',' _* next:ARRAY_ENTRIES { return next; } )? {
-    rest = rest || [];
-    rest.unshift(first);
-    return rest;
-  }
-
-OBJECT
-  = '{' values:OBJECT_ENTRIES? '}' {
-    return values || {};
-  }
-
-OBJECT_ENTRIES
-  = key:KEY _* ':' _* value:VALUE rest:( _* ',' _* next:OBJECT_ENTRIES { return next; } )? {
-    rest = rest || {};
-    rest[key] = value;
-    return rest;
-  }
-
-KEY
-  = QUOTED_STRING
-  / NAME
-
-section
-  = '==' _* id:name _* '==' {
-    entity.id = id;
-    entity.type = 'section';
-  }
-
-namespace
-  = id:name {
-    entity.id = id;
-    entity.type = 'namespace';
-  }
-
-class
-  = 'class' _+ id:name superclass:( _* '<' _* nested:name { return nested; } )? {
-    entity.id = id;
-    entity.type = 'class';
-    entity.superclass = superclass || none;
-  }
-
-mixin
-  = 'mixin' _+ id:name {
-    entity.id = id;
-    entity.type = 'mixin';
-  }
-
-property
-  = id:name results {
-    entity.id = id;
-    entity.type = 'property';
-  }
-
-constant
-  = id:name _* '=' _* results:result_entries {
-    entity.id = id;
-    entity.type = 'constant';
-    entity.returns = results;
-  }
-
-signatures
-  = bare_signatures ( FEED argument_descriptions )?
-
 bare_signatures
   = signature ( FEED bare_signatures )?
   {
@@ -267,6 +196,19 @@ constructor
     entity.type = 'constructor';
   }
 
+property
+  = id:name results {
+    entity.id = id;
+    entity.type = 'property';
+  }
+
+constant
+  = id:name _* '=' _* results:result_entries {
+    entity.id = id;
+    entity.type = 'constant';
+    entity.returns = results;
+  }
+
 method_entry
   = id:name _* '(' _* bound:'@'? _* args:args? _* ')' {
     entity.id = id;
@@ -275,33 +217,6 @@ method_entry
     if(bound){
       entity.bound = true;
     }
-  }
-
-results
-  = _* '->' _* results:result_entries {
-    entity.results = results;
-  }
-
-result_entries
-/* anything */
-  = '?' {
-    return [
-      {type: '?'}
-    ];
-  }
-  / first:VALUE rest:( '|' nested:results { return nested; } )? {
-    rest = rest || [];
-    var ret = {
-      type: String(first)
-    };
-    if(first.array){
-      ret.array = true;
-    }
-    if(first.ellipsis){
-      ret.ellipsis = true;
-    }
-    rest.unshift(ret);
-    return rest;
   }
 
 args
@@ -340,16 +255,62 @@ arg
     return arg;
   }
 
-version
-  = first:[0-9]+ rest:( '.' v:version { return v; } )? {
-    return first.join('') + (rest ? '.' + rest : '');
+results
+  = _* '->' _* results:result_entries {
+    entity.results = results;
   }
 
-NUMBER
-  = int_sign:[-]? int_part:( first:[1-9] rest:[0-9]+ { return first + rest.join(''); } / [0-9] )
-    frac_part:( '.' digits:[0-9]+ { return '.' + digits.join(''); } )?
-    exp_part:( [eE] sign:[\-\+]? digits:[0-9]+ { return 'e' + ('-' === sign ? sign : '') + digits.join(''); } )?
-  { return parseFloat(int_sign + int_part + frac_part + exp_part); }
+result_entries
+/* anything */
+  = '?' {
+    return [
+      {type: '?'}
+    ];
+  }
+  / first:VALUE rest:( '|' nested:results { return nested; } )? {
+    rest = rest || [];
+    var ret = {
+      type: String(first)
+    };
+    if(first.array){
+      ret.array = true;
+    }
+    if(first.ellipsis){
+      ret.ellipsis = true;
+    }
+    rest.unshift(ret);
+    return rest;
+  }
+
+argument_descriptions
+  = argument_description ( FEED argument_descriptions )?
+
+argument_description
+  = '-' _* name:NAME
+  types:( _* '(' _* ntypes:names_alternation _* ')' { return ntypes; } )?
+  desc:( _* ':' _* ndesc:argument_description_TEXT_BLOCK { return ndesc; } )? {
+    (entity.arguments = entity.arguments || []).push({
+      name: name,
+      types: types || 'mixed',
+      description: desc || ''
+    });
+  }
+
+argument_description_TEXT_BLOCK
+  = !( CLOSE / '-' _* NAME / ( 'includes' / 'fires' ) _+ names / FEED )
+  first:TEXT_CHUNK rest:( FEED nested:argument_description_TEXT_BLOCK { return '\n' + nested; } )? {
+    return first + rest;
+  }
+
+VALUE
+  = QUOTED_STRING
+  / NULL
+  / NUMBER
+  / BOOLEAN
+  / REGEXP
+  / ARRAY
+  / OBJECT
+  / name
 
 QUOTED_STRING
 /* double quoted strings */
@@ -361,22 +322,61 @@ QUOTED_STRING
     return content.join('');
   }
 
-NAME
-  = first:[$_a-zA-Z] rest:[$_a-zA-Z0-9]* {
-    return first + rest.join('');
-  }
+NULL
+  = 'null'i { return null; }
+
+NUMBER
+  = int_sign:[-]? int_part:( first:[1-9] rest:[0-9]+ { return first + rest.join(''); } / [0-9] )
+    frac_part:( '.' digits:[0-9]+ { return '.' + digits.join(''); } )?
+    exp_part:( [eE] sign:[\-\+]? digits:[0-9]+ { return 'e' + ('-' === sign ? sign : '') + digits.join(''); } )?
+  { return parseFloat(int_sign + int_part + frac_part + exp_part); }
+
+BOOLEAN
+  = 'true'i { return true; }
+  / 'false'i { return false; }
 
 REGEXP
   = '/' expression:( '\\/' / [^/] )* '/' flags:[gim]* {
     return new RegExp(expression.join(''), flags.join(''));
   }
 
-BOOLEAN
-  = 'true'i { return true; }
-  / 'false'i { return false; }
+ARRAY
+  = '[' values:ARRAY_ENTRIES? ellipsis:'...'? ']' {
+    value = values || [];
+    values.array = true;
+    if(ellipsis){
+      values.ellipsis = true;
+    }
+    return values;
+  }
 
-NULL
-  = 'null'i { return null; }
+OBJECT
+  = '{' values:OBJECT_ENTRIES? '}' {
+    return values || {};
+  }
+
+ARRAY_ENTRIES
+  = first:VALUE rest:( _* ',' _* next:ARRAY_ENTRIES { return next; } )? {
+    rest = rest || [];
+    rest.unshift(first);
+    return rest;
+  }
+
+OBJECT_ENTRIES
+  = key:KEY _* ':' _* value:VALUE rest:( _* ',' _* next:OBJECT_ENTRIES { return next; } )? {
+    rest = rest || {};
+    rest[key] = value;
+    return rest;
+  }
+
+NAME
+  = first:[$_a-zA-Z] rest:[$_a-zA-Z0-9]* {
+    return first + rest.join('');
+  }
+
+KEY
+  = QUOTED_STRING
+  / NAME
 
 TEXT_CHUNK
   = first:[^\r\n] rest:( !FEED TEXT_CHUNK? / &FEED '' ) {
