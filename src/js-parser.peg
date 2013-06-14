@@ -72,10 +72,7 @@ description
   / FEED*
 
 tag
-  = 'deprecated' ( _* ':' _* since:version _* '..' _* off:version { entity.deprecated = {since: since, off:off}; }
-                   / _* ':' _* since:version { entity.deprecated = {since: since}; }
-                   / { entity.deprecated = true; } )
-  / id:'read-only' {
+  = id:'read-only' {
     entity.readonly = true;
   }
   / id:( 'internal' / 'chainable' ) {
@@ -85,6 +82,9 @@ tag
     /* `alias of' -> `alias_of' */
     entity[id.replace(/\ /g, '_')] = name;
   }
+  / 'deprecated' ( _* ':' _* since:version _* '..' _* off:version { entity.deprecated = {since: since, off:off}; }
+                   / _* ':' _* since:version { entity.deprecated = {since: since}; }
+                   / { entity.deprecated = true; } )
 
 version
   = first:[0-9]+ rest:( '.' v:version { return v; } )? {
