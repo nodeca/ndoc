@@ -288,7 +288,7 @@ argument_description
   desc:( _* ':' _* ndesc:argument_description_TEXT_BLOCK { return ndesc; } )? {
     (entity.arguments = entity.arguments || []).push({
       name: name,
-      types: types || 'mixed',
+      types: types || ['mixed'],
       description: desc || ''
     });
   }
