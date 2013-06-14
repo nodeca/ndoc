@@ -358,7 +358,7 @@ TEXT_CHUNK
 }
 
 TEXT_BLOCK
-  = !CLOSE first:TEXT_CHUNK rest:( feed:( FEED { return '\n'; } )+ text:TEXT_BLOCK { return feed.join('') + text; } )? {
+  = !CLOSE first:TEXT_CHUNK rest:( feed:( SAFE_FEED { return '\n'; } )+ text:TEXT_BLOCK { return feed.join('') + text; } )? {
     return first + rest;
   }
 
@@ -366,7 +366,10 @@ ANY
   = .
 
 FEED
-  = $ _* '*' !'*' _*
+  = SAFE_FEED _*
+
+SAFE_FEED
+  = $ _* '*' !'*'
 
 _ /* white space */
   = [\ \t]
