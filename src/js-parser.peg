@@ -24,7 +24,9 @@ skip
   / COMMENT
 
 entity
-  = OPEN tags? FEED+ ndoc_and_includes_and_fires ( FEED description )? FEED* (
+  = OPEN tags?
+    heading
+    description (
     CLOSE {
       /* capture line number workaround */
       if(typeof line !== 'undefined'){
@@ -55,6 +57,9 @@ tag
   / id:( 'section' / 'alias of' / 'related to' / 'belongs to' ) _* ':' _* name:name {
     entity[id.replace(/\ /g, '_')] = name;
   }
+
+heading
+  = FEED+ ndoc_and_includes_and_fires
 
 ndoc_and_includes_and_fires
   = ndoc ( 'includes' _+ includes:names { entity.included_mixins = includes; }
