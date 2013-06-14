@@ -140,17 +140,18 @@ names_alternation
     return alts;
   }
 
-value
-  = value:( QUOTED_STRING
-            / NULL
-            / NUMBER
-            / BOOLEAN
-            / REGEXP
-            / name
-          ) {
-    return value;
-  }
-  / '[' values:value_list? ellipsis:'...'? ']' {
+VALUE
+  = QUOTED_STRING
+  / NULL
+  / NUMBER
+  / BOOLEAN
+  / REGEXP
+  / ARRAY
+  / OBJECT
+  / name
+
+ARRAY
+  = '[' values:ARRAY_ENTRIES? ellipsis:'...'? ']' {
     value = values || [];
     values.array = true;
     if(ellipsis){
@@ -158,25 +159,27 @@ value
     }
     return values;
   }
-  / '{' values:key_value_list? '}' {
-    return values || [];
-  }
 
-value_list
-  = first:value rest:( _* ',' _* next:value_list { return next; } )? {
+ARRAY_ENTRIES
+  = first:VALUE rest:( _* ',' _* next:ARRAY_ENTRIES { return next; } )? {
     rest = rest || [];
     rest.unshift(first);
     return rest;
   }
 
-key_value_list
-  = key:key _* ':' _* value:value rest:( _* ',' _* next:key_value_list { return next; } )? {
+OBJECT
+  = '{' values:OBJECT_ENTRIES? '}' {
+    return values || {};
+  }
+
+OBJECT_ENTRIES
+  = key:KEY _* ':' _* value:VALUE rest:( _* ',' _* next:OBJECT_ENTRIES { return next; } )? {
     rest = rest || {};
     rest[key] = value;
     return rest;
   }
 
-key
+KEY
   = QUOTED_STRING
   / NAME
 
@@ -261,7 +264,7 @@ returns
       {type: '?'}
     ];
   }
-  / first:value rest:( '|' nested:returns { return nested; } )? {
+  / first:VALUE rest:( '|' nested:returns { return nested; } )? {
     rest = rest || [];
     var ret = {
       type: String(first)
@@ -293,7 +296,7 @@ args
 
 arg
   = name:NAME args:( _* '(' _* a:args _* ')' { return a; } )?
-  ext:( _* '=' _* value:value { return {value:value}; } /* with default value */
+  ext:( _* '=' _* value:VALUE { return {value:value}; } /* with default value */
         / _* '...' { return {ellipsis:true}; } /* with ellipsis */
       )?
   {
