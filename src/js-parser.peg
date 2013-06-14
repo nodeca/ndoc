@@ -33,14 +33,14 @@ chunk
 entity
   = OPEN tags?
     heading
-    description (
-    CLOSE {
+    description
+    CLOSE !{
       /* capture line number workaround */
       if(typeof line !== 'undefined'){
         entity.line = line + 1;
       }
     }
-  ) {
+  {
     entities[entity.id] = entity;
     /* init new supposed entity */
     entity = Entity();
