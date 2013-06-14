@@ -9,6 +9,16 @@
       short_description: ''
     };
   }
+
+  function indent_shift(source){
+    var min_indent = -1;
+    /* calculate minimum number of initial spaces */
+    source.replace(/(?:^|\n)([\ \t]*)([^\n])/g, function(_, indent){
+      min_indent = min_indent < 0 ? indent.length : Math.min(min_indent, indent.length);
+    });
+    /* remove redundant initial spaces */
+    return source.replace(new RegExp('(^|\\n)([\\ \\t]{' + min_indent + '})', 'g'), '$1');
+  }
 }
 
 file
@@ -68,11 +78,13 @@ heading
          / fires ) )*
 
 description
-  = FEED+ value:TEXT_BLOCK {
-    entity.description = value;
+  = FEED value:( FEED+ TEXT_BLOCK ) {
+    entity.description = indent_shift(value[0].pop().replace(/^\n([\ \t]*)/, '$1') + value[1]);
     // short description lasts until the first empty line
     entity.short_description = entity.description.replace(/\n\n[\s\S]*$/, '');
   }
+/* Empty description */
+  / FEED*
 
 includes
   = 'includes' _+ includes:names { entity.included_mixins = includes; }
@@ -367,7 +379,7 @@ TEXT_CHUNK
 }
 
 TEXT_BLOCK
-  = !CLOSE first:TEXT_CHUNK rest:( feed:( SAFE_FEED { return '\n'; } )+ text:TEXT_BLOCK { return feed.join('') + text; } )? {
+  = !CLOSE first:TEXT_CHUNK rest:( feed:FREE_FEED+ text:TEXT_BLOCK { return feed.join('') + text; } )? {
     return first + rest;
   }
 
@@ -375,10 +387,10 @@ ANY
   = .
 
 FEED
-  = SAFE_FEED _*
+  = $ _* '*' !'*' spacing:_* { return '\n' + spacing.join(''); }
 
-SAFE_FEED
-  = $ _* '*' !'*'
+FREE_FEED
+  = $ ( _* '*' )? !'*' spacing:_* { return '\n' + spacing.join(''); }
 
 _ /* white space */
   = [\ \t]
