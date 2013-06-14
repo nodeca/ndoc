@@ -187,7 +187,7 @@ method
   = method_entry results?
 
 constructor
-  = 'new' _+ method_entry {
+  = 'new' _+ method {
     entity.id = entity.id + '.new';
     entity.type = 'constructor';
   }
