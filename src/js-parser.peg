@@ -210,17 +210,16 @@ mixin
   }
 
 property
-  = id:name _* '->' _* returns:results {
+  = id:name results {
     entity.id = id;
     entity.type = 'property';
-    entity.returns = returns;
   }
 
 constant
-  = id:name _* '=' _* returns:results {
+  = id:name _* '=' _* results:result_entries {
     entity.id = id;
     entity.type = 'constant';
-    entity.returns = returns;
+    entity.returns = results;
   }
 
 signatures
@@ -246,9 +245,7 @@ signature
   / constant
 
 method
-  = method_entry returns:( _* '->' _* nested:results { return nested; } )? {
-    entity.returns = returns || none;
-  }
+  = method_entry results
 
 constructor
   = 'new' _+ method_entry {
@@ -267,7 +264,12 @@ method_entry
   }
 
 results
-  /* anything */
+  = _* '->' _* results:result_entries {
+    entity.results = results;
+  }
+
+result_entries
+/* anything */
   = '?' {
     return [
       {type: '?'}
