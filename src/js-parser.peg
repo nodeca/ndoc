@@ -240,18 +240,23 @@ bare_signatures
   }
 
 signature
-  = method returns:( _* '->' _* nested:results { return nested; } )? {
-    entity.returns = returns || none;
-  }
+  = method
+  / constructor
   / property
   / constant
-  /* constructor */
-  / 'new' _+ method {
+
+method
+  = method_entry returns:( _* '->' _* nested:results { return nested; } )? {
+    entity.returns = returns || none;
+  }
+
+constructor
+  = 'new' _+ method_entry {
     entity.id = entity.id + '.new';
     entity.type = 'constructor';
   }
 
-method
+method_entry
   = id:name _* '(' _* bound:'@'? _* args:args? _* ')' {
     entity.id = id;
     entity.type = 'method';
