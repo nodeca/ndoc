@@ -51,8 +51,11 @@ tag
   = 'deprecated' ( _* ':' _* since:version _* '..' _* off:version { entity.deprecated = {since: since, off:off}; }
                    / _* ':' _* since:version { entity.deprecated = {since: since}; }
                    / { entity.deprecated = true; } )
-  / id:( 'read-only' / 'internal' / 'chainable' ) {
-    entity[id.replace(/\-/g, '')] = true;
+  / id:'read-only' {
+    entity.readonly = true;
+  }
+  / id:( 'internal' / 'chainable' ) {
+    entity[id] = true;
   }
   / id:( 'section' / 'alias of' / 'related to' / 'belongs to' ) _* ':' _* name:name {
     entity[id.replace(/\ /g, '_')] = name;
