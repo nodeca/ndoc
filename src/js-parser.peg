@@ -210,14 +210,14 @@ mixin
   }
 
 property
-  = id:name _* '->' _* returns:returns {
+  = id:name _* '->' _* returns:results {
     entity.id = id;
     entity.type = 'property';
     entity.returns = returns;
   }
 
 constant
-  = id:name _* '=' _* returns:returns {
+  = id:name _* '=' _* returns:results {
     entity.id = id;
     entity.type = 'constant';
     entity.returns = returns;
@@ -240,7 +240,7 @@ bare_signatures
   }
 
 signature
-  = method returns:( _* '->' _* nested:returns { return nested; } )? {
+  = method returns:( _* '->' _* nested:results { return nested; } )? {
     entity.returns = returns || none;
   }
   / property
@@ -261,14 +261,14 @@ method
     }
   }
 
-returns
+results
   /* anything */
   = '?' {
     return [
       {type: '?'}
     ];
   }
-  / first:VALUE rest:( '|' nested:returns { return nested; } )? {
+  / first:VALUE rest:( '|' nested:results { return nested; } )? {
     rest = rest || [];
     var ret = {
       type: String(first)
