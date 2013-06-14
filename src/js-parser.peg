@@ -13,11 +13,13 @@
   function indent_shift(source){
     var min_indent = -1;
     /* calculate minimum number of initial spaces */
-    source.replace(/(?:^|\n)([\ \t]*)([^\n])/g, function(_, indent){
+    source.replace(/(?:^|\n)([\ \t]*)[^\s]/g, function(_, indent){
       min_indent = min_indent < 0 ? indent.length : Math.min(min_indent, indent.length);
     });
+    return min_indent > 0
     /* remove redundant initial spaces */
-    return source.replace(new RegExp('(^|\\n)([\\ \\t]{' + min_indent + '})', 'g'), '$1');
+      ? source.replace(new RegExp('(^|\\n)([\\ \\t]{1,' + min_indent + '})', 'g'), '$1')
+      : source;
   }
 }
 
