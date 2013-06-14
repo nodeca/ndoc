@@ -36,6 +36,12 @@ entity
     entity = Entity(); /* init new supposed entity */
   }
 
+OPEN
+  = '/**' _*
+
+CLOSE
+  = ( $ _* )? '**/'
+
 tags
   = tag ( _* ',' _* tags )?
 
@@ -353,12 +359,6 @@ TEXT_BLOCK
 
 ANY
   = .
-
-OPEN
-  = '/**' _*
-
-CLOSE
-  = ( $ _* )? '**/'
 
 FEED
   = $ _* '*' !'*' _*
