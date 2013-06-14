@@ -267,7 +267,7 @@ result_entries
       {type: '?'}
     ];
   }
-  / first:VALUE rest:( '|' nested:results { return nested; } )? {
+  / first:VALUE rest:( '|' nested:result_entries { return nested; } )? {
     rest = rest || [];
     var ret = {
       type: String(first)
