@@ -111,7 +111,8 @@ argument_description
   }
 
 argument_description_TEXT_BLOCK
-  = !( CLOSE / '-' _* NAME / FEED ) first:TEXT_CHUNK rest:( FEED nested:argument_description_TEXT_BLOCK { return '\n' + nested; } )? {
+  = !( CLOSE / '-' _* NAME / ( 'includes' / 'fires' ) _+ names / FEED )
+  first:TEXT_CHUNK rest:( FEED nested:argument_description_TEXT_BLOCK { return '\n' + nested; } )? {
     return first + rest;
   }
 
