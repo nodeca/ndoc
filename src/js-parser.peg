@@ -162,14 +162,6 @@ names
     return names;
   }
 
-names_alternation
-  = '?' { return []; }
-  / name:name rest:( _* '|' _* alts:names_alternation { return alts; } )? {
-    var alts = rest || [];
-    alts.unshift(name);
-    return alts;
-  }
-
 bare_signatures
   = signature ( FEED bare_signatures )?
   {
@@ -285,17 +277,26 @@ result_entries
   }
 
 argument_descriptions
+/* this is a block of signatures followed by signatures */
   = argument_description ( FEED argument_descriptions )?
 
 argument_description
   = '-' _* name:NAME
-  types:( _* '(' _* ntypes:names_alternation _* ')' { return ntypes; } )?
+  types:( _* '(' _* ntypes:argument_description_types _* ')' { return ntypes; } )?
   desc:( _* ':' _* ndesc:argument_description_TEXT_BLOCK { return ndesc; } )? {
     (entity.arguments = entity.arguments || []).push({
       name: name,
       types: types || 'mixed',
       description: desc || ''
     });
+  }
+
+argument_description_types
+  = '?' { return []; }
+  / name:name rest:( _* '|' _* alts:argument_description_types { return alts; } )? {
+    var alts = rest || [];
+    alts.unshift(name);
+    return alts;
   }
 
 argument_description_TEXT_BLOCK
