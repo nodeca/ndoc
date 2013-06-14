@@ -87,10 +87,14 @@ description
   / FEED*
 
 includes
-  = 'includes' _+ includes:names { entity.included_mixins = includes; }
+  = 'includes' _+ includes:names {
+    entity.included_mixins = includes;
+  }
 
 fires
-  = 'fires' _+ events:events { entity.events = events; }
+  = 'fires' _+ events:events {
+    entity.events = events;
+  }
 
 argument_descriptions
   = argument_description ( FEED argument_descriptions )?
