@@ -30,7 +30,8 @@ entity
     }
   ) {
     entities[entity.id] = entity;
-    entity = Entity(); /* init new supposed entity */
+    /* init new supposed entity */
+    entity = Entity();
   }
 
 OPEN
@@ -53,6 +54,7 @@ tag
     entity[id] = true;
   }
   / id:( 'section' / 'alias of' / 'related to' / 'belongs to' ) _* ':' _* name:name {
+    /* `alias of' -> `alias_of' */
     entity[id.replace(/\ /g, '_')] = name;
   }
 
