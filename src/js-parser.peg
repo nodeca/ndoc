@@ -62,11 +62,13 @@ tag
   }
 
 heading
-  = FEED+ ndoc_and_includes_and_fires
-
-ndoc_and_includes_and_fires
-  = ndoc ( 'includes' _+ includes:names { entity.included_mixins = includes; }
-           / 'fires' _+ events:events { entity.events = events; } )?
+  = FEED+ ( signatures
+          / class
+          / mixin
+          / section
+          / namespace )
+  ( FEED ( includes
+         / fires ) )*
 
 description
   = FEED+ value:TEXT_BLOCK {
@@ -75,12 +77,11 @@ description
     entity.short_description = entity.description.replace(/\n\n[\s\S]*$/, '');
   }
 
-ndoc
-  = signatures ( FEED argument_descriptions )?
-  / class
-  / mixin
-  / section
-  / namespace
+includes
+  = 'includes' _+ includes:names { entity.included_mixins = includes; }
+
+fires
+  = 'fires' _+ events:events { entity.events = events; }
 
 argument_descriptions
   = argument_description ( FEED argument_descriptions )?
@@ -223,7 +224,10 @@ constant
   }
 
 signatures
-  = signature ( FEED signatures )?
+  = bare_signatures ( FEED argument_descriptions )?
+
+bare_signatures
+  = signature ( FEED bare_signatures )?
   {
     entity.signatures = entity.signatures || [];
     entity.signatures.unshift({
