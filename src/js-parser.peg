@@ -259,7 +259,7 @@ signature
   / constant
 
 method
-  = method_entry results
+  = method_entry results?
 
 constructor
   = 'new' _+ method_entry {
