@@ -15,13 +15,8 @@ file
   = chunk* { return entities; }
 
 chunk
-  = skip
-  / entity
+  = entity
   / ANY
-
-skip
-  = QUOTED_STRING
-  / COMMENT
 
 entity
   = OPEN tags?
@@ -346,11 +341,6 @@ QUOTED_STRING
   / [\'] content:( [\\] [\'] { return '\\\''; } / [\\] [\n] { return '\n'; } / [^\'\n] )* [\'] {
     return content.join('');
   }
-
-COMMENT
-  = '/*' &[^*] content:( [^*]
-                         / chunk:( [*] [^/] ) { return chunk.join(''); }
-                       )* '*/' { return content.join(''); }
 
 NAME
   = first:[$_a-zA-Z] rest:[$_a-zA-Z0-9]* {
