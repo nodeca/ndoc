@@ -94,6 +94,7 @@ version
   }
 
 signatures
+/* Signatures consist of bare signatures block and followed argument descriptions block */
   = bare_signatures ( FEED argument_descriptions )?
 
 class
@@ -163,6 +164,7 @@ names
   }
 
 bare_signatures
+/* Bare signatures one signature per line */
   = signature ( FEED bare_signatures )?
   {
     entity.signatures = entity.signatures || [];
@@ -277,7 +279,7 @@ result_entries
   }
 
 argument_descriptions
-/* this is a block of signatures followed by signatures */
+/* Argument descriptions block, which may be appended to bare signatures block */
   = argument_description ( FEED argument_descriptions )?
 
 argument_description
