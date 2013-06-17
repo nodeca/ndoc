@@ -217,7 +217,7 @@ method_entry
   }
 
 args
-  = first:arg? rest:( _* ',' _* args:args { return args; } )? opt:( ( ',' _* )? '[' _* ( ',' _* )? _* args:args _* ']' { return args; } )? {
+  = first:arg? rest:( _* ',' _* args:args { return args; } )? opt:( '[' _* ( ',' _* )? _* args:args _* ']' { return args; } )? {
     rest = rest || [];
     if(first){
       rest.unshift(first);
@@ -232,6 +232,15 @@ args
   }
 
 arg
+/* Required argument */
+  = bare_arg
+/* Optional argument */
+  / '[' _* arg:bare_arg _* ']' {
+    arg.optional = true;
+    return arg;
+  }
+
+bare_arg
   = name:NAME args:( _* '(' _* a:args _* ')' { return a; } )?
   ext:( _* '=' _* value:VALUE { return {value:value}; } /* with default value */
         / _* '...' { return {ellipsis:true}; } /* with ellipsis */
