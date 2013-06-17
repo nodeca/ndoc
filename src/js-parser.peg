@@ -66,13 +66,11 @@ heading
          / fires ) )*
 
 description
-  = FEED value:( FEED+ TEXT_BLOCK ) {
-    entity.description = indent_shift(value[0].pop().replace(/^\n([\ \t]*)/, '$1') + value[1]);
-    // short description lasts until the first empty line
-    entity.short_description = entity.description.replace(/\n\n[\s\S]*$/, '');
-  }
-/* Empty description */
-  / FEED*
+  = ( FEED value:( FEED+ TEXT_BLOCK ) {
+        entity.description = indent_shift(value[0].pop().replace(/^\n([\ \t]*)/, '$1') + value[1]);
+        // short description lasts until the first empty line
+        entity.short_description = entity.description.replace(/\n\n[\s\S]*$/, '');
+      } )? FEED*
 
 tag
   = id:'read-only' {
