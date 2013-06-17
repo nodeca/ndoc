@@ -247,7 +247,7 @@ arg
       arg.default_value = ext.value;
     }
     if(ext.ellipsis){
-      arg.allipsis = true;
+      arg.ellipsis = true;
     }
     return arg;
   }
