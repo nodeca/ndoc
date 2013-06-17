@@ -1,5 +1,6 @@
 {
   var none,
+  parser = this,
   entities = {},
   entity = Entity();
 
@@ -50,7 +51,7 @@ OPEN
   = '/**' _*
 
 CLOSE
-  = ( $ _* )? '**/'
+  = ( $ _* )? ( '**/' / '*/' &{ throw new parser.SyntaxError(['**/'], '*/', offset, line, column); } )
 
 tags
   = tag ( _* ',' _* tags )?
@@ -397,10 +398,10 @@ ANY
   = .
 
 FEED
-  = $ _* '*' !'*' spacing:_* { return '\n' + spacing.join(''); }
+  = $ _* '*' !( '*' / '/') spacing:_* { return '\n' + spacing.join(''); }
 
 FREE_FEED
-  = $ ( _* '*' )? !'*' spacing:_* { return '\n' + spacing.join(''); }
+  = $ ( _* '*' )? !( '*' / '/' ) spacing:_* { return '\n' + spacing.join(''); }
 
 _ /* white space */
   = [\ \t]
