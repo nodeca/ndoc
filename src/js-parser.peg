@@ -303,7 +303,7 @@ argument_descriptions
 argument_description
   = '-' _* name:NAME
   types:( _* '(' _* ntypes:argument_description_types _* ')' { return ntypes; } )?
-  desc:( _* ':' _* ndesc:argument_description_text { return ndesc; } )? {
+  desc:( _* ':' _* ndesc:argument_description_text? { return ndesc; } )? {
     (entity.arguments = entity.arguments || []).push({
       name: name,
       types: types || ['mixed'],
