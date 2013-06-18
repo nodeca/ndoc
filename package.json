@@ -1,16 +1,16 @@
 {
   "name"            : "ndoc",
-  "version"         : "2.0.5",
+  "version"         : "3.0.0",
   "description"     : "JavaScript API documentor with simple syntax.",
   "keywords"        : [
                         "api", "doc", "apidoc", "documentation", "pdoc"
                       ],
   "homepage"        : "https://github.com/nodeca/ndoc",
 
-  "author"          : "Vladimir Dronnikov <dronnikov@gmail.com>",
   "constributors"   : [
                         "Vitaly Puzrin <vitaly@rcdesign.ru> (http://rcdesign.ru)",
-                        "Aleksey V Zapparov <ixti@member.fsf.org> (http://www.ixti.net/)"
+                        "Aleksey V Zapparov <ixti@member.fsf.org> (http://www.ixti.net/)",
+                        "Vitaly Miniahmetov <kayo@illumium.org>"
                       ],
 
   "bugs"            : { "url": "https://github.com/nodeca/ndoc/issues" },

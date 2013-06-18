@@ -1,3 +1,11 @@
+3.0.0 / 2013-06-18
+------------------
+
+* Completely rewritten syntax parser (jison -> pegjs)
+* Improved error reporting
+* Multiple fixes
+
+
 2.0.5 / 2013-02-16
 ------------------
 
