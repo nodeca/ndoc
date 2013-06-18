@@ -32,9 +32,9 @@ chunk
   / ANY
 
 entity
-  = OPEN tags?
-    heading
-    description
+  = OPEN tags_container
+    heading addition*
+    description_container?
     CLOSE !{
       /* capture line number workaround */
       if(typeof line !== 'undefined'){
@@ -51,26 +51,27 @@ OPEN
   = '/**' _*
 
 CLOSE
-  = ( $ _* )? ( '**/' / '*/' &{ throw new parser.SyntaxError(['**/'], '*/', offset, line, column); } )
+  = _* ( '**/' / '*/' &{ throw new parser.SyntaxError(['**/'], '*/', offset, line, column); } )
+
+tags_container
+  = tags? $
+
+heading
+  = signatures
+  / class
+  / mixin
+  / section
+  / namespace
+
+addition
+  = includes
+  / fires
+
+description_container
+  = EMPTY_LINE description_text?
 
 tags
   = tag ( _* ',' _* tags )?
-
-heading
-  = FEED+ ( signatures
-          / class
-          / mixin
-          / section
-          / namespace )
-  ( FEED ( includes
-         / fires ) )*
-
-description
-  = ( FEED value:( FEED+ TEXT_BLOCK ) {
-        entity.description = indent_shift(value[0].pop().replace(/^\n([\ \t]*)/, '$1') + value[1]);
-        // short description lasts until the first empty line
-        entity.short_description = entity.description.replace(/\n\n[\s\S]*$/, '');
-      } )? FEED*
 
 tag
   = id:'read-only' {
@@ -92,42 +93,51 @@ version
     return first.join('') + (rest ? '.' + rest : '');
   }
 
+description_text
+/* Multiline description block
+   Empty lines are allowed here */
+  = text:( indent:INDENT nested:TEXT $ { return indent + nested; } / EMPTY_LINE )+ {
+    entity.description = indent_shift(text.join('\n'));
+    // short description lasts until the first empty line
+    entity.short_description = entity.description.replace(/\n\n[\s\S]*$/, '');
+  }
+
 signatures
 /* Signatures consist of bare signatures block and followed argument descriptions block */
-  = bare_signatures ( FEED argument_descriptions )?
+  = bare_signatures argument_descriptions?
 
 class
-  = 'class' _+ id:name superclass:( _* '<' _* nested:name { return nested; } )? {
+  = INDENT 'class' _+ id:name superclass:( _* '<' _* nested:name { return nested; } )? $ {
     entity.id = id;
     entity.type = 'class';
     entity.superclass = superclass || none;
   }
 
 mixin
-  = 'mixin' _+ id:name {
+  = INDENT 'mixin' _+ id:name $ {
     entity.id = id;
     entity.type = 'mixin';
   }
 
 section
-  = '==' _* id:name _* '==' {
+  = INDENT '==' _* id:name _* '==' $ {
     entity.id = id;
     entity.type = 'section';
   }
 
 namespace
-  = id:name {
+  = INDENT id:name $ {
     entity.id = id;
     entity.type = 'namespace';
   }
 
 includes
-  = 'includes' _+ includes:names {
+  = INDENT 'includes' _+ includes:names $ {
     entity.included_mixins = includes;
   }
 
 fires
-  = 'fires' _+ events:events {
+  = INDENT 'fires' _+ events:events $ {
     entity.events = events;
   }
 
@@ -164,7 +174,7 @@ names
 
 bare_signatures
 /* Bare signatures one signature per line */
-  = signature ( FEED bare_signatures )?
+  = INDENT signature $ bare_signatures?
   {
     entity.signatures = entity.signatures || [];
     entity.signatures.unshift({
@@ -288,12 +298,12 @@ result_entries
 
 argument_descriptions
 /* Argument descriptions block, which may be appended to bare signatures block */
-  = argument_description ( FEED argument_descriptions )?
+  = INDENT argument_description $ argument_descriptions?
 
 argument_description
   = '-' _* name:NAME
   types:( _* '(' _* ntypes:argument_description_types _* ')' { return ntypes; } )?
-  desc:( _* ':' _* ndesc:argument_description_TEXT_BLOCK { return ndesc; } )? {
+  desc:( _* ':' _* ndesc:argument_description_text { return ndesc; } )? {
     (entity.arguments = entity.arguments || []).push({
       name: name,
       types: types || ['mixed'],
@@ -309,10 +319,12 @@ argument_description_types
     return alts;
   }
 
-argument_description_TEXT_BLOCK
-  = !( CLOSE / '-' _* NAME / ( 'includes' / 'fires' ) _+ names / FEED )
-  first:TEXT_CHUNK rest:( FEED nested:argument_description_TEXT_BLOCK { return '\n' + nested; } )? {
-    return first + rest;
+argument_description_text
+/* `first' is a text up to end of line
+   `rest' is an optional text lines (in case of multiline description) without end of last line
+   An empty lines are disallowed here because it's used as a separator for description block. */
+  = first:TEXT rest:( $ indent:INDENT !( '-' / 'includes' / 'fires' ) nested:TEXT { return indent + nested; } )* {
+    return first + (rest.length ? '\n' + indent_shift(rest.join('\n')) : '');
   }
 
 VALUE
@@ -391,27 +403,27 @@ KEY
   = QUOTED_STRING
   / NAME
 
-TEXT_CHUNK
-  = first:[^\r\n] rest:( !FEED TEXT_CHUNK? / &FEED '' ) {
-  return first + rest.join('');
-}
-
-TEXT_BLOCK
-  = !CLOSE first:TEXT_CHUNK rest:( feed:FREE_FEED+ text:TEXT_BLOCK { return feed.join('') + text; } )? {
-    return first + rest;
+TEXT
+/* A text up to end of line */
+  = chars:[^\r\n]+ {
+    return chars.join('');
   }
 
 ANY
   = .
 
-FEED
-  = $ _* '*' !( '*' / '/') spacing:_* { return '\n' + spacing.join(''); }
+INDENT
+  = _$ spacing:_+ { return spacing.join(''); }
 
-FREE_FEED
-  = $ ( _* '*' )? !( '*' / '/' ) spacing:_* { return '\n' + spacing.join(''); }
+EMPTY_LINE
+  = _$ _* $ { return ''; }
 
 _ /* white space */
   = [\ \t]
 
-$ /* line feed */
+_$
+  /* line begin */
+  = _* '*'
+
+$ /* line end */
   = [\r]? [\n]
