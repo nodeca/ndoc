@@ -10,7 +10,8 @@
   "constributors"   : [
                         "Vitaly Puzrin <vitaly@rcdesign.ru> (http://rcdesign.ru)",
                         "Aleksey V Zapparov <ixti@member.fsf.org> (http://www.ixti.net/)",
-                        "Vitaly Miniahmetov <kayo@illumium.org>"
+                        "Vitaly Miniahmetov <kayo@illumium.org>",
+                        "Vladimir Dronnikov <dronnikov@gmail.com>"
                       ],
 
   "bugs"            : { "url": "https://github.com/nodeca/ndoc/issues" },
