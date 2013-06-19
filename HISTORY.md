@@ -1,3 +1,11 @@
+3.0.1 / 2013-06-19
+------------------
+
+* Fixed signatures values (#70)
+* Changed generated reference links names to full format
+* Updated dependencies
+
+
 3.0.0 / 2013-06-18
 ------------------
 
