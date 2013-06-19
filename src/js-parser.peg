@@ -271,7 +271,7 @@ bare_arg
 
 results
   = _* '->' _* results:result_entries {
-    entity.results = results;
+    entity.returns = results;
   }
 
 result_entries
