@@ -110,11 +110,11 @@ playground: $(DOCS)
 
 doc: lib
 	rm -fr doc
-	$(ROOT)/bin/ndoc --link-format "{package.homepage}/blob/${CURR_HEAD}/{file}#L{line}"
+	$(ROOT)/bin/ndoc.js --link-format "{package.homepage}/blob/${CURR_HEAD}/{file}#L{line}"
 
 test-prototype:
 	rm -fr ./tests/prototype-doc
-	$(ROOT)/bin/ndoc --noenv -o ./tests/prototype-doc --broken-links show \
+	$(ROOT)/bin/ndoc.js --noenv -o ./tests/prototype-doc --broken-links show \
 		--index ./tests/prototype/README.markdown \
 		--link-format 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' \
 		--title "Prototype v1.7" \
@@ -122,7 +122,7 @@ test-prototype:
 
 test-features:
 	rm -fr ./tests/features-doc
-	$(ROOT)/bin/ndoc --noenv -o ./tests/features-doc --broken-links show -t "NDoc new features" \
+	$(ROOT)/bin/ndoc.js --noenv -o ./tests/features-doc --broken-links show -t "NDoc new features" \
 		--gh-ribbon '{package.homepage}' ./tests/features
 
 test: lint test-prototype test-features
@@ -131,7 +131,7 @@ $(DOCS): $(LIBS)
 	echo Compiling documentation for $(@D)
 	#rm -f lib/parser.js
 	rm -rf $@
-	cd $(@D) && $(ROOT)/bin/ndoc -o doc -i README.md --package ./package.json lib
+	cd $(@D) && $(ROOT)/bin/ndoc.js -o doc -i README.md --package ./package.json lib
 
 proto-pages:
 	@if test -z ${REMOTE_REPO} ; then \
