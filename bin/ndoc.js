@@ -9,10 +9,6 @@ var fs = require('fs');
 var path = require('path');
 
 
-// 3rd-party
-var async = require('async');
-
-
 // internal
 var NDoc      = require('..');
 var template  = require('../lib/ndoc/common').template;
