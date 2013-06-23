@@ -1,5 +1,6 @@
 # NDoc - JavaScript documentation generator
-[![Build Status](https://secure.travis-ci.org/nodeca/ndoc.png)](http://travis-ci.org/nodeca/ndoc)
+
+[![Build Status](https://travis-ci.org/nodeca/ndoc.png?branch=master)](https://travis-ci.org/nodeca/ndoc)
 
 NDoc is an inline comment parser and JavaScript documentation generator written
 in Node.JS. This project was inspired by [PDoc](http://pdoc.org/syntax.html).

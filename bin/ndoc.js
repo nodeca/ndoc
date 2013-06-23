@@ -89,15 +89,10 @@ options.index = options.index || '';
 //
 // collect sources, parse into ast, render
 //
-
-async.waterfall([
-  function collect_files(next) {
-    NDoc.cli.findFiles(options.paths, options.exclude, next);
-  },
-  function parse_files(files, next) {
-    NDoc.parse(files, options, next);
-  },
-  function render_ast(ast, next) {
-    NDoc.render(options.renderer, ast, options, next);
-  }
-], exit);
+try {
+  var files = NDoc.cli.findFiles(options.paths, options.exclude);
+  var ast = NDoc.parse(files, options);
+  NDoc.render(options.renderer, ast, options);
+} catch (e) {
+  exit (e);
+}
