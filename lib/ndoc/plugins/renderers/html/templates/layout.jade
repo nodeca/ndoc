@@ -4,11 +4,16 @@ include lib
 html
   head
     title #{title}
-    meta(charset="utf-8")
-    meta(name="generator", content="ndoc")
+    meta(charset='utf-8')
+    meta(name='generator', content='ndoc')
 
-    style(rel="stylesheet")!=inline_asset("main.css")
-    script(type="application/javascript")!=inline_asset("main.js")
+    style(rel='stylesheet').
+      !{css}
+    
+    include ../javascript/modernizr.custom.js
+    include ../javascript/jquery.js
+    include ../javascript/jquery.throttle.js
+    include ../javascript/main.js
 
   body
     - if (github)
