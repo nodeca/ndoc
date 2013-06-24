@@ -225,17 +225,26 @@ method_entry
   }
 
 args
-  = first:arg? rest:( _* ',' _* args:args { return args; } )? opt:( '[' _* ( ',' _* )? _* args:args _* ']' { return args; } )? {
+  = first:arg? opt:optional_args? rest:( _* ',' _* args:args { return args; } )? {
     rest = rest || [];
+    if(opt){
+      var arg;
+      for(; arg = opt.pop(); ){
+        arg.optional = true;
+        rest.unshift(arg);
+      }
+    }
     if(first){
       rest.unshift(first);
     }
-    if(opt){
-      for(var i = 0; i < opt.length; i++){
-        opt[i].optional = true;
-      }
-      rest = rest.concat(opt);
-    }
+    return rest;
+  }
+
+optional_args
+/* Optional arguments subsequence */
+  = _* '[' _* ( ',' _* )? first:arg rest:( _* ',' _* args:args { return args; } )? _* ']' {
+    rest = rest || [];
+    rest.unshift(first);
     return rest;
   }
 
