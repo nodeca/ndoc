@@ -61,7 +61,7 @@ entity
   }
 
 OPEN
-  = '/**' _*
+  = ( $ / &{ return 0 === offset; } ) _* '/**' _*
 
 CLOSE
   = _* ( '**/' / '*/' &{ throw new parser.SyntaxError(['**/'], '*/', offset, line, column); } )
