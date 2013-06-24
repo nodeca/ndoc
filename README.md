@@ -118,20 +118,21 @@ var options = {
   output:     : 'doc'
 };
 
+var ast;
 
-NDoc.parse(['lib/my-module.js'], options, function (err, ast) {
-  if (err) {
-    console.error(err);
-    process.exit(1);
-  }
+try {
+  ast = NDoc.parse(['lib/my-module.js'], options);
+} catch (err) {
+  console.error(err);
+  process.exit(1);
+}
 
-  NDoc.render('html', ast, options, function (err) {
-    if (err) {
-      console.error(err);
-      process.exit(1);
-    }
-  });
-});
+try {
+  NDoc.render('html', ast, options);
+} catch (err) {
+  console.error(err);
+  process.exit(1);
+}
 ```
 
 
