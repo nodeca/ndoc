@@ -22,6 +22,20 @@
       ? source.replace(new RegExp('(^|\\n)([\\ \\t]{1,' + min_indent + '})', 'g'), '$1')
       : source;
   }
+
+  function throwError(){
+    var offset = Math.max(pos.offset, rightmostFailuresPos.offset);
+    var found = offset < input.length ? input.charAt(offset) : null;
+    var errorPosition = pos.offset > rightmostFailuresPos.offset ? pos : rightmostFailuresPos;
+
+    throw new parser.SyntaxError(
+      cleanupExpected(rightmostFailuresExpected),
+      found,
+      offset,
+      errorPosition.line,
+      errorPosition.column
+    );
+  }
 }
 
 file
@@ -32,9 +46,8 @@ chunk
   / ANY
 
 entity
-  = OPEN tags_container
-    heading addition*
-    description_container?
+  = OPEN
+    ( documentation / &{ throwError(); } )
     CLOSE !{
       /* capture line number workaround */
       if(typeof line !== 'undefined'){
@@ -52,6 +65,11 @@ OPEN
 
 CLOSE
   = _* ( '**/' / '*/' &{ throw new parser.SyntaxError(['**/'], '*/', offset, line, column); } )
+
+documentation
+  = tags_container
+    heading addition*
+    description_container?
 
 tags_container
   = tags? $
