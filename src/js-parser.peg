@@ -260,8 +260,11 @@ args
 
 optional_args
 /* Optional arguments subsequence */
-  = _* '[' _* ( ',' _* )? first:arg rest:( _* ',' _* args:args { return args; } )? _* ']' {
+  = _* '[' _* ( ',' _* )? first:arg opt:optional_args? rest:( _* ',' _* args:args { return args; } )? _* ']' {
     rest = rest || [];
+    if(opt){
+      rest = opt.concat(rest);
+    }
     rest.unshift(first);
     return rest;
   }
