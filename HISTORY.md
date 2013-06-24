@@ -1,3 +1,12 @@
+3.1.0 / 2013-06-24
+------------------
+
+* Removed all async code, API is also sync now
+* Improved error reporting for invalid syntax (#72)
+* Different syntax fixes
+* Removed mincer, files are rendered directly
+
+
 3.0.1 / 2013-06-19
 ------------------
 
