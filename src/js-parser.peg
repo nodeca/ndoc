@@ -378,7 +378,7 @@ QUOTED_STRING
   }
 
 NULL
-  = 'null'i { return null; }
+  = 'null'i NAME_EDGE { return null; }
 
 NUMBER
   = int_sign:[-]? int_part:( first:[1-9] rest:[0-9]+ { return first + rest.join(''); } / [0-9] )
@@ -387,8 +387,8 @@ NUMBER
   { return parseFloat(int_sign + int_part + frac_part + exp_part); }
 
 BOOLEAN
-  = 'true'i { return true; }
-  / 'false'i { return false; }
+  = 'true'i NAME_EDGE { return true; }
+  / 'false'i NAME_EDGE { return false; }
 
 REGEXP
   = '/' expression:( '\\/' / [^/] )* '/' flags:[gim]* {
@@ -428,6 +428,9 @@ NAME
   = first:[$_a-zA-Z] rest:[$_a-zA-Z0-9]* {
     return first + rest.join('');
   }
+
+NAME_EDGE
+  = ![$_a-zA-Z0-9]
 
 KEY
   = QUOTED_STRING
