@@ -1,41 +1,42 @@
 {
-  "name"            : "ndoc",
-  "version"         : "3.1.0",
-  "description"     : "JavaScript API documentor with simple syntax.",
-  "keywords"        : [
-                        "api", "doc", "apidoc", "documentation", "pdoc"
-                      ],
-  "homepage"        : "https://github.com/nodeca/ndoc",
-
-  "contributors"    : [
-                        "Vitaly Puzrin <vitaly@rcdesign.ru> (http://rcdesign.ru)",
-                        "Aleksey V Zapparov <ixti@member.fsf.org> (http://www.ixti.net/)",
-                        "Vitaly Miniahmetov <kayo@illumium.org>",
-                        "Vladimir Dronnikov <dronnikov@gmail.com>"
-                      ],
-
-  "bugs"            : { "url": "https://github.com/nodeca/ndoc/issues" },
-  "license"         : { "type": "MIT", "url": "https://github.com/nodeca/ndoc/blob/master/LICENSE" },
-  "repository"      : { "type": "git", "url": "git://github.com/nodeca/ndoc.git" },
-
-  "bin"             : { "ndoc": "bin/ndoc.js" },
-  "main"            : "./index.js",
-
-  "dependencies"    : {
-                        "lodash"      : "~1.3.1",
-                        "fs-tools"    : "~0.2.2",
-                        "argparse"    : "~0.1.12",
-                        "minimatch"   : "~0.2.5",
-                        "jade"        : "~0.31.2",
-                        "stylus"      : "~0.32.0",
-                        "nib"         : "~0.9.1",
-                        "marked"      : "~0.2.0",
-                        "highlight.js": "~7.3.0"
-                      },
-  "devDependencies" : {
-                        "pegjs": "~0.7.0"
-                      },
-  "engines"         : { "node": ">= 0.6.0" },
-
-  "preferGlobal"    : true
+  "name": "ndoc",
+  "version": "3.1.0",
+  "description": "JavaScript API documentor with simple syntax.",
+  "keywords": [
+    "api",
+    "doc",
+    "apidoc",
+    "documentation",
+    "pdoc"
+  ],
+  "homepage": "https://github.com/nodeca/ndoc",
+  "contributors": [
+    "Vitaly Puzrin <vitaly@rcdesign.ru> (http://rcdesign.ru)",
+    "Aleksey V Zapparov <ixti@member.fsf.org> (http://www.ixti.net/)",
+    "Vitaly Miniahmetov <kayo@illumium.org>",
+    "Vladimir Dronnikov <dronnikov@gmail.com>"
+  ],
+  "license": "MIT",
+  "repository": "nodeca/ndoc",
+  "bin": {
+    "ndoc": "bin/ndoc.js"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": {
+    "lodash": "~1.3.1",
+    "fs-tools": "~0.2.2",
+    "argparse": "~0.1.12",
+    "minimatch": "~0.2.5",
+    "jade": "~0.31.2",
+    "stylus": "~0.32.0",
+    "nib": "~0.9.1",
+    "marked": "~0.2.0",
+    "highlight.js": "~7.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^2.1.0",
+    "pegjs": "~0.7.0"
+  }
 }

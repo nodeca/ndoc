@@ -1,0 +1,5 @@
+node_modules/
+doc/
+lib/ndoc/plugins/parsers/javascript
+lib/ndoc/plugins/renderers/html/javascript
+tests/prototype

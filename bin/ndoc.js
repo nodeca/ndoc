@@ -30,13 +30,13 @@ function exit(err) {
 ////////////////////////////////////////////////////////////////////////////////
 
 
-NDoc.cli.addArgument(['--noenv'], {
+NDoc.cli.addArgument([ '--noenv' ], {
   help:   'Ignore .ndocrc',
   action: 'storeTrue'
 });
 
 
-if (-1 === process.argv.indexOf('--noenv') && fs.existsSync('.ndocrc')) {
+if (process.argv.indexOf('--noenv') === -1 && fs.existsSync('.ndocrc')) {
   NDoc.cli.readEnvFile('.ndocrc');
 }
 
@@ -79,7 +79,7 @@ options.aliases.forEach(function (pair) {
 // Post-process some of the options
 //
 
-options.title = template(options.title || '', {'package': options.package});
+options.title = template(options.title || '', { 'package': options.package });
 options.index = options.index || '';
 
 //
