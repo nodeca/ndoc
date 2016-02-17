@@ -5,13 +5,13 @@
 
 
 // stdlib
-var fs = require('fs');
-var path = require('path');
+const fs = require('fs');
+const path = require('path');
 
 
 // internal
-var NDoc      = require('..');
-var template  = require('../lib/ndoc/common').template;
+const NDoc      = require('..');
+const template  = require('../lib/ndoc/common').template;
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -19,6 +19,7 @@ var template  = require('../lib/ndoc/common').template;
 
 function exit(err) {
   if (err) {
+    /* eslint-disable no-console */
     console.error(err.message || err);
     process.exit(1);
   }
@@ -54,7 +55,7 @@ NDoc.cli.parseKnownArgs().shift().use.forEach(function (pathname) {
   try {
     NDoc.use(require(pathname));
   } catch (err) {
-    exit('Failed add renderer: ' + pathname + '\n\n' + err.toString());
+    exit(`Failed add renderer: ${pathname}\n\n${err.toString()}`);
   }
 });
 
@@ -64,16 +65,14 @@ NDoc.cli.parseKnownArgs().shift().use.forEach(function (pathname) {
 //
 
 
-var options = NDoc.cli.parseArgs();
+let options = NDoc.cli.parseArgs();
 
 
 //
 // Process aliases
 //
 
-options.aliases.forEach(function (pair) {
-  NDoc.extensionAlias.apply(null, pair.split(':'));
-});
+options.aliases.forEach(pair => { NDoc.extensionAlias.apply(null, pair.split(':')); });
 
 //
 // Post-process some of the options
@@ -86,8 +85,8 @@ options.index = options.index || '';
 // collect sources, parse into ast, render
 //
 try {
-  var files = NDoc.cli.findFiles(options.paths, options.exclude);
-  var ast = NDoc.parse(files, options);
+  let files = NDoc.cli.findFiles(options.paths, options.exclude);
+  let ast = NDoc.parse(files, options);
   NDoc.render(options.renderer, ast, options);
 } catch (e) {
   exit (e);
