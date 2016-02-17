@@ -1,6 +1,6 @@
 include lib
 
-!!! 5
+doctype html
 html
   head
     title #{title}
@@ -9,9 +9,10 @@ html
 
     style(rel='stylesheet').
       !{css}
-    
-    include ../../../../../../node_modules/jquery/dist/jquery.js
-    include ../javascript/main.js
+
+    script(type="text/javascript")
+      include ../../../../../../node_modules/jquery/dist/jquery.js
+      include ../javascript/main.js
 
   body
     - if (github)
@@ -23,7 +24,7 @@ html
       form#search
         input(type='search', size='20', title='Search', placeholder='Search')
       ul#search-results.menu
-      
+
       include _menu.jade
 
     //- Main content
@@ -35,7 +36,7 @@ html
         .readme
           mixin markdown(index)
         //- sections
-        collection = tree.children.filter(function(x){return x.type === 'section'})
+        - var collection = tree.children.filter(function (x) {return x.type === 'section'})
         if collection.length
           .section.sections
             h3 Sections

@@ -21,14 +21,14 @@ It tries to keep compatibility, but has some differences:
 We suppose that you already have `Node` and `npm` installed.
 If not - try [nvm](https://github.com/creationix/nvm).
 
-``` bash
+```bash
 npm install -g ndoc
 ```
 
 
 ## Usage
 
-``` dos
+```none
 usage: ndoc [-h] [-v] [--exclude PATTERN] [-o PATH] [--use PLUGIN]
             [--alias MAPPING] [-r RENDERER] [--link-format FORMAT]
             [-t TEMPLATE] [--show-all] [--package PACKAGE] [--index FILE]
@@ -86,7 +86,7 @@ extentions (see start of this doc for details).
 
 You can generate prototype documentation for test:
 
-``` bash
+```bash
 make test
 ```
 
@@ -109,7 +109,7 @@ attach it with `--use my-module` argument.
 
 You can use NDoc as module, for example, to override default options processing.
 
-``` javascript
+```js
 var NDoc = require('ndoc');
 
 
