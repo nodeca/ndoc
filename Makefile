@@ -4,7 +4,6 @@ PATH        := ${ROOT}/node_modules/.bin:${PATH}
 
 NPM_PACKAGE := $(shell node -e 'process.stdout.write(require("./package.json").name)')
 NPM_VERSION := $(shell node -e 'process.stdout.write(require("./package.json").version)')
-HOMEPAGE    := $(shell node -e 'process.stdout.write(require("./package.json").homepage)')
 
 TMP_PATH    := /tmp/${NPM_PACKAGE}-$(shell date +%s)
 
@@ -13,9 +12,6 @@ REMOTE_REPO ?= $(shell git config --get remote.${REMOTE_NAME}.url)
 
 CURR_HEAD   := $(firstword $(shell git show-ref --hash HEAD | cut -b -6) master)
 GITHUB_PROJ := nodeca/${NPM_PACKAGE}
-
-
-JS_PGEN     ?= pegjs
 
 
 help:
@@ -74,20 +70,20 @@ playground: $(DOCS)
 
 doc: lib
 	rm -fr doc
-	$(ROOT)/bin/ndoc.js --link-format "{package.homepage}/blob/${CURR_HEAD}/{file}#L{line}"
+	$(ROOT)/bin/ndoc.js --link-format "https://github.com/{package.repository}/blob/${CURR_HEAD}/{file}#L{line}"
 
 test-prototype:
 	rm -fr ./tests/prototype-doc
 	$(ROOT)/bin/ndoc.js --noenv -o ./tests/prototype-doc --broken-links show \
 		--index ./tests/prototype/README.markdown \
-		--link-format 'https://github.com/sstephenson/prototype/blob/master/{file}#L{line}' \
+		--link-format 'https://github.com/sstephenson/prototype/blob/1.7/{file}#L{line}' \
 		--title "Prototype v1.7" \
 		./tests/prototype/src
 
 test-features:
 	rm -fr ./tests/features-doc
 	$(ROOT)/bin/ndoc.js --noenv -o ./tests/features-doc --broken-links show -t "NDoc new features" \
-		--gh-ribbon '{package.homepage}' ./tests/features
+		--gh-ribbon 'https://github.com/{package.repository}' ./tests/features
 
 test: lint test-prototype test-features
 

@@ -9,7 +9,6 @@
     "documentation",
     "pdoc"
   ],
-  "homepage": "https://github.com/nodeca/ndoc",
   "contributors": [
     "Vitaly Puzrin <vitaly@rcdesign.ru> (http://rcdesign.ru)",
     "Aleksey V Zapparov <ixti@member.fsf.org> (http://www.ixti.net/)",
