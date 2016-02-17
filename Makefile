@@ -49,36 +49,16 @@ publish:
 	npm publish https://github.com/${GITHUB_PROJ}/tarball/${NPM_VERSION}
 
 
-lib: lib/ndoc/plugins/parsers/javascript/parser.js
-ifeq ($(JS_PGEN),jison)
-lib/ndoc/plugins/parsers/javascript/parser.js: src/js-parser.y
-	@if test ! `which jison` ; then \
-		echo "You need 'jison' installed in order to compile parsers." >&2 ; \
-		echo "  $ make dev-deps" >&2 ; \
-		exit 128 ; \
-		fi
-	jison < $< > $@
-endif
-ifeq ($(JS_PGEN),pegjs)
-lib/ndoc/plugins/parsers/javascript/parser.js: src/js-parser.peg
-	@if test ! `which pegjs` ; then \
-		echo "You need 'pegjs' installed in order to compile parsers." >&2 ; \
-		echo "  $ make dev-deps" >&2 ; \
-		exit 128 ; \
-		fi
-	pegjs --track-line-and-column $< $@
-endif
-
-recompile-parsers:
+parser:
 	rm -f lib/ndoc/plugins/parsers/javascript/parser.js
-	$(MAKE) lib
+	./node_modules/.bin/pegjs --track-line-and-column src/js-parser.peg lib/ndoc/plugins/parsers/javascript/parser.js
 
 
 todo:
 	grep 'TODO' -n -r ./lib 2>/dev/null || test true
 
 
-.PHONY: publish lint test doc dev-deps gh-pages todo playground redo $(DOCS)
+.PHONY: publish lint test doc gh-pages todo playground redo $(DOCS)
 .SILENT: help lint test doc todo
 
 
