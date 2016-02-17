@@ -27,13 +27,13 @@
   "dependencies": {
     "argparse": "^1.0.6",
     "autoprefixer-stylus": "^0.9.1",
-    "fs-tools": "~0.2.2",
+    "glob": "^7.0.0",
     "highlight.js": "^9.1.0",
     "jade": "^1.11.0",
     "jquery": "^2.2.0",
     "lodash": "^4.5.0",
     "markdown-it": "^6.0.0",
-    "minimatch": "~0.2.5",
+    "mkdirp": "^0.5.1",
     "stylus": "^0.53.0"
   },
   "devDependencies": {
