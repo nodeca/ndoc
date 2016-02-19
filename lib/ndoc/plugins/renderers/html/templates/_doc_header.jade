@@ -8,8 +8,8 @@ header
           mixin link(crumb, true)
     li
       mixin link(obj, true)
-  .type #{obj.type}
-  h2
+  //.type #{obj.type}
+  h2(title=obj.type)
     if obj.type === 'section'
       | #{obj.name} section
     else
