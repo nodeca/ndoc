@@ -17,6 +17,11 @@
   ],
   "license": "MIT",
   "repository": "nodeca/ndoc",
+  "files": [
+    "lib/",
+    "bin/",
+    "index.js"
+  ],
   "bin": {
     "ndoc": "bin/ndoc.js"
   },
