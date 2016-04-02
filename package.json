@@ -40,6 +40,9 @@
     "mkdirp": "^0.5.1",
     "stylus": "^0.53.0"
   },
+  "bundledDependencies": [
+    "highlight.js"
+  ],
   "devDependencies": {
     "eslint": "~2.2.0",
     "pegjs": "~0.7.0"
