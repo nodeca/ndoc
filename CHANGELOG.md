@@ -1,3 +1,9 @@
+4.0.1 / 2016-04-02
+------------------
+
+Fix: allow specify direct file paths in params (regression in 4.0.0).
+
+
 4.0.0 / 2016-02-28
 ------------------
 
