@@ -22,7 +22,4 @@ lib
 # Project specific configuration
 ################################################################################
 
---exclude       "lib/ndoc/plugins/renderers/html/javascript/**"
---exclude       "lib/ndoc/plugins/parsers/javascript/parser.js"
-
 --show-all
