@@ -11,4 +11,4 @@ if obj.arguments
                   li.argument-type= type
           if arg.description
             li.argument-description
-              mixin markdown(arg.description, true)
+              +markdown(arg.description, true)

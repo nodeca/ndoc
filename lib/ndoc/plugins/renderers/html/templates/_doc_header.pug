@@ -5,9 +5,9 @@ header
     for crumb in parents
       if crumb.id
         li
-          mixin link(crumb, true)
+          +link(crumb, true)
     li
-      mixin link(obj, true)
+      +link(obj, true)
   //.type #{obj.type}
   h2(title=obj.type)
     if obj.type === 'section'

@@ -7,37 +7,37 @@ mixin menu_item(obj, level, parent)
   //-li(class=hidden ? 'hidden' : '')
   li.menu-item
     - var short = level === 0 || parent.type === 'section' || !composite
-    mixin link(obj, short, [obj.type.replace(/ /g, '-'), obj.deprecated && 'deprecated', obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(x => !!x))
+    +link(obj, short, [obj.type.replace(/ /g, '-'), obj.deprecated && 'deprecated', obj.chainable && 'chainable', obj.internal && 'internal', obj.readonly && 'readonly'].filter(x => !!x))
     if obj.children.length
       ul(class=hidden ? 'hidden' : '')
         for child in obj.children.filter(x => x.type === 'utility')
-          mixin menu_item(child, level + 1, obj)
+          +menu_item(child, level + 1, obj)
 
         for child in obj.children.filter(x => x.type === 'constructor')
-          mixin menu_item(child, level + 1, obj)
+          +menu_item(child, level + 1, obj)
 
         for child in obj.children.filter(x => x.type === 'namespace' || x.type === 'class' || x.type === 'mixin')
-          mixin menu_item(child, level + 1, obj)
+          +menu_item(child, level + 1, obj)
 
         for child in obj.children.filter(x => x.type === 'event')
-          mixin menu_item(child, level + 1, obj)
+          +menu_item(child, level + 1, obj)
 
         for child in obj.children.filter(x => x.type === 'class method')
-          mixin menu_item(child, level + 1, obj)
+          +menu_item(child, level + 1, obj)
 
         for child in obj.children.filter(x => x.type === 'class property')
-          mixin menu_item(child, level + 1, obj)
+          +menu_item(child, level + 1, obj)
 
         for child in obj.children.filter(x => x.type === 'instance method')
-          mixin menu_item(child, level + 1, obj)
+          +menu_item(child, level + 1, obj)
 
         for child in obj.children.filter(x => x.type === 'instance property')
-          mixin menu_item(child, level + 1, obj)
+          +menu_item(child, level + 1, obj)
 
         for child in obj.children.filter(x => x.type === 'constant')
-          mixin menu_item(child, level + 1, obj)
+          +menu_item(child, level + 1, obj)
 
 ul.menu
   for obj in tree.children
     if (showInternals || !obj.internal)
-      mixin menu_item(obj, 0)
+      +menu_item(obj, 0)

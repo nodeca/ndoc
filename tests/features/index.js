@@ -33,3 +33,12 @@
  *
  *  Mark as deprecated since 1.2.3 and will be removed in 2.0.0
  **/
+
+/**
+ *  Features.code -> Null
+ *
+ *  ```js
+ *  var a = 123;
+ *  console.log(a);
+ *  ```
+ **/

@@ -6,7 +6,7 @@ mixin article(obj, parents)
   - var collection;
   article.docblock(id=obj.path, data-title=title)
 
-    include _doc_header.jade 
+    include ./_doc_header.pug
 
     if obj.type === 'section' || obj.type === 'namespace' || obj.type === 'class' || obj.type === 'mixin'
 
@@ -14,28 +14,28 @@ mixin article(obj, parents)
         .section.description
           h3 Description
           .content
-            mixin markdown(obj.description)
+            +markdown(obj.description)
 
       - collection = obj.children.filter(x => x.type === 'namespace');
       if collection.length
         .section.namespaces
           h3 Namespaces
           .content
-            mixin short_description_list(collection)
+            +short_description_list(collection)
 
       - collection = obj.children.filter(x => x.type === 'class');
       if collection.length
         .section.classes
           h3 Classes
           .content
-            mixin short_description_list(collection)
+            +short_description_list(collection)
 
       - collection = obj.children.filter(x => x.type === 'mixin');
       if collection.length
         .section.mixins
           h3 Mixins
           .content
-            mixin short_description_list(collection)
+            +short_description_list(collection)
 
       if obj.type === 'class'
 
@@ -43,26 +43,26 @@ mixin article(obj, parents)
           .section.superclass
             h3 Superclass
             .content
-              mixin link(obj.superclass)
+              +link(obj.superclass)
 
         if obj.subclasses.length
           .section.subclasses
             h3 Subclasses
             .content
-              mixin links(obj.subclasses)
+              +links(obj.subclasses)
 
       if obj.included_mixins
         .section.mixins
           h3 Includes
           .content
-            mixin links(obj.included_mixins)
+            +links(obj.included_mixins)
 
       - collection = obj.children.filter(x => x.type === 'utility')
       if collection.length
         .section.utilities
           h3 Utilities
           .content
-            mixin links(collection)
+            +links(collection)
 
       - collection = obj.children.filter(x => x.type === 'constructor')
       if collection.length
@@ -71,7 +71,7 @@ mixin article(obj, parents)
           .content
           ul.method-list
             li
-              mixin link(collection[0])
+              +link(collection[0])
 
       //-console.log('HERE', obj.id, obj.children.length)
       for selector, title in {'Events': ['event', 'events'], 'Class methods': ['class method', 'class_methods'], 'Class properties': ['class property', 'class_properties'], 'Instance methods': ['instance method', 'instance_methods'], 'Instance properties': ['instance property', 'instance_properties'], 'Constants': ['constant', 'constants']}
@@ -83,18 +83,18 @@ mixin article(obj, parents)
               ul.method-list
                 for x in methods
                   li
-                    mixin link(x, true)
+                    +link(x, true)
 
     else
 
       .section.method
         .content
 
-          include _signatures.jade
+          include ./_signatures.pug
 
-          include _arguments.jade
+          include ./_arguments.pug
 
-          mixin markdown(obj.description)
+          +markdown(obj.description)
 
           if obj.bound && ~obj.bound.indexOf('#')
             p.note.methodized
@@ -113,47 +113,47 @@ mixin article(obj, parents)
         ul
           for alias in obj.aliases
             li
-              mixin link(alias)
+              +link(alias)
 
     if obj.alias_of
       .alias.alias-of
         | Alias of:
         ul
           li
-            mixin link(obj.alias_of)
+            +link(obj.alias_of)
 
     if obj.related_to
       .related-to
         | Related to:
-        mixin link(obj.related_to)
+        +link(obj.related_to)
 
   //- children
   for child in obj.children.filter(x => x.type === 'section')
-    mixin article(child, parents.concat(obj))
+    +article(child, parents.concat(obj))
   for child in obj.children.filter(x => x.typee === 'utility')
-    mixin article(child, parents.concat(obj))
+    +article(child, parents.concat(obj))
   for child in obj.children.filter(x => x.type === 'constructor')
-    mixin article(child, parents.concat(obj))
+    +article(child, parents.concat(obj))
   for child in obj.children.filter(x => (x.type === 'namespace' || x.type === 'class' || x.type === 'mixin'))
-    mixin article(child, parents.concat(obj))
+    +article(child, parents.concat(obj))
   for child in obj.children.filter(x => x.type === 'event')
-    mixin article(child, parents.concat(obj))
+    +article(child, parents.concat(obj))
   for child in obj.children.filter(x => x.type === 'class method')
-    mixin article(child, parents.concat(obj))
+    +article(child, parents.concat(obj))
   for child in obj.children.filter(x => x.type === 'class property')
-    mixin article(child, parents.concat(obj))
+    +article(child, parents.concat(obj))
   for child in obj.children.filter(x => x.type === 'instance method')
-    mixin article(child, parents.concat(obj))
+    +article(child, parents.concat(obj))
   for child in obj.children.filter(x => x.type === 'instance property')
-    mixin article(child, parents.concat(obj))
+    +article(child, parents.concat(obj))
   for child in obj.children.filter(x => x.type === 'constant')
-    mixin article(child, parents.concat(obj))
+    +article(child, parents.concat(obj))
 
 
 mixin api()
   for obj in tree.children
     if (showInternals || !obj.internal)
-      mixin article(obj, [])
+      +article(obj, [])
 
 
 
@@ -164,9 +164,9 @@ mixin short_description_list(collection)
         obj = list[obj]
       li.method-description
         h4
-          mixin link(obj)
+          +link(obj)
         if obj.short_description
-          mixin markdown(obj.short_description, true)
+          +markdown(obj.short_description, true)
 
 
 
@@ -184,4 +184,4 @@ mixin links(collection)
   ul.method-list
     for obj in collection
       li
-        mixin link(obj)
+        +link(obj)
