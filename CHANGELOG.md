@@ -1,3 +1,9 @@
+5.0.1 / 2016-09-29
+------------------
+
+- Fix broken gh-ribbon link (afte migrating jade -> pug).
+
+
 5.0.0 / 2016-09-09
 ------------------
 
