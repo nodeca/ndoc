@@ -77,7 +77,7 @@ mixin article(obj, parents)
       for selector, title in {'Events': ['event', 'events'], 'Class methods': ['class method', 'class_methods'], 'Class properties': ['class property', 'class_properties'], 'Instance methods': ['instance method', 'instance_methods'], 'Instance properties': ['instance property', 'instance_properties'], 'Constants': ['constant', 'constants']}
         - var methods = obj.children.filter(x => x.type === selector[0])
         if methods.length
-          .section(class='#{selector[1]}')
+          .section(class=selector[1])
             h3 #{title}
             .content
               ul.method-list
