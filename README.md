@@ -1,6 +1,6 @@
 # NDoc - JavaScript documentation generator
 
-[![Build Status](https://travis-ci.org/nodeca/ndoc.png?branch=master)](https://travis-ci.org/nodeca/ndoc)
+[![CI](https://github.com/nodeca/ndoc/workflows/CI/badge.svg)](https://github.com/nodeca/ndoc/actions)
 
 NDoc is an inline comment parser and JavaScript documentation generator written
 in Node.JS. This project was inspired by [PDoc](http://pdoc.org/syntax.html).
@@ -41,35 +41,35 @@ Positional arguments:
 Optional arguments:
   -h, --help                      Show this help message and exit.
   -v, --version                   Show program's version number and exit.
-  --exclude PATTERN               Glob patterns of filenames to exclude (you 
+  --exclude PATTERN               Glob patterns of filenames to exclude (you
                                   can use wildcards: ?, *, **).
   -o PATH, --output PATH          Resulting file(s) location.
   --use PLUGIN                    Load custom plugin.
-  --alias MAPPING                 Registers extensions alias. For example 
-                                  `cc:js` will register `cc` extension as an 
+  --alias MAPPING                 Registers extensions alias. For example
+                                  `cc:js` will register `cc` extension as an
                                   alias of `js`
-  -r RENDERER, --render RENDERER  Documentation renderer (html, json). More 
+  -r RENDERER, --render RENDERER  Documentation renderer (html, json). More
                                   can be added by custom plugins.
-  --link-format FORMAT            View sources link (no links by default) 
-                                  format. You can use `{file}` and `{line}` 
-                                  and any of `{package.*}` variables for 
+  --link-format FORMAT            View sources link (no links by default)
+                                  format. You can use `{file}` and `{line}`
+                                  and any of `{package.*}` variables for
                                   interpolation.
-  -t TEMPLATE, --title TEMPLATE   Documentation title template. You can use 
-                                  any of `{package.*}` variables for 
-                                  interpolation. DEFAULT: `{package.name} 
+  -t TEMPLATE, --title TEMPLATE   Documentation title template. You can use
+                                  any of `{package.*}` variables for
+                                  interpolation. DEFAULT: `{package.name}
                                   {package.version} API documentation`
-  --show-all                      By default `internal` methods/properties 
-                                  are not shown. This trigger makes ndoc show 
+  --show-all                      By default `internal` methods/properties
+                                  are not shown. This trigger makes ndoc show
                                   all methods/properties
-  --package PACKAGE               Read specified package.json FILE. When not 
-                                  specified, read ./package.json if such file 
+  --package PACKAGE               Read specified package.json FILE. When not
+                                  specified, read ./package.json if such file
                                   exists.
-  --index FILE                    Index file (with introduction text), e.g. 
+  --index FILE                    Index file (with introduction text), e.g.
                                   README.md file.
-  --gh-ribbon URL                 Add "Fork me on GitHub" ribbon with given 
-                                  URL. You can use any of `{package.*}` 
+  --gh-ribbon URL                 Add "Fork me on GitHub" ribbon with given
+                                  URL. You can use any of `{package.*}`
                                   variables for interpolation.
-  --broken-links ACTION           What to do if broken link occurred (show, 
+  --broken-links ACTION           What to do if broken link occurred (show,
                                   hide, throw). DEFAULT: `show`.
   --noenv                         Ignore .ndocrc
 ```
