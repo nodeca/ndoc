@@ -68,9 +68,8 @@ playground: $(DOCS)
 	echo $(DOCS) | sed -r 's~playground/(\S+)/doc~<li><a href="\1/doc/index.html">\1</a></li>~g' | sed 'i<html><body><ul>' | sed 'a</ul></body></html>' >$@/index.html
 	echo Open playground/index.html
 
-doc: lib
-	rm -fr doc
-	$(ROOT)/bin/ndoc.js --link-format "https://github.com/{package.repository}/blob/${CURR_HEAD}/{file}#L{line}"
+doc:
+	npm run doc
 
 test-prototype:
 	rm -fr ./tests/prototype-doc
@@ -108,41 +107,11 @@ proto-pages:
 		git commit -q -m 'Recreated docs'
 	cd ${TMP_DIR} && \
 		git remote add remote ${REMOTE_REPO} && \
-		git push --force remote +master:gh-pages 
+		git push --force remote +master:gh-pages
 	rm -rf ${TMP_DIR}
 	@echo
 	@echo 'URL: http://nodeca.github.com/ndoc/tests/doc/'
 
 
 gh-pages:
-	@if test -z ${REMOTE_REPO} ; then \
-		echo 'Remote repo URL not found' >&2 ; \
-		exit 128 ; \
-		fi
-	$(MAKE) doc && \
-		cp -r ./doc ${TMP_PATH} && \
-		touch ${TMP_PATH}/.nojekyll
-	#
-	# Building test docs
-	#
-	$(MAKE) test-prototype test-features
-	mkdir ${TMP_PATH}/tests
-	cp -r tests/prototype-doc ${TMP_PATH}/tests/prototype
-	cp -r tests/features-doc ${TMP_PATH}/tests/features
-	#
-	# Push changes
-	#
-	cd ${TMP_PATH} && \
-		git init && \
-		git add . && \
-		git commit -q -m 'Recreated docs'
-	cd ${TMP_PATH} && \
-		git remote add remote ${REMOTE_REPO} && \
-		git push --force remote +master:gh-pages 
-	rm -rf ${TMP_PATH}
-	@echo
-	@echo 'gh-pages updated...'
-	@echo 'Main URL:      http://nodeca.github.com/ndoc'
-	@echo 'Prototype URL: http://nodeca.github.com/ndoc/tests/prototype'
-	@echo 'Features URL:  http://nodeca.github.com/ndoc/tests/features'
-
+	npm run gh-pages

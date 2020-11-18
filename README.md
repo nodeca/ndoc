@@ -79,7 +79,7 @@ Optional arguments:
 
 [NDoc Syntax](https://github.com/nodeca/ndoc/blob/master/syntax.md).
 It is similar to [PDoc](https://github.com/tobie/pdoc) one, with some
-extentions (see start of this doc for details).
+extensions (see start of this doc for details).
 
 
 ## For developers
@@ -91,7 +91,6 @@ make test
 ```
 
 Then open `./tests/prototype-doc/index.html`.
-Here is [hosted example](http://nodeca.github.com/ndoc/tests/prototype/).
 
 
 #### Custom parsers and renderers

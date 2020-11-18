@@ -26,7 +26,10 @@
     "ndoc": "bin/ndoc.js"
   },
   "scripts": {
-    "test": "make test"
+    "test": "make test",
+    "doc": "node support/build_doc.js",
+    "gh-pages": "npm run doc && gh-pages -d doc -f",
+    "prepublishOnly": "npm run gh-pages"
   },
   "dependencies": {
     "argparse": "^2.0.1",
@@ -42,6 +45,8 @@
   },
   "devDependencies": {
     "eslint": "^7.13.0",
-    "pegjs": "~0.7.0"
+    "gh-pages": "^3.1.0",
+    "pegjs": "~0.7.0",
+    "shelljs": "^0.8.4"
   }
 }
