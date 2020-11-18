@@ -31,14 +31,14 @@ function exit(err) {
 ////////////////////////////////////////////////////////////////////////////////
 
 
-NDoc.cli.addArgument([ '--noenv' ], {
+NDoc.cli.add_argument('--noenv', {
   help:   'Ignore .ndocrc',
-  action: 'storeTrue'
+  action: 'store_true'
 });
 
 
 if (process.argv.indexOf('--noenv') === -1 && fs.existsSync('.ndocrc')) {
-  NDoc.cli.readEnvFile('.ndocrc');
+  NDoc.cli.read_env_file('.ndocrc');
 }
 
 
@@ -47,7 +47,7 @@ if (process.argv.indexOf('--noenv') === -1 && fs.existsSync('.ndocrc')) {
 //
 
 
-NDoc.cli.parseKnownArgs().shift().use.forEach(function (pathname) {
+NDoc.cli.parse_known_args().shift().use.forEach(function (pathname) {
   if (/^\./.test(pathname)) {
     pathname = path.resolve(process.cwd(), pathname);
   }
@@ -65,7 +65,7 @@ NDoc.cli.parseKnownArgs().shift().use.forEach(function (pathname) {
 //
 
 
-let options = NDoc.cli.parseArgs();
+let options = NDoc.cli.parse_args();
 
 
 //
@@ -78,14 +78,14 @@ options.aliases.forEach(pair => { NDoc.extensionAlias.apply(null, pair.split(':'
 // Post-process some of the options
 //
 
-options.title = template(options.title || '', { 'package': options.package });
+options.title = template(options.title || '', { package: options.package });
 options.index = options.index || '';
 
 //
 // collect sources, parse into ast, render
 //
 try {
-  let files = NDoc.cli.findFiles(options.paths, options.exclude);
+  let files = NDoc.cli.find_files(options.paths, options.exclude);
   let ast = NDoc.parse(files, options);
   NDoc.render(options.renderer, ast, options);
 } catch (e) {
