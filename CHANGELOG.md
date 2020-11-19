@@ -1,13 +1,21 @@
+6.0.0 / 2020-11-19
+------------------
+
+- Drop old node.js support (v12+ required).
+- Deps bump.
+- Fix warnings in node.js v14.
+
+
 5.0.2 / 2020-11-17
 ------------------
 
-- Pin stilus version to fix icons.
+- Pin stylus version to fix icons.
 
 
 5.0.1 / 2016-09-29
 ------------------
 
-- Fix broken gh-ribbon link (afte migrating jade -> pug).
+- Fix broken gh-ribbon link (after migrating jade -> pug).
 
 
 5.0.0 / 2016-09-09
