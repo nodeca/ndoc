@@ -33,14 +33,14 @@
   },
   "dependencies": {
     "argparse": "^2.0.1",
-    "glob": "^7.0.0",
-    "highlight.js": "^10.4.0",
-    "jquery": "^3.1.0",
-    "lodash": "^4.5.1",
-    "markdown-it": "^12.0.2",
+    "glob": "^7.1.7",
+    "highlight.js": "^10.7.2",
+    "jquery": "^3.6.0",
+    "lodash": "^4.17.21",
+    "markdown-it": "^12.0.6",
     "mkdirp": "^1.0.4",
-    "pug": "^3.0.0",
-    "resolve": "^1.1.7",
+    "pug": "^3.0.2",
+    "resolve": "^1.20.0",
     "stylus": "stylus/stylus#59bc665db295981d4e3f702e7275c5589a3c6d15"
   },
   "devDependencies": {
