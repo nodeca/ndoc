@@ -33,20 +33,20 @@
   },
   "dependencies": {
     "argparse": "^2.0.1",
-    "glob": "^7.1.7",
-    "highlight.js": "^10.7.2",
-    "jquery": "^3.6.0",
+    "glob": "^10.3.10",
+    "highlight.js": "^11.9.0",
+    "jquery": "^3.7.1",
     "lodash": "^4.17.21",
-    "markdown-it": "^12.0.6",
-    "mkdirp": "^1.0.4",
+    "markdown-it": "^14.0.0",
+    "mkdirp": "^3.0.1",
     "pug": "^3.0.2",
-    "resolve": "^1.20.0",
-    "stylus": "stylus/stylus#59bc665db295981d4e3f702e7275c5589a3c6d15"
+    "resolve": "^1.22.8",
+    "stylus": "^0.62.0"
   },
   "devDependencies": {
-    "eslint": "^7.13.0",
-    "gh-pages": "^3.1.0",
-    "pegjs": "~0.7.0",
+    "eslint": "^8.56.0",
+    "gh-pages": "^6.1.1",
+    "pegjs": "~0.10.0",
     "shelljs": "^0.8.4"
   }
 }
